@@ -16,15 +16,7 @@ add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list'
 
 //* Add viewport meta tag for mobile browsers
 add_theme_support( 'genesis-responsive-viewport' );
-
-//* Enqueue Droid Sans and Roboto Slab Google fonts
-add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
-function lifestyle_google_fonts() {
-
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700', array(), CHILD_THEME_VERSION );
-	
-}
-
+
 //* Add new image sizes
 add_image_size( 'home-large', 634, 360, TRUE );
 add_image_size( 'home-small', 266, 160, TRUE );
