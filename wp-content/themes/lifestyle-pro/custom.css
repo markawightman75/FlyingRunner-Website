@@ -15,8 +15,18 @@
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/*@import url(http://fonts.googleapis.com/css?family=Neucha);*/
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+body{ font-family:"Roboto", arial, sans-serif;}
+h1{ font-family:"Roboto", arial, sans-serif;}
+h2{ font-family:"Roboto", arial, sans-serif;}
+h3{ font-family:"Roboto", arial, sans-serif;}
+h4{ font-family:"Roboto", arial, sans-serif;}
+h5{ font-family:"Roboto", arial, sans-serif;}
+h6{ font-family:"Roboto", arial, sans-serif;}
+blockquote{ font-family:"Roboto", arial, sans-serif;}
+p{ font-family:"Roboto", arial, sans-serif;}
+li{ font-family:"Roboto", arial, sans-serif;}
+#container h2 { font-family: 'Roboto', arial, sans-serif; }
+
 
 /* Subtitle e.g. "Keep up with running news!" and "Please drop us a line" (on Contact Us) */
 .page div.entry-content h2 {

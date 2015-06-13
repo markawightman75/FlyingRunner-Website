@@ -13,7 +13,7 @@ function custom_load_custom_style_sheet() {
 //* Load the fonts we need
 add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
 function lifestyle_google_fonts() {
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700', array(), CHILD_THEME_VERSION );
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700|Roboto:400', array(), CHILD_THEME_VERSION );
 }
 
 //*************************************************
