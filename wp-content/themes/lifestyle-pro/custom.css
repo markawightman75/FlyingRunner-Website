@@ -1,0 +1,275 @@
+﻿/*
+	Theme Name: Lifestyle Pro Theme - Customised Style
+	Theme URI: http://my.studiopress.com/themes/lifestyle/
+	Description: A mobile responsive and HTML5 theme built for the Genesis Framework.
+	Author: StudioPress
+	Author URI: http://www.studiopress.com/
+	Version: 3.0.1
+ 
+	Tags: green, tan, white, one-column, two-columns, three-columns, responsive-layout, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, premise-landing-page
+ 
+	Template: genesis
+	Template Version: 2.0.0
+ 
+	License: GPL-2.0+
+	License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+/*@import url(http://fonts.googleapis.com/css?family=Neucha);*/
+/*@import url(http://fonts.googleapis.com/css?family=Open+Sans);*/
+
+/* Subtitle e.g. "Keep up with running news!" and "Please drop us a line" (on Contact Us) */
+.page div.entry-content h2 {
+ margin-bottom: 6px;
+} 
+
+/* Page title on woocommerce pages e.g. Shop, Medal displays */
+.page-title {
+ margin-bottom: 10px;
+}
+
+/* The page title on other pages (e.g. About) and the title on feature posts */
+[itemprop~="headline"] {
+  font-size: 24px;
+}
+
+/* The page title on feature posts */
+.single-post h1[itemprop~="headline"] {
+  margin-bottom: 6px;
+}
+
+/* The page title on other pages (e.g. About) */
+.page h1[itemprop~="headline"] {
+  margin-bottom: 24px;
+}
+
+/* The h2 headings manually inserted for new sections in the middle of features */
+.single-post div.entry-content h2 {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.site-header {
+background: url("../../uploads/2014/07/RunnersHorizon-banner10X.jpg")no-repeat;
+background-color: #76d2c5;
+padding: 76px;
+overflow: hidden;
+height: 168px;
+}
+
+.genesis-nav-menu {
+clear: both;
+font-size: 17px;
+line-height: 1;
+width: 100%;
+}
+
+.nav-secondary {
+background-color: #47B7A8;
+}
+
+media="all"
+.sidebar-secondary {
+float: left;
+width: 23.2209738% /*248/1068 */;
+}
+
+h2, .home-top .entry-title {
+font-size: 1.5em /* 24px/16px */;
+}
+
+body {
+color: #272727;
+font-size: 0.875em /* 14px/16px */;
+}
+
+
+.lifestyle-pro-home .featured-content .entry {
+padding-bottom: 10px;
+}
+
+.lifestyle-pro-home .content .widget-title {
+background-color: #fff;
+color: #6C0CA2;
+padding: 10px 10px;
+}
+
+.lifestyle-pro-home .content .widget, .lifestyle-pro-home .content .widget:last-child {
+margin-bottom: 32px;
+border: 1px solid #eeeee8;
+}
+
+.sidebar .widget {
+border: 1px solid #eeeee8;
+margin-bottom: 32px;
+padding: 10px;
+text-align: left;
+}
+
+h4 {
+color: #6C0CA2;
+background-color: #fff;
+font-weight: 300;
+font-size: 24px;
+line-height: 1.2;
+margin: 0 0 10px;
+}
+
+h1 {
+color: #6c0ca2;
+font-size: 24px;
+}
+
+.home-bottom-left, .home-bottom-right {
+width: 248px;
+}
+
+.content .entry {
+padding: 10px;
+border: 1px solid #eeeee8;
+}
+
+.entry-content .wp-caption-text {
+font-size: 12px;
+margin: 0;
+text-align: center;
+}
+
+body {
+color: #272727;
+font-size: 14px;
+}
+
+a {
+color: #04A891;
+text-decoration: none;
+}
+
+.genesis-nav-menu > li:hover .sub-menu a, .genesis-nav-menu .sub-menu a {
+background-color: #fafafa;
+color: #04A891;
+font-size: 14px;
+}
+.entry-header {
+border-bottom: 1px solid #eeeee8;
+margin-bottom: 2px;
+text-align: left;
+margin: 0 0 2px;
+}
+
+h2, .home-top .entry-title {
+font-size: 20px;
+}
+
+.entry-header .entry-meta {
+margin-bottom: 2px;
+}
+
+/*
+.entry-title {
+font-size: 20px;
+}
+*/
+
+h2.entry-title {
+line-height: 1;
+margin: 0 0 12px;
+}
+
+.entry-content p {
+margin-bottom: 10px;
+}
+
+.entry-footer .entry-meta {
+border-top: 1px solid #eeeee8;
+margin: 0;
+padding: 0px 0 0px;
+}
+
+.featured-content .entry {
+margin-bottom: 32px;
+text-align: left;
+}
+
+.site-footer {
+background-color: #47B7A8;
+color: #fff;
+font-size: 12px;
+padding: 36px;
+text-align: center;
+}
+
+mark {
+background: #fff;
+color: #000;
+}
+
+.woocommerce ul.products li.product .price del, .woocommerce-page ul.products li.product .price del {
+font-size: 0.9em;
+color: rgba(39, 18, 77, 0.5);
+margin: -2px 0 0 0;
+}
+
+.woocommerce div.product span.price del, .woocommerce div.product p.price del, .woocommerce #content div.product span.price del, .woocommerce #content div.product p.price del, .woocommerce-page div.product span.price del, .woocommerce-page div.product p.price del, .woocommerce-page #content div.product span.price del, .woocommerce-page #content div.product p.price del {
+font-size: 0.9em;
+color: rgba(39, 18, 77, 0.5);
+}
+
+/* Hide the SKU on product pages */
+.sku_wrapper {
+display:none;
+}
+
+/* Hides the Add to Cart button on the thumbnail pages */
+.woocommerce .products .add_to_cart_button {
+	display: none!important;
+}
+
+/* Adjusts size of related product images */
+.woocommerce .related ul.products li.product, .woocommerce .related ul li.product, .woocommerce .upsells.products ul.products li.product, .woocommerce .upsells.products ul li.product, .woocommerce-page .related ul.products li.product, .woocommerce-page .related ul li.product, .woocommerce-page .upsells.products ul.products li.product, .woocommerce-page .upsells.products ul li.product {
+width: 24% !important;
+}
+
+/* removes sale icon from price-reduced products */
+.onsale { display: none !important; }
+
+
+/* Style social icons from jetpack */
+.sd-social-icon .sd-content ul li a.sd-button, .sd-social-text .sd-content ul li a.sd-button, .sd-content ul li a.sd-button, .sd-content ul li .option a.share-ustom, .sd-content ul li.preview-item div.option.option-smart-off a, .sd-content ul li.advanced a.share-more, .sd-social-icon-text .sd-content ul li a.sd-button, .sd-social-official .sd-content>ul>li>a.sd-button, #sharing_email .sharing_send, .sd-social-official .sd-content>ul>li .digg_button >a {
+text-decoration: none !important;
+display: inline-block;
+margin: 0 5px 5px 0;
+font-size: 12px;
+font-family: "Roboto", sans-serif;
+font-weight: normal;
+border-radius: 3px;
+color: #ffffff !important;
+background: #6C0CA2;
+border: 1px solid #cccccc;
+box-shadow: 0 1px 0 rgba(0,0,0,.08);
+text-shadow: none;
+line-height: 23px;
+padding: 1px 8px 0px 5px;
+}
+
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (max-width: 989px) {
+.genesis-nav-menu {
+font-size: 16px;
+}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.genesis-nav-menu {
+font-size: 15px;
+}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+.genesis-nav-menu {
+font-size: 15px;
+}
+}

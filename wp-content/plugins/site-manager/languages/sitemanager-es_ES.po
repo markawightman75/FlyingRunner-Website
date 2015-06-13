@@ -1,0 +1,135 @@
+# Translation of Site Manager in Spanish (Spain)
+# This file is distributed under the same license as the Site Manager package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2014-03-19 17:33:11+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/0.1\n"
+"Project-Id-Version: Site Manager\n"
+
+#: inc/changelog.php:209
+msgid "Theme"
+msgstr ""
+
+#: inc/changelog.php:206
+msgid "Manual update"
+msgstr ""
+
+#: inc/changelog.php:207
+msgid "Automatic update"
+msgstr ""
+
+#: inc/changelog.php:208
+msgid "Plugin"
+msgstr ""
+
+msgid "Site Manager"
+msgstr "Site Manager"
+
+#: inc/changelog.php:42
+msgid "No changelog available. Please wait for the first update to complete."
+msgstr "No hay historial de cambios disponible. Espere a que finalice la primera actualización."
+
+#: inc/changelog.php:149
+msgid "Description"
+msgstr "Descripción"
+
+#: inc/changelog.php:152
+msgid "Category"
+msgstr "Categoría"
+
+#: inc/changelog.php:154
+msgid "Changed on"
+msgstr "Cambiado el"
+
+msgid "Manage and track automatic updates for your WordPress installation."
+msgstr "Administre y haga el seguimiento de las actualizaciones automáticas para su instalación de WordPress."
+
+#: inc/admin.php:45
+msgid "Major updates add features, improvements and awesomeness."
+msgstr "Las actualizaciones mayores añaden funciones, mejoras y genialidades."
+
+#: inc/admin.php:49
+msgid "Note: Automatic theme updates will <strong>overwrite your theme customizations</strong>."
+msgstr "Nota: las actualizaciones automáticas de plantilla <strong>sobrescribirán la configuración personalizada de la plantilla</strong>."
+
+#: inc/admin.php:90
+msgid "Your installation appears to be under version control (%s). This prevents the plugin from managing your updates."
+msgstr "Parece que su instalación está sujeta al control de versión (%s). Esto impide al plugin gestionar las actualizaciones."
+
+#: inc/admin.php:99
+msgid "Your installation is currently blocking automatic updates. Install %s to find the cause."
+msgstr "Su instalación está bloqueando las actualizaciones automáticas. Instale %s para encontrar la causa."
+
+#: inc/admin.php:107
+msgid "Your installation is currently blocking automatic updates. Activate %s and go to 'Update Tester' under 'Dashboard' to find the cause."
+msgstr "Su instalación está bloqueando las actualizaciones automáticas. Active %s y vaya a 'Comprobador de actualizaciones' en el 'Tablero'."
+
+#: inc/admin.php:113
+msgid "Your installation is currently blocking automatic updates. Check %s for more details."
+msgstr "Su instalación está bloqueando las actualizaciones automáticas. Compruebe %s para obtener más detalles."
+
+#: inc/admin.php:125
+msgid "Use Default Settings"
+msgstr "Utilizar los ajustes predeterminados"
+
+#: inc/admin.php:159
+msgid "Manage your update preferences."
+msgstr "Administrar las preferencias de actualización."
+
+#: inc/changelog.php:41
+msgid "Search"
+msgstr "Buscar"
+
+#: inc/admin.php:150
+msgid "Off"
+msgstr "Des."
+
+#: inc/changelog.php:37 inc/changelog.php:40
+msgid "Changelog"
+msgstr "Registro de cambios"
+
+#: inc/changelog.php:150
+msgid "Version"
+msgstr "Versión"
+
+#: inc/changelog.php:151
+msgid "Previous version"
+msgstr "Versión anterior"
+
+#: inc/changelog.php:153
+msgid "Method"
+msgstr "Método de actualización"
+
+msgid "http://www.1and1.com"
+msgstr "http://www.1and1.es"
+
+msgid "1&1"
+msgstr "1&1"
+
+#: inc/admin.php:18 inc/admin.php:19
+msgid "Settings"
+msgstr "Configuración"
+
+#: inc/admin.php:45
+msgid "Major updates"
+msgstr "Actualizaciones grandes"
+
+#: inc/admin.php:49
+msgid "Theme updates"
+msgstr "Actualizar temas"
+
+#: inc/admin.php:53
+msgid "Plugin updates"
+msgstr "Actualizar plugins"
+
+#: inc/admin.php:123
+msgid "Save Changes"
+msgstr "Guardar modificaciones"
+
+#: inc/admin.php:149
+msgid "On"
+msgstr "Act."

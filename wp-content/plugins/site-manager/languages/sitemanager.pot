@@ -1,0 +1,148 @@
+# Copyright (C) 2014 Site Manager
+# This file is distributed under the same license as the Site Manager package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Site Manager 1.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/sitemanager\n"
+"POT-Creation-Date: 2014-03-19 17:19:07+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: inc/admin.php:18 inc/admin.php:19
+msgid "Settings"
+msgstr ""
+
+#: inc/admin.php:45
+msgid "Major updates"
+msgstr ""
+
+#: inc/admin.php:45
+msgid "Major updates add features, improvements and awesomeness."
+msgstr ""
+
+#: inc/admin.php:49
+msgid "Theme updates"
+msgstr ""
+
+#: inc/admin.php:49
+msgid "Note: Automatic theme updates will <strong>overwrite your theme customizations</strong>."
+msgstr ""
+
+#: inc/admin.php:53
+msgid "Plugin updates"
+msgstr ""
+
+#: inc/admin.php:90
+msgid "Your installation appears to be under version control (%s). This prevents the plugin from managing your updates."
+msgstr ""
+
+#: inc/admin.php:99
+msgid "Your installation is currently blocking automatic updates. Install %s to find the cause."
+msgstr ""
+
+#: inc/admin.php:107
+msgid "Your installation is currently blocking automatic updates. Activate %s and go to 'Update Tester' under 'Dashboard' to find the cause."
+msgstr ""
+
+#: inc/admin.php:113
+msgid "Your installation is currently blocking automatic updates. Check %s for more details."
+msgstr ""
+
+#: inc/admin.php:123
+msgid "Save Changes"
+msgstr ""
+
+#: inc/admin.php:125
+msgid "Use Default Settings"
+msgstr ""
+
+#: inc/admin.php:149
+msgid "On"
+msgstr ""
+
+#: inc/admin.php:150
+msgid "Off"
+msgstr ""
+
+#: inc/admin.php:159
+msgid "Manage your update preferences."
+msgstr ""
+
+#: inc/changelog.php:37 inc/changelog.php:40
+msgid "Changelog"
+msgstr ""
+
+#: inc/changelog.php:38 inc/changelog.php:39
+msgid "Site Manager"
+msgstr ""
+
+#: inc/changelog.php:41
+msgid "Search"
+msgstr ""
+
+#: inc/changelog.php:42
+msgid "No changelog available. Please wait for the first update to complete."
+msgstr ""
+
+#: inc/changelog.php:149
+msgid "Description"
+msgstr ""
+
+#: inc/changelog.php:150
+msgid "Version"
+msgstr ""
+
+#: inc/changelog.php:151
+msgid "Previous version"
+msgstr ""
+
+#: inc/changelog.php:152
+msgid "Category"
+msgstr ""
+
+#: inc/changelog.php:153
+msgid "Method"
+msgstr ""
+
+#: inc/changelog.php:154
+msgid "Changed on"
+msgstr ""
+
+#: inc/changelog.php:206
+msgid "Manual update"
+msgstr ""
+
+#: inc/changelog.php:207
+msgid "Automatic update"
+msgstr ""
+
+#: inc/changelog.php:208
+msgid "Plugin"
+msgstr ""
+
+#: inc/changelog.php:209
+msgid "Theme"
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "Site Manager"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.1and1.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Manage and track automatic updates for your WordPress installation."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "1&1"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.1and1.com"
+msgstr ""

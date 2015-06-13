@@ -1,0 +1,101 @@
+.post-type-update_log .add-new-h2,
+.post-type-update_log .column-title p,
+body.no-js .tablenav select[name^=action],
+body.no-js #doaction,
+body.no-js #doaction2 {
+	display: none
+}
+
+.changelog-show-first .update {
+	display: none;
+}
+
+.changelog-show-first .update:first-child {
+	display: block;
+}
+
+.widefat .column-update_log_changelog {
+	width: 30%;
+}
+
+.widefat .column-update_log_version,
+.widefat .column-update_log_version_previous,
+.widefat .column-update_log_category {
+	width: 8%;
+}
+
+.widefat .column-update_log_version_previous,
+.widefat .column-update_log_method {
+	width: 11%;
+}
+
+.bulkactions {
+	display: none;
+}
+
+
+.onoffswitch {
+	position: relative; width: 90px;
+	-webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox[type="checkbox"] {
+	display: none;
+}
+.onoffswitch-label {
+	display: block; overflow: hidden; cursor: pointer;
+	border: 2px solid #0074a2; border-radius: 0px;
+}
+.onoffswitch-inner {
+	width: 200%; margin-left: -100%;
+	-moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+	-o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+	float: left; width: 50%; height: 30px; padding: 0; line-height: 26px;
+	font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	border: 2px solid transparent;
+	background-clip: padding-box;
+}
+.onoffswitch-inner:before {
+	padding-left: 10px;
+	background-color: #2ea2cc;
+	color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+	padding-right: 10px;
+	background-color: #CCCCCC;
+	color: #333333;
+	text-align: right;
+}
+.onoffswitch-switch {
+	width: 25px; margin: 0px;
+	background: #0074a2;
+	position: absolute; top: 0; bottom: 0; right: 65px;
+	-moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+	-o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	right: 0px; 
+}
+
+
+@media screen and ( max-width: 782px ) {
+	.widefat .column-update_log_changelog {
+		width: 45%;
+	}
+
+	.widefat .column-update_log_version {
+		width: 20%;
+	}
+
+	/* Columns to hide */
+	.fixed .column-update_log_version_previous,
+	.fixed .column-update_log_category,
+	.fixed .column-update_log_method {
+		display: none;
+	}
+}
