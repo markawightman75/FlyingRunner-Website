@@ -92,7 +92,39 @@ wp_dequeue_style( 'pac-layout-styles' );
 
 //*************************************************
 
+//* Override the message displayed when you add a product to the cart, to use "Basket" not "Cart"
+add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' ,10,2);
+function custom_add_to_cart_message($message, $product_id) {
+	 
+     if ( is_array( $product_id ) ) {
+          $titles = array();
+  
+          foreach ( $product_id as $id ) {
+              $titles[] = get_the_title( $id );
+          }
+ 
+          $added_text = sprintf( __( 'Added %s to your basket.', 'woocommerce' ), wc_format_list_of_items( $titles ) );
+  
+      } else {
+          $added_text = sprintf( __( '&quot;%s&quot; was successfully added to your basket.', 'woocommerce' ), get_the_title( $product_id ) );
+      }
+ 
+      // Output success messages
+      if ( get_option( 'woocommerce_cart_redirect_after_add' ) == 'yes' ) :
+  
+          $return_to  = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
+  
+          $message    = sprintf('<a href="%s" class="button wc-forward">%s</a> %s', $return_to, __( 'Continue Shopping', 'woocommerce' ), $added_text );
+  
+      else :
+  
+          $message    = sprintf('<a href="%s" class="button wc-forward">%s</a> %s', get_permalink( wc_get_page_id( 'cart' ) ), __( 'View Cart', 'woocommerce' ), $added_text );
+  
+      endif;
+  
+	return $message; 
 
+  }
 
 
 
@@ -119,3 +151,7 @@ echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping ?</a> Need 
 
 echo '</div>';
 }
+
+
+
+?>
