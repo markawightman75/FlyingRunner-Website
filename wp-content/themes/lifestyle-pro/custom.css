@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Theme Name: Lifestyle Pro Theme - Customised Style
 	Theme URI: http://my.studiopress.com/themes/lifestyle/
 	Description: A mobile responsive and HTML5 theme built for the Genesis Framework.
@@ -15,49 +15,160 @@
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-body{ font-family:"Roboto", arial, sans-serif;}
-h1{ font-family:"Roboto", arial, sans-serif;}
-h2{ font-family:"Roboto", arial, sans-serif;}
-h3{ font-family:"Roboto", arial, sans-serif;}
-h4{ font-family:"Roboto", arial, sans-serif;}
-h5{ font-family:"Roboto", arial, sans-serif;}
-h6{ font-family:"Roboto", arial, sans-serif;}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2") format("woff2"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff") format("woff");
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Source Sans Pro Black"), local("SourceSansPro-Black"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGHZhYM0_6AejPZE-OqA592o.woff2") format("woff2"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGHiec-hVyr2k4iOzEQsW1iE.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Source Sans Pro Bold"), local("SourceSansPro-Bold"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGEo0As1BFRXtCDhS66znb_k.woff2") format("woff2"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGFkQc6VGVFSmCnC_l7QZG60.woff") format("woff");
+}
+
+body { font-family:"Source Sans Pro", arial, sans-serif;}
+
+
+/*Font color and size*/
+p  {
+font-family:"Source Sans Pro", arial, sans-serif;
+font-size: 1em; /*Normally 16px*/
+font-weight: 400;
+line-height: 1.5em;
+color: #444;
+margin-bottom: 1.5em;
+}
+
+/* All lists, including menus and submenus */
+li {
+font-family:"Source Sans Pro", arial, sans-serif;
+}
+
+/* Lists in the content section (not the menus)*/
+.content li {
+font-size: 1em; /*Normally 16px*/
+font-weight: 400;
+line-height: 1.5em;
+color: #444;
+margin-bottom: 0.8em;*/
+}
+
+/* Slightly larger text for the first paragraph of a feature */
+p.intro-text {
+font-family:"Source Sans Pro", arial, sans-serif;
+font-size: 1.2em;  /*Normally 19.2px*/
+font-weight: 400;
+line-height: 1.4em;
+color: #444;
+margin-bottom: 1.5em;
+}
+
+/*e.g. The feature title on a feature page*/
+h1 {
+font-family:"Source Sans Pro", arial, sans-serif;
+font-size: 2em; /*Normally 32px*/
+font-weight: 700;
+line-height: 1.1em;
+color: #222;
+margin-top: 0px;
+margin-bottom: 0.2em; /*Increase this if we move header metadata to the bottom of the content (at the moment the metadata is right until the title)*/
+}
+
+h2 {
+font-family:"Source Sans Pro Bold", arial, sans-serif;
+font-size: 1.3125em; /*Normally 21px*/
+font-weight: 700;
+line-height: 1.3em;
+color: #222;
+margin-top: 1.5em; /*1.5 x font size (1.5em)*/
+margin-bottom: 6px;
+}
+
+h3 {
+/* Just until I can see where it is used  */
+color: red;
+}
+h4 {
+/* Just until I can see where it is used  */
+color:firebrick;
+}
+
+p.quote {
+  background: #f9f9f9;
+  border-left: 5px solid #ccc;
+  margin-left: 16px;
+  margin-top: 24px; /*1.5em*/
+  padding: 0.5em 10px;
+  /*quotes: "\201C""\201D""\2018""\2019";*/
+}
+
+
+.entry-content .wp-caption-text {
+font-size: 12px;
+margin: 0;
+text-align: center;
+}
+
+
+/*
 blockquote{ font-family:"Roboto", arial, sans-serif;}
-p{ font-family:"Roboto", arial, sans-serif;}
-li{ font-family:"Roboto", arial, sans-serif;}
-#container h2 { font-family: 'Roboto', arial, sans-serif; }
+*/
+
+/*
+#container h2 { font-family: 'Source Sans Pro', arial, sans-serif; }
+*/
 
 
 /* Subtitle e.g. "Keep up with running news!" and "Please drop us a line" (on Contact Us) */
+/*
 .page div.entry-content h2 {
  margin-bottom: 6px;
 } 
+*/
 
 /* Page title on woocommerce pages e.g. Shop, Medal displays */
+/*
 .page-title {
  margin-bottom: 10px;
 }
+*/
 
 /* The page title on other pages (e.g. About) and the title on feature posts */
-[itemprop~="headline"] {
+/*[itemprop~="headline"] 
+{
   font-size: 24px;
-}
+}*/
 
 /* The page title on feature posts */
+/*
 .single-post h1[itemprop~="headline"] {
   margin-bottom: 6px;
 }
+*/
 
 /* The page title on other pages (e.g. About) */
+/*
 .page h1[itemprop~="headline"] {
   margin-bottom: 24px;
 }
+*/
 
 /* The h2 headings manually inserted for new sections in the middle of features */
+/*
 .single-post div.entry-content h2 {
   margin-top: 12px;
   margin-bottom: 6px;
 }
+*/
 
 .site-header {
 background: url("../../uploads/2014/07/RunnersHorizon-banner10.jpg")no-repeat;
@@ -84,39 +195,50 @@ float: left;
 width: 23.2209738% /*248/1068 */;
 }
 
+/*
 h2, .home-top .entry-title {
-font-size: 1.5em /* 24px/16px */;
+font-size: 1.5em;
 }
+*/
 
+/*
 body {
 color: #272727;
-font-size: 0.875em /* 14px/16px */;
+font-size: 0.875em;
 }
+*/
 
 
 .lifestyle-pro-home .featured-content .entry {
 padding-bottom: 10px;
 }
 
+/*Home page title of posts list "News, Features & Reviews" */
 .lifestyle-pro-home .content .widget-title {
-background-color: #fff;
-color: #6C0CA2;
-padding: 10px 10px;
+/*background-color: #fff;*/
+/*color: #6C0CA2;*/
+/*padding: 10px 10px;*/
 }
 
 .lifestyle-pro-home .content .widget, .lifestyle-pro-home .content .widget:last-child {
 margin-bottom: 32px;
-border: 1px solid #eeeee8;
+/*border: 1px solid #eeeee8;*/
 }
 
+/*Widgets in the sidebar, e.g. Shop and Newsletter subscription*/
 .sidebar .widget {
-border: 1px solid #eeeee8;
+/*border: 1px solid #eeeee8;*/
 margin-bottom: 32px;
 padding: 10px;
 text-align: left;
+
 }
 
-h4 {
+.sidebar {
+background: #EEE;
+}
+
+/* h4 {
 color: #6C0CA2;
 background-color: #fff;
 font-weight: 300;
@@ -124,31 +246,31 @@ font-size: 24px;
 line-height: 1.2;
 margin: 0 0 10px;
 }
+*/
 
-h1 {
+/* h1 {
 color: #6c0ca2;
 font-size: 24px;
 }
+*/
 
 .home-bottom-left, .home-bottom-right {
 width: 248px;
 }
 
+/*
 .content .entry {
 padding: 10px;
 border: 1px solid #eeeee8;
 }
+*/
 
-.entry-content .wp-caption-text {
-font-size: 12px;
-margin: 0;
-text-align: center;
-}
-
+/*
 body {
 color: #272727;
 font-size: 14px;
 }
+*/
 
 a {
 color: #04A891;
@@ -160,17 +282,16 @@ background-color: #fafafa;
 color: #04A891;
 font-size: 14px;
 }
+
+/*The header section of a page, including title (H1) and metadata */
 .entry-header {
-border-bottom: 1px solid #eeeee8;
+/*border-bottom: 1px solid #eeeee8;*/
 margin-bottom: 2px;
 text-align: left;
-margin: 0 0 2px;
+margin-bottom: 1.5em;
 }
 
-h2, .home-top .entry-title {
-font-size: 20px;
-}
-
+/*The metadata section of a page header (date, author etc.)*/
 .entry-header .entry-meta {
 margin-bottom: 2px;
 }
@@ -181,6 +302,7 @@ font-size: 20px;
 }
 */
 
+/*
 h2.entry-title {
 line-height: 1;
 margin: 0 0 12px;
@@ -188,7 +310,7 @@ margin: 0 0 12px;
 
 .entry-content p {
 margin-bottom: 10px;
-}
+}*/
 
 .entry-footer .entry-meta {
 border-top: 1px solid #eeeee8;
@@ -207,11 +329,6 @@ color: #fff;
 font-size: 12px;
 padding: 36px;
 text-align: center;
-}
-
-mark {
-background: #fff;
-color: #000;
 }
 
 .woocommerce ul.products li.product .price del, .woocommerce-page ul.products li.product .price del {

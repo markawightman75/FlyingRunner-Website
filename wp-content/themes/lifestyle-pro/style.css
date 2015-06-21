@@ -1,4 +1,4 @@
-﻿/*
+/*
 	Theme Name: Lifestyle Pro Theme
 	Theme URI: http://my.studiopress.com/themes/lifestyle/
 	Description: A mobile responsive and HTML5 theme built for the Genesis Framework.
@@ -143,11 +143,11 @@ Defaults
 
 body {
 	background-color: #efefe9;
-	color: #a5a5a3;
-	font-family: 'Droid Sans', sans-serif;
+/*	color: #a5a5a3;*/
+	/*font-family: 'Droid Sans', sans-serif;
 	font-size: 16px;
 	font-weight: 300;
-	line-height: 1.625;
+	line-height: 1.625;*/
 }
 
 a,
@@ -230,7 +230,7 @@ cite {
 /* Headings
 --------------------------------------------- */
 
-h1,
+/*h1,
 h2,
 h3,
 h4,
@@ -252,7 +252,7 @@ h6 {
 
 h2 {
 	margin: 0 0 24px;
-}
+}*/
 
 /*
 h1,
@@ -260,6 +260,7 @@ h1,
 	font-size: 30px;
 }*/
 
+/*
 h2,
 .home-top .entry-title {
 	font-size: 24px;
@@ -285,6 +286,7 @@ h6,
 .sidebar .entry-title {
 	font-size: 16px;
 }
+*/
 
 /* Objects
 --------------------------------------------- */
@@ -475,6 +477,13 @@ Structure and Layout
 
 .full-width-content .content {
 	width: 100%;
+    max-width: 540px; /*MAW - Try to have smaller middle column */
+    margin: 0px auto; /*MAW - Try to have smaller middle column */
+    float: none; /*MAW - Try to have smaller middle column */
+}
+
+.content-sidebar-wrap {
+/*max-width:  500px;*/ /*MAW- Try to have smaller middle column  */
 }
 
 .lifestyle-pro-landing .site-container {
@@ -653,12 +662,12 @@ img.alignright,
 .alignleft.post-image {
 	margin-bottom: 24px;
 }
-
+/*
 .entry-content .wp-caption-text {
 	font-size: 14px;
 	margin: 0;
 	text-align: center;
-}
+}*/
 
 .widget_calendar table {
 	width: 100%;
@@ -846,7 +855,7 @@ Site Header
 }
 
 .site-title {
-	font-family: 'Roboto Slab', sans-serif;
+	/*font-family: 'Roboto Slab', sans-serif;*/
 	font-size: 50px;
 	line-height: 1;
 	margin: 0 0 16px;
@@ -1102,29 +1111,23 @@ Content Area
 	margin: 0;
 }
 
-.lifestyle-pro-home .content .widget-title {
+/*.lifestyle-pro-home .content .widget-title {
 	background-color: #76d2c5;
 	color: #fff;
 	padding: 12px 32px;
-}
+}*/
 
 /* Entries
 --------------------------------------------- */
 
 .content .entry {
-	border: 1px solid #eeeee8;
-	margin-bottom: 32px;
-	padding: 32px;
+/*	border: 1px solid #eeeee8;*/
+	margin-bottom: 2em;
+/*	padding: 32px;*/
 }
 
 .lifestyle-pro-landing .content .entry {
 	border: none;
-}
-
-.entry-header {
-	border-bottom: 1px solid #eeeee8;
-	margin-bottom: 32px;
-	text-align: center;
 }
 
 .entry-content ol,
@@ -1297,12 +1300,12 @@ Sidebars
 	font-size: 15px;
 }
 
-.sidebar .widget {
+/*.sidebar .widget {
 	border: 1px solid #eeeee8;
 	margin-bottom: 32px;
 	padding: 32px;
 	text-align: center;
-}
+}*/
 
 .widget {
 	margin-bottom: 40px;
