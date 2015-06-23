@@ -477,9 +477,13 @@ Structure and Layout
 
 .full-width-content .content {
 	width: 100%;
-    max-width: 540px; /*MAW - Try to have smaller middle column */
-    margin: 0px auto; /*MAW - Try to have smaller middle column */
-    float: none; /*MAW - Try to have smaller middle column */
+}
+
+/* Keep the content of a single post that is configured to be full width to within a narrow middle column*/
+.single-post.full-width-content .content {
+max-width: 540px;     
+margin: 0px auto; 
+float: none; 
 }
 
 .content-sidebar-wrap {
@@ -1297,7 +1301,7 @@ Sidebars
 ---------------------------------------------------------------------------------------------------- */
 
 .sidebar {
-	font-size: 15px;
+/*	font-size: 15px;*/
 }
 
 /*.sidebar .widget {
@@ -1318,7 +1322,7 @@ Sidebars
 }
 
 .widget ol > li {
-	border-bottom: 1px solid #eeeee8;
+/*	border-bottom: 1px solid #eeeee8;*/
 	list-style-position: inside;
 	list-style-type: decimal;
 	margin-bottom: 12px;
@@ -1328,7 +1332,7 @@ Sidebars
 }
 
 .widget ul > li {
-	border-bottom: 1px solid #eeeee8;
+/*	border-bottom: 1px solid #eeeee8;*/
 	list-style-type: none;
 	margin-bottom: 12px;
 	padding-bottom: 12px;
@@ -1336,7 +1340,7 @@ Sidebars
 
 .widget li li {
 	border: none;
-	margin: 0 0 0 30px;
+	margin: 5px 0 0 30px;
 	padding: 0;
 }
 
@@ -1354,7 +1358,7 @@ Footer Widgets
 
 .footer-widgets {
 	background-color: #fff;
-	border-top: 1px dotted #eeeee8;
+/*	border-top: 1px dotted #eeeee8;*/
 	clear: both;
 	margin: 0 auto;
 	padding-top: 32px;

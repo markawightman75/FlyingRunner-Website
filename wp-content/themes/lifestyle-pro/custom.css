@@ -89,18 +89,85 @@ font-size: 1.3125em; /*Normally 21px*/
 font-weight: 700;
 line-height: 1.3em;
 color: #222;
-margin-top: 1.5em; /*1.5 x font size (1.5em)*/
-margin-bottom: 6px;
+margin-top: 1.5em; 
+margin-bottom: 0.375em;
+}
+
+/* Home page article titles
+Reduce top margin so article title is aligned with top of article image*/
+.home h2 {
+font-family:"Source Sans Pro Bold", arial, sans-serif;
+font-size: 1.125em;
+font-weight: 700;
+line-height: 1.3em;
+color: #222;
+margin-top: 1.5em;     
+margin-top: 0px;
 }
 
 h3 {
 /* Just until I can see where it is used  */
 color: red;
 }
+
+/* Product category heading (below image) on Shop front page*/
+.product-category h3, .product h3 {
+font-family:"Source Sans Pro", arial, sans-serif;
+/*Need !important to override font size set in woocommerce.css */
+font-size: 1em !important;
+font-weight: 700;
+line-height: 1.3em;
+color: #222;
+}
+
 h4 {
 /* Just until I can see where it is used  */
 color:firebrick;
 }
+
+/*Home page "News, Features & Reviews text*/
+.home-top h4 {
+font-family:"Source Sans Pro", arial, sans-serif;
+font-size: 1.5em; 
+font-weight: 400;
+line-height: 1.1em;
+color: #222;
+margin-top: 0px;
+margin-bottom: 0.75em;
+}
+
+/*- Shop sidebar widget heading "Shop"
+STYLED LIKE AN H2 - REALLY NEED TO MAKE THIS AN H2 PROPERLY
+*/
+#text-6 h4 {
+font-family:"Source Sans Pro", arial, sans-serif;
+font-size: 1.5em; 
+font-weight: 400;
+line-height: 1.1em;
+color: #222;
+margin-top: 0px;    
+margin-bottom: 0.375em;
+}
+
+/*
+- Product categories sidebar widget heading "Product Categories"
+- Archive sidebar widget heading "Archive"
+- "Connect with us" widget heading
+- Search widget heading "Looking for something?"
+*/
+ .widget_product_categories h4,
+.widget_archive h4,
+.simple-social-icons h4,
+.widget_search h4 {
+font-family:"Source Sans Pro Bold", arial, sans-serif;
+font-size: 1.5em; 
+font-weight: 400;
+line-height: 1.1em;
+color: #222;
+margin-top: 0px;    
+margin-bottom: 0.5em;
+}
+
 
 p.quote {
   background: #f9f9f9;
@@ -117,6 +184,7 @@ font-size: 12px;
 margin: 0;
 text-align: center;
 }
+
 
 
 /*
@@ -178,6 +246,11 @@ overflow: hidden;
 height: 168px;
 }
 
+/*Home page 'Online magazine' header image widget */
+.home-top #text-5 {
+margin-bottom: 10px;
+}
+
 .genesis-nav-menu {
 clear: both;
 font-size: 17px;
@@ -235,7 +308,8 @@ text-align: left;
 }
 
 .sidebar {
-background: #EEE;
+background: #FFF;
+border-left: 1px solid #eeeee8
 }
 
 /* h4 {
@@ -329,6 +403,12 @@ color: #fff;
 font-size: 12px;
 padding: 36px;
 text-align: center;
+}
+
+/*The number of products in each product category on the Shop front page*/
+mark {
+background: #fff;
+/*color: #222;*/
 }
 
 .woocommerce ul.products li.product .price del, .woocommerce-page ul.products li.product .price del {
