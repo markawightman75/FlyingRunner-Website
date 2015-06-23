@@ -10,6 +10,17 @@ function custom_load_custom_style_sheet() {
 	wp_enqueue_style( 'mycustom-stylesheet', CHILD_URL . '/custom.css', array(), PARENT_THEME_VERSION );
 }
 
+
+/** Use copies of the Magic Action Box css files that are in our theme
+    folder instead of the ones added by default which are in the plugin folder
+    and therefore not under version control
+*/
+wp_dequeue_style( 'mab-user-style-1-css' );
+wp_dequeue_style( 'mab-actionbox-style-709-css' );
+wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', array(), PARENT_THEME_VERSION );
+wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', array(), PARENT_THEME_VERSION );
+
+
 //* Load the fonts we need
 add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
 function lifestyle_google_fonts() {
@@ -152,6 +163,25 @@ echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping ?</a> Need 
 echo '</div>';
 }
 
+/** Customize the post header function by wptron */
+/**add_filter('genesis_post_info', 'wpt_info_filter');**/
 
+
+function wpt_info_filter($post_info) {
+if (!is_page()) {
+$post_info = 'Written by [post_author_posts_link] [post_edit]';
+}
+return $post_info;
+}
+
+
+// Remove Post Info, Post Meta from Archive Pages
+function themeprefix_remove_post_meta() {
+	if (is_archive()) {
+		remove_action( 'genesis_entry_header', 'genesis_post_info', 12 );
+		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+		}
+}
+/**add_action ( 'genesis_entry_header', 'themeprefix_remove_post_meta' );**/
 
 ?>

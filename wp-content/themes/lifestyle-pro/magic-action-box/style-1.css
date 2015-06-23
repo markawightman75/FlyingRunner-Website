@@ -1,0 +1,274 @@
+/* This file was copied from the auto-generated file in \uploads\magic-action-box so it could be put under version control */
+
+/**
+ * Override globals set in /plugins/.../magic-action-box-styles.css
+ */
+.magic-action-box{
+	color: #222;
+	clear: both;
+	font-size: 1em !important;
+	font-family:"Source Sans Pro", arial, sans-serif !important;
+	line-height: 1.3;
+	margin: 0 auto;
+	position: relative;
+}
+
+font-face {
+  font-family: "Source Sans Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2") format("woff2"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff") format("woff");
+}
+
+.userstyle-1.magic-action-box {
+	box-shadow: ;
+	margin: 0 auto 0;
+}
+.userstyle-1.magic-action-box a {
+	background-color: transparent;
+	color: #92031a !important;
+	text-decoration: underline !important;
+}
+.userstyle-1.magic-action-box a:hover {
+	background-color: transparent;
+	color: #ce0021 !important;
+	text-decoration: none !important;
+}
+.userstyle-1.magic-action-box .mab-wrap {
+	background-color: #ffffff;
+	background-position: top center;
+	background-repeat: no-repeat;
+	border: 3px none #CCCCCC;
+	padding: 1px;
+	-moz-border-radius: 0;
+	-khtml-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	width: ;
+}
+.userstyle-1.magic-action-box .mab-content {
+	color: #282828 !important;
+	font-family: inherit;
+	font-size: 1em !important;
+	line-height: 1.2em !important;
+}
+.userstyle-1.magic-action-box .mab-content * {
+	color: #282828 !important;
+	font-family: inherit;
+	font-size: 1em !important;
+	line-height: 1.2em !important;
+}
+
+/*TODO: Make this the same as a normal H2*/
+.userstyle-1.magic-action-box .mab-wrap .mab-heading {
+	margin-top: 0 !important;
+	margin-bottom: 0.5em !important;
+	text-align: left;
+/*	color: #6C0CA2 !important;*/
+/*    color: #222 !important;*/
+	font-family: inherit !important;
+/*	font-size: 24px !important;*/
+	font-style: normal !important;
+/*	font-weight: normal !important;*/
+/*	line-height:  !important;*/
+	text-transform: none !important;
+    
+font-family:"Source Sans Pro", arial, sans-serif !important;
+
+font-size: 1.5em !important; 
+font-weight: 400 !important;
+line-height: 1.1em !important;
+color: #222 !important;
+margin-bottom: 0.5em !important;
+    
+}
+.userstyle-1.magic-action-box .mab-wrap .mab-subheading {
+	margin-top: 0 !important;
+	margin-bottom: 10px !important;
+	text-align: left;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight: bold !important;
+	line-height:  !important;
+	text-transform: none !important;
+}
+.userstyle-1.magic-action-box .mab-main-copy {
+}
+.userstyle-1.magic-action-box .mab-secondary-copy {
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap {
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap form {
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap .mab-field {
+	margin-right: 10px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap .mab-field label {
+	color: #444444 !important;
+	font-size: 1em !important;
+	font-family: inherit;
+	font-style: normal;
+	font-weight: bold;
+	margin-bottom:  !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap .mab-field input {
+	background: #bfe2dd !important;
+	border: 1px solid #aaaaaa !important;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius:  !important;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight:  !important;
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+	padding-right: 6px !important;
+	padding-left: 6px !important;
+	width: 200px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap input {
+	background: #bfe2dd !important;
+	border: 1px solid #aaaaaa !important;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius:  !important;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight:  !important;
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+	padding-right: 6px !important;
+	padding-left: 6px !important;
+	width: 200px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap .mab-field textarea {
+	background: #bfe2dd !important;
+	border: 1px solid #aaaaaa !important;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius:  !important;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight:  !important;
+	width: 200px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap textarea {
+	background: #bfe2dd !important;
+	border: 1px solid #aaaaaa !important;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius:  !important;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight:  !important;
+	width: 200px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap select {
+	background: #bfe2dd !important;
+	border: 1px solid #aaaaaa !important;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius:  !important;
+	color: #555555 !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	font-style: normal !important;
+	font-weight:  !important;
+	width: 200px !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap select option {
+	color: inherit !important;
+	font-family: inherit !important;
+	font-size: inherit !important;
+	font-style: inherit !important;
+	font-weight: inherit !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap form input[type="submit"] {
+	background: #47B7A8 !important;
+	border: 1px none #222222 !important;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px !important;
+	color: #FFFFFF !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	margin-top: 5px !important;
+	margin-bottom:  !important;
+	margin-left:  !important;
+	margin-right:  !important;
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+	padding-right: 8px !important;
+	padding-left: 8px !important;
+	text-shadow:  !important;
+	text-transform: none;
+	width:  !important;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap form input.submit {
+	background: #47B7A8 !important;
+	border: 1px none #222222 !important;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px !important;
+	color: #FFFFFF !important;
+	font-family: inherit !important;
+	font-size: 1em !important;
+	margin-top: 5px !important;
+	margin-bottom:  !important;
+	margin-left:  !important;
+	margin-right:  !important;
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+	padding-right: 8px !important;
+	padding-left: 8px !important;
+	text-shadow:  !important;
+	text-transform: none;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap form input[type="submit"]:hover {
+	background: #555555 !important;
+	border-color: #333333 !important;
+	color: #FFFFFF !important;
+	text-shadow: ;
+}
+.userstyle-1.magic-action-box .mab-main-action-wrap form input.submit:hover {
+	background: #555555 !important;
+	border-color: #333333 !important;
+	color: #FFFFFF !important;
+	text-shadow: ;
+}
+.userstyle-1.magic-action-box .mab-aside {
+	background-color: transparent;
+	border: 1px none #CCCCCC;
+	box-shadow: ;
+	-moz-box-shadow: ;
+	-webkit-box-shadow: ;
+	margin-top: ;
+	margin-bottom: ;
+	margin-left: ;
+	margin-right: ;
+	padding: ;
+	-moz-border-radius: ;
+	-khtml-border-radius: ;
+	-webkit-border-radius: ;
+	border-radius: ;
+}
+.userstyle-1.magic-action-box .mab-aside img {
+}
+/* Custom CSS */
