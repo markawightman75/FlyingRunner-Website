@@ -174,12 +174,6 @@ textarea:focus,
 	color: #fff;
 }
 
-a {
-	color: #76d2c5;
-	text-decoration: none;
-}
-
-a:hover,
 .site-footer a:hover {
 	color: #222;
 }
@@ -199,6 +193,7 @@ ul {
 	padding: 0;
 }
 
+/*
 blockquote,
 blockquote::before {
 	color: #999;
@@ -217,6 +212,7 @@ blockquote::before {
 	position: relative;
 	top: -10px;
 }
+*/
 
 .entry-content code {
 	background-color: #333;
@@ -481,7 +477,7 @@ Structure and Layout
 
 /* Keep the content of a single post that is configured to be full width to within a narrow middle column*/
 .single-post.full-width-content .content {
-max-width: 540px;     
+max-width: 590px;     
 margin: 0px auto; 
 float: none; 
 }
@@ -719,16 +715,6 @@ img.alignright,
 
 .site-header .widget-title {
   color: #fff;
-}
-
-.entry-title a,
-.sidebar .widget-title a {
-	color: #222;
-	text-decoration: none;
-}
-
-.entry-title a:hover {
-	color: #76d2c5;
 }
 
 .archive-title {
@@ -1135,7 +1121,6 @@ Content Area
 }
 
 .entry-content ol,
-.entry-content p,
 .entry-content ul,
 .quote-caption {
 	margin-bottom: 26px;
@@ -1151,16 +1136,12 @@ Content Area
 }
 
 .entry-content ul > li {
-	list-style-type: circle;
+	list-style-type: disc;
 }
 
 .entry-content ol ol,
 .entry-content ul ul {
 	margin-bottom: 0;
-}
-
-.entry-meta {
-	font-size: 12px;
 }
 
 .entry-header .entry-meta {
