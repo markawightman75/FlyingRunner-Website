@@ -7,9 +7,8 @@ add_theme_support( 'genesis-connect-woocommerce' );
 
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
-	wp_enqueue_style( 'mycustom-stylesheet', CHILD_URL . '/custom.css', array(), PARENT_THEME_VERSION );
+	wp_enqueue_style( 'mycustom-stylesheet', CHILD_URL . '/custom.css', false, filemtime( get_stylesheet_directory() . '/custom.css' ) );
 }
-
 
 /** Use copies of the Magic Action Box css files that are in our theme
     folder instead of the ones added by default which are in the plugin folder
@@ -17,8 +16,13 @@ function custom_load_custom_style_sheet() {
 */
 wp_dequeue_style( 'mab-user-style-1-css' );
 wp_dequeue_style( 'mab-actionbox-style-709-css' );
-wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', array(), PARENT_THEME_VERSION );
-wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', array(), PARENT_THEME_VERSION );
+wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
+wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
+
+/** Dequeue style.css and enqueue it again with version number (for cache busting) */
+/** For details of more reliable htaccess-based cache busting see https://wordimpress.com/wordpress-css-and-js-cache-busting/ */
+wp_dequeue_style( 'lifestyle-pro-theme-css' );
+wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
 
 
 //* Load the fonts we need
