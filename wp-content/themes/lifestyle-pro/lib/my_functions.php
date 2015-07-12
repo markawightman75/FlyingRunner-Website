@@ -22,8 +22,10 @@ wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/acti
 /** Dequeue style.css and enqueue it again with version number (for cache busting) */
 /** For details of more reliable htaccess-based cache busting see https://wordimpress.com/wordpress-css-and-js-cache-busting/ */
 wp_dequeue_style( 'lifestyle-pro-theme-css' );
-wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
-
+if ( ! is_admin() )
+{
+  wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
+}
 
 //* Load the fonts we need
 add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
