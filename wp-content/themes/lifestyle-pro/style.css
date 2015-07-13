@@ -920,7 +920,7 @@ Site Navigation
 
 .genesis-nav-menu {
 	clear: both;
-	font-size: 14px;
+	font-size: 14px; /*Don't think this is used*/
 	line-height: 1;
 	width: 100%;
 }
@@ -933,7 +933,7 @@ Site Navigation
 .genesis-nav-menu a {
 	color: #fff;
 	display: block;
-	padding: 20px 24px;
+	padding: 10px 24px;
 	position: relative;
 	text-decoration: none;
 }
