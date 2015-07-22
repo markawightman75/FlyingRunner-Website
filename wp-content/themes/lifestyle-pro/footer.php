@@ -17,15 +17,16 @@ echo '</div>'; //* end .site-inner or #inner
 do_action( 'genesis_before_footer' );
 
 ?>
-<div class="site-footer">
-Copyright &#x000A9;&nbsp;2015 &middot; 
-<a href="<?php echo home_url();?>">The Flying Runner</a> &middot; 
+<!--<div class="site-footer">
+ <p class="footer-copyright">Copyright &#x000A9;&nbsp;2014-2015 The Flying Runner Ltd.</p>-->
+<!--&middot; 
 <a href="<?php echo home_url('returns');?>">Returns</a> &middot; 
 <a href="<?php echo home_url('delivery');?>">Delivery Information</a> 
 <br /> 
 <a href="<?php echo home_url('cookies-use');?>">Cookies In Use</a> &middot; 
 <a href="<?php echo home_url('privacy-policy');?>">Privacy Policy</a> &middot; 
-<a href="<?php echo home_url('terms-conditions');?>">Terms and Conditions</a></div>
+<a href="<?php echo home_url('terms-conditions');?>">Terms and Conditions</a>-->
+<!--</div>-->
 
 <?php
 do_action( 'genesis_after_footer' );

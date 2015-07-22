@@ -61,24 +61,65 @@
   font-weight: 700;
   src: local("Bitter-Bold"), url("https://fonts.gstatic.com/l/font?kit=Cu3dNWUUsEPTS0pDWDW9jFAKFZEl-uwt8ZAZD7Zj1x8hU65Org-VsHihMsgCE9y49EhpiqJDj9lnQaq249QEOeUQPIbVTiqEwuMCDJhqySqh0bZea9sKcRbh9Fsh11uP&skey=e4df9b9066e26755") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=9sBJrC-7FtOMSuA9Lzolh1AKFZEl-uwt8ZAZD7Zj1x8hU65Org-VsHihMsgCE9y49EhpiqJDj9lnQaq249QEOeUQPIbVTiqEwuMCDJhqySqh0bZea9sKcRbh9Fsh11uP&skey=e4df9b9066e26755") format("woff");
 }
+@font-face {
+  font-family: "Droid Serif";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Droid Serif"), local("DroidSerif"), url("https://fonts.gstatic.com/l/font?kit=DgAtPy6rIVa2Zx3Xh9KaNUE6ShGMu9c779UIFYZ4jxwFjxAsoMPe6KTmxHr8yBfIjVpFoe6rX3ET310906cqDO5a0y2yM-buDzIWb-IT1VZnJfANE-_pKN9C1ZsKTQQU&skey=a46d7e8bf49adcd6") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=DgAtPy6rIVa2Zx3Xh9KaNQB0Reh04nFjt5MHEhuNP5gFjxAsoMPe6KTmxHr8yBfIjVpFoe6rX3ET310906cqDO5a0y2yM-buDzIWb-IT1VZnJfANE-_pKN9C1ZsKTQQU&skey=a46d7e8bf49adcd6") format("woff");
+}
+@font-face {
+  font-family: "Libre Baskerville";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Libre Baskerville"), local("LibreBaskerville-Regular"), url("https://fonts.gstatic.com/s/librebaskerville/v4/pR0sBQVcY0JZc_ciXjFsK6um_UGp_f-7zdFc-LcV-vo.woff2") format("woff2"), url("https://fonts.gstatic.com/s/librebaskerville/v4/pR0sBQVcY0JZc_ciXjFsK_nezK0UMMTxS4iLFUkfyQ0.woff") format("woff");
+}
 
+/*body { font-family:"Source Sans Pro", arial, sans-serif;}*/
 
-body { font-family:"Source Sans Pro", arial, sans-serif;}
+body, p, .content li  {
+font-family: "ff-tisa-web-pro", serif;
+}
 
+h1, h2, h3, h4, h5, h6 {
+font-family: "jaf-bernina-sans-narrow",sans-serif;
+}
 
+.product-advert p, h2 {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+/*Captions and menus*/
+.wp-caption-text, li {
+font-family: "Source Sans Pro", arial, sans-serif;
+}
+/*Test...*/
+p  {
+/*font-family: "Guardian Text Egyptian Web";*/
+/*    font-family: "ff-tisa-web-pro";*/
+font-size: 1.05em; 
+font-weight: 500;
+line-height: 1.5em;
+color: #333;
+margin-bottom: 1.5em;
+text-rendering: optimizespeed;
+}
+
+/*Live...*/
 /*Font color and size*/
+/*
 p  {
 font-family:"Source Sans Pro", arial, sans-serif;
-font-size: 1em; /*Normally 16px*/
+font-size: 1em; 
 font-weight: 400;
 line-height: 1.5em;
 color: #444;
 margin-bottom: 1.5em;
 }
+*/
 
 /* All lists, including menus and submenus */
 li {
-font-family:"Source Sans Pro", arial, sans-serif;
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
 }
 
 /* Lists in the content section (not the menus)*/
@@ -92,8 +133,8 @@ margin-bottom: 0.8em;*/
 
 /* Slightly larger text for the first paragraph of a feature */
 p.intro {
-font-family:"Source Sans Pro", arial, sans-serif;
-font-size: 1.1em;  
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
+font-size: 1.25em;  
 font-weight: 400;
 line-height: 1.4em;
 color: #444;
@@ -102,8 +143,8 @@ margin-bottom: 1.5em;
 
 /*e.g. The feature title on a feature page*/
 h1 {
-font-family:"Source Sans Pro", arial, sans-serif;
-font-size: 2em; /*Normally 32px*/
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
+font-size: 2.25em; /*Normally 32px*/
 font-weight: 700;
 line-height: 1.1em;
 color: #222;
@@ -112,19 +153,19 @@ margin-bottom: 0.2em; /*Increase this if we move header metadata to the bottom o
 }
 
 h2 {
-font-family:"Source Sans Pro Bold", arial, sans-serif;
-font-size: 1.3125em; /*Normally 21px*/
+/*font-family:"Source Sans Pro Bold", arial, sans-serif;*/
+font-size: 1.5em; 
 font-weight: 700;
 line-height: 1.3em;
-color: #222;
+color: #333;
 margin-top: 1.5em; 
-margin-bottom: 0.375em;
+margin-bottom: 0.2em;
 }
 
 /* Home page article titles
 Reduce top margin so article title is aligned with top of article image*/
 .home h2 {
-font-family:"Source Sans Pro Bold", arial, sans-serif;
+/*font-family:"Source Sans Pro Bold", arial, sans-serif;*/
 font-size: 1.125em;
 font-weight: 700;
 line-height: 1.3em;
@@ -139,7 +180,7 @@ color: red;
 }
 
 .sharedaddy h3, .comment-respond h3 {
-font-family:"Source Sans Pro", arial, sans-serif;
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
 /*Need !important to override font size set in sharing.css */
 font-size: 1.125em !important; 
 font-weight: 700 !important;
@@ -151,7 +192,7 @@ margin-bottom: 0.2em !important;
 
 /* Product category heading (below image) on Shop front page*/
 .product-category h3, .product h3 {
-font-family:"Source Sans Pro", arial, sans-serif;
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
 /*Need !important to override font size set in woocommerce.css */
 font-size: 1em !important;
 font-weight: 700;
@@ -164,22 +205,11 @@ h4 {
 color:firebrick;
 }
 
-/*Home page "News, Features & Reviews text*/
-.home-top h4 {
-font-family:"Source Sans Pro", arial, sans-serif;
-font-size: 1.5em; 
-font-weight: 400;
-line-height: 1.1em;
-color: #222;
-margin-top: 0px;
-margin-bottom: 0.75em;
-}
-
 /*- Shop sidebar widget heading "Shop"
 STYLED LIKE AN H2 - REALLY NEED TO MAKE THIS AN H2 PROPERLY
 */
 #text-6 h4 {
-font-family:"Source Sans Pro", arial, sans-serif;
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
 font-size: 1.5em; 
 font-weight: 400;
 line-height: 1.1em;
@@ -198,7 +228,7 @@ margin-bottom: 0.375em;
 .widget_archive h4,
 .simple-social-icons h4,
 .widget_search h4 {
-font-family:"Source Sans Pro Bold", arial, sans-serif;
+/*font-family:"Source Sans Pro Bold", arial, sans-serif;*/
 font-size: 1.5em; 
 font-weight: 400;
 line-height: 1.1em;
@@ -211,9 +241,9 @@ margin-bottom: 0.5em;
 p.quote {
   background: #f9f9f9;
   border-left: 5px solid #ccc;
-  margin-left: 16px;
+  margin-left: 1.5em;
   margin-top: 24px; /*1.5em*/
-  padding: 0.5em 10px;
+  padding: 0.5em 1em;
   /*quotes: "\201C""\201D""\2018""\2019";*/
 }
 
@@ -250,7 +280,7 @@ border-radius: 2%
 
 .highlight-text p, .highlight-text li, .highlight-text h2 {
 color: white;
-font-family: "Bitter", serif;
+/*font-family: "Bitter", serif;*/
 }
 
 .highlight-text ul {
@@ -272,17 +302,29 @@ font-weight: 700;
 margin-bottom: 0px;
 }
 
+blockquote {
+   text-align: center;
+   font-size: 29px;
+   line-height: 39px;
+   margin-bottom: 1.2em;
+   margin-top: 1.2em;
+   padding: 1em 1em 1em 1em;
+   border-top: 1px solid #ccc;
+   border-bottom: 1px solid #ccc;
+}
 
-blockquote{
-/*  display:block;*/
+blockquote p {
+    margin-bottom: 0px;
+}
+xblockquote{
 background: #fff;
 padding: 25px 50px 15px 45px;
 margin: 0 0 20px;
 position: relative;
 
 /*Borders*/
-border-left: 10px solid #6C0CA2;
-border-right: 2px solid #6C0CA2;
+/*border-left: 10px solid #6C0CA2;*/
+/*border-right: 2px solid #6C0CA2;*/
 
 /*Box Shadow*/
 -moz-box-shadow: 2px 2px 15px #ccc;
@@ -290,7 +332,7 @@ border-right: 2px solid #6C0CA2;
 box-shadow: 2px 2px 15px #ccc;
 }
 
-blockquote::before, blockquote::after{
+xblockquote::before, xblockquote::after{
 /*Font*/
 font-family: "Bitter", serif;
 font-size: 2em;
@@ -301,21 +343,21 @@ color: #999;
 position: absolute;
 }
 
-blockquote::before{
+xblockquote::before{
 content: "\201C"; /*Unicode for Left Double Quote*/  
 left: 12px; /*How far from the left of the box*/
 top: 0px;
 }
 
-blockquote::after{
+xblockquote::after{
 content: "\201D"; /*Unicode for Right Double Quote*/
 right: 12px;
 bottom: 0px;
 }
 
-blockquote p {
+xblockquote p {
 /*Font*/
-font-family: "Bitter", serif;
+/*font-family: "Bitter", serif;*/
 font-size: 1.1em;
 line-height: 1.5;
 color: #6C0CA2;
@@ -398,10 +440,262 @@ overflow: hidden;
 height: 168px;
 }
 
+/*Override home page main featured article image size*/
+.home .main-featured-content img {
+width: 400px;
+height: 224px;
+}
+
+/* Featured article widget title, e.g. "Features" */
+/*
+.home .main-featured-content h4 {
+font-size: 1.5em;
+}
+*/
+
+/* Featured article post title*/
+.home .main-featured-content h2 {
+font-size: 2em;
+}
+
+/*@media only screen and (max-width: 720px) {
+.home .main-featured-content img {
+width: 200px;
+height: 112px;
+}
+}*/
+
+.home .main-featured-content p {
+font-size: 0.9375em; /*15px when 1em=16px*/
+margin-top: -5px; /*Hack to align text with top of image*/   
+line-height: 1.35em; /*Smaller line height than in long form*/
+}
+
+.home .sub-featured-content p {
+font-size: 0.875em; /*14px when 1em=16px*/
+line-height: 1.35em; /*Smaller line height than in long form*/
+}
+
+.home .subfeaturedposts {
+border-bottom: 1px solid #eeeee8;
+margin-bottom: 0px;
+}
+
 /*Home page 'Online magazine' header image widget */
 .home-top #text-5 {
 margin-bottom: 10px;
 }
+
+/*Home page "News, Features & Reviews text*/
+.home-top h4 {
+/*font-family:"Source Sans Pro", arial, sans-serif;*/
+font-size: 1.5em; 
+font-weight: 400;
+line-height: 1.1em;
+color: #222;
+margin-top: 0px;
+margin-bottom: 0.3em;
+}
+
+.product-advert {
+margin-bottom: 30px; 
+padding: 5px; 
+border-bottom: 1px solid #bbb; 
+position: relative; 
+display: block; 
+}
+
+
+/* A product advert sized to fit into a two column layout (with sidebar) */
+.product-advert-half {
+width: 290px; 
+height: 314px;
+}
+
+/* A product advert sized to fit into a three column layout (with sidebar) */
+/*This is ok >=1140 but fails below that*/
+@media only screen and (min-width: 1140px)  {
+.product-advert-third {
+width: 220px; 
+height: 322px;
+}
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1139px) {
+.product-advert-third {
+/*border: 4px solid green;*/
+width: 182px;
+}
+}
+
+/*Below 1024 the sidebar disappears, so we have more space again*/@media only screen and (min-width: 768px) and (max-width: 1023px) {
+.product-advert-third {
+/*border: 4px solid red;*/
+width: 216px;    
+}
+}
+
+/*Below 767 we only get one column, no matter how we size the adverts, but there is plenty of width so can make them full screen with image on left and text on right */
+@media only screen and (min-width: 430px) and (max-width: 767px) {
+.product-advert-third img {    
+float: left;
+width: 300px;
+height: auto;
+margin-right: 10px;
+}
+    
+.product-advert-third {
+/*border: 4px solid blue;*/
+height: 240px;
+
+}
+}
+
+/*At less than 430px there isn't enough width for text and image size by side, so it's back to vertical layout*/
+@media only screen and (max-width: 429px)  {
+.product-advert-third img {    
+float: none;
+width: 320px; /*Minimum phone width=320px I think*/
+height: auto;
+}
+}
+
+
+.product-advert-half img {
+width: 278px; 
+height: 213px;
+}
+
+/*
+.product-advert-third img {
+width: 210px; 
+height: 161px;
+}
+*/
+
+.product-advert h2{
+font-size: 1.05em;
+font-weight: 700;
+line-height: 1.25em;
+margin-bottom: 0.2em;
+padding-left: 5px;
+}
+
+.product-advert p {
+font-size: 0.935em; 
+font-weight: 500; 
+line-height: 1.35em;
+margin-bottom: 0px;
+padding-left: 5px;
+}
+
+.product-advert-half .product-advert-button-div {
+position: absolute;
+bottom: 1px;
+height: 1.5em;
+width: 100%;
+padding-right: 12px;
+padding-bottom: 0px;
+text-align: right;
+color: #666;
+}
+
+.product-advert-third .product-advert-button-div {
+position: absolute;
+bottom: 5px;
+height: 1.5em;
+width: 100%;
+padding-right: 12px;
+padding-bottom: 0px;
+text-align: right;
+color: #666;
+}
+
+
+.product-advert-half-button-div i {
+font-size: 1.25em; 
+}
+
+.product-advert-green {
+background-color: #C2E6E1; 
+}
+
+.product-advert-green h2 {
+color: #333;
+}
+
+.product-advert-green p {
+color: #222;
+}
+
+.product-advert-blue {
+background-color: #81A0D6;
+}
+
+.product-advert-blue h2, .product-advert-blue p {
+color: #fff;
+}
+
+.product-advert-grey {
+background-color: #f6f6f6; 
+}
+
+.product-advert-grey h2 {
+color: #444;
+}
+
+.product-advert-grey p {
+color: #333;
+}
+
+/*
+.product-advert-image {
+height:120px; 
+background-image: url(http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg);
+}
+*/
+
+/*
+.product-advert-text-transparent {
+position: absolute;
+bottom: -60px;
+height: 90px;
+width: 100%;
+transition: all 0s ease 0s, all 0.3s ease 0s, all 0s ease 0s;
+background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0%;
+box-sizing: border-box;
+padding-left: 6px;
+padding-right: 6px;
+padding-top: 5px;
+padding-bottom: 5px;
+}
+
+.product-advert-text-transparent h2 {
+color: #333;
+font-size: 1.1em;
+font-weight: 700;
+line-height: 1.25em;
+}
+*/
+
+/*
+.product-advert-text h2 {
+color: #FDADBA;
+font-size: 1em;
+font-weight: 600;
+line-height: 1.25em;
+}
+
+.product-advert-text p {
+color: #FDE4E2;
+font-size: 1em;
+font-weight: 600;
+line-height: 1.35em;
+}
+*/
+
+
+
 
 .genesis-nav-menu {
 clear: both;
@@ -551,7 +845,7 @@ font-size: 14px;
 /*border-bottom: 1px solid #eeeee8;*/
 margin-bottom: 2px;
 text-align: left;
-margin-bottom: 1.5em;
+/*margin-bottom: 1.5em;*/
 }
 
 /*The metadata section of a page header (date, author etc.)*/
@@ -587,11 +881,54 @@ text-align: left;
 }
 
 .site-footer {
-background-color: #47B7A8;
-color: #fff;
-font-size: 12px;
-padding: 36px;
+/*background-color: #47B7A8;*/
+/*color: #fff;*/
+/*padding: 36px;*/
+padding-bottom: 8px;
 text-align: center;
+}
+
+.footer-widgets {
+background-color: rgba(179, 224, 218, 0.4);
+}
+
+.footer-copyright, 
+.footer-widgets h1,
+.footer-widgets ul > li {
+font-family:"Source Sans Pro", arial, sans-serif;
+}
+
+.footer-copyright {
+font-size: 1em;
+color: #fff;
+}
+
+.footer-widgets h6 {
+font-size: 0.9em;
+color: #666;
+margin-top: 0px;
+margin-bottom: 0.3em;
+}
+
+.footer-widgets ul > li {
+margin-bottom: 0.2em;
+padding-bottom: 0px;
+}
+
+
+.footer-widgets ul > li a {
+color: #444;
+font-size: 0.9em;
+text-decoration: none;
+}
+
+.footer-widgets ul > li a:hover {
+color: #6C0CA2;
+}
+
+/*Nudge social network icons down to align with top of links*/
+.footer-widgets .et_social_networks {
+margin-top: 4px;
 }
 
 /*Product categories list on homepage (in sidebar widget)*/
@@ -660,20 +997,20 @@ padding: 1px 8px 0px 5px;
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (max-width: 989px) {
 .genesis-nav-menu {
-font-size: 16px;
+font-size: 1em;
 }
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .genesis-nav-menu {
-font-size: 15px;
+font-size: 0.9375em;
 }
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
 .genesis-nav-menu {
-font-size: 15px;
+font-size: 0.9375em;
 }
 }

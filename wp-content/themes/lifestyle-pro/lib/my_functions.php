@@ -3,7 +3,79 @@
 /**
  * My Custom Functions
 */
+
+//* Add our custom "main featured post" widget
+include_once( CHILD_DIR . '/lib/widgets/main-featured-post-widget.php' );
+include_once( CHILD_DIR . '/lib/widgets/sub-featured-posts-widget.php' );
+
+function add_custom_widgets() {  
+  // register our custom widget..
+  register_widget( 'Main_Featured_Post' );
+  register_widget( 'Sub_Featured_Posts' );
+}
+add_action( 'widgets_init', 'add_custom_widgets' );
+
+
+// Filter function that is a modified version of the default in markup.php
+// This function adds the classes to an entry (post) 
+// The modified part adds column classes on pages that aren't single pages or posts (e.g. home page)
+// This function is set as the filter in sub-featured-posts widget.
+remove_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
+add_filter( 'genesis_attr_entry', 'custom_add_entryclasses_attr' );
+
+function custom_add_entryclasses_attr( $attributes ) {
+ 
+	global $post;
+	global $current_post;
+	$attributes['class']     = join( ' ', get_post_class() );
+	$attributes['itemscope'] = 'itemscope';
+	$attributes['itemtype']  = 'http://schema.org/CreativeWork';
+
+	//* Blog posts microdata
+	if ( 'post' === $post->post_type ) {
+
+		$attributes['itemtype']  = 'http://schema.org/BlogPosting';
+
+		//* If main query,
+		if ( is_main_query() )
+			$attributes['itemprop']  = 'blogPost';
+
+	}
+	
+	if( is_singular() )
+	{
+		// This is a single post or page. We don't want to add column classes to this, so leave here.
+		return $attributes;
+	}
+ 
+	 if ( has_category ('main-feature', $post) || has_category ('main-news', $post) )
+	 {
+		 //This is a main feature post. We don't want to add column classes to this, so leave here.
+		 return $attributes;
+	 }
+    
+	
+	 global $wp_query;
+	
+	 // add extra 'one-third' column CSS class
+	 $attributes['class'] .= ' one-third';
+	 
+	 // If this is the 1st, 4th etc. post in the loop then add the 'first' column CSS class
+	 if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 3 )
+		$attributes['class'] .= ' first';
+
+	 // return the attributes
+	 return $attributes;
+ 
+}
+
 add_theme_support( 'genesis-connect-woocommerce' );
+
+//* Add support for 3-column footer widgets. Styled to full-width in style.css with .footer-widgets-4 class
+add_theme_support( 'genesis-footer-widgets', 4 );
+
+//* Add shortcode that lets us dynamically include the url of the site in text, widgets etc., e.g. <a href="[url]/pretend-page/">
+add_shortcode('url','home_url');
 
 add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
@@ -27,11 +99,12 @@ if ( ! is_admin() )
   wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
+wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 //* Load the fonts we need
-add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
-function lifestyle_google_fonts() {
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700|Roboto:400', array(), CHILD_THEME_VERSION );
-}
+//*add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
+//*function lifestyle_google_fonts() {
+//*	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700|Roboto:400', array(), CHILD_THEME_VERSION );
+//*}
 
 //* Disable the emojicons that were added in WP4.2 and create an unnecessary mess in the HTML
 //* See http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2 
@@ -172,6 +245,8 @@ echo '</div>';
 /** Customize the post header function by wptron */
 /**add_filter('genesis_post_info', 'wpt_info_filter');**/
 
+/**Remove post meta info (Filed under: [category]   Tagged with: [tags]) from end of post **/
+remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 function wpt_info_filter($post_info) {
 if (!is_page()) {
