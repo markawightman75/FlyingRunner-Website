@@ -128,7 +128,8 @@ font-size: 1em; /*Normally 16px*/
 font-weight: 400;
 line-height: 1.5em;
 color: #444;
-margin-bottom: 0.8em;*/
+/*margin-bottom: 0.8em;*/
+margin-bottom: 0px;
 }
 
 /* Slightly larger text for the first paragraph of a feature */
@@ -810,13 +811,11 @@ text-decoration: none;
 }
 
 .single-post .entry-content a {
-/*color: #04A891;*/
-color: #444;
-/*color: #6C0CA2;*/
+color: #006B5C;
 font-weight: 600;
 /*font-style: italic;*/
 text-decoration: none;
-border-bottom: 1px solid #DCDCDC;
+/*border-bottom: 1px solid #DCDCDC;*/
 }
 
 .single-post .content a:hover {
@@ -825,7 +824,8 @@ color: #6C0CA2;
 
 /*Links in article meta info, e.g. tags and categories in article lists, e.g. home page*/
 .entry-meta a {
-color: #76d2c5;
+/*color: #76d2c5;*/
+color: #006B5C;
 text-decoration: none;
 }
 
