@@ -1,0 +1,327 @@
+/* ***********************************************  */
+/* Headlines (teasers for posts) used on the home   */
+/* page and category pages                          */
+/* ***********************************************  */
+
+/* Font families */
+.headline-large h4, .headline-small h4 {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+.headline-large p, .headline-small p {
+font-family: "ff-tisa-web-pro",serif;
+}
+
+/* Font sizes, weights and line spacings */
+.headline-large h4 {
+font-size: 2em;
+font-weight: 700;
+line-height: 1.3em;
+}
+
+.headline-small h4{
+font-weight: 700;
+line-height: 1.3em;
+}
+
+/*Small headline vertical layout*/
+@media only screen and (min-width: 691px) {
+.headline-small h4{
+font-size: 1.125em;
+}}
+
+/*Small headline horizontal layout (narrower screen)*/
+@media only screen and (max-width: 690px) {
+.headline-small h4{
+font-size: 1em;
+}}
+
+.headline-large p {
+font-size: 0.9375em;
+font-weight: 500;
+line-height: 1.35em;
+text-rendering: optimizeLegibility;
+}
+
+.headline-small p {
+font-size: 0.875em;
+font-weight: 500;
+line-height: 1.35em;
+}
+
+/* Margins and padding */
+.headline-large h4, .headline-small h4 {
+margin-top: 0px;
+margin-bottom: 0.2em;
+}
+
+.headline-large p {
+margin-top: -5px;
+margin-bottom: 1.5em;
+}
+
+.headline-small p {
+margin-top: 0px;
+margin-bottom: 1.5em;
+}
+
+/* Colors */
+.headline-large h4, .headline-small h4 {
+color: #222;
+}
+.headline-large p, .headline-small p {
+color: #333;
+}
+
+/* ***********************************************  */
+/*      Large (full-width) headline                 */
+/*                                                  */
+/* Large headline (teaser for post) used on the     */
+/* home page and category pages. Contains an image, */
+/* title and text.                                  */
+/*                                                  */
+/* Full width with title at top and text & image    */
+/* below (text on left, image on right) when parent */
+/* div is wide enough.                              */
+/* When less space available, reverts to vertical   */
+/* layout with title above image above text         */
+/* ************************************************ */
+
+.headline-large {
+width: 100%;
+}
+
+/*The headline title (full width of headline, 
+contains an h2)*/
+.headline-large-header {
+width: 100%;
+}
+
+/*The headline content area (contains text and image)*/
+.headline-large-content {
+width: 100%;
+overflow: hidden; /*So the content area expands vertically to bottom of text or image (whichever is taller)*/
+}
+
+@media only screen and (min-width: 721px) {
+/*Give image 400px on right and text all remaining space
+on the left. Requires div for image to come _before_ div for text in the html */
+/*Text on left, image on right*/
+.headline-large-text {
+overflow: hidden;
+max-width: none;
+}
+.headline-large-image {
+width: 400px;
+float: right;
+margin-left: 1.5em;
+margin-bottom: 0px;
+}
+
+.debug-borders.headline-large {
+border: 3px solid black;
+}
+.debug-borders .headline-large-header {
+border: 1px solid green;
+}
+.debug-borders .headline-large-content {
+border: 1px solid red;
+}
+.debug-borders .headline-large-text {
+border: 1px solid blue;
+}
+.debug-borders .headline-large-image {
+border: 1px solid yellow;
+}
+
+}
+
+@media only screen and (max-width: 720px) {
+/*Put image on top (full width) and text underneath (full width)*/
+.headline-large-text {
+width: 100%;
+overflow: hidden;
+max-width: 400px; /*So text doesn't extend past right edge of image*/
+}
+
+.headline-large-image {
+width: 100%;
+margin-left: 0px;
+margin-bottom: 0.5em;
+}
+
+.debug-borders.headline-large {
+border: 3px dashed black;
+}
+.debug-borders .headline-large-header {
+border: 1px dashed green;
+}
+.debug-borders .headline-large-content {
+border: 1px dashed red;
+}
+.debug-borders .headline-large-text {
+border: 1px dashed blue;
+}
+.debug-borders .headline-large-image {
+border: 1px dashed yellow;
+}
+
+}
+
+.headline-large-image img {
+max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+height: auto;
+}
+
+
+
+/* ************************************************ */
+/*               Small headline                     */
+/* Small headline (teaser for post) used on the     */
+/* home page and category pages. Contains an image, */
+/* title and text.                                  */
+/*                                                  */
+/* One-third width with image above title above text*/
+/* when parent div is >=580px  (happens when screen */ 
+/* >=691px).                                        */
+/* Full-width with image on left then title and text*/
+/* on right when  parent div is <580px (happens when*/
+/* screen <=690px)                                  */
+/* ************************************************ */
+
+/*Vertical layout (when one-third width)*/
+@media only screen and (min-width: 691px) {
+.headline-small {
+height: 310px;
+overflow: hidden;
+margin-bottom: 2em;
+padding-top: 0px;
+padding-left: 0px;
+}
+    
+.headline-small-image {
+margin-right: 0px;
+}
+    
+.headline-small-image img {
+max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+height: auto;
+}
+/*The headline content area (contains header and text)*/
+.headline-small-content {
+width: 100%;
+}
+
+.headline-small-header {
+width: 100%;
+margin-top: 0px;
+}
+
+.headline-small-text {
+width: 100%;
+}
+.debug-borders.headline-small {
+border: 3px solid black;
+}
+.debug-borders .headline-small-header {
+border: 1px solid green;
+}
+.debug-borders .headline-small-content {
+border: 1px solid red;
+}
+.debug-borders .headline-small-text {
+border: 1px solid blue;
+}
+.debug-borders .headline-small-image {
+border: 1px solid yellow;
+}
+}
+
+/*Horizontal  layout (when screen narrow and parent column now full width column)*/
+@media only screen and (max-width: 690px) {
+.headline-small {
+height: 200px;
+overflow: hidden;
+margin-bottom: 2em;
+background-color: #F6F6F6;
+padding-top: 5px;
+padding-left: 5px;
+}
+
+.headline-small-image {
+/*width: 216px;*/
+/*width: 186px;*/
+width: 45%;
+height: 100%;
+float: left;
+margin-right: 0.5em;
+}  
+.headline-small-image img {
+width: 100%;
+max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+height: auto;
+}
+/*The headline content area (contains header and text)*/
+.headline-small-content {
+width: auto;
+}
+.headline-small-header {
+width: 100%;
+margin-top: -2px; /*Align with top of image*/
+}
+    
+.headline-small-text {
+width: 100%;
+/*overflow: hidden;*/
+}
+
+.debug-borders.headline-small {
+border: 3px dashed black;
+}
+.debug-borders .headline-small-header {
+border: 1px dashed green;
+}
+.debug-borders .headline-small-content {
+border: 1px dashed red;
+}
+.debug-borders .headline-small-text {
+border: 1px dashed blue;
+}
+.debug-borders .headline-small-image {
+border: 1px dashed yellow;
+}
+}
+
+
+
+
+
+
+/*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*To support older versions of Safari (< 5.1), Chrome (< 10), and Firefox (< 29)*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+
+/*
+At screen >=1024 content width=580 (sidebar visible)
+At screen >=772 <1024 content width=700 (sidebar not visible)
+At screen <772 content width is variable from to 0 to 699
+When content width is less than 580 we want to switch to single column layout, so small headlines are full-width not third-width
+At screen <=690 then content width is less than 580
+At screen >690 then content width is more than 580  
+*/

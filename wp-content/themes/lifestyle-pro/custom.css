@@ -15,6 +15,9 @@
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
+/*TODO: Load this separately (from html) or incorporate contents into this file, because this is bad from a speed perspective (prevents parallel downloading of css files)*/
+@import url("headlines.css");
+
 @font-face {
   font-family: "Source Sans Pro";
   font-style: normal;
