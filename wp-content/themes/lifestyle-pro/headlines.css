@@ -62,7 +62,7 @@ margin-bottom: 1.5em;
 
 .headline-small p {
 margin-top: 0px;
-margin-bottom: 1.5em;
+margin-bottom: 0.5em;
 }
 
 /* Colors */
@@ -184,13 +184,16 @@ height: auto;
 /* One-third width with image above title above text*/
 /* when parent div is >=580px  (happens when screen */ 
 /* >=691px).                                        */
-/* Full-width with image on left then title and text*/
-/* on right when  parent div is <580px (happens when*/
+/* Full-width with image above title above text     */
+/* when parent div is <580px (happens when          */
 /* screen <=690px)                                  */
+/*                                                  */
+/* Image should be 400px wide.                      */
 /* ************************************************ */
 
 /*Vertical layout (when one-third width)*/
-@media only screen and (min-width: 691px) {
+/*@media only screen and (min-width: 691px) {*/
+@media only screen and (min-width: 1px) {
 .headline-small {
 height: 310px;
 overflow: hidden;
@@ -237,65 +240,25 @@ border: 1px solid yellow;
 }
 }
 
-/*Horizontal  layout (when screen narrow and parent column now full width column)*/
+
+/*Adjust layout when screen narrow and parent column is now full width column*/
 @media only screen and (max-width: 690px) {
 .headline-small {
-height: 200px;
-overflow: hidden;
-margin-bottom: 2em;
-background-color: #F6F6F6;
-padding-top: 5px;
-padding-left: 5px;
-}
-
-.headline-small-image {
-/*width: 216px;*/
-/*width: 186px;*/
-width: 45%;
-height: 100%;
-float: left;
-margin-right: 0.5em;
-}  
-.headline-small-image img {
-width: 100%;
-max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+max-width: 410px;
 height: auto;
-}
-/*The headline content area (contains header and text)*/
-.headline-small-content {
-width: auto;
-}
-.headline-small-header {
-width: 100%;
-margin-top: -2px; /*Align with top of image*/
+background-color: #F9F9F9;
+padding: 5px;
+/*outline: 1px solid #F0F0F0;*/
 }
     
-.headline-small-text {
+.headline-small img {
 width: 100%;
-/*overflow: hidden;*/
+max-width: 400px;
 }
-
-.debug-borders.headline-small {
-border: 3px dashed black;
-}
-.debug-borders .headline-small-header {
-border: 1px dashed green;
-}
-.debug-borders .headline-small-content {
-border: 1px dashed red;
-}
-.debug-borders .headline-small-text {
-border: 1px dashed blue;
-}
-.debug-borders .headline-small-image {
-border: 1px dashed yellow;
+.headline-small-content {
+max-width: 400px;
 }
 }
-
-
-
-
-
 
 /*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
 html {
