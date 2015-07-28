@@ -18,7 +18,7 @@
  *
  * @package Genesis\Widgets
  */
-class Main_Featured_Post extends WP_Widget {
+class Headline_Large_Widget extends WP_Widget {
 
 	/**
 	 * Holds widget settings defaults, populated in constructor.
@@ -117,12 +117,14 @@ class Main_Featured_Post extends WP_Widget {
 
 			$_genesis_displayed_ids[] = get_the_ID();
 
+			/**
 			genesis_markup( array(
 				'html5'   => '<article %s>',
 				'xhtml'   => sprintf( '<div class="%s">', implode( ' ', get_post_class() ) ),
 				'context' => 'entry',
 			) );
-
+			*/
+			
 			$image = genesis_get_image( array(
 				'format'  => 'html',
 				'size'    => $instance['image_size'],
@@ -130,6 +132,37 @@ class Main_Featured_Post extends WP_Widget {
 				'attr'    => genesis_parse_attr( 'entry-image-widget' ),
 			) );
 
+			echo '<div class="headline-large xdebug-borders">';
+				/** Header */
+				echo '<div class="headline-large-header">';
+						printf( '<h2><a href="%s" title="%s">%s</a></h2>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );								
+				echo '</div>';
+				
+				/** Content */
+				echo '<div class="headline-large-content">';
+					/** Image */
+					echo '<div class="headline-large-image">';
+						//Get the url of the featured image
+						$thumb_id = get_post_thumbnail_id();
+						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+						$thumb_url = $thumb_url_array[0];
+						
+						if (! empty ($thumb_url)) {						
+							$imagetag = sprintf( '<img src="%s"/>', $thumb_url);
+							printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $imagetag );								
+						
+						}
+					echo '</div>';
+					
+					/** Text */
+					echo '<div class="headline-large-text">';
+						the_excerpt();
+					echo '</div>';
+				echo '</div>';
+				
+			echo '</div>';
+			
+			/*
 			if ( $instance['show_title'] )
 				echo genesis_html5() ? '<header class="entry-header">' : '';
 
@@ -189,7 +222,7 @@ class Main_Featured_Post extends WP_Widget {
 				'html5' => '</article>',
 				'xhtml' => '</div>',
 			) );
-
+**/
 		endwhile; endif;
 
 		//* Restore original query

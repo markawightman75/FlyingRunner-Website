@@ -168,8 +168,8 @@ margin-bottom: 0.2em;
 
 /* Home page article titles
 Reduce top margin so article title is aligned with top of article image*/
+/*
 .home h2 {
-/*font-family:"Source Sans Pro Bold", arial, sans-serif;*/
 font-size: 1.125em;
 font-weight: 700;
 line-height: 1.3em;
@@ -177,6 +177,7 @@ color: #222;
 margin-top: 1.5em;     
 margin-top: 0px;
 }
+*/
 
 h3 {
 /* Just until I can see where it is used  */
@@ -458,9 +459,9 @@ font-size: 1.5em;
 */
 
 /* Featured article post title*/
-.home .main-featured-content h2 {
+/*.home .main-featured-content h2 {
 font-size: 2em;
-}
+}*/
 
 /*@media only screen and (max-width: 720px) {
 .home .main-featured-content img {
@@ -469,11 +470,11 @@ height: 112px;
 }
 }*/
 
-.home .main-featured-content p {
-font-size: 0.9375em; /*15px when 1em=16px*/
-margin-top: -5px; /*Hack to align text with top of image*/   
-line-height: 1.35em; /*Smaller line height than in long form*/
-}
+/*.home .main-featured-content p {
+font-size: 0.9375em; 
+margin-top: -5px; 
+line-height: 1.35em; 
+}*/
 
 .home .sub-featured-content p {
 font-size: 0.875em; /*14px when 1em=16px*/
@@ -492,7 +493,6 @@ margin-bottom: 10px;
 
 /*Home page "News, Features & Reviews text*/
 .home-top h4 {
-/*font-family:"Source Sans Pro", arial, sans-serif;*/
 font-size: 1.5em; 
 font-weight: 400;
 line-height: 1.1em;

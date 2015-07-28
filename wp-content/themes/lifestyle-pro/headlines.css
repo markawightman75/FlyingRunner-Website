@@ -4,7 +4,7 @@
 /* ***********************************************  */
 
 /* Font families */
-.headline-large h4, .headline-small h4 {
+.headline-large h2, .headline-small h4 {
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
@@ -13,7 +13,7 @@ font-family: "ff-tisa-web-pro",serif;
 }
 
 /* Font sizes, weights and line spacings */
-.headline-large h4 {
+.headline-large h2 {
 font-size: 2em;
 font-weight: 700;
 line-height: 1.3em;
@@ -50,7 +50,7 @@ line-height: 1.35em;
 }
 
 /* Margins and padding */
-.headline-large h4, .headline-small h4 {
+.headline-large h2, .headline-small h4 {
 margin-top: 0px;
 margin-bottom: 0.2em;
 }
@@ -66,11 +66,17 @@ margin-bottom: 0.5em;
 }
 
 /* Colors */
-.headline-large h4, .headline-small h4 {
+.headline-large h2, .headline-large h2 > a, .headline-small h4 {
 color: #222;
 }
+
 .headline-large p, .headline-small p {
 color: #333;
+}
+
+/* Links */
+.headline-large h2 > a {
+text-decoration: none;
 }
 
 /* ***********************************************  */

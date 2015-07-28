@@ -5,12 +5,12 @@
 */
 
 //* Add our custom "main featured post" widget
-include_once( CHILD_DIR . '/lib/widgets/main-featured-post-widget.php' );
+include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/sub-featured-posts-widget.php' );
 
 function add_custom_widgets() {  
   // register our custom widget..
-  register_widget( 'Main_Featured_Post' );
+  register_widget( 'Headline_Large_Widget' );
   register_widget( 'Sub_Featured_Posts' );
 }
 add_action( 'widgets_init', 'add_custom_widgets' );
