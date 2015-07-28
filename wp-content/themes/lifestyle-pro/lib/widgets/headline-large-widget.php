@@ -37,7 +37,7 @@ class Headline_Large_Widget extends WP_Widget {
 		$this->defaults = array(
 			'title'                   => '',
 			'posts_cat'               => '',
-			'posts_num'               => 1,
+			'post_id'               => '',
 			'posts_offset'            => 0,
 			'orderby'                 => '',
 			'order'                   => '',
@@ -62,16 +62,16 @@ class Headline_Large_Widget extends WP_Widget {
 
 		$widget_ops = array(
 			'classname'   => 'main-featured-content mainfeaturedpost',
-			'description' => __( 'Displays main featured post with thumbnail', 'custom' ),
+			'description' => __( 'Displays large headline with thumbnail', 'custom' ),
 		);
 
 		$control_ops = array(
-			'id_base' => 'main-featured-post',
+			'id_base' => 'headline-large-post',
 			'width'   => 505,
 			'height'  => 350,
 		);
 
-		parent::__construct( 'main-featured-post', __( 'Custom - Main Featured Post', 'custom' ), $widget_ops, $control_ops );
+		parent::__construct( 'headline-large-post', __( 'Flying Runner - Large Headline', 'custom' ), $widget_ops, $control_ops );
 
 	}
 
@@ -98,21 +98,30 @@ class Headline_Large_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) )
 			echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
 
-		$query_args = array(
+		/**$query_args = array(
 			'post_type' => 'post',
 			'cat'       => $instance['posts_cat'],
-			'showposts' => $instance['posts_num'],
+			'showposts' => $instance['post_id'],
 			'offset'    => $instance['posts_offset'],
 			'orderby'   => $instance['orderby'],
 			'order'     => $instance['order'],
+		);*/
+
+		//See http://www.billerickson.net/code/wp_query-arguments/ 
+		$query_args = array(
+			'p' => $instance['post_id']
 		);
 
 		//* Exclude displayed IDs from this loop?
-		if ( $instance['exclude_displayed'] )
-			$query_args['post__not_in'] = (array) $_genesis_displayed_ids;
+		//if ( $instance['exclude_displayed'] )
+		//	$query_args['post__not_in'] = (array) $_genesis_displayed_ids;
 
+		
+	
 		$wp_query = new WP_Query( $query_args );
 
+		if ( !have_posts()) printf('Large headline widget: Post with ID %s not found',$instance['post_id']);
+		
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 			$_genesis_displayed_ids[] = get_the_ID();
@@ -233,7 +242,7 @@ class Headline_Large_Widget extends WP_Widget {
 			if ( ! empty( $instance['extra_title'] ) )
 				echo $before_title . esc_html( $instance['extra_title'] ) . $after_title;
 
-			$offset = intval( $instance['posts_num'] ) + intval( $instance['posts_offset'] );
+			$offset = intval( $instance['post_id'] ) + intval( $instance['posts_offset'] );
 
 			$query_args = array(
 				'cat'       => $instance['posts_cat'],
@@ -331,8 +340,8 @@ class Headline_Large_Widget extends WP_Widget {
 				</p>
 
 				<p>
-					<label for="<?php echo $this->get_field_id( 'posts_num' ); ?>"><?php _e( 'Number of Posts to Show', 'genesis' ); ?>:</label>
-					<input type="text" id="<?php echo $this->get_field_id( 'posts_num' ); ?>" name="<?php echo $this->get_field_name( 'posts_num' ); ?>" value="<?php echo esc_attr( $instance['posts_num'] ); ?>" size="2" />
+					<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Post ID to show in the headline', 'genesis' ); ?>:</label>
+					<input type="text" id="<?php echo $this->get_field_id( 'post_id' ); ?>" name="<?php echo $this->get_field_name( 'post_id' ); ?>" value="<?php echo esc_attr( $instance['post_id'] ); ?>" size="5" />
 				</p>
 
 				<p>
