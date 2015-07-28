@@ -4,7 +4,7 @@
 /* ***********************************************  */
 
 /* Font families */
-.headline-large h2, .headline-small h4 {
+.headline-large h2, .headline-small h2 {
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
@@ -19,20 +19,20 @@ font-weight: 700;
 line-height: 1.3em;
 }
 
-.headline-small h4{
+.headline-small h2{
 font-weight: 700;
 line-height: 1.3em;
 }
 
 /*Small headline vertical layout*/
 @media only screen and (min-width: 691px) {
-.headline-small h4{
+.headline-small h2{
 font-size: 1.125em;
 }}
 
 /*Small headline horizontal layout (narrower screen)*/
 @media only screen and (max-width: 690px) {
-.headline-small h4{
+.headline-small h2{
 font-size: 1em;
 }}
 
@@ -50,7 +50,7 @@ line-height: 1.35em;
 }
 
 /* Margins and padding */
-.headline-large h2, .headline-small h4 {
+.headline-large h2, .headline-small h2 {
 margin-top: 0px;
 margin-bottom: 0.2em;
 }
@@ -66,7 +66,7 @@ margin-bottom: 0.5em;
 }
 
 /* Colors */
-.headline-large h2, .headline-large h2 > a, .headline-small h4 {
+.headline-large h2, .headline-large h2 > a, .headline-small h2, .headline-small h2 > a {
 color: #222;
 }
 
@@ -75,7 +75,7 @@ color: #333;
 }
 
 /* Links */
-.headline-large h2 > a {
+.headline-large h2 > a, .headline-small h2 > a {
 text-decoration: none;
 }
 

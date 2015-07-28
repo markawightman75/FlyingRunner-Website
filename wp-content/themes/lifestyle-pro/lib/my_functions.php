@@ -6,12 +6,12 @@
 
 //* Add our custom "main featured post" widget
 include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/sub-featured-posts-widget.php' );
+include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
 
 function add_custom_widgets() {  
   // register our custom widget..
   register_widget( 'Headline_Large_Widget' );
-  register_widget( 'Sub_Featured_Posts' );
+  register_widget( 'Headlines_Small_Widget' );
 }
 add_action( 'widgets_init', 'add_custom_widgets' );
 
@@ -20,8 +20,8 @@ add_action( 'widgets_init', 'add_custom_widgets' );
 // This function adds the classes to an entry (post) 
 // The modified part adds column classes on pages that aren't single pages or posts (e.g. home page)
 // This function is set as the filter in sub-featured-posts widget.
-remove_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
-add_filter( 'genesis_attr_entry', 'custom_add_entryclasses_attr' );
+//remove_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
+//add_filter( 'genesis_attr_entry', 'custom_add_entryclasses_attr' );
 
 function custom_add_entryclasses_attr( $attributes ) {
  
@@ -41,13 +41,14 @@ function custom_add_entryclasses_attr( $attributes ) {
 			$attributes['itemprop']  = 'blogPost';
 
 	}
-	
+	//return $attributes;
 	if( is_singular() )
 	{
 		// This is a single post or page. We don't want to add column classes to this, so leave here.
 		return $attributes;
 	}
  
+	//echo $attributes['class'];
 	 if ( has_category ('main-feature', $post) || has_category ('main-news', $post) )
 	 {
 		 //This is a main feature post. We don't want to add column classes to this, so leave here.
