@@ -86,11 +86,25 @@ class Headline_Large_Widget extends WP_Widget {
 		if ( have_posts() ) {
 			
 			the_post();
-
+			
+			// If a custom field called "short_title" is defined on the post, use that for the entry title instead of the main post title
+			$short_title = get_post_meta(get_the_ID(), "short_title", true);			
+			if ( ! empty ($short_title))
+			{
+				$title = $short_title;
+				$title_clean = strip_tags($short_title);
+				$title_clean = esc_attr($title_clean);	
+			}						
+			else
+			{
+				$title = get_the_title();
+				$title_clean = the_title_attribute( 'echo=0' );
+			}
+			
 			echo '<div class="headline-large xdebug-borders">';
 				/** Header */
 				echo '<div class="headline-large-header">';
-						printf( '<h2><a href="%s" title="%s">%s</a></h2>', get_permalink(), the_title_attribute( 'echo=0' ), get_the_title() );								
+						printf( '<h2><a href="%s" title="%s">%s</a></h2>', get_permalink(), $title_clean, $title );								
 				echo '</div>';
 				
 				/** Content */
