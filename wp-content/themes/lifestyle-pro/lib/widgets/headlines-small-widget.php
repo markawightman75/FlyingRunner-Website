@@ -109,10 +109,6 @@ class Headlines_Small_Widget extends WP_Widget {
 			
 			$_genesis_displayed_ids[] = get_the_ID();
 
-			$classes = get_post_class();
-			$classes[] = 'one-third';
-			$classes_string = implode( ' ', $classes );
-			
 			// If a custom field called "short_title" is defined on the post, use that for the entry title instead of the main post title
 			$short_title = get_post_meta(get_the_ID(), "short_title", true);			
 			if ( ! empty ($short_title))
@@ -131,7 +127,7 @@ class Headlines_Small_Widget extends WP_Widget {
 				echo '<div class="headline-small xdebug-borders one-third first">';				
 			}
 			else {
-				echo '<div class="headline-small xdebug-borders one-third doo">';
+				echo '<div class="headline-small xdebug-borders one-third">';
 			}
 				/** Image */
 				echo '<div class="headline-small-image">';
