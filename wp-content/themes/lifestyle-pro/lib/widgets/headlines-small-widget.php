@@ -81,7 +81,7 @@ class Headlines_Small_Widget extends WP_Widget {
 
 		echo $before_widget;
 
-		//* Set up the author bio
+		//* Display the title if set
 		if ( ! empty( $instance['title'] ) )
 			echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
 		

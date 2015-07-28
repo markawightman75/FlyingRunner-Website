@@ -73,6 +73,10 @@ class Headline_Large_Widget extends WP_Widget {
 
 		echo $before_widget;
 
+		//* Display the title if set
+		if ( ! empty( $instance['title'] ) )
+			echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
+
 		//See http://www.billerickson.net/code/wp_query-arguments/ 
 		$query_args = array(
 			'p' => $instance['post_id']
