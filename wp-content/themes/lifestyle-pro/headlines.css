@@ -25,13 +25,13 @@ line-height: 1.3em;
 }
 
 /*Small headline vertical layout*/
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
 .headline-small h2{
 font-size: 1.125em;
 }}
 
 /*Small headline horizontal layout (narrower screen)*/
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 .headline-small h2{
 font-size: 1em;
 }}
@@ -189,10 +189,10 @@ height: auto;
 /*                                                  */
 /* One-third width with image above title above text*/
 /* when parent div is >=580px  (happens when screen */ 
-/* >=691px).                                        */
+/* >=768px).                                        */
 /* Full-width with image above title above text     */
 /* when parent div is <580px (happens when          */
-/* screen <=690px)                                  */
+/* screen <=767px)                                  */
 /*                                                  */
 /* Image should be 400px wide.                      */
 /* ************************************************ */
@@ -248,7 +248,7 @@ border: 1px solid yellow;
 
 
 /*Adjust layout when screen narrow and parent column is now full width column*/
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 .headline-small {
 max-width: 410px;
 height: auto;
