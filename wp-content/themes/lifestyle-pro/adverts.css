@@ -1,0 +1,224 @@
+/* ***********************************************  */
+/* Adverts used on the home page                    */
+/* ***********************************************  */
+
+/*
+At screen >=1024 content width=580 (sidebar visible)
+At screen >=768 <1024 content width=700 (sidebar not visible)
+At screen <768 content width is variable from to 0 to 699
+*/
+
+/* Font families */
+.advert-small h2 {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+.advert-small p {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+/* Font sizes, weights and line spacings */
+.advert-small h2{
+font-weight: 700;
+/*line-height: 1.3em;*/
+line-height: 1.25em;
+}
+
+/*Small headline vertical layout*/
+@media only screen and (min-width: 768px) {
+.advert-small h2{
+/*font-size: 1.125em;*/
+font-size: 1.05em;
+}}
+
+/*Small headline horizontal layout (narrower screen)*/
+@media only screen and (max-width: 767px) {
+.advert-small h2{
+/*font-size: 1em;*/
+font-size: 1.05em;
+}}
+
+.advert-small p {
+font-size: 0.875em;
+font-weight: 500;
+line-height: 1.35em;
+}
+
+/* Margins and padding */
+.advert-small h2 {
+margin-top: 0px;
+margin-bottom: 0.2em;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.advert-small p {
+margin-top: 0px;
+margin-bottom: 0.5em;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+/* Font colours */
+.advert-grey h2, .advert-grey h2 >a {
+color: #444;
+}
+
+.advert-grey p {
+color: #333;
+}
+
+.advert-green h2, .advert-green h2 > a {
+color: #333;
+}
+
+.advert-green p {
+color: #222;
+}
+
+.advert-blue h2, .advert-blue h2 > a, .advert-blue p {
+color: #fff;
+}
+
+.advert-small-arrow-button a {
+color: #333;
+}
+
+/* Background colours */
+.advert-grey {
+background-color: #F6F6F6;
+}
+
+.advert-green {
+background-color: #C2E6E1;
+}
+
+.advert-blue {
+background-color: #81A0D6;
+}
+
+
+/* Links */
+.advert-small h2 > a {
+text-decoration: none;
+}
+
+
+/* ************************************************ */
+/*               Small advert                       */
+/* Small product advert used on the                 */
+/* home page and category pages. Contains an image, */
+/* title and text.                                  */
+/*                                                  */
+/* One-third width with image above title above text*/
+/* when parent div is >=580px  (happens when screen */ 
+/* >=768px).                                        */
+/* Full-width with image above title above text     */
+/* when parent div is <580px (happens when          */
+/* screen <=767px)                                  */
+/*                                                  */
+/* Image should be 400px wide.                      */
+/* ************************************************ */
+
+.advert-small {
+position: relative; /*We need this so that position: absolute works on .advert-small-arrow-button to make
+the button's position relative to its parent div, which 
+has this style */
+}
+/* The small  arrow in the bottom right corner */
+.advert-small-arrow-button {
+position: absolute;
+bottom: 0px;
+right: 5px;
+width: 1em;
+}
+
+/*Vertical layout (when one-third width)*/
+/*@media only screen and (min-width: 691px) {*/
+@media only screen and (min-width: 1px) {
+.advert-small {
+height: 310px;
+overflow: hidden;
+margin-bottom: 2em;
+padding: 5px; 
+border-bottom: 1px solid #bbb; 
+}
+    
+.advert-small-image {
+margin-right: 0px;
+}
+    
+.advert-small-image img {
+max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+height: auto;
+}
+/*The headline content area (contains header and text)*/
+.advert-small-content {
+width: 100%;
+}
+
+.advert-small-header {
+width: 100%;
+margin-top: 0px;
+}
+
+.advert-small-text {
+width: 100%;
+}
+.debug-borders.advert-small {
+border: 3px solid black;
+}
+.debug-borders .advert-small-header {
+border: 1px solid green;
+}
+.debug-borders .advert-small-content {
+border: 1px solid red;
+}
+.debug-borders .advert-small-text {
+border: 1px solid blue;
+}
+.debug-borders .advert-small-image {
+border: 1px solid yellow;
+}
+}
+
+
+/*Adjust layout when screen narrow and parent column is now full width column*/
+@media only screen and (max-width: 767px) {
+.advert-small {
+max-width: 410px;
+height: auto;
+background-color: #F9F9F9;
+padding: 5px;
+/*outline: 1px solid #F0F0F0;*/
+}
+    
+.advert-small img {
+width: 100%;
+max-width: 400px;
+}
+.advert-small-content {
+max-width: 400px;
+}
+}
+
+/*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*To support older versions of Safari (< 5.1), Chrome (< 10), and Firefox (< 29)*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }
+

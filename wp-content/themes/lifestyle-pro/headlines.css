@@ -3,6 +3,12 @@
 /* page and category pages                          */
 /* ***********************************************  */
 
+/*
+At screen >=1024 content width=580 (sidebar visible)
+At screen >=768 <1024 content width=700 (sidebar not visible)
+At screen <768 content width is variable from to 0 to 699
+*/
+
 /* Font families */
 .headline-large h2, .headline-small h2 {
 font-family: "jaf-bernina-sans",sans-serif;
@@ -286,11 +292,3 @@ html {
   box-sizing: inherit;
   }
 
-/*
-At screen >=1024 content width=580 (sidebar visible)
-At screen >=772 <1024 content width=700 (sidebar not visible)
-At screen <772 content width is variable from to 0 to 699
-When content width is less than 580 we want to switch to single column layout, so small headlines are full-width not third-width
-At screen <=690 then content width is less than 580
-At screen >690 then content width is more than 580  
-*/
