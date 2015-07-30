@@ -167,18 +167,6 @@ margin-top: 1.5em;
 margin-bottom: 0.2em;
 }
 
-/* Home page article titles
-Reduce top margin so article title is aligned with top of article image*/
-/*
-.home h2 {
-font-size: 1.125em;
-font-weight: 700;
-line-height: 1.3em;
-color: #222;
-margin-top: 1.5em;     
-margin-top: 0px;
-}
-*/
 
 h3 {
 /* Just until I can see where it is used  */
@@ -371,6 +359,7 @@ text-align: justify;
 
 margin-bottom: 0px;
 }
+
 /*Copy this sprite image locally so we can use it*/
 /*Need to remove full stops and 'Filed Under'*/
 /*
@@ -391,52 +380,6 @@ padding-left: 28px;
 blockquote{ font-family:"Roboto", arial, sans-serif;}
 */
 
-/*
-#container h2 { font-family: 'Source Sans Pro', arial, sans-serif; }
-*/
-
-
-/* Subtitle e.g. "Keep up with running news!" and "Please drop us a line" (on Contact Us) */
-/*
-.page div.entry-content h2 {
- margin-bottom: 6px;
-} 
-*/
-
-/* Page title on woocommerce pages e.g. Shop, Medal displays */
-/*
-.page-title {
- margin-bottom: 10px;
-}
-*/
-
-/* The page title on other pages (e.g. About) and the title on feature posts */
-/*[itemprop~="headline"] 
-{
-  font-size: 24px;
-}*/
-
-/* The page title on feature posts */
-/*
-.single-post h1[itemprop~="headline"] {
-  margin-bottom: 6px;
-}
-*/
-
-/* The page title on other pages (e.g. About) */
-/*
-.page h1[itemprop~="headline"] {
-  margin-bottom: 24px;
-}
-*/
-
-/* The h2 headings manually inserted for new sections in the middle of features */
-/*
-.single-post div.entry-content h2 {
-  margin-top: 12px;
-  margin-bottom: 6px;
-}
-*/
 
 .site-header {
 background: url("../../uploads/2014/07/RunnersHorizon-banner10.jpg")no-repeat;
@@ -451,31 +394,6 @@ height: 168px;
 width: 400px;
 height: 224px;
 }
-
-/* Featured article widget title, e.g. "Features" */
-/*
-.home .main-featured-content h4 {
-font-size: 1.5em;
-}
-*/
-
-/* Featured article post title*/
-/*.home .main-featured-content h2 {
-font-size: 2em;
-}*/
-
-/*@media only screen and (max-width: 720px) {
-.home .main-featured-content img {
-width: 200px;
-height: 112px;
-}
-}*/
-
-/*.home .main-featured-content p {
-font-size: 0.9375em; 
-margin-top: -5px; 
-line-height: 1.35em; 
-}*/
 
 .home .sub-featured-content p {
 font-size: 0.875em; /*14px when 1em=16px*/
@@ -492,215 +410,16 @@ margin-bottom: 0px;
 margin-bottom: 10px;
 }
 
-/*Home page "News, Features & Reviews text*/
-.home-top h4 {
+/*Home page section titles, e.g. "Features", "From our shop"*/
+.home-top h4, .home-top h4 > a  {
 font-size: 1.5em; 
 font-weight: 400;
 line-height: 1.1em;
 color: #222;
 margin-top: 0px;
 margin-bottom: 0.3em;
+text-decoration: none;
 }
-
-.product-advert {
-margin-bottom: 30px; 
-padding: 5px; 
-border-bottom: 1px solid #bbb; 
-position: relative; 
-display: block; 
-}
-
-
-/* A product advert sized to fit into a two column layout (with sidebar) */
-.product-advert-half {
-width: 290px; 
-height: 314px;
-}
-
-/* A product advert sized to fit into a three column layout (with sidebar) */
-/*This is ok >=1140 but fails below that*/
-@media only screen and (min-width: 1140px)  {
-.product-advert-third {
-width: 220px; 
-height: 322px;
-}
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1139px) {
-.product-advert-third {
-/*border: 4px solid green;*/
-width: 182px;
-}
-}
-
-/*Below 1024 the sidebar disappears, so we have more space again*/@media only screen and (min-width: 768px) and (max-width: 1023px) {
-.product-advert-third {
-/*border: 4px solid red;*/
-width: 216px;    
-}
-}
-
-/*Below 767 we only get one column, no matter how we size the adverts, but there is plenty of width so can make them full screen with image on left and text on right */
-@media only screen and (min-width: 430px) and (max-width: 767px) {
-.product-advert-third img {    
-float: left;
-width: 300px;
-height: auto;
-margin-right: 10px;
-}
-    
-.product-advert-third {
-/*border: 4px solid blue;*/
-height: 240px;
-
-}
-}
-
-/*At less than 430px there isn't enough width for text and image size by side, so it's back to vertical layout*/
-@media only screen and (max-width: 429px)  {
-.product-advert-third img {    
-float: none;
-width: 320px; /*Minimum phone width=320px I think*/
-height: auto;
-}
-}
-
-
-.product-advert-half img {
-width: 278px; 
-height: 213px;
-}
-
-/*
-.product-advert-third img {
-width: 210px; 
-height: 161px;
-}
-*/
-
-.product-advert h2{
-font-size: 1.05em;
-font-weight: 700;
-line-height: 1.25em;
-margin-bottom: 0.2em;
-padding-left: 5px;
-}
-
-.product-advert p {
-font-size: 0.935em; 
-font-weight: 500; 
-line-height: 1.35em;
-margin-bottom: 0px;
-padding-left: 5px;
-}
-
-.product-advert-half .product-advert-button-div {
-position: absolute;
-bottom: 1px;
-height: 1.5em;
-width: 100%;
-padding-right: 12px;
-padding-bottom: 0px;
-text-align: right;
-color: #666;
-}
-
-.product-advert-third .product-advert-button-div {
-position: absolute;
-bottom: 5px;
-height: 1.5em;
-width: 100%;
-padding-right: 12px;
-padding-bottom: 0px;
-text-align: right;
-color: #666;
-}
-
-
-.product-advert-half-button-div i {
-font-size: 1.25em; 
-}
-
-.product-advert-green {
-background-color: #C2E6E1; 
-}
-
-.product-advert-green h2 {
-color: #333;
-}
-
-.product-advert-green p {
-color: #222;
-}
-
-.product-advert-blue {
-background-color: #81A0D6;
-}
-
-.product-advert-blue h2, .product-advert-blue p {
-color: #fff;
-}
-
-.product-advert-grey {
-background-color: #f6f6f6; 
-}
-
-.product-advert-grey h2 {
-color: #444;
-}
-
-.product-advert-grey p {
-color: #333;
-}
-
-/*
-.product-advert-image {
-height:120px; 
-background-image: url(http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg);
-}
-*/
-
-/*
-.product-advert-text-transparent {
-position: absolute;
-bottom: -60px;
-height: 90px;
-width: 100%;
-transition: all 0s ease 0s, all 0.3s ease 0s, all 0s ease 0s;
-background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0%;
-box-sizing: border-box;
-padding-left: 6px;
-padding-right: 6px;
-padding-top: 5px;
-padding-bottom: 5px;
-}
-
-.product-advert-text-transparent h2 {
-color: #333;
-font-size: 1.1em;
-font-weight: 700;
-line-height: 1.25em;
-}
-*/
-
-/*
-.product-advert-text h2 {
-color: #FDADBA;
-font-size: 1em;
-font-weight: 600;
-line-height: 1.25em;
-}
-
-.product-advert-text p {
-color: #FDE4E2;
-font-size: 1em;
-font-weight: 600;
-line-height: 1.35em;
-}
-*/
-
-
-
 
 .genesis-nav-menu {
 clear: both;
@@ -719,18 +438,6 @@ float: left;
 width: 23.2209738% /*248/1068 */;
 }
 
-/*
-h2, .home-top .entry-title {
-font-size: 1.5em;
-}
-*/
-
-/*
-body {
-color: #272727;
-font-size: 0.875em;
-}
-*/
 
 
 .lifestyle-pro-home .featured-content .entry {
@@ -763,39 +470,9 @@ background: #FFF;
 border-left: 1px solid #eeeee8
 }
 
-/* h4 {
-color: #6C0CA2;
-background-color: #fff;
-font-weight: 300;
-font-size: 24px;
-line-height: 1.2;
-margin: 0 0 10px;
-}
-*/
-
-/* h1 {
-color: #6c0ca2;
-font-size: 24px;
-}
-*/
-
 .home-bottom-left, .home-bottom-right {
 width: 248px;
 }
-
-/*
-.content .entry {
-padding: 10px;
-border: 1px solid #eeeee8;
-}
-*/
-
-/*
-body {
-color: #272727;
-font-size: 14px;
-}
-*/
 
 /*Links in entry titles (e.g. home page articles) and sidebar widgets*/
 .entry-title a,
@@ -856,22 +533,6 @@ text-align: left;
 .entry-header .entry-meta {
 margin-bottom: 2px;
 }
-
-/*
-.entry-title {
-font-size: 20px;
-}
-*/
-
-/*
-h2.entry-title {
-line-height: 1;
-margin: 0 0 12px;
-}
-
-.entry-content p {
-margin-bottom: 10px;
-}*/
 
 .entry-footer .entry-meta {
 border-top: 1px solid #eeeee8;
