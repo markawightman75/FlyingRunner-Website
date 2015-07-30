@@ -7,11 +7,13 @@
 //* Add our custom "main featured post" widget
 include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
+include_once( CHILD_DIR . '/lib/widgets/adverts-small-widget.php' );
 
 function add_custom_widgets() {  
   // register our custom widget..
   register_widget( 'Headline_Large_Widget' );
   register_widget( 'Headlines_Small_Widget' );
+  register_widget( 'Adverts_Small_Widget' );
 }
 add_action( 'widgets_init', 'add_custom_widgets' );
 
