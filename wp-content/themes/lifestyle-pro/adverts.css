@@ -60,15 +60,15 @@ padding-right: 5px;
 }
 
 /* Font colours */
-.advert-grey h2, .advert-grey h2 >a {
+.advert-grey h2, .advert-grey h2 > a {
 color: #444;
 }
 
-.advert-grey p {
+.advert-grey p, .advert-grey p > a {
 color: #333;
 }
 
-.advert-green h2, .advert-green h2 > a {
+.advert-green h2, .advert-green h2 > a, .advert-green p > a {
 color: #333;
 }
 
@@ -76,7 +76,7 @@ color: #333;
 color: #222;
 }
 
-.advert-blue h2, .advert-blue h2 > a, .advert-blue p {
+.advert-blue h2, .advert-blue h2 > a, .advert-blue p, .advert-blue p > a {
 color: #fff;
 }
 
@@ -99,7 +99,7 @@ background-color: #81A0D6;
 
 
 /* Links */
-.advert-small h2 > a {
+.advert-small h2 > a, .advert-small p > a {
 text-decoration: none;
 }
 

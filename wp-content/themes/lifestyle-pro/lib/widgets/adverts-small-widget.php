@@ -85,61 +85,59 @@ class Adverts_Small_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) )
 			echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
 		
+		$advert_title = array();
+		$advert_text = array();
+		$advert_link = array();
+		$advert_image = array();
+		$advert_colour = array(); //'green', 'grey' or 'blue'
+		
+		$advert_title[1] = 'Stunning hand-made jewellery';
+		$advert_text[1] = 'Running-themed jewellery for men &amp; women. Lovingly crafted exclusively for us in the UK.';
+		$advert_link[1] = esc_url( home_url( '/product-category/jewellery' ));
+		$advert_image[1] = 'http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg';
+		$advert_colour[1] = 'grey';
+		
+		$advert_title[2] = 'Race medal displays';
+		$advert_text[2] = 'Get your hard-earned medals out of the drawer and give them pride of place  with our beautiful displays.';
+		$advert_link[2] = esc_url( home_url( '/product-category/medal-displays' ));
+		$advert_image[2] = 'http://127.0.0.1:82/wordpress/wp-content/themes/lifestyle-pro/test_pages/medal_display.png';
+		$advert_colour[2] = 'green';
+		
+		$advert_title[3] = 'Personalised London Marathon Art Print';
+		$advert_text[3] = 'Celebrate your achievement with this stunning art print exclusively created for us by artist Kate Molloy.';
+		$advert_link[3] = esc_url( home_url( '/product-category/art-prints' ));
+		$advert_image[3] = 'http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg';
+		$advert_colour[3] = 'blue';
+		
+		for ($index = 1; $index <= 3; $index++) {
+			$extra_classes = 'advert-' . $advert_colour[$index];
+			$extra_classes .= ($index == 1) ? ' first':'';
+			
 		?>
 		
-		 <div class="advert-small advert-grey one-third first xdebug-borders">
+		 <div class="advert-small one-third xdebug-borders <?php echo $extra_classes; ?>">
 		  <div class="advert-small-image">
-			<a href="http://127.0.0.1:82/wordpress/product-category/jewellery" title="Stunning hand-made jewellery"><img src="http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg"/></a>
-				
+			<a href="<?php echo $advert_link[$index] ?>" title="<?php echo $advert_title[$index]; ?>">
+			<img src="<?php echo $advert_image[$index]; ?>"/></a>		
 		  </div>
 		  <div class="advert-small-content"> 
 			  <div class="advert-small-header">
-				  <h2><a href="127.0.0.1:82/wordpress/product-category/jewellery" title="Stunning hand-made jewellery">Stunning hand-made jewellery</a></h2>
+				  <h2><a href="<?php echo $advert_link[$index]; ?>" title="<?php echo $advert_title[$index]; ?>"><?php echo $advert_title[$index]; ?></a></h2>
 			  </div>
 			  <div class="advert-small-text">
-				  <p >Running-themed jewellery for men &amp; women. Lovingly crafted exclusively for us in the UK.</p>
+				  <p><a href="<?php echo $advert_link[$index]; ?>" title="<?php echo $advert_title[$index]; ?>">
+				  <?php echo $advert_text[$index]; ?></a>
+				  </p>
 					<div class="advert-small-arrow-button">
-						<a href="127.0.0.1:82/wordpress/product-category/jewellery" title="Stunning hand-made jewellery"><i class="fa fa-arrow-circle-right"></i></a>
+						<a href="<?php echo $advert_link[$index]; ?>" title="<?php echo $advert_title[$index]; ?>"><i class="fa fa-arrow-circle-right"></i></a>
 						
-					</div>
-			  </div>
-		  </div>
-		</div>  
-			<div class="advert-small advert-green one-third xdebug-borders">
-		  <div class="advert-small-image">
-			<img src="http://127.0.0.1:82/wordpress/wp-content/themes/lifestyle-pro/test_pages/medal_display.png"/>    
-		  </div>
-		  <div class="advert-small-content"> 
-			  <div class="advert-small-header">
-				<h2>Race medal displays</h2>
-			  </div>
-			  <div class="advert-small-text">
-				  <p>Get your hard-earned medals out of the drawer and give them pride of place  with our beautiful displays.</p>
-					<div class="advert-small-arrow-button">
-						<i class="fa fa-arrow-circle-right"></i>
-					</div>
-			  </div>
-		  </div>
-		</div>  
-
-		<div class="advert-small advert-blue one-third xdebug-borders">
-		  <div class="advert-small-image">
-			<img src="http://dev.flyingrunner.co.uk.gridhosted.co.uk/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg"/>    
-		  </div>
-		  <div class="advert-small-content"> 
-			  <div class="advert-small-header">
-				<h2>Personalised London Marathon Art Print</h2>
-			  </div>
-			  <div class="advert-small-text">
-				  <p>Celebrate your achievement with this stunning art print exclusively created for us by artist Kate Molloy.</p>
-					<div class="advert-small-arrow-button">
-						<i class="fa fa-arrow-circle-right"></i>
 					</div>
 			  </div>
 		  </div>
 		</div>  
 		
 		<?php
+		} //end of for loop
 		echo $after_widget;
 
 	}
