@@ -405,13 +405,36 @@ border-bottom: 1px solid #eeeee8;
 margin-bottom: 0px;
 }
 
-/*Home page section headers widgets (temp) */
+/*TEMPORARY MARGIN OVERRIDES UNTIL SECTION TITLES ARE A
+CUSTOM WIDGET. THEY ARE CURRENTLY IN TEXT WIDGETS WHICH 
+HAVE A BIG BOTTOM MARGIN*/
+/*Home page & category pages section titles widgets (temp) */
 .home-top #text-5, .home-top #text-12 {
 margin-bottom: 10px;
 }
+/*Home page & category pages section titles widgets (temp) */
+.widget_text {
+margin-bottom: 10px;
+}
 
+
+/*Hide page title on Features and News pages*/
+.post-67 .entry-header, .post-144 .entry-header  {
+display: none;
+}
+/*Features and news pages intro text box (at top of page)*/
+.post-67 .entry-content p, .post-144 .entry-content p {
+background-color: #F6F6F6;
+padding: 10px;
+font-family: "jaf-bernina-sans",sans-serif;
+font-weight: 700;
+margin-bottom: 0px;
+}
+
+/******************************************************/
 /*Home page section titles, e.g. "Features", "From our shop"*/
-.home-top h4, .home-top h4 > a  {
+/******************************************************/
+.headlines-adverts-section-title h4, .headlines-adverts-section-title h4 > a  {
 font-weight: 400;
 line-height: 1.1em;
 color: #222;
@@ -420,12 +443,16 @@ margin-bottom: 0.3em;
 text-decoration: none;
 }
 
-.home-top h4 {
+.headlines-adverts-section-title h4 {
 font-size: 1.5em; 
 }
-.home-top h4 > a  {
+.headlines-adverts-section-title h4 > a  {
 font-size: 1em; /*The a is IN an h4 so don't need to *1.5 again */
 }
+.headlines-adverts-section-title i  {
+margin-left: 5px;
+}
+
 .genesis-nav-menu {
 clear: both;
 font-size: 17px;
@@ -488,10 +515,6 @@ text-decoration: none;
 
 .entry-title a:hover, .sidebar .widget-title a:hover {
     color: #6C0CA2;
-}
-
-.widget-title-arrow {
-margin-left: 5px;
 }
 
 .widget .product-categories li > a {
