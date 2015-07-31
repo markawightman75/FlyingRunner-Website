@@ -18,6 +18,42 @@ function add_custom_widgets() {
 add_action( 'widgets_init', 'add_custom_widgets' );
 
 
+
+genesis_register_sidebar( array(
+	'id'		=> 'featurespagecontentarea',
+	'name'		=> __( 'Flying Runner Features Page Content Area', 'Flying Runner' ),
+	'description'	=> __( 'This is the widget area for the articles on the features page. Put headlines, adverts widgets etc. in here.', 'Flying Runner' ),
+) );
+genesis_register_sidebar( array(
+	'id'		=> 'newsspagecontentarea',
+	'name'		=> __( 'Flying Runner News Page Content Area', 'Flying Runner' ),
+	'description'	=> __( 'This is the widget area for the articles on the news page. Put headlines, adverts widgets etc. in here.', 'Flying Runner' ),
+) );
+
+//* Add the page widget in the content - HTML5
+//add_action( 'genesis_entry_footer', 'nabm_add_page_content' );
+add_action( 'genesis_after_entry_content', 'add_features_and_news_page_content' );
+function add_features_and_news_page_content() {
+	$page_id_features = '67';
+	$page_id_news = '144';
+	
+	if ( is_page($page_id_features) )
+	{	
+		genesis_widget_area ('featurespagecontentarea', array(
+			'before' => '<div class="featurespagecontentarea"><div class="wrap">',
+			'after' => '</div></div>',
+		) );
+	}
+	if ( is_page($page_id_news) )
+	{	
+		genesis_widget_area ('newsspagecontentarea', array(
+			'before' => '<div class="newsspagecontentarea"><div class="wrap">',
+			'after' => '</div></div>',
+		) );
+	}
+
+}
+
 // Filter function that is a modified version of the default in markup.php
 // This function adds the classes to an entry (post) 
 // The modified part adds column classes on pages that aren't single pages or posts (e.g. home page)
