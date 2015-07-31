@@ -405,14 +405,13 @@ border-bottom: 1px solid #eeeee8;
 margin-bottom: 0px;
 }
 
-/*Home page 'Online magazine' header image widget */
-.home-top #text-5 {
+/*Home page section headers widgets (temp) */
+.home-top #text-5, .home-top #text-12 {
 margin-bottom: 10px;
 }
 
 /*Home page section titles, e.g. "Features", "From our shop"*/
 .home-top h4, .home-top h4 > a  {
-font-size: 1.5em; 
 font-weight: 400;
 line-height: 1.1em;
 color: #222;
@@ -421,6 +420,12 @@ margin-bottom: 0.3em;
 text-decoration: none;
 }
 
+.home-top h4 {
+font-size: 1.5em; 
+}
+.home-top h4 > a  {
+font-size: 1em; /*The a is IN an h4 so don't need to *1.5 again */
+}
 .genesis-nav-menu {
 clear: both;
 font-size: 17px;
@@ -485,6 +490,9 @@ text-decoration: none;
     color: #6C0CA2;
 }
 
+.widget-title-arrow {
+margin-left: 5px;
+}
 
 .widget .product-categories li > a {
 color: #6C0CA2;
