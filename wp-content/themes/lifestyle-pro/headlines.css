@@ -209,7 +209,7 @@ height: auto;
 .headline-small {
 height: 310px;
 overflow: hidden;
-margin-bottom: 2em;
+margin-bottom: 0.5em;
 padding-top: 0px;
 padding-left: 0px;
 }
