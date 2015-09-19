@@ -188,6 +188,49 @@ class Headlines_Small_Widget extends WP_Widget {
 
 	}
 
+	function buildPostsDropdown( $field_id, $field_name, $current_value )	{
+		
+		// Get an array of all published posts, most recent first
+		$args = array(
+			'nopaging' => true, 
+			'post_type' => 'post',
+			'post_status' => 'publish',
+			'orderby' => 'date',   
+			'order' => 'DESC',
+		);
+		
+		$posts = new WP_Query( $args );
+		echo "<select class=\"widefat\" id=\"" . $field_id . "\" name=\"" . $field_name . "\" type=\"text\">";
+		
+		if( $posts->have_posts() )
+		{
+			// Build an option tag for each post, selecting the one that matches the currently-set post id
+			while ( $posts->have_posts() ) : $posts->the_post();
+				$id = get_the_ID();
+				$option = "<option value='";
+				$option .= $id;
+				$option .= "'";
+				if ($id == $current_value)
+				{
+					$option .= " selected";
+				}
+				$option .= ">";
+				
+				echo $option;
+				echo get_the_title() . '  - (' . get_the_date("j M 'y") . ')';
+								
+				echo '</option>';
+				echo "\r\n"; 
+			
+			endwhile;
+		}	
+		
+		wp_reset_postdata();				
+		echo "</select>";
+		
+	}
+	
+
 	/**
 	 * Echo the settings update form.
 	 *
@@ -199,45 +242,41 @@ class Headlines_Small_Widget extends WP_Widget {
 
 		//* Merge with defaults
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
-
+		
+		
 		?>
+
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
+			<label for="<?php echo $this->get_field_id( 'headline_1_id' ); ?>"><?php _e( 'Top left post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_1_id' ) ,  $this->get_field_name('headline_1_id'), esc_attr($instance['headline_1_id']) ); ?>
+			
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_1_id' ); ?>"><?php _e( 'Headline 1 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_1_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_1_id' ); ?>" value="<?php echo esc_attr( $instance['headline_1_id'] ); ?>" size="5" />
+			<label for="<?php echo $this->get_field_id( 'headline_2_id' ); ?>"><?php _e( 'Top middle post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_2_id' ) ,  $this->get_field_name('headline_2_id'), esc_attr($instance['headline_2_id']) ); ?>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_2_id' ); ?>"><?php _e( 'Headline 2 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_2_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_2_id' ); ?>" value="<?php echo esc_attr( $instance['headline_2_id'] ); ?>" size="5" />
+			<label for="<?php echo $this->get_field_id( 'headline_3_id' ); ?>"><?php _e( 'Top right post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_3_id' ) ,  $this->get_field_name('headline_3_id'), esc_attr($instance['headline_3_id']) ); ?>
+			</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'headline_4_id' ); ?>"><?php _e( 'Bottom left post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_4_id' ) ,  $this->get_field_name('headline_4_id'), esc_attr($instance['headline_4_id']) ); ?>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_3_id' ); ?>"><?php _e( 'Headline 3 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_3_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_3_id' ); ?>" value="<?php echo esc_attr( $instance['headline_3_id'] ); ?>" size="5" />
+			<label for="<?php echo $this->get_field_id( 'headline_5_id' ); ?>"><?php _e( 'Bottom middle post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_5_id' ) ,  $this->get_field_name('headline_5_id'), esc_attr($instance['headline_5_id']) ); ?>
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_4_id' ); ?>"><?php _e( 'Headline 4 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_4_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_4_id' ); ?>" value="<?php echo esc_attr( $instance['headline_4_id'] ); ?>" size="5" />
+			<label for="<?php echo $this->get_field_id( 'headline_6_id' ); ?>"><?php _e( 'Bottom right post', 'genesis' ); ?>:</label>
+			<?php $this->buildPostsDropdown( $this->get_field_id( 'headline_6_id' ) ,  $this->get_field_name('headline_6_id'), esc_attr($instance['headline_6_id']) ); ?>
 		</p>
 
-		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_5_id' ); ?>"><?php _e( 'Headline 5 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_5_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_5_id' ); ?>" value="<?php echo esc_attr( $instance['headline_5_id'] ); ?>" size="5" />
-		</p>
-
-		<p>
-			<label for="<?php echo $this->get_field_id( 'headline_6_id' ); ?>"><?php _e( 'Headline 6 post ID', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'headline_6_id' ); ?>" name="<?php echo $this->get_field_name( 'headline_6_id' ); ?>" value="<?php echo esc_attr( $instance['headline_6_id'] ); ?>" size="5" />
-		</p>
-
-		<?php
-
+		<?php		
 	}
-
 }
