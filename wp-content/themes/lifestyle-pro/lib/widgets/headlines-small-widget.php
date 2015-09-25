@@ -108,7 +108,7 @@ class Headlines_Small_Widget extends WP_Widget {
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 			
 			$_genesis_displayed_ids[] = get_the_ID();
-
+			
 			// If a custom field called "short_title" is defined on the post, use that for the entry title instead of the main post title
 			$short_title = get_post_meta(get_the_ID(), "short_title", true);			
 			if ( ! empty ($short_title))
@@ -201,6 +201,7 @@ class Headlines_Small_Widget extends WP_Widget {
 		
 		$posts = new WP_Query( $args );
 		echo "<select class=\"widefat\" id=\"" . $field_id . "\" name=\"" . $field_name . "\" type=\"text\">";
+		echo "<option value=''>(none)</option>" . PHP_EOL;
 		
 		if( $posts->have_posts() )
 		{
