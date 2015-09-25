@@ -391,8 +391,10 @@ height: 168px;
 
 /*Override home page main featured article image size*/
 .home .main-featured-content img {
+/*
 width: 400px;
 height: 224px;
+*/
 }
 
 .home .sub-featured-content p {
@@ -486,6 +488,11 @@ padding-bottom: 10px;
 .lifestyle-pro-home .content .widget, .lifestyle-pro-home .content .widget:last-child {
 margin-bottom: 32px;
 /*border: 1px solid #eeeee8;*/
+}
+
+/*Section title widget*/
+.section-title {
+margin-bottom: 0px !important;
 }
 
 /*Widgets in the sidebar, e.g. Shop and Newsletter subscription*/
@@ -666,6 +673,12 @@ display:none;
 .woocommerce .related ul.products li.product, .woocommerce .related ul li.product, .woocommerce .upsells.products ul.products li.product, .woocommerce .upsells.products ul li.product, .woocommerce-page .related ul.products li.product, .woocommerce-page .related ul li.product, .woocommerce-page .upsells.products ul.products li.product, .woocommerce-page .upsells.products ul li.product {
 width: 24% !important;
 }
+
+/* Remove the list item disc on payment types grid in woocommerce checkout */
+.woocommerce-checkout-payment ul > li {
+list-style-type: none;
+}
+
 
 /* removes sale icon from price-reduced products */
 .onsale { display: none !important; }
