@@ -15,10 +15,6 @@
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-/*TODO: Load this separately (from html) or incorporate contents into this file, because this is bad from a speed perspective (prevents parallel downloading of css files)*/
-@import url("headlines.css");
-@import url("adverts.css");
-@import url("woocommerce-overrides.css");
 
 @font-face {
   font-family: "Source Sans Pro";
@@ -26,6 +22,7 @@
   font-weight: 400;
   src: local("Source Sans Pro"), local("SourceSansPro-Regular"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2") format("woff2"), url("http://fonts.gstatic.com/s/sourcesanspro/v9/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff") format("woff");
 }
+/*
 @font-face {
   font-family: "Source Sans Pro";
   font-style: normal;
@@ -46,38 +43,7 @@
   font-weight: 600;
   src: local("Source Sans Pro Semibold"), local("SourceSansPro-Semibold"), url("https://fonts.gstatic.com/l/font?kit=toadOcfmlt9b38dHJxOBGK05mPTxv46DJB1uf9neth2jHNs90nnCeJiD-HCYdCRyJQ1bcFog1oYkqbWHV6BMa-kzLtLfhNju3rhJKcSaIUztsNCfmr6nFAoVVLxpI8IZ&skey=227a890402fab339") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=toadOcfmlt9b38dHJxOBGNwDamy5PD6enMnecp1Jp1yjHNs90nnCeJiD-HCYdCRyJQ1bcFog1oYkqbWHV6BMa-kzLtLfhNju3rhJKcSaIUztsNCfmr6nFAoVVLxpI8IZ&skey=227a890402fab339") format("woff");
 }
-
-@font-face {
-  font-family: "Bitter";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Bitter-Regular"), url("https://fonts.gstatic.com/l/font?kit=7kLGN-JkuMRO9TbtqzqP6-5ugVuF0peRE2RbCX9_oyQNwBUijgVt51JMhI0yg6Bx0GWXnTxZNKPIJBGdtNDk7aYaNtxZUiq34CEol0CPowf3rGVtsTkPsbDajuO5ueQw&skey=c92268a3e57ee309") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=4wpBcjTQNDF2TLIS2qzQ9u5ugVuF0peRE2RbCX9_oyQNwBUijgVt51JMhI0yg6Bx0GWXnTxZNKPIJBGdtNDk7aYaNtxZUiq34CEol0CPowf3rGVtsTkPsbDajuO5ueQw&skey=c92268a3e57ee309") format("woff");
-}
-
-@font-face {
-  font-family: "Bitter";
-  font-style: italic;
-  font-weight: 400;
-  src: local("Bitter-Italic"), url("https://fonts.gstatic.com/l/font?kit=Q-EyzqkpBYyeOz86l4WsUngShx1I3EQEk3P0UXxV4G1dxlT5RfGIy95sQWGkHIXZT_wDREvo4O6_6v9ljamcpjDjNODm32iLRYw2SNTAhDi20L9efk2PUOdb5H1Th4EY&skey=7ce735f7301da1b7") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=0syeqo_sIz03HFgXvt2YrngShx1I3EQEk3P0UXxV4G1dxlT5RfGIy95sQWGkHIXZT_wDREvo4O6_6v9ljamcpjDjNODm32iLRYw2SNTAhDi20L9efk2PUOdb5H1Th4EY&skey=7ce735f7301da1b7") format("woff");
-}
-@font-face {
-  font-family: "Bitter";
-  font-style: normal;
-  font-weight: 700;
-  src: local("Bitter-Bold"), url("https://fonts.gstatic.com/l/font?kit=Cu3dNWUUsEPTS0pDWDW9jFAKFZEl-uwt8ZAZD7Zj1x8hU65Org-VsHihMsgCE9y49EhpiqJDj9lnQaq249QEOeUQPIbVTiqEwuMCDJhqySqh0bZea9sKcRbh9Fsh11uP&skey=e4df9b9066e26755") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=9sBJrC-7FtOMSuA9Lzolh1AKFZEl-uwt8ZAZD7Zj1x8hU65Org-VsHihMsgCE9y49EhpiqJDj9lnQaq249QEOeUQPIbVTiqEwuMCDJhqySqh0bZea9sKcRbh9Fsh11uP&skey=e4df9b9066e26755") format("woff");
-}
-@font-face {
-  font-family: "Droid Serif";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Droid Serif"), local("DroidSerif"), url("https://fonts.gstatic.com/l/font?kit=DgAtPy6rIVa2Zx3Xh9KaNUE6ShGMu9c779UIFYZ4jxwFjxAsoMPe6KTmxHr8yBfIjVpFoe6rX3ET310906cqDO5a0y2yM-buDzIWb-IT1VZnJfANE-_pKN9C1ZsKTQQU&skey=a46d7e8bf49adcd6") format("woff2"), url("https://fonts.gstatic.com/l/font?kit=DgAtPy6rIVa2Zx3Xh9KaNQB0Reh04nFjt5MHEhuNP5gFjxAsoMPe6KTmxHr8yBfIjVpFoe6rX3ET310906cqDO5a0y2yM-buDzIWb-IT1VZnJfANE-_pKN9C1ZsKTQQU&skey=a46d7e8bf49adcd6") format("woff");
-}
-@font-face {
-  font-family: "Libre Baskerville";
-  font-style: normal;
-  font-weight: 400;
-  src: local("Libre Baskerville"), local("LibreBaskerville-Regular"), url("https://fonts.gstatic.com/s/librebaskerville/v4/pR0sBQVcY0JZc_ciXjFsK6um_UGp_f-7zdFc-LcV-vo.woff2") format("woff2"), url("https://fonts.gstatic.com/s/librebaskerville/v4/pR0sBQVcY0JZc_ciXjFsK_nezK0UMMTxS4iLFUkfyQ0.woff") format("woff");
-}
+*/
 
 /*body { font-family:"Source Sans Pro", arial, sans-serif;}*/
 
@@ -453,11 +419,11 @@ border-radius: 4px;
 padding-left: 30px;
 padding-top: 4px;
 padding-bottom: 5px;
+background-position: 8px 6px; /*Firefox doesn't seem to recognise -x and -y*/
 background-position-x: 8px;
 background-position-y: 6px;
 margin-top: -2px;
 margin-bottom: 0px;
-/*background-color: #47B7A8;*/
 }
 
 .genesis-nav-menu > .search {
