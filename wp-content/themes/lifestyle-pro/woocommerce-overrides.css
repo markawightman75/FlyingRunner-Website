@@ -1,0 +1,150 @@
+/* ***********************************************  */
+/* Overrides for WooCommerce styles                 */
+/* ***********************************************  */
+
+/*Use our standard non-serif font for everything*/
+.woocommerce, .woocommerce p, .woocommerce label {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+/* Override the slightly larger size defaulted to by WC */
+.woocommerce p {
+font-size: 1em;
+}
+
+/* Override the default line height (2em) used by WC, noticable in 
+Gift Wrap for Multiple Items message, which is two lines */
+.woocommerce form .form-row label {
+line-height: 1.6em;
+}
+
+/* ***********************************************  */
+/* Overrides for Basket (cart)                      */
+/* ***********************************************  */
+
+/*Hide the coupon entry in the basket items table*/
+.woocommerce-cart .coupon {
+display: none;
+}
+
+/* Hide the "Basket totals" heading above the subtotal, total etc.*/
+.woocommerce-cart .cart_totals h2 {
+display: none;
+}
+
+/* A bit more vertical spacing between products table and totals table now we've hidden the heading (above)*/
+.woocommerce-cart .cart_totals {
+margin-top: 1em;
+}
+
+/* Hide outside border of products table*/
+.woocommerce-cart table.shop_table {
+border: none;
+}
+
+/* ***********************************************  */
+/* Overrides for Checkout                           */
+/* ***********************************************  */
+
+/* Style the coupon section (if user opens it) */
+.woocommerce-checkout form.checkout_coupon {
+margin-top: 1em;
+background-color: #f5f5f5;
+padding-left: 1em;
+border-top: 3px solid #1e85be;
+border-left: none;
+border-right: none;
+border-bottom: none;
+border-radius: 0;
+padding-top: 1em;
+padding-bottom: 0.7em;
+}
+/* Reduce spacing between coupon info message and coupon section*/
+.woocommerce-checkout .woocommerce-info {
+margin-bottom: 0em!important;
+}
+
+/* Style the customer details section */
+.woocommerce-checkout #customer_details {
+margin-top: 3em;
+background-color: #f5f5f5;
+padding-left: 1em;
+border-top: 3px solid #a46497;
+}
+
+/* Style the gift wrap section */
+.woocommerce-checkout #wc_checkout_add_ons {
+margin-top: 3em;
+background-color: #f5f5f5;
+padding-left: 1em;
+padding-top: 0.5em;
+border-top: 3px solid #a46497;
+}
+
+/* Hide the "Your order" heading */
+.woocommerce-checkout #order_review_heading {
+display: none;
+}
+
+/* Style the products & totals table section */
+.woocommerce-checkout table.woocommerce-checkout-review-order-table {
+margin-top: 3em;
+background-color: #f5f5f5;
+padding-left: 1em;
+border-top: 3px solid #a46497;
+border-radius: 0;
+border-left: none;
+border-right: none;
+border-bottom: none;
+}
+
+/* Style the payments section */
+.woocommerce-checkout #payment {
+background-color: #fff;
+}
+
+.woocommerce-checkout .payment_methods {
+margin-top: 3em;
+background-color: #f5f5f5;
+border-top: 3px solid #a46497;
+}
+
+/* Visually separate the tems & conditions and place order button */
+.woocommerce-checkout .place-order {
+margin-top: 3em;
+}
+
+/* Make the PayPal cards image bigger*/
+.woocommerce-checkout #payment .payment_method_paypal img {
+max-height: 84px;    
+}
+
+/* Change "required" fields border color*/
+.woocommerce-checkout #billing_first_name,
+.woocommerce-checkout #billing_last_name,
+.woocommerce-checkout #billing_address_1,
+.woocommerce-checkout #billing_address_2,
+.woocommerce-checkout #billing_billing_address_3,
+.woocommerce-checkout #billing_city,
+.woocommerce-checkout #billing_postcode,
+.woocommerce-checkout #billing_email,
+.select2-container .select2-choice
+{
+border-color: #a46497;
+/*background-color: rgba(179, 224, 218, 0.4);*/
+}
+
+/* Change "required" asterisk colour*/
+.woocommerce-checkout form .form-row .required {
+color: #a46497;
+}
+
+.select2-container .select2-choice {
+border-color: #a46497;
+}
+
+.woocommerce-checkout form .form-row.woocommerce-invalid select {
+border-color: #a46497;
+}
+
+
