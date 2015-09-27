@@ -209,7 +209,7 @@ height: auto;
 .headline-small {
 height: 310px;
 overflow: hidden;
-margin-bottom: 0.5em;
+margin-bottom: 1.5em;
 padding-top: 0px;
 padding-left: 0px;
 }
@@ -219,8 +219,11 @@ margin-right: 0px;
 }
     
 .headline-small-image img {
-max-width: 100%; /*Image can't go to more than 100% of it's original size*/
+/*max-width: 100%;*/ /*Image can't go to more than 100% of it's original size*/
+/*height: auto;*/
+max-width: 216px;
 height: auto;
+
 }
 /*The headline content area (contains header and text)*/
 .headline-small-content {

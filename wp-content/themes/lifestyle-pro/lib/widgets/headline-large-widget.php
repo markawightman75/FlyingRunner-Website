@@ -115,11 +115,21 @@ class Headline_Large_Widget extends WP_Widget {
 				echo '<div class="headline-large-content">';
 					/** Image */
 					echo '<div class="headline-large-image">';
-						//Get the url of the featured image
-						$thumb_id = get_post_thumbnail_id();
-						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
-						$thumb_url = $thumb_url_array[0];
-						
+						$thumb_url = '';
+						if( class_exists('Dynamic_Featured_Image') ) {
+							global $dynamic_featured_image;
+							$featured_images = $dynamic_featured_image->get_featured_images( );
+							$featured_image = $featured_images[0];
+							$thumb_url = $featured_image['full'];
+						   //You can now loop through the image to display them as required
+						}
+						else
+						{
+							//Get the url of the featured image
+							$thumb_id = get_post_thumbnail_id();
+							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+							$thumb_url = $thumb_url_array[0];
+						}
 						if (! empty ($thumb_url)) {						
 							$imagetag = sprintf( '<img src="%s"/>', $thumb_url);
 							printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $imagetag );								
@@ -175,16 +185,55 @@ class Headline_Large_Widget extends WP_Widget {
 
 		//* Merge with defaults
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
-
+		$post_id = $instance['post_id']; 
 		?>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
-		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Post ID to show in the headline', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'post_id' ); ?>" name="<?php echo $this->get_field_name( 'post_id' ); ?>" value="<?php echo esc_attr( $instance['post_id'] ); ?>" size="5" />
+			<label for="<?php echo $this->get_field_id( 'post_id' ); ?>"><?php _e( 'Post to show as a large  headline', 'genesis' ); ?>:</label>
+			
+			<!--Dropdown list of posts-->
+			<select class='widefat' id="<?php echo $this->get_field_id('post_id'); ?>"
+                name="<?php echo $this->get_field_name('post_id'); ?>" type="text">
+				<?php
+				
+				//* Get an array of all published posts, most recent first
+				$args = array(
+					'nopaging' => true, 
+					'post_type' => 'post',
+					'post_status' => 'publish',
+					'orderby' => 'date',   
+					'order' => 'DESC',
+				);
+				
+				$posts = new WP_Query( $args );
+				if( $posts->have_posts() ):
+				    //* Build an option tag for each post, selecting the one that matches the currently-set post id
+					while ( $posts->have_posts() ) : $posts->the_post();
+						$id = get_the_ID();
+						$option = "<option value='";
+						$option .= $id;
+						$option .= "'";
+						if ($id == $post_id)
+						{
+							$option .= " selected";
+						}
+						$option .= ">";
+						
+						echo $option;
+						echo get_the_title() . '  - (' . get_the_date("j M 'y") . ')';
+										
+						echo '</option>';
+						echo "\r\n"; //Just for readability
+					
+					endwhile;
+					
+				endif;
+				wp_reset_postdata();				
+				
+				?>
+				
+			</select>    
+
 		</p>
 
 		<?php

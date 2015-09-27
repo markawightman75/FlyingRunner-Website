@@ -1,34 +1,32 @@
 <?php
-
-//*MAW Enable shortcodes in text widgets, for Monarch social following icons
-add_filter('widget_text', 'do_shortcode');
  
 /**
  * My Custom Functions
 */
 
-//* Include our widgets
-include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/adverts-small-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/section-title-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/marathon-time-predictor-widget.php' );
+//*MAW Enable shortcodes in text widgets, for Monarch social following icons
+add_filter('widget_text', 'do_shortcode');
 
 function add_custom_widgets() {  
-  // register our custom widget..
-  register_widget( 'Headline_Large_Widget' );
-  register_widget( 'Headlines_Small_Widget' );
-  register_widget( 'Adverts_Small_Widget' );
-  register_widget( 'Section_Title_Widget' );
-  register_widget( 'Marathon_Time_Predictor_Widget' );
-}
-add_action( 'widgets_init', 'add_custom_widgets' );
+	//* Include our widgets
+	include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
+	include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
+	include_once( CHILD_DIR . '/lib/widgets/adverts-small-widget.php' );
+	include_once( CHILD_DIR . '/lib/widgets/section-title-widget.php' );
+	include_once( CHILD_DIR . '/lib/widgets/marathon-time-predictor-widget.php' );
 
-genesis_register_sidebar( array(
-	'id'		=> 'runningandtrainingpagecontentarea',
-	'name'		=> __( 'Flying Runner Running & Training Page Content Area', 'Flying Runner' ),
-	'description'	=> __( 'This is the widget area for the articles on the running & training page. Put headlines, adverts widgets etc. in here.', 'Flying Runner' ),
-) );
+	// Register them custom widget..
+	register_widget( 'Headline_Large_Widget' );
+	register_widget( 'Headlines_Small_Widget' );
+	register_widget( 'Adverts_Small_Widget' );
+	register_widget( 'Section_Title_Widget' );
+	register_widget( 'Marathon_Time_Predictor_Widget' );
+}
+
+//DEBUGadd_action( 'widgets_init', 'add_custom_widgets' );
+
+
+
 genesis_register_sidebar( array(
 	'id'		=> 'featurespagecontentarea',
 	'name'		=> __( 'Flying Runner Features Page Content Area', 'Flying Runner' ),
@@ -46,47 +44,9 @@ genesis_register_sidebar( array(
 ) );
 
 
-
-add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
-/**
- * Filter menu items, appending either a search form or today's date.
- *
- * @param string   $menu HTML string of list items.
- * @param stdClass $args Menu arguments.
- *
- * @return string Amended HTML string of list items.
- */
-function theme_menu_extras( $menu, $args ) {
-
-	//* Change 'primary' to 'secondary' to add extras to the secondary navigation menu
-	if ( 'secondary' !== $args->theme_location )
-		return $menu;
-
-	//* Uncomment this block to add a search form to the navigation menu
-	
-	ob_start();
-	get_search_form();
-	$search = ob_get_clean();
-	$menu  .= '<li class="right search">' . $search . '</li>';
-	
-
-	//* Uncomment this block to add the date to the navigation menu
-	/*
-	$menu .= '<li class="right date">' . date_i18n( get_option( 'date_format' ) ) . '</li>';
-	*/
-
-	return $menu;
-
-}
-add_filter( 'genesis_search_text', 'modify_search_text' );
-function modify_search_text( $text ) {
-	return esc_attr( "I'm looking for..." );
-}
-
-
 //* Add the page widget in the content - HTML5
-//add_action( 'genesis_entry_footer', 'nabm_add_page_content' );
-add_action( 'genesis_after_entry_content', 'add_features_and_news_page_content' );
+//DEBUGadd_action( 'genesis_after_entry_content', 'add_features_and_news_page_content' );
+
 function add_features_and_news_page_content() {
 	$page_id_features = '67';
 	$page_id_news = '144';
@@ -94,39 +54,26 @@ function add_features_and_news_page_content() {
 	
 	$this_page_title = get_the_title();
 	
-	if ( is_page($page_id_features) )
-	{	
+	if ( is_page($page_id_features) ) {	
 		genesis_widget_area ('featurespagecontentarea', array(
 			'before' => '<div class="featurespagecontentarea"><div class="wrap">',
 			'after' => '</div></div>',
 		) );
 	}
-	if ( is_page($page_id_news) )
-	{	
+	if ( is_page($page_id_news) ) {	
 		genesis_widget_area ('newsspagecontentarea', array(
 			'before' => '<div class="newsspagecontentarea"><div class="wrap">',
 			'after' => '</div></div>',
 		) );
 	}
-	if ( is_page($page_id_timepredictor) )
-	{	
+	if ( is_page($page_id_timepredictor) ) {	
 		genesis_widget_area ('marathontimepredictorcontentarea', array(
 			'before' => '<div class="marathontimepredictorcontentarea"><div class="wrap">',
 			'after' => '</div></div>',
 		) );
 	}
 
-	if ($this_page_title == "Running and Training")
-	{
-		genesis_widget_area ('runningandtrainingpagecontentarea', array(
-			'before' => '<div class="runningandtrainingpagecontentarea"><div class="wrap">',
-			'after' => '</div></div>',
-		) );
-		
-	}
-	
-	if ($this_page_title == "All Posts")
-	{
+	if ($this_page_title == "All Posts") {
 			// List all posts and pages
 			$args = array(
 					'nopaging' => true, 
@@ -138,7 +85,7 @@ function add_features_and_news_page_content() {
 			
 			$posts = new WP_Query( $args );
 			if( $posts->have_posts() ):
-				//* Build an option tag for each post, selecting the one that matches the currently-set post id
+				//* List all the posts
 				?>
 				<table style="width:100%; table-layout:fixed; font-family:arial; font-size: 14px;">
 				<tr>
@@ -253,50 +200,46 @@ function custom_add_entryclasses_attr( $attributes ) {
  
 }
 
-add_theme_support( 'genesis-connect-woocommerce' );
+//DEBUGadd_theme_support( 'genesis-connect-woocommerce' );
 
 //* Add support for 3-column footer widgets. Styled to full-width in style.css with .footer-widgets-4 class
-add_theme_support( 'genesis-footer-widgets', 4 );
+//DEBUGadd_theme_support( 'genesis-footer-widgets', 4 );
 
 //* Add shortcode that lets us dynamically include the url of the site in text, widgets etc., e.g. <a href="[url]/pretend-page/">
-add_shortcode('url','home_url');
+//DEBUGadd_shortcode('url','home_url');
 
-add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
+//DEBUGadd_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
-	wp_enqueue_style( 'fr-main-stylesheet', CHILD_URL . '/custom.css', false, filemtime( get_stylesheet_directory() . '/custom.css' ) );
-	wp_enqueue_style( 'fr-headlines-stylesheet', CHILD_URL . '/headlines.css', false, filemtime( get_stylesheet_directory() . '/headlines.css' ) );
-	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );
-	wp_enqueue_style( 'fr-woocommerce-overrides-stylesheet', CHILD_URL . '/woocommerce-overrides.css', false, filemtime( get_stylesheet_directory() . '/woocommerce-overrides.css' ) );
+	wp_enqueue_style( 'mycustom-stylesheet', CHILD_URL . '/custom.css', false, filemtime( get_stylesheet_directory() . '/custom.css' ) );
 }
 
 /** Use copies of the Magic Action Box css files that are in our theme
     folder instead of the ones added by default which are in the plugin folder
     and therefore not under version control
 */
-wp_dequeue_style( 'mab-user-style-1-css' );
-wp_dequeue_style( 'mab-actionbox-style-709-css' );
-wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
-wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
+//DEBUG wp_dequeue_style( 'mab-user-style-1-css' );
+//DEBUG wp_dequeue_style( 'mab-actionbox-style-709-css' );
+//DEBUG wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
+//DEBUG wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
 
 /** Dequeue style.css and enqueue it again with version number (for cache busting) */
 /** For details of more reliable htaccess-based cache busting see https://wordimpress.com/wordpress-css-and-js-cache-busting/ */
-wp_dequeue_style( 'lifestyle-pro-theme-css' );
+//DEBUG wp_dequeue_style( 'lifestyle-pro-theme-css' );
 if ( ! is_admin() )
 {
-  wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
+//DEBUG  wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
-wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
+//DEBUG wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 
 
 //* Marathon time predictor tool
 //* TODO: Only load these on the time predictor page
  // embed the javascript file that makes the AJAX request
  //my-ajax-request
-//THIS JQUERY LINE CAUSES THE WOOCOMMERCE ADD NEW ORDER SCREEN TO BREAK (CAN'T EDIT ORDER DETAILS) - NEEDS FIXING
-//CHECK FIREBUG CONSOLE FOR "UNCAUGHT ERROR" - THAT'S WHAT I'M GETTING WITH THIS ENABLED
- //DEBUG wp_enqueue_script( 'jquery-1.11.3.min', CHILD_URL . '/marathon-time-predictor/jquery-1.11.3.min.js', array( 'jquery' ) );
-//wp_enqueue_script( 'time-predictor-global', CHILD_URL . '/marathon-time-predictor/global.js', array( 'jquery' ) );
+ //I THINK SOMETHING HERE IS RESPONSIBLE FOR BREAKING THE WOOCOMMERCE ADD ORDER SCREEN - BE CAREFUL!!
+//wp_enqueue_script( 'jquery-1.11.3.min', CHILD_URL . '/marathon-time-predictor/jquery-1.11.3.min.js', array( 'jquery' ) );
+// wp_enqueue_script( 'time-predictor-global', CHILD_URL . '/marathon-time-predictor/global.js', array( 'jquery' ) );
 // declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
 //wp_localize_script( 'time-predictor-global', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
@@ -309,7 +252,7 @@ wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/
 
 //* Disable the emojicons that were added in WP4.2 and create an unnecessary mess in the HTML
 //* See http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2 
-add_action( 'init', 'disable_wp_emojicons' );
+//DEBUGadd_action( 'init', 'disable_wp_emojicons' );
 function disable_wp_emojicons() {
   // all actions related to emojis
   remove_action( 'admin_print_styles', 'print_emoji_styles' );
@@ -340,7 +283,7 @@ function disable_emojicons_tinymce( $plugins ) {
  * See: https://wordimpress.com/how-to-load-woocommerce-scripts-and-styles-only-in-shop/
  */
 
-add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
+//add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
 
 function child_manage_woocommerce_styles() {
 	//remove generator meta tag
@@ -384,7 +327,7 @@ function child_manage_woocommerce_styles() {
 //*************************************************
 
 //* Override the message displayed when you add a product to the cart, to use "Basket" not "Cart"
-add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' ,10,2);
+//DEBUG add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' ,10,2);
 function custom_add_to_cart_message($message, $product_id) {
 	 
      if ( is_array( $product_id ) ) {
@@ -426,11 +369,11 @@ remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 remove_action( 'genesis_site_description', 'genesis_seo_site_description' );
 
 //* Display a custom favicon
-add_filter( 'genesis_pre_load_favicon', 'sp_favicon_filter' );
+//DEBUG add_filter( 'genesis_pre_load_favicon', 'sp_favicon_filter' );
 function sp_favicon_filter( $favicon_url ) {
 	return 'http://www.flyingrunner.co.uk/favicon.ico';}
 
-add_action( 'woocommerce_before_cart_table', 'woo_add_continue_shopping_button_to_cart' );
+//DEBUG add_action( 'woocommerce_before_cart_table', 'woo_add_continue_shopping_button_to_cart' );
 
 function woo_add_continue_shopping_button_to_cart() {
 
@@ -447,7 +390,7 @@ echo '</div>';
 /**add_filter('genesis_post_info', 'wpt_info_filter');**/
 
 /**Remove post meta info (Filed under: [category]   Tagged with: [tags]) from end of post **/
-remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+//DEBUG remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 
 function wpt_info_filter($post_info) {
 if (!is_page()) {
