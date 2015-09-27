@@ -92,21 +92,21 @@ class Adverts_Small_Widget extends WP_Widget {
 		$advert_colour = array(); //'green', 'grey' or 'blue'
 		
 		$advert_title[1] = 'Stunning hand-made jewellery';
-		$advert_text[1] = 'Running-themed jewellery for men &amp; women. Lovingly crafted exclusively for us in the UK.';
+		$advert_text[1] = 'Beautiful, distinctive jewellery, created in the UK. Every piece is hand-made, including hammered sterling silver.';
 		$advert_link[1] = esc_url( home_url( '/product-category/jewellery' ));
-		$advert_image[1] = esc_url( home_url( '/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg' ));
+		$advert_image[1] = esc_url( site_url( '/wp-content/uploads/images/adverts/running_marathon_pendant_small.jpg' ));
 		$advert_colour[1] = 'grey';
 		
 		$advert_title[2] = 'Race medal displays';
-		$advert_text[2] = 'Get your hard-earned medals out of the drawer and give them pride of place  with our beautiful displays.';
+		$advert_text[2] = 'Give your hard-earned race medals pride of place on our high-quality, brushed steel displays in a variety of designs.';
 		$advert_link[2] = esc_url( home_url( '/product-category/medal-displays' ));
-		$advert_image[2] =  esc_url( home_url( '/wp-content/uploads/2015/07/medal_display.png' ));
+		$advert_image[2] =  esc_url( site_url( '/wp-content/uploads/images/adverts/running_medal_hanger_male_single_small.jpg' ));
 		$advert_colour[2] = 'green';
 		
-		$advert_title[3] = 'Personalised London Marathon Art Print';
-		$advert_text[3] = 'Celebrate your achievement with this stunning art print exclusively created for us by artist Kate Molloy.';
+		$advert_title[3] = 'Running art prints';
+		$advert_text[3] = 'Eye-catching and joyful art to celebrate your love of running, by artist Kate Molloy. A perfect, thoughtful gift.';
 		$advert_link[3] = esc_url( home_url( '/product-category/art-prints' ));
-		$advert_image[3] = esc_url( home_url( '/wp-content/uploads/2015/04/FriendshipBracelet_LLR_LoveToRun_650x499px-300x230.jpg' ));
+		$advert_image[3] = esc_url( site_url( '/wp-content/uploads/images/adverts/running_word_art_print_red_small.jpg' ));
 		$advert_colour[3] = 'blue';
 		
 		for ($index = 1; $index <= 3; $index++) {
