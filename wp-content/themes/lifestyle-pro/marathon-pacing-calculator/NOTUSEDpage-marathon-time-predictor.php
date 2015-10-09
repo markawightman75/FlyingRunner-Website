@@ -65,7 +65,7 @@ wp_localize_script( 'time-predictor-global', 'MyAjax', array( 'ajaxurl' => admin
 		<input type="submit" id="name-submit" value="Grab">
 		
 		
-		<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+		<!--<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>-->
 		
 		<div class="modal"><!-- Place at bottom of page --></div>
 	</body>

@@ -1,6 +1,6 @@
-$(document).ready(function(){
+jquery(document).ready(function(){
 $('#predictor').on('click',function() {
-	
+	alert(1);
 	var name = $('input#name').val();
 	if ($.trim(name) != '') {
 		//alert(1);

@@ -18,7 +18,7 @@
  *
  * @package Genesis\Widgets
  */
-class Marathon_Time_Predictor_Widget extends WP_Widget {
+class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 
 	/**
 	 * Holds widget settings defaults, populated in constructor.
@@ -45,12 +45,12 @@ class Marathon_Time_Predictor_Widget extends WP_Widget {
 		);
 
 		$widget_ops = array(
-			'classname'   => 'marathon-time-predictor',
-			'description' => __( 'Displays small adverts with thumbnails', 'custom' ),
+			'classname'   => 'marathon-pacing-calculator',
+			'description' => __( 'The marathon pacing calculator widget', 'custom' ),
 		);
 
 		$control_ops = array(
-			'id_base' => 'marathon-time-predictor',
+			'id_base' => 'marathon-pacing-calculator',
 			'width'   => 505,
 			'height'  => 350,
 		);
@@ -58,7 +58,7 @@ class Marathon_Time_Predictor_Widget extends WP_Widget {
 		//remove_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
 		//add_filter( 'genesis_attr_entry', 'custom_add_entryclasses_attr' );
 		
-		parent::__construct( 'marathon-time-predictor', __( 'Flying Runner - Time Predictor', 'custom' ), $widget_ops, $control_ops );
+		parent::__construct( 'marathon-pacing-calculator', __( 'Flying Runner - Marathon Pacing Calculator', 'custom' ), $widget_ops, $control_ops );
 
 	}
 	
@@ -85,12 +85,88 @@ class Marathon_Time_Predictor_Widget extends WP_Widget {
 		?>
 		
 		
-		Name: <input type="text" id="name">
-		<input type="radio" id="gender-male" name="gender" value="male" checked> Male
+		<span>Age:</span>
+		<select id="age-category">
+			<option value="Any">Any</option>
+			<option value="18-39">18 to 39</option>
+			<option value="40-49">40 to 49</option>
+			<option value="50-59">50 to 59</option>
+			<option value="60+">60 and over</option>
+		</select> 		
 		<br>
-		<input type="radio" id="gender-female" name="gender" value="female"> Female
-		Predicted time: <div id="name-data">NONE YET</div>
-		<input type="submit" name="predict" class="predictor-submit" id="predictor" value="Predict">
+		<span>Number of previous marathons:</span>
+		<select id="previous-marathons">
+			<option value="Any">Any</option>
+			<option value="0">None</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="3">4</option>
+			<option value="3">5</option>
+			<option value="6-10">6 to 10</option>
+			<option value=">10">More than 10</option>
+		</select> 		
+		<br>				
+		<span>Target time:</span> <input type="text" id="target-time">
+		<br>
+			
+		</div>
+		<input type="submit" name="predict" class="predictor-submit" id="predictor" value="Calculate my splits">
+
+		<br>
+		<p>Based on the pacing of <span id="number-of-runners"></span> runners who ran with +/- 4 minutes of this time, you should run these splits:</span> 
+		<div id="number-of-runners-icons"></div>
+		
+		<div id="splits-results">
+		 <table style="width:100%">
+			  <tr>
+				<th>Distance</th>
+				<th>Time</th>
+			  </tr>
+			  <tr>
+				<td>5km</td>
+				<td id="5k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>10km</td>
+				<td id="10k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>15km</td>
+				<td id="15k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>20km</td>
+				<td id="20k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>Halfway</td>
+				<td id="21k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>25km</td>
+				<td id="25k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>30km</td>
+				<td id="30k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>35km</td>
+				<td id="35k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>40km</td>
+				<td id="40k-split"></td>
+			  </tr>
+  			  <tr>
+				<td>Finish</td>
+				<td id="finish" style="font-weight: bold"></td>
+			  </tr>
+		</table> 
+		</div>
+		
+		<div id="debug" style="background-color: #eee;">
 		
 				
 		<?php
@@ -133,14 +209,8 @@ class Marathon_Time_Predictor_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $this->defaults );
 
 		?>
-		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'genesis' ); ?>:</label>
-			<input type="text" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" class="widefat" />
-		</p>
-
-		<p>Advert text, images and links are set in lifestyle-pro\lib\widgets\adverts-small-widget.php
-		</p>
-
+		
+		
 		<?php
 
 	}
