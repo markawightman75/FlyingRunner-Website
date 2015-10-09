@@ -94,19 +94,19 @@ class Adverts_Small_Widget extends WP_Widget {
 		$advert_title[1] = 'Stunning hand-made jewellery';
 		$advert_text[1] = 'Beautiful, distinctive jewellery, created in the UK. Every piece is hand-made, including hammered sterling silver.';
 		$advert_link[1] = esc_url( home_url( '/product-category/jewellery' ));
-		$advert_image[1] = esc_url( site_url( '/wp-content/uploads/images/adverts/running_marathon_pendant_small.jpg' ));
+		$advert_image[1] = esc_url( 'http://images.flyingrunner.co.uk/images/adverts/running_marathon_pendant_small.jpg' );
 		$advert_colour[1] = 'grey';
 		
 		$advert_title[2] = 'Race medal displays';
 		$advert_text[2] = 'Give your hard-earned race medals pride of place on our high-quality, brushed steel displays in a variety of designs.';
 		$advert_link[2] = esc_url( home_url( '/product-category/medal-displays' ));
-		$advert_image[2] =  esc_url( site_url( '/wp-content/uploads/images/adverts/running_medal_hanger_male_single_small.jpg' ));
+		$advert_image[2] =  esc_url( 'http://images.flyingrunner.co.uk/images/adverts/running_medal_hanger_male_single_small.jpg' );
 		$advert_colour[2] = 'green';
 		
 		$advert_title[3] = 'Running art prints';
 		$advert_text[3] = 'Eye-catching and joyful art to celebrate your love of running, by artist Kate Molloy. A perfect, thoughtful gift.';
 		$advert_link[3] = esc_url( home_url( '/product-category/art-prints' ));
-		$advert_image[3] = esc_url( site_url( '/wp-content/uploads/images/adverts/running_word_art_print_red_small.jpg' ));
+		$advert_image[3] = esc_url( 'http://images.flyingrunner.co.uk/images/adverts/running_word_art_print_red_small.jpg' );
 		$advert_colour[3] = 'blue';
 		
 		for ($index = 1; $index <= 3; $index++) {

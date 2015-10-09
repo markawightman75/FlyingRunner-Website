@@ -34,7 +34,7 @@ if (!class_exists('amr_saw_plugin_admin')) {
 			if( empty($this_plugin) ) 
 				$this_plugin = $this->filename;
 			if ( $file == $this_plugin ) {
-				$settings_link = '<a href="' . $this->plugin_options_url() . '">' . __('Settings') . '</a>';
+				$settings_link = '<a href="' . $this->plugin_options_url() . '">' . __('Settings', 'amr-shortcode-any-widget') . '</a>';
 				array_unshift( $links, $settings_link );
 			}
 			return $links;
@@ -57,80 +57,49 @@ if (!class_exists('amr_saw_plugin_admin')) {
 		}		
 		function config_page() {
 			$this->admin_heading($this->longname); 
-			echo '<h3><a href="http://wordpress.org/plugins/amr-shortcode-any-widget/">More detailed instructions at the wordpress plugin page.</a></h3>';
+			echo '<h3><a href="http://wordpress.org/plugins/amr-shortcode-any-widget/installation">More detailed instructions at the wordpress plugin page.</a></h3>';
 			echo '<ul>';
+						echo '<li>';
+			_e('Test your widget in a normal sidebar first.', 'amr-shortcode-any-widget');
 			echo '<li>';
-			_e('Drag the widgets you want to use to the shortcodes sidebar.');
+			_e('Drag the widgets you want to use to the shortcodes sidebar.', 'amr-shortcode-any-widget');
 
 			echo '</li>';
 			echo '<li>';
-			_e('Set the widgets parameters if there are any.');
+			_e('Set the widgets parameters if there are any.', 'amr-shortcode-any-widget');
 			echo '</li>';
-			echo '<li>';
-			_e('You could test the widgets out in a displayable widget area (sidebar/footer), then drag them to the widgets_for_shortcodes sidebar.');
-
-			echo '</li>';
+			
 			echo '<li>';
 			echo '<a title="Go to widget area" href="'.get_admin_url('','widgets.php').'"> ';
-			_e('Go to widgets');
+			_e('Go to widgets', 'amr-shortcode-any-widget');
 			echo '</a>';
 			echo '</li>';
 			echo '</ul>';
-			
-			echo '<h2>';
-			_e('To add a widget area - all widgets in the widget area:');
 
+
+			echo '<h2>';
+			_e('To add a single widget to a page', 'amr-shortcode-any-widget');
 			echo '</h2>';
 			echo '<ul>';
 			echo '<li>';
-			echo '<a title="Create a page" href="'
-			.add_query_arg('content','[do_widget_area]', get_admin_url('','post-new.php?post_type=page'))
-			.'"> ';
-			_e('Create a page with do_widget_area shortcode without the widget_area class'); 
-			echo '</a> Hoping to avoid theme styling.';
+			_e('Add the shortcode [do_widget widgetname] to a page.', 'amr-shortcode-any-widget');
+			_e('Examples:', 'amr-shortcode-any-widget');
+			echo '</li>';
+			echo '<li>';
+			_e('[do_widget "tag cloud"] or [do_widget id=widgetid]', 'amr-shortcode-any-widget');
 			echo '</li>';
 			echo '<li>';
 			echo '<a title="Create a page" href="'
-			.add_query_arg('content','[do_widget_area widget_area_class=none]', get_admin_url('','post-new.php?post_type=page'))
+			.get_admin_url('','post-new.php?post_type=page&content=&#91;do_widget Archives widget_classes=none&#93;')
 			.'"> ';
-			_e('Create a page with do_widget_area shortcode'); 
-			echo '</a> Hoping to use theme styling.';
-			echo '</li>';
-			echo '<li>';
-			_e('Examples:');
-			echo '</li>';
-			echo '<li>';
-			_e('[do_widget_area] or [do_widget_area widget_area=sidebar-1]');
-			echo '</li>';
-			echo '<li>';
-			_e('NB: Using something like the twenty-fourteen theme? you might end up with white text on a white background.  Tweak the widget classes or the html of the wrap or title. If that fails, adjust your css.');
-			echo '</li>';
-			echo '</ul>';
-			echo '<br />';
-
-			echo '<h2>';
-			_e('To add a single widget to a page');
-			echo '</h2>';
-			echo '<ul>';
-			echo '<li>';
-			_e('Add the shortcode [do_widget widgetname] to a page.');
-			_e('Examples:');
-			echo '</li>';
-			echo '<li>';
-			_e('[do_widget "tag cloud"] or [do_widget id=widgetid]');
-			echo '</li>';
-			echo '<li>';
-			echo '<a title="Create a page" href="'
-			.add_query_arg('content','[do_widget Archives widget_classes=none]', get_admin_url('','post-new.php?post_type=page'))
-			.'"> ';
-			_e('Create a page with do_widget shortcode and remove widget_classes'); 
+			_e('Create a page with do_widget shortcode and remove widget_classes', 'amr-shortcode-any-widget'); 
 			echo '</a>';
 			echo '</li>';
 			echo '<li>';
 			echo '<a title="Create a page" href="'
-			.add_query_arg('content','[do_widget Archives]', get_admin_url('','post-new.php?post_type=page'))
+			.get_admin_url('','post-new.php?post_type=page&content=&#91;do_widget Archives &#93;')
 			.'"> ';
-			_e('Create a page with do_widget shortcode'); 
+			_e('Create a page with do_widget shortcode', 'amr-shortcode-any-widget'); 
 			echo '</a>';
 			echo '</li>';
 			echo '<li>';
@@ -163,6 +132,49 @@ if (!class_exists('amr_saw_plugin_admin')) {
 			echo '</b></p><p><b>';
 			echo "Valid html wrap tags are : div, p, aside , section";
 			echo '</b></p>';
+						
+			echo '<h2>';
+			_e('To add multiple instances of the same widget:', 'amr-shortcode-any-widget');
+
+			echo '</h2>';
+			echo '<ul>';
+			echo '<li>';
+			echo '[do_widget id=widgetid1] [do_widget id=widgetid2]';
+			echo '</li>';
+			echo '</ul>';
+			echo '<br />';
+						
+			echo '<h2>';
+			_e('To add a widget area - all widgets in the widget area:', 'amr-shortcode-any-widget');
+
+			echo '</h2>';
+			echo '<ul>';
+			echo '<li>';
+			echo '<a title="Create a page" href="'
+			.get_admin_url('','post-new.php?post_type=page&content=&#91;do_widget_area&#93;')
+			.'"> ';
+			_e('Create a page with do_widget_area shortcode without the widget_area class', 'amr-shortcode-any-widget'); 
+			echo '</a> Hoping to avoid theme styling.';
+			echo '</li>';
+			echo '<li>';
+			echo '<a title="Create a page" href="'
+			.get_admin_url('',
+			'post-new.php?post_type=page&content=&#91;do_widget_area widget_area_class=none&#93;')
+			.'"> ';
+			_e('Create a page with do_widget_area shortcode', 'amr-shortcode-any-widget'); 
+			echo '</a> Hoping to use theme styling.';
+			echo '</li>';
+			echo '<li>';
+			_e('Examples:', 'amr-shortcode-any-widget');
+			echo '</li>';
+			echo '<li>';
+			_e('[do_widget_area] or [do_widget_area widget_area=sidebar-1]', 'amr-shortcode-any-widget');
+			echo '</li>';
+			echo '<li>';
+			_e('NB: Using something like the twenty-fourteen theme? you might end up with white text on a white background.  Tweak the widget classes or the html of the wrap or title. If that fails, adjust your css.', 'amr-shortcode-any-widget');
+			echo '</li>';
+			echo '</ul>';
+			echo '<br />';
 
 		}		
 
@@ -171,7 +183,7 @@ if (!class_exists('amr_saw_plugin_admin')) {
 		 * Info box with link to the support forums.
 		 */
 		function plugin_support() {
-			$content = '<p>'.__('If you have any problems with this plugin or good ideas for improvements or new features, please talk about them in the','amrplugin').' <a href="http://wordpress.org/tags/'.$this->hook.'">'.__("Support forums",'amrplugin').'</a>.</p>';
+			$content = '<p>'.__('If you have any problems with this plugin or good ideas for improvements or new features, please talk about them in the','amr-shortcode-any-widget').' <a href="http://wordpress.org/tags/'.$this->hook.'">'.__("Support forums",'amr-shortcode-any-widget').'</a>.</p>';
 			$this->postbox($this->hook.'support', 'Need support?', $content);
 		}
 

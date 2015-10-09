@@ -3,7 +3,13 @@
 /* ***********************************************  */
 
 /*Use our standard non-serif font for everything*/
-.woocommerce, .woocommerce p, .woocommerce label {
+.woocommerce, 
+.woocommerce p, 
+.woocommerce label, 
+.woocommerce input, 
+.woocommerce select,
+.woocommerce a,
+.woocommerce span {
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
@@ -148,3 +154,15 @@ border-color: #a46497;
 }
 
 
+/* ***********************************************  */
+/* Overrides for PaymentSense                       */
+/* ***********************************************  */
+.woocommerce-checkout #payment div.payment_method_paymentsense_direct {
+/*background-color: white;*/
+}
+
+/* Reduce vertical size of card name, number etc. input boxes*/
+.woocommerce-checkout #payment div.payment_method_paymentsense_direct input {
+padding-top: 4px;
+padding-bottom: 4px;
+}

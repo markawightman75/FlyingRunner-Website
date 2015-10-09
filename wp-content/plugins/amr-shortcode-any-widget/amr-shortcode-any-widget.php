@@ -2,9 +2,9 @@
 /*
 Plugin Name: amr shortcode any widget
 Plugin URI: http://webdesign.anmari.com/shortcode-any-widget/
-Description: Include any widget in a page for any theme.  [do_widget widgetname ] or  [do_widget "widget name" ] or include a whole widget area [do_widget_area]. If upgrading see changelog.  Can be very powerful eg: with queryposts widget it can become a templater.
+Description: Include any widget in a page for any theme.  [do_widget widgetname ] or  [do_widget "widget name" ] [do_widget id=widgetnamedashed-n ]or include a whole widget area [do_widget_area]. Please read: <a href="https://wordpress.org/plugins/amr-shortcode-any-widget/installation/">Installation</a> and <a href="https://wordpress.org/plugins/amr-shortcode-any-widget/faq/">FAQ</a>.
 Author: anmari
-Version: 2.2
+Version: 2.7
 Author URI: http://webdesign.anmari.com
 
 */
@@ -30,26 +30,44 @@ global $wp_registered_widgets, $_wp_sidebars_widgets, $wp_registered_sidebars;
 
 	extract(shortcode_atts(array(
 		'widget_area' => 'widgets_for_shortcodes',
-		'class' => 'amr_widget_area', /* the widget class is picked up automatically.  If we want to add an additional class at the wrap level to try to match a theme, use this */
+		'class' => 'amr-widget-area', /* the widget class is picked up automatically.  If we want to add an additional class at the wrap level to try to match a theme, use this */
 		'widget_area_class' =>  '',  /* option to disassociate from themes widget styling use =none*/
 		'widget_classes' =>  ''  /* option to disassociate from themes widget styling */
 
 	), $atts));
 
-	$class = 'class="amr-widget-area ';
-	if (empty($widget_area_class) or !($widget_area_class=='none'))
-		$class .= ' widget-area"';
-	$output = PHP_EOL.'<div id="'.$widget_area.'" '.$class. '>';
+	if (!empty($atts)) {
+		if (($widget_area == 'widgets_for_shortcodes' ) and !empty($atts[0]))  
+			$widget_area = $atts[0];
+	}
 	
+	if (empty ($wp_registered_sidebars[$widget_area])) {
+		echo '<br/>Widget area "'.$widget_area.'" not found. Registered widget areas (sidebars) are: <br/>';
+		foreach ($wp_registered_sidebars as $area=> $sidebar) echo $area.'<br />';
+	}
+	if (isset($_REQUEST['do_widget_debug']) and current_user_can('administrator')) var_dump( $wp_registered_sidebars); /**/
+	
+	if ($widget_area_class=='none')
+		$class = '';
+	else {	
+		
+		if (!empty($widget_area_class))  //2014 08  
+			$class .= 'class="'.$class.' '.$widget_area_class.'"';
+		else
+		$class = 'class="'.$class.'"';		
+	}	
+
 	if (!empty($widget_classes) and ($widget_classes=='none'))
 		add_filter('dynamic_sidebar_params','amr_remove_widget_class');
 	
 	ob_start();  /* catch the echo output, so we can control where it appears in the text  */
 	dynamic_sidebar($widget_area);
-	$output .= ob_get_clean();
+	$output = ob_get_clean();
 	remove_filter('dynamic_sidebar_params','amr_remove_widget_class');
-			
-	$output .= '</div>'.PHP_EOL;
+
+	$output = PHP_EOL.'<div id="'.$widget_area.'" '.$class. '>'
+		.$output			
+		.'</div>'.PHP_EOL;
 			
 return ($output);
 }
@@ -68,7 +86,7 @@ if it is in, then get the instance  data and use that */
 		echo '<br />No widgets defined at all in any sidebar!'; 
 		return (false);
 	}
-
+
 	extract(shortcode_atts(array(
 		'sidebar' => 'Widgets for Shortcodes',
 		'id' => '',
@@ -83,7 +101,7 @@ if it is in, then get the instance  data and use that */
 	
 	/* compatibility check - if the name is not entered, then the first parameter is the name */
 	if (empty($name) and !empty($atts[0]))  
-		$name = $atts[0];
+		$name = $atts[0];
 
 	/* the widget need not be specified, [do_widget widgetname] is adequate */
 	if (!empty($name)) {  // we have a name
@@ -107,6 +125,9 @@ if it is in, then get the instance  data and use that */
 				return (false);		
 			}
 	}
+	
+	if (empty($widget)) $widget = '';
+	if (empty($id)) $id = '';
 	
 	if (empty ($widget_ids)) { 
 		echo '<br /><a href="" title="Error: Your Requested widget '.$widget.' '.$id.' is not in the widget list. Typo maybe?">!</a><br />';
@@ -172,9 +193,9 @@ if it is in, then get the instance  data and use that */
 			}
 	}
 			
-	return ($output);
+	return ($output);
 }
-/* -------------------------------------------------------------------------*/
+/* -------------------------------------------------------------------------*/
 function shortcode_sidebar( $widget_id, $name="widgets_for_shortcode", $title=true, $class='', $wrap='', $widget_classes='') { /* This is basically the wordpress code, slightly modified  */
 	global $wp_registered_sidebars, $wp_registered_widgets;
 	
@@ -190,7 +211,7 @@ function shortcode_sidebar( $widget_id, $name="widgets_for_shortcode", $title=tr
 	 
 	/* lifted from wordpress code, keep as similar as possible for now */
 
-		if ( !isset($wp_registered_widgets[$widget_id]) ) continue;
+		if ( !isset($wp_registered_widgets[$widget_id]) ) return; // wp had continue
 
 		$params = array_merge(
 			array( 
@@ -277,7 +298,7 @@ function shortcode_sidebar( $widget_id, $name="widgets_for_shortcode", $title=tr
 //	}
 	return $did_one;
 }
-/* -------------------------------------------------------------------------------------------------------------*/
+/* ---------------------------------------------------------------------------*/
 function amr_reg_sidebar() {  // this is fired late, so hopefully any theme sidebars will have been registered already.
 
 global $wp_registered_widgets, $_wp_sidebars_widgets, $wp_registered_sidebars;
@@ -286,7 +307,7 @@ if ( function_exists('register_sidebar') )  {  // maybe later, get the first mai
 	$args = array(
 		'name'			=>'Widgets for Shortcodes',
 		'id'            => 'widgets_for_shortcodes',  // hope to avoid losing widgets
-		'description'   => 'Sidebar to hold widgets and their settings. These widgets will be used in a shortcode.  This sidebars widgets should be saved with your theme settings now.',
+		'description'   => __('Sidebar to hold widgets and their settings. These widgets will be used in a shortcode.  This sidebars widgets should be saved with your theme settings now.','amr-shortcode-any-widget'),
 		'before_widget' => '<aside'.' id="%1$s" class="%2$s ">',  // 201402 to match twentyfourteen theme
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title" >', // 201402 maybe dont use widget class - we are in content here not in a widget area but others want the widget styling. ?
@@ -322,5 +343,21 @@ add_shortcode('do_widget', 		'do_widget');
 add_shortcode('do_widget_area', 'do_widget_area');  // just dump the whole widget area - to get same styling
 
 //require_once(ABSPATH . 'wp-includes/widgets.php');   // *** do we really need this here?
+function amr_saw_load_text() { 
+// wp (see l10n.php) will check wp-content/languages/plugins if nothing found in plugin dir
+	$result = load_plugin_textdomain( 'amr-shortcode-any-widget', false, 
+	dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
 
+
+	add_action('plugins_loaded'         , 'amr_saw_load_text' );
+
+	add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'add_action_links' );
+
+function add_action_links ( $links ) {
+ $mylinks = array(
+ '<a href="' . admin_url( 'options-general.php?page=amr_saw' ) . '">HELP</a>',
+ );
+return array_merge( $links, $mylinks );
+}
 ?>

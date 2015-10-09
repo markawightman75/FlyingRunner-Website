@@ -1,18 +1,26 @@
 === Plugin Name ===
 Contributors: alekv
 Donate link: http://www.wolfundbaer.ch/donations/
-Tags: WooCommerce, Google AdWords, conversion tag, conversion value tracking
+Tags: WooCommerce, Google AdWords, AdWords, conversion, conversion value, conversion tag, conversion value tracking, conversion tracking
 Requires at least: 3.1
-Tested up to: 3.9
-Stable tag: 0.1.8
+Tested up to: 4.2.3
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-This plugin inserts a Google AdWords conversion tracking tag into the thankyou page of a WooCommerce shop, also measuring the conversion value.
+Track the dynamic order value in AdWords from WooCommerce
 
 == Description ==
 
-This plugin enables Google AdWords conversion value tracking for WooCommerce orders. This is important if you want to measure the ROI of your campaigns.
+This plugin tracks the value of WooCommerce orders in Google AdWords. With this you can optimize all your AdWords campaings to achieve maximum efficiency.
+
+<strong>Other plugins</strong>
+
+If you like this plugin you might like that one too: https://wordpress.org/plugins/woocommerce-google-dynamic-retargeting-tag/
+
+<strong>Translations</strong>
+
+Thanks to Adrijana Nikolic from http://webhostinggeeks.com for the translation into Serbian.
  
 == Installation ==
 
@@ -39,6 +47,27 @@ You can send the link to the front page of your shop too if you think it would b
 
 == Changelog ==
 
+= 1.0.1 =
+* New: Banner and icon
+* Update: Name change
+= 1.0 =
+* New: Translation into Serbian by Adrijana Nikolic from http://webhostinggeeks.com
+* Update: Release of version 1.0!
+= 0.2.4 =
+* Update: Minor update to the internationalization
+= 0.2.3 =
+* Update: Minor update to the internationalization
+= 0.2.2 =
+* New: The plugin is now translation ready
+= 0.2.1 =
+* Update: Improving plugin security
+* Update: Moved the settings to the submenu of WooCommerce
+= 0.2.0 =
+* Update: Further improving cross browser compatibility
+= 0.1.9 =
+* Update: Implemented a much better workaround tor the CDATA issue
+* Update: Implemented the new currency field
+* Fix: Corrected the missing slash dot after the order value
 = 0.1.8 =
 * Fix: Corrected the plugin source to prevent an error during activation 
 = 0.1.7 =

@@ -222,7 +222,8 @@ margin-right: 0px;
 /*max-width: 100%;*/ /*Image can't go to more than 100% of it's original size*/
 /*height: auto;*/
 max-width: 216px;
-height: auto;
+width: 216px;
+height: 121px;
 
 }
 /*The headline content area (contains header and text)*/
@@ -268,7 +269,7 @@ padding: 5px;
     
 .headline-small img {
 width: 100%;
-max-width: 400px;
+/*max-width: 400px;*/
 }
 .headline-small-content {
 max-width: 400px;

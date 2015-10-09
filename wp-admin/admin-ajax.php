@@ -74,6 +74,10 @@ if ( ! empty( $_POST['action'] ) && in_array( $_POST['action'], $core_actions_po
 
 add_action( 'wp_ajax_nopriv_heartbeat', 'wp_ajax_nopriv_heartbeat', 1 );
 
+
+/** Load Pacing Calculator ajax handler */
+require_once( dirname( dirname( __FILE__ ) ) . '/wp-content/themes/lifestyle-pro/marathon-pacing-calculator/calculator-ajax.php' );
+
 if ( is_user_logged_in() ) {
 	/**
 	 * Fires authenticated AJAX actions for logged-in users.
@@ -97,3 +101,4 @@ if ( is_user_logged_in() ) {
 }
 // Default status
 die( '0' );
+

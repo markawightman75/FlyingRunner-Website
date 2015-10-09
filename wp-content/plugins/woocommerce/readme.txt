@@ -1,10 +1,9 @@
 === WooCommerce - excelling eCommerce ===
-Contributors: woothemes, mikejolley, jameskoster, CoenJacobs
+Contributors: automattic, mikejolley, jameskoster, claudiosanches, royho, woothemes
 Tags: ecommerce, e-commerce, commerce, woothemes, wordpress ecommerce, affiliate, store, sales, sell, shop, shopping, cart, checkout, configurable, variable, widgets, reports, download, downloadable, digital, inventory, stock, reports, shipping, tax
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@woothemes.com&item_name=Donation+for+WooCommerce
-Requires at least: 3.8
-Tested up to: 3.9
-Stable tag: 2.1.12
+Requires at least: 4.1
+Tested up to: 4.3
+Stable tag: 2.4.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,53 +11,78 @@ WooCommerce is a powerful, extendable eCommerce plugin that helps you sell anyth
 
 == Description ==
 
-Transform your WordPress website into a thoroughbred eCommerce store. Delivering enterprise-level quality and features, backed by a name you can trust. Say "hello" to the WooCommerce eCommerce plugin.
+WooCommerce is a free eCommerce plugin that allows you to sell anything, beautifully. Built to integrate seamlessly with WordPress, WooCommerce is the world’s favorite eCommerce solution that gives both store owners and developers complete control.
 
-WooCommerce is built by the experienced folk at WooThemes who also offer premium [eCommerce themes](http://www.woothemes.com/product-category/themes/woocommerce/ "eCommerce themes from WooThemes") and [extensions](http://www.woothemes.com/product-category/woocommerce-extensions/ "eCommerce extensions for WooCommerce from WooThemes") to further enhance your shopfront.
+With endless flexibility and access to hundreds of free and premium WordPress extensions, WooCommerce now powers 30% of all online stores -- more than any other platform.
 
-[vimeo http://vimeo.com/60440851]
+[youtube https://www.youtube.com/watch?v=1KahlicghaE]
 
-= Strength & flexibility =
-WooCommerce is built using WordPress best practises both on the front and the back end. This results in an efficient, robust and intuitive plugin.
+= Sell anything, anywhere =
+With WooCommerce, you can sell both physical and digital goods in all shapes and sizes, offer product variations, multiple configurations, and instant downloads to shoppers, and even sell affiliate goods from online marketplaces.
 
-= Smart dashboard widgets & reports =
-Keep a birds-eye view of incoming sales and reviews, stock levels and general store performance and statistics all from the WordPress dashboard or go to the reports section to view stats in more detail.
+With premium extensions, you can offer bookings, memberships, and recurring subscriptions. Perhaps you’d like to sell monthly subscriptions for physical goods, or offer your members a discount on digital downloads? It’s all possible.
 
-= Customizable =
-Your business is unique, your online store should be too. Choose one of our [eCommerce themes](http://www.woothemes.com/product-category/themes/woocommerce/ "eCommerce themes from WooThemes") or build your own and give it a personal touch using the built in shortcodes and widgets.
+= Ship wherever you like =
+Offer free shipping, flat rate shipping, or make real-time calculations. Limit your shipments to specific countries, or open your store up to the world. Shipping is highly configurable, and WooCommerce even supports drop shipping.
 
-WooCommerce works with any theme, including the default WordPress themes. If you need help getting your theme working nicely with WooCommerce please read our [theming docs](http://docs.woothemes.com/document/third-party-custom-theme-compatibility/) to discover your options.
+= Extensive payment options =
+WooCommerce comes bundled with the ability to accept major credit cards, PayPal, BACS (bank transfers), and cash on delivery. Need additional options? More than 140 region-specific gateways integrate with WooCommerce, including popular choices like Stripe, Authorize.Net, and Amazon Payments.
 
-If you're looking for a tailored WordPress eCommerce theme designed specifically to be used with WooCommerce be sure to browse the official [WooCommerce Themes](http://www.woothemes.com/product-category/themes/woocommerce/).
+= You control it all -- forever =
+WooCommerce gives you complete control of your store, from taxes to stock levels to customer accounts. Add and remove extensions, change your design, and switch settings as you please. It’s all under your control.
 
-= Features =
-Whether you're operating a superstore selling thousands of products, or a just a sole trader selling hand made arts and crafts WooCommerce has you covered. You can read all about WooCommerce' features on the [WooCommerce website](http://www.woothemes.com/woocommerce/ "WooCommerce: An open-source eCommerce plugin for WordPress").
+One of the biggest risks of using a hosted eCommerce platform is what happens to your store if the provider closes up shop. With WooCommerce, you have complete control, so there’s never any reason to worry. Your data belongs to you -- and it’s kept secure, thanks to regular audits by industry leaders.
 
-Payment Gateways and Shipping Methods are important to any store - WooCommerce comes bundled with several popular options including PayPal Standard (for accepting Credit Card and PayPal account payments), BACS, Cash on Delivery, flat rate shipping, and free shipping.
+= Define your style with Storefront =
 
-= Premium Extensions =
+[Storefront](https://wordpress.org/themes/storefront/) is a free WordPress theme available to any WooCommerce store. Along with deep WooCommerce integration, Storefront prioritizes speed and uptime while eliminating theme and plugin conflicts during major updates.
 
-Need a specific payment gateway? Perhaps additional shipping methods? WooCommerce has a [plethora of eCommerce extensions available to provide just that](http://www.woothemes.com/extensions/woocommerce-extensions/ "eCommerce extensions for WooCommerce from WooThemes").
+Define your style even further by customizing Storefront to your liking or choosing from one of our several [Storefront child themes](http://www.woothemes.com/product-category/themes/storefront-child-theme-themes/). It’s all up to you, and all open source.
 
-Some of our popular extensions include **[Product Addons](http://www.woothemes.com/extension/product-addons/)**, **[Table rate shipping](http://www.woothemes.com/extension/table-rate-shipping/)**, **[Product CSV Import Suite](http://www.woothemes.com/extension/product-csv-import-suite/)**, **[WooCommerce Subscriptions](http://www.woothemes.com/products/woocommerce-subscriptions/)** and **[Dynamic Pricing](http://www.woothemes.com/extension/dynamic-pricing/)**.
+= Built with developers in mind =
 
-Want to see more?
+Extendable, adaptable, and open source -- WooCommerce was created with developers in mind. With its strong, robust framework, you can scale your client’s store all the way from basic to high-end (infinity and beyond).
 
-* [View Payment Gateways](http://www.woothemes.com/product-category/woocommerce-extensions/?prod_cat%5B%5D=1023&s=&post_type=product&min_price=0&max_price=129&prod_country=0 "Payment gateways for WooCommerce from WooThemes").
-* [View Shipping Methods](http://www.woothemes.com/product-category/woocommerce-extensions/?prod_cat%5B%5D=1026&s=&post_type=product&min_price=0&max_price=129&post_type=product&prod_country=0 "Shipping methods for WooCommerce from WooThemes").
-* [View all extensions](http://www.woothemes.com/product-category/woocommerce-extensions/ "View all WooCommerce extensions").
+Built with a REST API, WooCommerce can integrate with virtually any service. Your store’s data can be accessed anywhere, anytime, 100% securely. WooCommerce allows developers to easily create, modify, and grow a store that meets their specifications.
 
-= Free Extensions =
+No matter the size of the store you want to build, WooCommerce will scale to meet your requirements. With a growing collection of more than 300 extensions, you can enhance each store’s features to meet your client’s unique needs -- or even create your own solution.
 
-WordPress.org is home to many cool free extensions for WooCommerce made by other developers including the **[Admin Bar Addition](http://wordpress.org/extend/plugins/woocommerce-admin-bar-addition/)**, **[Delivery Notes](http://wordpress.org/extend/plugins/woocommerce-delivery-notes/)**, **[Affiliates Integration Light](http://wordpress.org/extend/plugins/affiliates-woocommerce-light/)**, **[Custom Product Tabs Lite](http://wordpress.org/extend/plugins/woocommerce-custom-product-tabs-lite/)**, and the **[WooCommerce Customizer](http://wordpress.org/extend/plugins/woocommerce-customizer/)**.
+If security is a concern, rest easy. WooCommerce is audited by a dedicated team of developers working around the clock to identify and patch any and all discovered bugs.
 
-[Search WordPress.org for WooCommerce](http://wordpress.org/extend/plugins/search.php?q=woocommerce) to see everything that is available.
+We also support WooCommerce and all its extensions with comprehensive, easily-accessible documentation. With our docs, you’ll learn how to create the exact site your client needs.
 
-= Get involved =
+= Extensions galore =
 
-Developers can contribute to the source code on the [WooCommerce GitHub Repository](https://github.com/woothemes/woocommerce/blob/master/CONTRIBUTING.md).
+WordPress.org is home to some amazing extensions for WooCommerce, including:
 
-Translators can contribute new languages to WooCommerce through [Transifex](https://www.transifex.com/projects/p/woocommerce-core/).
+[Google Analytics](https://wordpress.org/plugins/woocommerce-google-analytics-integration/)
+[Delivery Notes](https://wordpress.org/plugins/woocommerce-delivery-notes/)
+[PDF Invoices and Packing Slips](https://wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/)
+[Affiliates Integration Light](https://wordpress.org/plugins/affiliates-woocommerce-light/)
+[New Product Badges](https://wordpress.org/plugins/woocommerce-new-product-badge/)
+
+Keen to see them all? Search WordPress.org for ‘WooCommerce’ to dive in.
+
+If you’re looking for something endorsed and maintained by the developers who built WooCommerce, there are a plethora of premium eCommerce extensions, the most popular of which include:
+
+[WooCommerce Subscriptions](http://www.woothemes.com/products/woocommerce-subscriptions/)
+[WooCommerce Memberships](http://www.woothemes.com/products/woocommerce-memberships/)
+[WooCommerce Bookings](http://www.woothemes.com/products/woocommerce-bookings/)
+[Dynamic Pricing](http://www.woothemes.com/products/dynamic-pricing/)
+[Table Rate Shipping](http://www.woothemes.com/products/table-rate-shipping/)
+[Product CSV Import Suite](http://www.woothemes.com/products/product-csv-import-suite/)
+
+And there’s plenty more where they came from. Visit our [extensions page](http://www.woothemes.com/product-category/woocommerce-extensions/) to find out everything you’re capable of and all that's possible with premium WooCommerce extensions.
+
+= Join our growing community =
+
+When you download WooCommerce, you join a community of more than a million store owners, developers, and WordPress enthusiasts. We’re one of the fastest-growing open source communities online, and whether you’re a n00b or a Ninja, we’d love to have you!
+
+If you’re interested in contributing to WooCommerce we’ve got more than 350 contributors, and there’s always room for more. Head over to the [WooCommerce GitHub Repository](https://github.com/woothemes/woocommerce) to find out how you can pitch in.
+
+Want to add a new language to WooCommerce? Swell! You can contribute through [Transifex](https://www.transifex.com/woothemes/woocommerce/).
+
+And, finally, consider joining or spearheading a WooCommerce Meetup locally, more about those [here](http://www.woothemes.com/woocommerce/meetups/).
 
 == Installation ==
 
@@ -91,17 +115,21 @@ WooCommerce comes with some dummy data you can use to see how products look; eit
 
 == Frequently Asked Questions ==
 
-= Where can I find WooCommerce documentation and user guides =
+= Where can I find WooCommerce documentation and user guides? =
 
-For help setting up and configuring WooCommerce please refer to our [user guide](http://docs.woothemes.com/document/woocommerce/)
+For help setting up and configuring WooCommerce please refer to our [user guide](http://docs.woothemes.com/documentation/plugins/woocommerce/getting-started/)
 
 For extending or theming WooCommerce, see our [codex](http://docs.woothemes.com/documentation/plugins/woocommerce/woocommerce-codex/).
 
-If you get stuck and you're not a WooThemes customer, you can ask for help on the [Community Forums](http://wordpress.org/support/plugin/woocommerce).
+= Where can I get support or talk to other users? =
+
+If you get stuck, you can ask for help in the [WooCommerce Plugin Forum](https://wordpress.org/support/plugin/woocommerce).
+
+For help with premium add-ons from WooThemes, use [our helpdesk](http://support.woothemes.com/).
 
 = Will WooCommerce work with my theme? =
 
-Yes; WooCommerce will work with any theme, but may require some styling to make it match nicely. Please see our [codex](http://docs.woothemes.com/documentation/plugins/woocommerce/woocommerce-codex/) for help.
+Yes; WooCommerce will work with any theme, but may require some styling to make it match nicely. Please see our [codex](http://docs.woothemes.com/documentation/plugins/woocommerce/woocommerce-codex/) for help. If you're looking for a theme with built in WooCommerce integration we recommend [Storefront](http://www.woothemes.com/storefront/).
 
 = Where can I request new features, eCommerce themes and extensions? =
 
@@ -110,6 +138,10 @@ You can vote on and request new features and extensions in our [WooIdeas board](
 = Where can I report bugs or contribute to the project? =
 
 Bugs can be reported either in our support forum or preferably on the [WooCommerce GitHub repository](https://github.com/woothemes/woocommerce/issues).
+
+= Where can I found the Rest API documentation? =
+
+You can find the documentation of our REST API on the [WooCommerce REST API Docs](http://woothemes.github.io/woocommerce-rest-api-docs/).
 
 = WooCommerce is awesome! Can I contribute? =
 
@@ -125,6 +157,647 @@ Yes you can! Join in on our [GitHub repository](http://github.com/woothemes/wooc
 6. A product archive (grid).
 
 == Changelog ==
+
+= 2.4.7 - 21/09/2015 =
+* Fix - Handle Switzerland in get_european_union_countries.
+* Fix - For geolocation with static cache support, ensure hash is appended during form submission.
+* Fix - To prevent discounts being applied in 'random' order (based on order added to cart), sort cart items based on subtotal during calculate_totals.
+* Fix - Removed extra ob_start() in class-wc-shortcodes.php.
+* Fix - Show counts in category dropdown.
+* Fix - Escape add to cart messages to stop translations from breaking cart events.
+* Fix - Display of product/order tables in the dashboard when viewed on handheld devices.
+* Fix - API order item 'key' value.
+* Fix - Check specifically for Post IDs in WC Query verbose rules fix.
+* Fix - Only run maybe_set_cart_cookies if cart was loaded to prevent notices.
+* Fix - Variation loading/refresh after attribute saving.
+* Fix - Added monthly cron schedule.
+* Fix - Remove use of 'input' event in checkout scripts to prevent IE11 triggering updates on placeholder change.
+* Fix - AJAX variations not being found in some cases when product version was < 2.4, but attributes were updated after sync().
+* Fix - Changed the way variable product prices get cached for greater plugin compatibility. See http://wp.me/p6wtcw-5x
+* Fix - Highlighting of reports chart.
+* Fix - Network activated plugins not showing up in system status report.
+* Fix - Tax fields showing on bulk/quick edit when disabled the tax system.
+* Fix - Tax status and tax class values within bulk edit.
+* Tweak - Allow bulk edit price to 0 .
+* Tweak - Add filters to control "shipped via" text.
+* Tweak - Allow line breaks in non-variation attributes.
+* Tweak - Renamed wc_var_prices transient to allow them to flush on product save.
+* Tweak - woocommerce_save_account_details_required_fields hook.
+* Tweak - Only 'count' published variations.
+* Tweak - Display of order total in admin with refunds.
+* Tweak - Use Geolocation class for customer IP detection.
+* Tweak - Use the needs_payment function (DRY).
+* Tweak - Tweak wc_create_page to work with trashed pages.
+* Tweak - Redirect 'not right now' to referer in onboarding wizard.
+* Tweak - woocommerce_update_new_customer_past_order action.
+* Tweak - Prevent empty terms when using `wc_get_formatted_variation()`.
+* Tweak - Unslash shipping label on orders admin screen.
+* Tweak - Prevent wrong phone numbers on PayPal for CA and US when users add the prefix `+1`.
+* Template - Removed 'Payment' heading in `templates/checkout/form-pay.php`.
+* Template - Removed unnecessary clearing div in `templates/checkout/payment.php`.
+
+= 2.4.6 - 24/08/2015 =
+* Fix - menu_order notices on IIS.
+* Fix - Grouped product is_purchasable check during add to cart.
+* Fix - Subscriptions 2.0 (unreleased) compatibility.
+* Fix - Encode variation data in add_to_cart_url method.
+* Fix - Bulk update variation: Set manage stock when _manage_stock meta data is missing.
+* Fix - Bulk update variation: Allow stock to be set to 0.
+* Fix - Ajax variation < 2.4 attribute name handling.
+* Fix - During updates, only recreate .htaccess if not using redirect download method.
+* Fix - Handle non standard decimals in flat rate costs.
+* Tweak - WC Setup wizard: Fix manual setting of decimal/thousand separator.
+* Tweak - Set ajax/nocache headers for ajax requests.
+* Tweak - Add tooltips for tax status and tax class options.
+* Tweak - WC Setup wizard: multi-line step styling.
+* Tweak - WC Setup wizard: site icon display on WP 4.3.
+* Tweak - WC Setup wizard: tweaked wording.
+* Tweak - WC Setup wizard: Add spinner/loading indication between onboarding steps.
+* Tweak - Allow HTML in store notice.
+
+= 2.4.5 - 20/08/2015 =
+* Fix - Global text based attribute saving on product page.
+* Fix - save_account_details should check display name of current user.
+* Fix - Show the right 'no shipping available' message when a country does not have states.
+* Fix - Add required postcode marker after label replace.
+* Fix - Flush product cache so prices are regenerated after scheduled sale ends.
+* Fix - Removed /page/ when using layered nav dropdown.
+* Tweak - Allowed Zip/Post Codes description for Local Delivery.
+* Tweak - Improve display_item_downloads numbering and use same function in emails.
+* Tweak - API - Fixes notices about deprecated `$HTTP_RAW_POST_DATA` on PHP 5.6.
+* Tweak - In add_to_cart_action, check is_purchasable rather than post status.
+* Tweak - Add expand/close links for attributes and match variation UI.
+* Tweak - Added locale info for BD, NP, JP and HU
+* Tweak - woocommerce_delete_version_transients_limit filter.
+* Tweak - Suppress errors when calling set_time_limit to avoid hosting conflicts.
+* Tweak - Keep new variation in sync so actions can modify data.
+* Tweak - Improved download numbering in emails and order page.
+* Tweak - Allowed users to install translations for the current language during the Setup Wizard.
+
+= 2.4.4 - 14/08/2015 =
+* Fix - Ajax variation handling when 'any' attribute is set.
+* Fix - Run html_entity_decode over text attributes to fix problems with quote characters.
+* Fix - COD: remove shipping check if the cart is 100% virtual.
+* Tweak - Order variations by menu_order by fallback to ID.
+* Tweak - Include attribute archives support in the breadcrumbs.
+* Tweak - woocommerce_variable_children_args hook.
+
+= 2.4.3 - 12/08/2015 =
+* Fix - Query within wc_customer_bought_product().
+* Fix - Tab hiding with some theme markup.
+* Fix - Ajax variations: stripslashes to fix attributes with quotes.
+* Fix - No longer returns to the first variation list page when deleting one variation.
+* Fix - Refund subjects when order contains downloadable product.
+* Fix - wc_get_product_variation_attributes should only get parent attributes which are for variations.
+* Tweak - Disable display_errors during ajax requests to prevent malformed JSON.
+* Tweak - When merging shipping taxes with a shipping rate taxes, ensure shipping rate taxes is not malformed.
+* Tweak - Improved refund email events and woocommerce_order_fully_refunded hook.
+
+= 2.4.2 - 11/08/2015 =
+* Fix - If all variations are out of stock, maintain pricing display.
+* Fix - Prevent double add to cart due to ajax endpoints.
+* Fix - ordering_args in product_category shortcode.
+* Fix - Tax inclusive prices rounding case.
+* Tweak - If no variation prices are found, show no price label rather than free.
+* Tweak - Made tab panel selector more specific to avoid theme conflicts.
+* Tweak - Made checkout make use of new ajax endpoints.
+* Tweak - woocommerce_force_ssl_checkout no longer needs to check for admin-ajax actions.
+* Tweak - Hide get_formatted_legacy notices when doing ajax.
+* Tweak - use shop_single instead of full image size for variations.
+
+= 2.4.1 - 10/08/2015 =
+* Fix - Tweaked the 2.4 upgrade routine to disable refund emails during update.
+* Fix - Notices when calling get_shipping_classes().
+* Fix - Added upgrade routine to ensure _stock_status meta exists for variations created before WooCommerce 2.2
+
+= 2.4.0 - 10/08/2015 =
+* Feature - Onboarding/setup wizard for new users to handle basic store settings and installation.
+* Feature - Improved help tabs with inline video tutorials where applicable.
+* Feature - New AJAX powered variations interface to improve edit product page loading times and posting large amounts of data.
+* Feature - For products with many variations, on the frontend switch to AJAX to load matching variations based on user input attributes, instead of doing it all inline.
+* Feature - Show full category hierarchy in permalinks.
+* Feature - Added priorities for shipping methods to give more control over defaults.
+* Feature - [Added a new geolocation option to support static page caching using AJAX and a querystring.](https://woocommerce.wordpress.com/2015/07/02/making-geolocation-static-cache-friendly-in-2-4/)
+* Feature - Email notifications for partial refunds.
+* Feature - Visual API authentication endpoint for 3rd party use.
+* Feature - API key generation changes. Secret keys no longer stored in database.
+* Feature - [Refactored Flat Rate Shipping for simplicity.](https://woocommerce.wordpress.com/2015/06/simplifying-flat-rate-shipping-in-wc-2-4/)
+* Feature - Made international shipping UI the same as flat rate.
+* Feature - New ajax endpoints to improve performance by avoiding admin overhead.
+* Fix - Ensure coupon taxes are reset when calculating totals.
+* Fix - Improve discount amount rounding.
+* Fix - Update order shipping after editing shipping from API.
+* Tweak - Moved country next to other address fields in Checkout UI.
+* Tweak - Improved reports, in particular for refunds.
+* Tweak - Improve save_attributes ajax function to correctly save text attributes.
+* Tweak - Base discounts on the undiscounted price. #5874
+* Tweak - Added wc_product_cat_class functions.
+* Tweak - Display related products and upsells in 4 columns.
+* Tweak - Only redirect to welcome page for MAJOR versions/updates.
+* Tweak - GeoLocation IPv6 database.
+* Tweak - Improved text based attribute handling to prevent issues with slashes.
+* Tweak - Ajaxified the grouped product option.
+* Tweak - Email template improvements and wider email client compatibility.
+* Dev - Created a template file for the Proceed to Checkout button.
+* Dev - API version v3.
+* Dev - API - Implemented full support for Basic Authentication for v3, following the RFC 2617 specs.
+* Dev - API - Fixed Oauth 1.0a to strictly follow all specs from RFC 5849 for v3.
+* Dev - API - Added an endpoint to handle product attributes.
+* Dev - API - Auto generete passwords for new customers only when enabled the generate_password option.
+* Dev - API - Added display and image on product categories response.
+* Dev - API - Added endpoint for bulk update/insert coupons, customers, products and orders.
+* Dev - API - Deprecated /product/sku endpoint from v3.
+* Dev - API - Created the /products/id/orders endpoint to fetch orders containing a specific product.
+* Localisation - Added Argentine currency and provinces.
+* [Various other small fixes and enhancements.](https://github.com/woothemes/woocommerce/issues?q=is%3Aissue+milestone%3A%222.4+Helpful+Hedgehog%22+is%3Aclosed)
+
+= 2.3.13 - 07/07/2015 =
+* Fix - Improved the email settings save and tabs for 3rd party plugins.
+* Fix - Datepicker range for variations.
+
+= 2.3.12 - 06/07/2015 =
+* Fix - Fixed Google Chrome forcing to use SSL. This can cause some issues on websites behind load balancers or reverse proxies. [Read more](http://docs.woothemes.com/document/ssl-and-https/#websites-behind-load-balancers-or-reverse-proxies).
+* Fix - Escaped shop url in empty cart template.
+* Fix - Escaped product tabs titles.
+* Fix - Removed deprecated PHP4 constructor on Widget classes.
+* Fix - Wrong `price_slider_updated` JS event arguments.
+* Fix - Stock quantity type in WC-API.
+* Fix - Don't reveal username when login failed on valid email login.
+* Fix - Fatal error on order details when have some downloadable product deleted.
+* Fix - Relative paths validation for downloadable product.
+* Fix - Flat rate shipping costs should ignore virtual items.
+* Tweak - Keep product quantity when happens some error while add product on the cart.
+
+= 2.3.11 - 10/06/2015 =
+* Fix - Check if rating is enabled before check if rating is required to a review.
+* Fix - get_discounted_price needs to check if taxes are enabled.
+* Fix - Fixed filetype check for digital downloads.
+* Fix - Newfoundland and Labrador state rename.
+* Fix - Escaped js in widget layered nav when use the dropdown option.
+* Fix - Switch the permissions check for json_search_products to use the read_product capability.
+* Fix - Fixed the addition of variable products using the Order API.
+* Fix - Sale item exclusion logic for variations.
+* Fix - Clear correct variation stock transients when setting stock.
+* Fix - Switch to JSON to avoid unserializing untrusted data when handling responses from PayPal.
+* Fix - API - Fixed the sanitization for downloadable files on products endpoint.
+* Tweak - woocommerce_downloadable_file_exists filter.
+
+= 2.3.10 - 01/06/2015 =
+* Fix - Fixed theme check notice for core supported themes.
+* Fix - Add RTL direction to emails.
+* Fix - Fixed product category media upload modal.
+* Fix - Coupon maximum discount calculation.
+* Fix - PayPal icons and URLs.
+* Fix - API - Fixed subtotal_tax round and decimal dp.
+* Fix - Wrap payment js in jquery.
+* Fix - Delete correct transient when linking variations.
+* Fix - Set default currency position format string (in case of missing or invalid `woocommerce_currency_pos` option value).
+* Fix - Simplify Commerce undefined constant ('error_code' > '$error' typo).
+* Fix - Fixes too many arguments in function or method call: WC_Shortcode_My_Account::add_payment_method.
+* Fix - Pass correct number of arguments to `wc_lostpassword_url()`, `wc_nav_menu_items()`, `wc_nav_menu_item_classes()`, and `wc_change_term_counts()`.
+* Fix - Fixes usage of void return value from `wc_cart_totals_taxes_total_html()`.
+* Fix - Missing global in `render_product_columns()`.
+* Fix - Add `$args` arguments to `WC_Product_Factory->get_product_class()` to allow `$product_type` to be overwritten by `$args['product_type']`.
+* Fix - Remove call to `wp_specialchars_decode()` in `wc_get_price_thousand_separator()` and `wc_get_price_decimal_separator()`.
+* Fix - fclose in logging class requires a resource, not a string.
+* Fix - Prevent (admin) SQLi when setting stock levels for product variations.
+* Tweak - Extra escaping of customer emails in `wc_customer_bought_product()`.
+* Tweak - Improve tooltip sanitization.
+* Tweak - Escape provided array of post codes in tax class.
+* Tweak - Escape metadata when duplicating products.
+* Tweak - Escape permalink settings slugs.
+* Tweak - Sanitize columns value in shortcodes.
+* Tweak - Use prepare for updating attributes.
+* Tweak - Use wp_safe_remote_ functions in place of wp_remote_ where applicable.
+* Tweak - Added extra capability checks to notices, email template editing, and admin ajax requests.
+* Tweak - Set nonce_user_logged_out to WC session ID, if set.
+* Tweak - Added `wc_send_frame_options_header` function to prevent checkout and account pages from being used in iFrames. Added via filter so this can be disabled.
+* Tweak - Validate file types are allowed for downloadable products when saving.
+* Tweak - Filter: woocommerce_cart_item_removed_title
+* Tweak - Update html-admin-page-status-report.php to show unaltered URLs.
+* Tweak - When updating transients, clear previous version of transients.
+* Tweak - Replace max_related_posts_query for performance reasons.
+* Tweak - Combine transients for get_rating_count.
+* Tweak - Bump the PrettyPhoto version during enqueue to flush caches.
+* Tweak - Remove all instances of sslverify=false #8058
+* Tweak - Error prevention when showing customer orders on the frontend.
+* Tweak - Added PH states.
+
+= 2.3.9 - 19/05/2015 =
+* Fix - Fixed language upgrader verification.
+* Fix - Refund reporting #8010
+* Fix - Redirect after bulk editing.
+* Fix - Prevent variable overwrite in save_product_meta.
+* Fix - Fix stock report pagination.
+* Fix - Fixed paypal about URL for Malta.
+* Fix - Fixed save downloadable files for product variations.
+* Fix - Remove submitdiv and fix post status updating.
+* Fix - Fixed the sort order dropdown items when create new product attributes.
+* Fix - Move action to prevent infinite recursion on login/restoring saved carts.
+* Fix - Update PrettyPhoto to 3.1.6 to resolve XSS security issue https://github.com/scaron/prettyphoto/issues/149
+
+= 2.3.8 - 20/04/2015 =
+* Fix - Ensure coupon taxes are reset when calculating totals.
+* Fix - Downloads url sanitization to work correctly with shortcodes and urls.
+* Fix - State/Contry select2 issues with Internet Explorer.
+* Fix - Flat rate per item and per class if no additional costs added.
+* Fix - Simplify Commerce compatibility with free trial subscriptions.
+* Fix - Select2 z-index in the admin.
+* Fix - Postmeta records deletation on plugin uninstall.
+* Fix - List only approved comments in products reviews on API.
+* Fix - Improved variation SKU display.
+* Fix - Prices including tax within orders.
+* Fix - Ensure line taxes are stored when calculating tax theough the API.
+* Fix - Add null date check for download permissions.
+* Fix - PayPal Logging.
+* Fix - Coupon product id and category id checks should run for all coupon types.
+* Tweak - Hook in cart totals via action.
+* Tweak - Prevent errors when adding or deleting products for the coupon.
+* Tweak - Prevent errors when check customer capability to view orders.
+* Tweak - Ensure Price Filter links has a trailing slash to avoid pagination issues.
+* Tweak - Improved the check for mismatched totals in items lines for PayPal payment gateway.
+* Tweak - Use wc_stock_amount to format API orders stock amount.
+* Tweak - Ensure show_in_admin_all_list is respected for order statuses.
+* Tweak - Remove rounding from shipping costs for greater shipping tax precision.
+* Tweak - Only automatically cancel orders created via checkout + allow post_parent to be set.
+* Tweak - Deny all access to revisions through API.
+
+= 2.3.7 - 18/03/2015 =
+* Fix - Allow saving of empty download expiry date on orders.
+* Fix - get_total_discount() function with certain tax setups.
+* Fix - stock management for variations for Products API.
+* Fix - Price filter styling.
+* Fix - Support price filter min or max only.
+* Fix - Allowed paths for file url.
+* Tweak - Chile address format.
+* Tweak - Revised how discounts/discount taxes are stored for consistency. Always store ex. tax to make data retrieval easier, and to ensure totals are correct after settings changes. Backwards compatibility maintained through use of order versioning.
+* Tweak - Delete product attachments when the Products API fails.
+
+= 2.3.6 - 13/03/2015 =
+* Fix - Removal of coupons containing spaces.
+* Fix - Unclosed div in profile page.
+* Fix - Export report CSV.
+* Fix - Settings API - allow multiselect fields to be emptied.
+* Fix - Saving an order needs to save the discount amount ex. tax like the cart.
+* Fix - Order again with custom attributes.
+* Fix - [CVE-2015-2329] Prevent potential XSS within tooltips (discovered by Fortinet FortiGuard Labs).
+* Fix - Paypal debug option.
+* Fix - Removed $q->query['wc_query'] = 'product_query' which broke redirects (#7703). Use $q->get('wc_query') instead.
+* Fix - Sanitize tax_rate_id when saving taxes in the backend to prevent potential SQL injection (discovered by WordFence).
+* Tweak - Show discounts inc. tax when showing order totals inc. tax.
+* Tweak - Use 30 days instead of year for transients to avoid bugs in memcache plugins.
+* Tweak - Add reports menu item if user can access reports but not the main WC section.
+* Tweak - Improve grouped product quantity inputs.
+* Tweak - Load the persistant cart if cart is empty.
+* Tweak - Prevent cart being cleared when accessing the login page.
+* Tweak - Shipping calculator - Made state/postcode respect country locale like checkout.
+* Tweak - Move default customer location to general settings tab.
+* Tweak - Only run save_category_fields for product_cat taxonomy.
+* Tweak - Improved message when variation attributes are missing.
+* Tweak - Allow wc_attribute_label to support product-level attribute names.
+* Tweak - Added the option to not round the line total.
+* Tweak - Improved coupon percent calculation for fixed discounts.
+* Tweak - Show calculate total when shipping is needed, but shipping is hidden.
+* Tweak - Cart total labels.
+* Tweak - Increase wc_get_weight precision.
+* Dev - API - reports/sales now also returns total refunds.
+
+= 2.3.5 - 20/02/2015 =
+* Fix - Plain text address formatting.
+* Fix - Detect shortcodes when saving URLs.
+* Fix - Unhook wc_page_endpoint_title after it is ran once (main page title).
+* Fix - Taxes save issue when page is paginated.
+* Fix - Cross/up-sells should not search variations.
+* Fix - Related post offset.
+* Tweak - Round report values.
+* Tweak - Text in plain text emails.
+* Tweak - Improve category coupon message.
+* Tweak - Don't download GeoIP Database until geolocation option is enabled in settings.
+
+= 2.3.4 - 17/02/2015 =
+* Fix - limit_usage_to_x_items option in coupons.
+* Fix - Run coupon codes through html_entity_decode.
+* Fix - Tax by code report for refunds.
+* Fix - Auto-generation of slug when adding new attribute.
+* Fix - Prevented errors when `DOMDocument` is not found (used for your HTML/Multipart emails).
+* Fix - Load WC css on user edit screen.
+* Fix - DB error when showing reports by product without selecting a product.
+* Fix - Stock status when updating out of stock product.
+* Fix - Fix place order button text on init.
+* Fix - When duplicating products, handle entities.
+* Fix - Double shop page in breadcrumb and white space issues.
+* Fix - When purchasing multiple downloadable products (same item), multiply download limit by qty purchased.
+* Fix - Added checks for gzopen to prevent activation errors.
+* Tweak - Added DOMDocument item in the System Status as a requirement.
+* Tweak - Simplify default mode should be 'standard'.
+* Tweak - Set attribte 'query_var' true when public.
+* Tweak - Use wc_get_page_permalink() to get page permalinks.
+* Tweak - Register shop_order post statuses earlier to ensure statuses are registered for cron.
+* Tweak - Improvements to refund handling in Taxes by code/date, and sales by date reports. Gross/net excludes refunds.
+* Tweak - Share data between Sales by Date report and API.
+* Tweak - Related posts - replace ORDER BY RAND() with random offset.
+* Tweak - Run item meta label through wc_attribute_label() in admin order page.
+* Tweak - Run File URLs through esc_url_raw instead of wc_clean to preserve spaces.
+* Tweak - Small timeout on checkout update action to prevent several triggering at once.
+* Tweak - Restock items AFTER refund, not before.
+* Tweak - If logged in, populate customer data from user meta.
+
+= 2.3.3 - 12/02/2015 =
+* Fix - Potential notice with preg_match wildcard search, if used incorrectly.
+* Fix - Typo in get_from_name method.
+* Fix - Fix errors during checkout when mb_convert_encoding() is not supported.
+* Fix - Change hooks used to output post columns - fixes columns after quick edit.
+* Fix - Only apply product/cat coupon checks for cart to cart coupons.
+* Fix - Query in uninstall script.
+* Tweak - Only run the uninstaller if the "Uninstall on Delete" option is checked in system status.
+
+= 2.3.2 - 12/02/2015 =
+* Fix - Item meta removal query in order class.
+* Fix - Pass correct shipping cost to PayPal.
+* Fix - Flat rate extra costs when costs are an array.
+* Fix - When ratings are required for reviews, ensure validation is performed if the rating element is removed from DOM.
+* Fix - When updating shipping in cart, keep shipping calculator in DOM.
+* Fix - WC_TEMPLATE_DEBUG_MODE in admin.
+* Fix - Average product rating when ratings are not required.
+* Fix - attribute_public option.
+
+= 2.3.1 - 11/02/2015 =
+* Fix - When the geolocation database cannot download, ensure the correct method is used to log the error.
+* Fix - Notice in woocommerce_form_field().
+* Fix - attribute_public notice before DB upgrade.
+* Fix - [products] ids and sku args.
+* Fix - Backwards compatibility for (deprecated) $tax variable in WC_Cart.
+* Fix - is_available() check in local pickup.
+* Fix - Added WC version of GEOIP classes to prevent conflicts with other plugins.
+
+= 2.3.0 - 11/02/2015 =
+* Feature - Option to geo-locate the customer's inital location.
+* Feature - Display taxes in store based on the customer location, rather than the shop base.
+* Feature - Made tax importer expand postcode ranges.
+* Feature - Print styles for reports.
+* Feature - Remove products from the cart in the widget.
+* Feature - Bulk edit sales schedule on variations.
+* Feature - Fresh new frontend / email design.
+* Feature - Undo link in message when removing products from the cart.
+* Feature - Compatibility with Twenty Fifteen default theme.
+* Feature - Added 'top freebies' to product report.
+* Feature - Added numeric sort for attributes.
+* Feature - Added support for some Jetpack features: Omnisearch, Publicize and Markdown editor.
+* Feature - UI for adding Webhooks.
+* Feature - Show Gross and Net totals in reports.
+* Refactor - Removed deprecated methods from WC_Frontend_Scripts and rewrote script registration and localization to run once.
+* Refactor - Routing all email functionality through one send() method.
+* Refactor - Replaced existing email css inliner with Emogrifier.
+* Refactor - get_product_search_form().
+* Refactor - Improved the Shipping Class field in products quick edit and bulk edit.
+* Refactor - Removed style settings in favour of separate plugin.
+* Refactor - Removed quantity increment/decrement buttons in favour of separate plugin.
+* Feature - Added link on purchased products list on orders screen.
+* Fix - When 'hide out of stock products' is disabled, out of stock variations / attributes are now visible.
+* Fix - Fix cart coupon on-sale checks for variations.
+* Tweak - Double the default product image dimensions.
+* Tweak - Added refunds to Sales by Date report.
+* Tweak - Updated prevent_caching() method to work if a cart/checkout page isn't set.
+* Tweak - When user tries to download a file and isn't logged in, send them to the account page with a notice.
+* Tweak - Logic in wc_paying_customer to only increase for 'simple' orders.
+* Tweak - Added tool to refresh stats to customer list.
+* Tweak - Recent order table on my account is responsive.
+* Tweak - Drop WC tables in wpmu_drop_tables (for multisite).
+* Tweak - Moved 'Proceed to checkout' button on cart to beneath totals.
+* Tweak - Improved 'responsiveness' of product data tabs on add/edit product screen.
+* Tweak - Added 'stupidtable' script to allow order item sorting on the order screen (by name, cost, qty).
+* Tweak - In the cart, add variation selected data to the permalink.
+* Dev - API - Look up product by sku.
+* Dev - API - New parent_id param for products API.
+* Dev - API - Sales data in API now matches sales data in WooCommerce reports page.
+* Dev - API - Added 'net_sales' data to reports.
+* Dev - API - catalog_visibility is set to visible by default in products API.
+* Dev - API - Added new filter to query for specific products by ID: /products?filter[in]
+* Dev - Made template debug mode set WC_TEMPLATE_DEBUG_MODE constant and remove all overrides for all template loading functions.
+* Dev - Switched to .scss from .less for all styles.
+* Dev - Included bourbon for scss mixins.
+* Dev - Decoupled the order summary and payments area. Both are updated independently via ajax fragments and can be moved around via actions. TEMPLATES OVERRIDING THESE TEMPLATES WILL NEED TO UPDATE THEIR FILES.
+* Dev - Moved WC_Cart::get_cart_from_session() and dependencies to a later hook (was init, now wp_loaded).
+* Dev - Migrated away from CHOSEN to SELECT2. Chosen is still registered in case 3rd parties try to enqueue.
+* Localisation - Add Ukrainian currency and symbol.
+* Localisation - Greece regions.
+
+= 2.2.11 - 29/01/2015 =
+* Add - URL in Usage/Limit column in Coupons table to query for orders.
+* Fix - esc_url() applied to prevent potential XSS issues.
+* Fix - "Link all variations" button.
+
+= 2.2.10 - 16/12/2014 =
+* Fix - Stock status on quick and bulk edit.
+* Fix - Incorrect clearing of error messages.
+
+= 2.2.9 - 15/12/2014 =
+* Add - API - parent_id for products endpoint.
+* Fix - Processing and On-hold order links in WooCommerce Status dashboard widget.
+* Fix - Orders API when query orders with deleted products.
+* Fix - Check order exists in wc_clear_cart_after_payment().
+* Fix - move $cart_updated inside $passed_validation to prevent unnessary updates.
+* Fix - MX states keys.
+* Fix - sanitize_user correctly during registration.
+* Fix - API - Variation handling for stock data.
+* Fix - When bulk editing variable products, set the stock status for non-stock managed variations.
+* Fix - Fix coupons by date queries to prevent inflated results.
+* Fix - During refunds, correctly set shipping tax totals.
+* Fix - Ensure floats are safely converted to strings.
+* Fix - remove_taxes needs to clear line_tax_data.
+* Fix - Correctly save custom address fields in admin.
+* Fix - API - Fixed a bug for save multiple images from the media library in products endpoint.
+* Fix - API - Delete products when happens some error.
+* Fix - API - `enable_free_shipping`, `product_category_ids`, `exclude_product_category_ids` and `customer_emails` coupons params.
+* Fix - API - Coupons `expiry_date` format.
+* Fix - Force HTTP option behavior on Customizer Preview screen.
+* Fix - Cart error messages when the session is expired.
+* Tweak - API - set_fee should support tax_data.
+* Tweak - Don't force tax_rate_id to an integer. Allow strings.
+* Tweak - Additional filters inside tax class to support extensions.
+* Tweak - Allow plugins to filter the taxable location.
+* Tweak - Added result and message keys to order_review AJAX call.
+* Tweak - Added get_cart_item to WC_Cart class.
+
+= 2.2.8 - 29/10/2014 =
+* Fix - Image crop option.
+* Fix - Display of order note date.
+* Fix - API POST/PUT products attributes values.
+* Fix - Added fallbacks to wp_get_referer().
+* Fix - PayPal encoding for return urls.
+* Fix - Low stock report should hide no stock.
+* Fix - Fixed nonce check in form handler.
+* Fix - Notices in status report when checking if templates exist.
+* Fix - Allow to filter empty tax rate code.
+* Fix - Fixed the value format in stock field with wc_stock_amount().
+* Fix - Remove strtolower for status names and capitalize statuses.
+* Tweak - Removed unused methods from PayPal gateway.
+* Tweak - Use current user ID for refunds.
+* Tweak - Allow API edit_product method to update post_name (slug).
+
+= 2.2.7 - 22/10/2014 =
+* Fix - Fix refund date.
+* Fix - Fixed various notices.
+* Fix - Make updater set parent backorder status.
+* Fix - In the US address format, use state code rather than the full state name.
+* Fix - Use mb_strtolower to prevent issues with unicode chars.
+* Fix - Introduced the wc_strtolower() function
+* Fix - Make cart total consider taxes when saving an order.
+* Fix - Fix /shop/ base URL Non Latin issue with url decode.
+* Fix - Correct report handling for full and partial refunds.
+* Fix - Update jquery payment to prevent autocomplete issues.
+* Fix - Coupon API: Don't return current timestamp when expiry_date is not set.
+* Fix - wc_update_product_stock should update stock regardless, if the meta data doesn't currently exist.
+* Fix - Added wp_kses_post to purchase note
+* Fix - Fixed edit account page fields #6577.
+* Fix - Fix stock report queries #6565.
+* Fix - Fix error message with maximum amount in coupon class.
+* Fix - Fix nonce usage during checkout/account pages.
+* Fix - Incorrect conversion of Unicode characters in order status names.
+* Fix - Edit Account fields order.
+* Fix - Shipping address values on checkout page.
+* Fix - Enforce slug format of translated edit-address-slugs.
+* Tweak - Allow for non-integer stock quantities.
+* Tweak - Update simplify commerce to use new $order->get_status().
+* Tweak - Only show integrations subnav when there are multiple integrations.
+
+= 2.2.6 - 08/10/2014 =
+* Fix - Notices in the cache helper.
+* Fix - Prevent bulk edit from breaking sale price scheduled dates.
+* Fix - Prevent address fields being empty when editing an address within an order.
+* Fix - Removed save_post remove_action call which breaks 3rd party plugins. See ticket #6376 and #6485 for details.
+* Fix - Prevent warnings when set "Specific Countries" empty in shipping methods.
+* Tweak - Added woocommerce_product_subcategories_hide_empty filter.
+* Tweak - Added filter for shipping tax.
+* Tweak - Product attribute shortcode should return columns css class.
+
+= 2.2.5 - 07/10/2014 =
+* Fix - Filters in admin screen for coupons and orders.
+* Fix - When bulk editing, don't allow sale price to be negative.
+* Fix - When manually adding items to an order, show tax columns.
+* Fix - When manually adding items to an order, include variation data.
+* Fix - Prevent errors when constructing WC_Order without an ID.
+* Fix - Item_id notices in email templates.
+* Fix - Use variation get_stock_quantity() for variation max_qty.
+* Fix - Prevent bulk edit cancel from clearing options when bulk editing variations.
+* Fix - Use term_taxonomy_id for transient names - fixes counts in layered nav.
+* Fix - Use wc_get_order in simplify-commerce.
+* Fix - Use 'no' instead of boolean to disable PayPal gateway.
+* Fix - Do not escape redirect url in form handler - fixes malformed URLs.
+* Fix - Prevented non-existant pages from breaking cache helper.
+* Fix - Prevent sale prices showing errors in admin wrongly.
+* Fix - Prevent order statuses affecting other queries.
+* Fix - Removed deprecated get_page() functions.
+* Fix - Category archives. WP core still has issues dealing with pad_counts + parent when getting categories. Workaround by not hiding empty cats, then filtering the returned list using wp_list_filter.
+* Fix - When formatting meta data for display, suffix items to prevent issues when there are multiple values for the same meta key.
+* Fix - Unhook save_meta_boxes after first successful run to prevent race conditions.
+* Tweak - Added refunds to Sales by Date report.
+* Tweak - Tweak load_plugin_textdomain to be relative - this falls back to WP_LANG_DIR automatically. Can prevent "open_basedir restriction in effect".
+* Tweak - Added acceptance marks to PayPal Standard where applicable to replace generic PayPal icon.
+
+= 2.2.4 - 18/09/2014 =
+* Fix - Prevent errors when adding 'zero-rated' tax on checkout.
+* Fix - Fixed a varation product width inheritance bug.
+* Fix - Totals in taxes by date report.
+* Fix - Fix the 'only 1 visible product' redirect to not trigger when paging results.
+* Tweak - Improved headers sent notice to include file and line.
+* Tweak - When updating order status, ensure its a valid WC order status.
+* Tweak - Add notice when order is no longer editable.
+* Dev - Allow getting rating count for a specific rating value #6284.
+* Localisation - Nepal States.
+* Localisation - Mexico states.
+
+= 2.2.3 - 16/09/2014 =
+* Fix - Order status translation in admin and account page.
+* Fix - Ensure shipping address gets displayed - fixes needs_shipping_address() method.
+* Fix - Escaping of country names in tax settings.
+* Fix - Encoding of pagination link when using default permalinks.
+* Fix - NPR currency.
+* Fix - Fixing "Invalid key" error when clicking link in password reset email.
+* Fix - Mobile checkout via PayPal when using tax inclusive prices.
+* Fix - Thumbnails "hard crop" option.
+* Fix - Missing variables when add new product variation.
+* Fix - Fixed minor XSS issue on reports screens by escaping and sanitizing 'range' GET variable.
+* Fix - Number format when calculate the line items tax.
+* Fix - Language update/install in Multisites.
+* Fix - "Set product image" media gallery title in non-product post type.
+* Fix - Number of processing orders in WooCommerce > Orders menu.
+* Fix - Issue that preventing cookies being set on shutdown after wp_send_json.
+* Fix - Incorrect shipping calculation because of missing width in product variation.
+* Tweak - Display of locale information on system status page.
+* Tweak - Removed postcode for Bahamas.
+* Tweak - In system status, show path to template file override.
+* Tweak - Dynamically get the address fields in WC_Checkout::create_order()
+* Tweak - If a refund fails, delete refund post.
+* Tweak - Button for hide the language update message.
+* Tweak - Method for install the translations directly.
+* Tweak - Display of h4 in settings pages.
+* Dev - Added woocommerce_get_settings_ID filters.
+
+= 2.2.2 - 11/09/2014 =
+* Fix - Saving of variation stock when parent stock management is disabled.
+* Fix - "open_basedir restriction in effect" error caused on install when trying to create the WC logging directory.
+* Fix - For regular products, ensure stock level saves on product creation.
+
+= 2.2.1 - 10/09/2014 =
+* Fix - Small tweak to the installer to prevent errors caused by outdated plugins.
+* Fix - Mijireh Checkout update link.
+* Tweak - Small tweak to update notification to remind users to update old plugins prior to install.
+
+= 2.2.0 - 10/09/2014 =
+* Feature - Refunds system for orders.
+* Feature - New orders panel for managing line items + totals.
+* Feature - Language pack downloader. po and mo files removed from core (too heavy).
+* Feature - Added used payment gateway to view orders screens.
+* Feature - Allow backorders to be configured at variation level.
+* Feature - Protect admins from shop manager users.
+* Feature - Ability to add custom quantity using add_to_cart shortcode.
+* Feature - Ability to set a maximum spend for coupons.
+* Feature - Added Simplify Commerce payment gateway.
+* Fix - Allow endpoint use on the front page.
+* Fix - user_activation_key password reset code.
+* Tweak - Recalculate the cart totals, in the event a user registers during checkout and in doing so qualifies for any discounts.
+* Tweak - Use `woocommerce_valid_order_statuses_for_payment` in `pay_action` too.
+* Tweak - Added the possibility to translate the edit-address endpoint slug.
+* Tweak - Removed all the_content filter in favor to wpautop() and do_shortcode().
+* Tweak - Send IPN email notifications to new order email.
+* Tweak - Clear and wipe session data on logout and end of checkout for guests.
+* Tweak - Load archive-product.php for other product taxonomies.
+* Tweak - Disable image size settings if filters are being used.
+* Tweak - Hide the shipping address when local pickup is used.
+* Tweak - Password protected posts are not hidden from catalog by default anymore, visibility can be set via the 'Catalog visibility' option.
+* Tweak - Removed the shortcode button in favor to [WooCommerce Shortcodes](https://wordpress.org/plugins/woocommerce-shortcodes/)
+* Dev - API Version 2 with push support.
+* Dev - API: Lookup customers by email endpoint.
+* Dev - API: Allow ordering on the resource level.
+* Dev - Customers API / Methods PUT/POST/DELETE.
+* Dev - Coupons API / Methods PUT/POST/DELETE.
+* Dev - Orders API / Methods PUT/POST/DELETE.
+* Dev - Products API / Methods PUT/POST/DELETE.
+* Dev - Added description parameter to the woocommerce_form_field function.
+* Dev - Introduce `woocommerce_valid_order_statuses_for_payment_complete` filter.
+* Dev - Introduce `woocommerce_thankyou_order_received_text` filter.
+* Dev - Introduce `woocommerce_product_backorders_allowed` filter.
+* Dev - get_user and get_user_id methods.
+* Dev - Add new 'wc_admin_reports_path' filter to reports.
+* Dev - Add user ID to shipping packages.
+* Dev - Added product id parameter to related posts filters.
+* Dev - WC_LOG_DIR constant for defining the log directory.
+* Dev - Moved default logging directory 1 level above WordPress, rather than in the plugin folder.
+* Dev - Added log viewer in System Status.
+* Dev - Made stateless classes static to allow unhooking of methods.
+* Dev - Introduces the wc_get_log_file_path() function.
+* Dev - Introduces the WC_Order::needs_shipping_address() method.
+* Dev - Gateways can set transaction ID for the order.
+* Dev - Gateways can do refunds via the Payment Gateway API.
+* Refactor - Changed the method in which order statuses are stored. Previously, order status was a taxonomy. This caused issues when unique term slugs differed from what we were expecting, and also added additonal overhead to order queries in reports. https://github.com/woothemes/woocommerce/issues/3064 Order status is now stored as post status - several new post statuses have been added. Order class variables are backwards compatible. The only thing to note (for devs) is that any query must use the order status instead of 'publish' when getting orders and querying by post_status. THe shop_order_status has also been removed.
+* Refactor - Update stock amounts with DB queries.
+* Refactor - Simplified attribute name sanitisation which maintains UTF8 char integrity.
+* Refactor - Country class return methods.
+* Notice - Deprecated Mijireh gateway in core. Plugin is available on .org.
+* Localisation - Egypptian currency.
+* Localisation - Address format of Taiwan.
+* Localisation - Removed language files from core to made the package lighter (see language pack downloader feature).
 
 = 2.1.12 - 01/07/2014 =
 * Fix - Total tax should be +, not -.
@@ -151,7 +824,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/woothemes/wooc
 * Fix - Fix coupon limit checks and enhance to check ID by provided email (if logged out).
 * Fix - Danish krone symbol.
 * Fix - check for the existence of the cart during the is_available().
-* Fix - Fixes performance degredation on large wp_options tables.
+* Fix - Fixes performance degradation on large wp_options tables.
 * Fix - improved the shortcodes button for support WordPress 3.9.
 * Tweak - Stronger session ID generation.
 * Dev - Add action hooks when saving tax rates.
@@ -192,6 +865,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/woothemes/wooc
 * Fix - Allow removing downloads from product by removing all rows.
 * Fix - Ignore variation stock if disabled globally.
 * Fix - Prevent duplicate admin menu items when using menu editor plugins.
+* Fix - Remove title from product not purchasable message to prevent possible data leak. Thanks Julio Potier.
 * Tweak - Updated REST API docs link.
 * Tweak - Updated prettyphoto dependencies.
 * Tweak - Customer search performance improvements.
@@ -324,7 +998,7 @@ Yes you can! Join in on our [GitHub repository](http://github.com/woothemes/wooc
 * Refactor - Hardened code base and fixed strict standards notices
 
 = 2.1.3 - 27/02/2014 =
-* Fix - Use correct thresholds to calculate out of stock number in dashboard widget 
+* Fix - Use correct thresholds to calculate out of stock number in dashboard widget
 * Fix - Admin screen strings sanitised to work with Chinese characters
 * Fix - REST API OAuth signature fixed when using filter params
 * Fix - Ensure shipping address data for customers is updated if only shipping to billing address
@@ -931,5 +1605,5 @@ Yes you can! Join in on our [GitHub repository](http://github.com/woothemes/wooc
 
 == Upgrade Notice ==
 
-= 2.1.0 =
-2.1 is a major update. Test extensions and your theme prior to updating and ensure that you keep backups. [See our release post for more information](http://www.woothemes.com/?p=315625). Developers should catch up with [develop.woothemes.com](http://develop.woothemes.com/) to see what has been happening.
+= 2.4.0 =
+2.4.0 is a major update so it is important that you make backups, and ensure themes and extensions are 2.4 compatible. Developers should catch up with [the development blog](https://woocommerce.wordpress.com/) to see what has been happening in core.

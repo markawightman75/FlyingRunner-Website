@@ -130,6 +130,19 @@ class Headline_Large_Widget extends WP_Widget {
 							$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 							$thumb_url = $thumb_url_array[0];
 						}
+						
+						
+						if (substr($thumb_url,0, 19) != "http://127.0.0.1:82" )
+						{
+							//Redirect to http://images.
+							$firstdot = strpos($thumb_url, ".");
+							$url_secondpart = substr($thumb_url, $firstdot+1);
+							$thumb_url = "http://images." . $url_secondpart;
+							$thumb_url = str_replace("2/wp-content/uploads/", "",$thumb_url);
+							$thumb_url = str_replace("wp-content/uploads/", "",$thumb_url);
+							$thumb_url = str_replace("images.flyingrunner.co.uk/2/", "images.flyingrunner.co.uk/",$thumb_url);
+						}
+						
 						if (! empty ($thumb_url)) {						
 							$imagetag = sprintf( '<img src="%s"/>', $thumb_url);
 							printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $imagetag );								

@@ -90,9 +90,10 @@ class Headlines_Small_Widget extends WP_Widget {
 		if (! empty ($instance['headline_1_id'])) $post_ids[] = $instance['headline_1_id'];
 		if (! empty ($instance['headline_2_id'])) $post_ids[] = $instance['headline_2_id'];
 		if (! empty ($instance['headline_3_id'])) $post_ids[] = $instance['headline_3_id'];
-		if (! empty ($instance['headline_4_id'])) $post_ids[] = $instance['headline_4_id'];
-		if (! empty ($instance['headline_5_id'])) $post_ids[] = $instance['headline_5_id'];
-		if (! empty ($instance['headline_6_id'])) $post_ids[] = $instance['headline_6_id'];
+		//Temporarily disable 2nd row of headlines (performance)
+		//if (! empty ($instance['headline_4_id'])) $post_ids[] = $instance['headline_4_id'];
+		//if (! empty ($instance['headline_5_id'])) $post_ids[] = $instance['headline_5_id'];
+		//if (! empty ($instance['headline_6_id'])) $post_ids[] = $instance['headline_6_id'];
 
 		//To make the ordering work, we would need to remove a filter that seems to have been applied,
 		//apparently by the Post Types Order plugin. So the ordering here doesn't actually work at the moment.
@@ -136,8 +137,21 @@ class Headlines_Small_Widget extends WP_Widget {
 					$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
 					$thumb_url = $thumb_url_array[0];
 					
-					if (! empty ($thumb_url)) {						
+					if (! empty ($thumb_url)) {		
+
+						if (substr($thumb_url,0, 19) != "http://127.0.0.1:82" )
+						{
+							//Redirect to http://images.
+							$firstdot = strpos($thumb_url, ".");
+							$url_secondpart = substr($thumb_url, $firstdot+1);
+							$thumb_url = "http://images." . $url_secondpart;
+							$thumb_url = str_replace("2/wp-content/uploads/", "",$thumb_url);
+							$thumb_url = str_replace("wp-content/uploads/", "",$thumb_url);
+							$thumb_url = str_replace("images.flyingrunner.co.uk/2/", "images.flyingrunner.co.uk/",$thumb_url);
+						}
+					
 						$imagetag = sprintf( '<img src="%s"/>', $thumb_url);
+						//$imagetag = apply_filters( 'bj_lazy_load_html', $imagetag );
 						printf( '<a href="%s" title="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), $imagetag );
 					}
 				echo '</div>';

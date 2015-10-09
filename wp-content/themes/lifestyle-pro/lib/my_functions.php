@@ -12,7 +12,7 @@ include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/adverts-small-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/section-title-widget.php' );
-include_once( CHILD_DIR . '/lib/widgets/marathon-time-predictor-widget.php' );
+include_once( CHILD_DIR . '/marathon-pacing-calculator/marathon-pacing-calculator-widget.php' );
 
 function add_custom_widgets() {  
   // register our custom widget..
@@ -20,9 +20,22 @@ function add_custom_widgets() {
   register_widget( 'Headlines_Small_Widget' );
   register_widget( 'Adverts_Small_Widget' );
   register_widget( 'Section_Title_Widget' );
-  register_widget( 'Marathon_Time_Predictor_Widget' );
+  register_widget( 'Marathon_Pacing_Calculator_Widget' );
 }
+
 add_action( 'widgets_init', 'add_custom_widgets' );
+
+add_action( 'genesis_after_entry_content', 'add_pacing_calculator_javascript' );
+function add_pacing_calculator_javascript() {
+	if ( get_the_title() == "Marathon Pacing Calculator" )	{
+		//Register the javascript file that contains client-side logic
+		wp_register_script( 'marathon-pacing-calculator', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing-calculator.js', array( 'jquery' ), '', true );
+		//declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php) so it gets stored in the html for the page and can be picked up by the javascript
+		wp_localize_script( 'marathon-pacing-calculator', 'ajax_parameters', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		//Queue the script to be included in the html
+		wp_enqueue_script( 'marathon-pacing-calculator');
+	}
+}
 
 genesis_register_sidebar( array(
 	'id'		=> 'runningandtrainingpagecontentarea',
@@ -40,9 +53,9 @@ genesis_register_sidebar( array(
 	'description'	=> __( 'This is the widget area for the articles on the news page. Put headlines, adverts widgets etc. in here.', 'Flying Runner' ),
 ) );
 genesis_register_sidebar( array(
-	'id'		=> 'marathontimepredictorcontentarea',
-	'name'		=> __( 'Flying Runner Time Predictor Content Area', 'Flying Runner' ),
-	'description'	=> __( 'This is the widget area for the marathon time predictor tool.', 'Flying Runner' ),
+	'id'		=> 'marathonpacingcalculatorcontentarea',
+	'name'		=> __( 'Flying Runner Marathon Pacing Calculator  Content Area', 'Flying Runner' ),
+	'description'	=> __( 'This is the widget area for the marathon pacing calculator tool.', 'Flying Runner' ),
 ) );
 
 
@@ -108,12 +121,14 @@ function add_features_and_news_page_content() {
 			'after' => '</div></div>',
 		) );
 	}
-	if ( is_page($page_id_timepredictor) )
+	if ( $this_page_title == "Marathon Pacing Calculator" )
 	{	
-		genesis_widget_area ('marathontimepredictorcontentarea', array(
-			'before' => '<div class="marathontimepredictorcontentarea"><div class="wrap">',
+		genesis_widget_area ('marathonpacingcalculatorcontentarea', array(
+			'before' => '<div class="marathonpacingcalculatorcontentarea"><div class="wrap">',
 			'after' => '</div></div>',
 		) );
+		
+	
 	}
 
 	if ($this_page_title == "Running and Training")
@@ -265,18 +280,17 @@ add_action( 'wp_enqueue_scripts', 'custom_load_custom_style_sheet' );
 function custom_load_custom_style_sheet() {
 	wp_enqueue_style( 'fr-main-stylesheet', CHILD_URL . '/custom.css', false, filemtime( get_stylesheet_directory() . '/custom.css' ) );
 	wp_enqueue_style( 'fr-headlines-stylesheet', CHILD_URL . '/headlines.css', false, filemtime( get_stylesheet_directory() . '/headlines.css' ) );
-	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );
-	wp_enqueue_style( 'fr-woocommerce-overrides-stylesheet', CHILD_URL . '/woocommerce-overrides.css', false, filemtime( get_stylesheet_directory() . '/woocommerce-overrides.css' ) );
+	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );	
 }
 
 /** Use copies of the Magic Action Box css files that are in our theme
     folder instead of the ones added by default which are in the plugin folder
     and therefore not under version control
 */
-wp_dequeue_style( 'mab-user-style-1-css' );
-wp_dequeue_style( 'mab-actionbox-style-709-css' );
-wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
-wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
+//wp_dequeue_style( 'mab-user-style-1-css' );
+//wp_dequeue_style( 'mab-actionbox-style-709-css' );
+//wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
+//wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
 
 /** Dequeue style.css and enqueue it again with version number (for cache busting) */
 /** For details of more reliable htaccess-based cache busting see https://wordimpress.com/wordpress-css-and-js-cache-busting/ */
@@ -288,6 +302,22 @@ if ( ! is_admin() )
 
 wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION );
 
+$this_page_title = get_the_title();
+if ($this_page_title != "Contact Us") {
+add_filter( 'wpcf7_load_js', '__return_false' );
+add_filter( 'wpcf7_load_css', '__return_false' );
+}
+
+//An open-sans style (which pulls a google font) is added by default by WP for admin pages
+ if ( ! (is_admin() or is_user_logged_in() or in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) )) {
+wp_deregister_style('open-sans');
+} 
+//Monarch and Bloom both pull in open-sans. No point in duplicating, so remove the bloom one
+//Doesn't work...
+//wp_dequeue_style( 'et_bloom-open-sans-css' );
+//wp_deregister_style('et_bloom-open-sans-css');
+
+
 
 //* Marathon time predictor tool
 //* TODO: Only load these on the time predictor page
@@ -297,8 +327,8 @@ wp_enqueue_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/
 //CHECK FIREBUG CONSOLE FOR "UNCAUGHT ERROR" - THAT'S WHAT I'M GETTING WITH THIS ENABLED
  //DEBUG wp_enqueue_script( 'jquery-1.11.3.min', CHILD_URL . '/marathon-time-predictor/jquery-1.11.3.min.js', array( 'jquery' ) );
 //wp_enqueue_script( 'time-predictor-global', CHILD_URL . '/marathon-time-predictor/global.js', array( 'jquery' ) );
-// declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php)
-//wp_localize_script( 'time-predictor-global', 'MyAjax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+	
+	
 
 
 //* Load the fonts we need
@@ -377,6 +407,11 @@ function child_manage_woocommerce_styles() {
 			wp_dequeue_script( 'fancybox' );
 			wp_dequeue_script( 'jqueryui' );
 		}
+		else
+		{
+			//This is our custom WC overrides css
+			wp_enqueue_style( 'fr-woocommerce-overrides-stylesheet', CHILD_URL . '/woocommerce-overrides.css', false, filemtime( get_stylesheet_directory() . '/woocommerce-overrides.css' ) );
+		}
 	}
 
 }
@@ -417,6 +452,13 @@ function custom_add_to_cart_message($message, $product_id) {
 
   }
 
+// Change number or products per row to 3
+add_filter('loop_shop_columns', 'loop_columns');
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+		return 3; // 3 products per row
+	}
+}
 
 
 //* Remove the site title

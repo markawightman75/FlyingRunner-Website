@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: http://www.schloebe.de/donate/
 Tags: reveal, id, wp-admin, hidden, category, post, page, media, links, capability, user, restore, comments, taxonomy, custom posts
 Requires at least: 3.0
-Tested up to: 4.1
+Tested up to: 4.3.999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,6 @@ What this plugin does is to reveal most removed entry IDs on admin pages, showin
 
 **Features:**
 
-* Following IDs can be revealed: posts, pages, categories, links, media, users, comments, link categories, custom taxonomies, custom post types, tags
 * Sortable columns for WP 3.1 or higher
 
 [Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
@@ -55,6 +54,13 @@ None.
 1. Installation finished.
 
 == Changelog ==
+
+= 1.4.6.1 =
+* Backend cleanup
+* Added uninstall.php
+
+= 1.4.6 =
+* Fixed an issue that caused a redirection loop in some environments
 
 = 1.4.5 =
 * Fixed a 'Redefining already defined constructor' bug that occured on several configurations

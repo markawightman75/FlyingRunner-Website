@@ -1,0 +1,15 @@
+*** Paymentsense Direct Changelog ***
+
+2014.07.09 - version 2.0
+ * Update: API librarys
+ * Fixbug: update admin
+ * Fixbug: display result
+ * Update: card layout
+
+2013.09.22 - version 1.0.1
+ * Fixbug: Call back user function
+ * Update: Layout of credit card
+ * Fixbug: Can not redirect to perent frame
+ 
+2013.06.01 - version 1.0
+ * First Release

@@ -188,7 +188,7 @@ border: 1px solid yellow;
 .advert-small {
 max-width: 410px;
 height: auto;
-/*background-color: #F9F9F9;*/
+background-color: #F9F9F9;
 padding: 5px;
 /*outline: 1px solid #F0F0F0;*/
 }
