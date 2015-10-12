@@ -12,6 +12,7 @@ include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/headlines-small-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/adverts-small-widget.php' );
 include_once( CHILD_DIR . '/lib/widgets/section-title-widget.php' );
+include_once( CHILD_DIR . '/marathon-pacing-calculator/explore-marathon-pacings-widget.php' );
 include_once( CHILD_DIR . '/marathon-pacing-calculator/marathon-pacing-calculator-widget.php' );
 
 function add_custom_widgets() {  
@@ -20,6 +21,7 @@ function add_custom_widgets() {
   register_widget( 'Headlines_Small_Widget' );
   register_widget( 'Adverts_Small_Widget' );
   register_widget( 'Section_Title_Widget' );
+  register_widget( 'Explore_Marathon_Pacings_Widget' );
   register_widget( 'Marathon_Pacing_Calculator_Widget' );
 }
 
@@ -27,17 +29,29 @@ add_action( 'widgets_init', 'add_custom_widgets' );
 
 add_action( 'genesis_after_entry_content', 'add_pacing_calculator_javascript' );
 function add_pacing_calculator_javascript() {
+	if ( get_the_title() == "Explore Marathon Pacings" )	{
+		//Register the javascript file that contains client-side logic
+		wp_register_script( 'explore-marathon-pacings', CHILD_URL . '/marathon-pacing-calculator/explore-marathon-pacings.js', array( 'jquery' ), '', true );
+		//declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php) so it gets stored in the html for the page and can be picked up by the javascript
+		wp_localize_script( 'explore-marathon-pacings', 'ajax_parameters', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+		//Queue the script to be included in the html
+		wp_enqueue_script( 'explore-marathon-pacings');
+		
+		//Register and queue the jquery sparkline script
+		wp_register_script( 'fr-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'fr-sparkline');
+	}
+	
 	if ( get_the_title() == "Marathon Pacing Calculator" )	{
 		//Register the javascript file that contains client-side logic
 		wp_register_script( 'marathon-pacing-calculator', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing-calculator.js', array( 'jquery' ), '', true );
-		//declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php) so it gets stored in the html for the page and can be picked up by the javascript
-		wp_localize_script( 'marathon-pacing-calculator', 'ajax_parameters', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		//Queue the script to be included in the html
 		wp_enqueue_script( 'marathon-pacing-calculator');
 		
 		//Register and queue the jquery sparkline script
-		wp_register_script( 'marathon-pacing-calculator-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'marathon-pacing-calculator-sparkline');
+		wp_register_script( 'fr-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'fr-sparkline');
+	
 	}
 }
 
@@ -60,6 +74,11 @@ genesis_register_sidebar( array(
 	'id'		=> 'marathonpacingcalculatorcontentarea',
 	'name'		=> __( 'Flying Runner Marathon Pacing Calculator  Content Area', 'Flying Runner' ),
 	'description'	=> __( 'This is the widget area for the marathon pacing calculator tool.', 'Flying Runner' ),
+) );
+genesis_register_sidebar( array(
+	'id'		=> 'exploremarathonpacingscontentarea',
+	'name'		=> __( 'Flying Runner Explore Marathon Pacings Content Area', 'Flying Runner' ),
+	'description'	=> __( 'This is the widget area for the explore marathon pacings tool.', 'Flying Runner' ),
 ) );
 
 
@@ -130,11 +149,17 @@ function add_features_and_news_page_content() {
 		genesis_widget_area ('marathonpacingcalculatorcontentarea', array(
 			'before' => '<div class="marathonpacingcalculatorcontentarea"><div class="wrap">',
 			'after' => '</div></div>',
-		) );
-		
-	
+		) );		
 	}
 
+	if ( $this_page_title == "Explore Marathon Pacings" )
+	{	
+		genesis_widget_area ('exploremarathonpacingscontentarea', array(
+			'before' => '<div class="exploremarathonpacingscontentarea"><div class="wrap">',
+			'after' => '</div></div>',
+		) );		
+	}
+	
 	if ($this_page_title == "Running and Training")
 	{
 		genesis_widget_area ('runningandtrainingpagecontentarea', array(
@@ -286,9 +311,9 @@ function custom_load_custom_style_sheet() {
 	wp_enqueue_style( 'fr-headlines-stylesheet', CHILD_URL . '/headlines.css', false, filemtime( get_stylesheet_directory() . '/headlines.css' ) );
 	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );	
 	
-	if ( get_the_title() == "Marathon Pacing Calculator" )	{
+	if ( get_the_title() == "Marathon Pacing Calculator" || get_the_title() == "Explore Marathon Pacings" )	{
 		wp_enqueue_style( 'fr-pacing-calculator-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing-calculator.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing-calculator.css' ) );	
-	}
+	}	
 }
 
 /** Use copies of the Magic Action Box css files that are in our theme

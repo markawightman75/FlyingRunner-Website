@@ -4,15 +4,26 @@
 .marathonpacingcalculatorcontentarea input,
 .marathonpacingcalculatorcontentarea select,
 .marathonpacingcalculatorcontentarea td,
-.marathonpacingcalculatorcontentarea th {
+.marathonpacingcalculatorcontentarea th,
+.exploremarathonpacingscontentarea p,
+.exploremarathonpacingscontentarea span,
+.exploremarathonpacingscontentarea input,
+.exploremarathonpacingscontentarea select,
+.exploremarathonpacingscontentarea td,
+.exploremarathonpacingscontentarea th 
+{
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
-.marathonpacingcalculatorcontentarea p {
+.marathonpacingcalculatorcontentarea p,
+.exploremarathonpacingscontentarea p {
 font-size: 1em;
 }
 
-.marathonpacingcalculatorcontentarea #predictor {
+/*Main buttons*/
+.exploremarathonpacingscontentarea #find-runners,
+.marathonpacingcalculatorcontentarea .calculate-button
+{
 background-color: #A46497;
 color: #fff;
 font-size: 100%;
@@ -34,6 +45,13 @@ box-shadow: none;
 text-shadow: none;
 }
 
+.exploremarathonpacingscontentarea #selection-criteria {
+background-color: #f0f0f0; 
+margin-top: 1em;
+border-radius: 8px;
+padding: 15px;
+}
+
 .jqstooltip {
   -webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
@@ -50,3 +68,65 @@ margin: 0;
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+
+.marathonpacingcalculatorcontentarea .increment-time {
+padding: 0px;
+width: 30px;
+height: 30px;
+background-color: #bbb;
+border-radius: 5px;
+}
+
+.marathonpacingcalculatorcontentarea .tab {
+width: 200px;
+color: #333;
+background-color: #efefef;
+display: block;
+border-right: 2px solid #47B7A8;
+}
+
+.marathonpacingcalculatorcontentarea .tab:hover {
+background-color: #e1e1e1;
+}
+
+.marathonpacingcalculatorcontentarea .tab.tab-selected {
+background-color: #47B7A8;
+color: white;
+}
+
+.marathonpacingcalculatorcontentarea .tab-content {
+display: none;
+padding-left: 10px;
+/*border-top: none;*/
+border-left: none;
+}
+.marathonpacingcalculatorcontentarea .tab-content.tab-content-active {
+display: block;
+/*border-top: 2px solid #47B7A8;*/
+/*border-left: 2px solid #47B7A8;*/
+}
+
+
+.pacing-table-middle-margin {
+border-top: none;
+}
+
+/*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*To support older versions of Safari (< 5.1), Chrome (< 10), and Firefox (< 29)*/
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  }

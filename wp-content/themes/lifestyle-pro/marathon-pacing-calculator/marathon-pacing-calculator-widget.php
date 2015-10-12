@@ -84,71 +84,337 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 			
 		?>
 		
+		<div>
+		<div class="" style="">
+			<!-- See http://themefoundation.com/two-column-css-layout/ to implement this properly -->
+			<div class="" style="width: 20%; float:left; height: 205px;">
+			<!--
+				<ul class="tabs vertical" data-tab>
+				  <li class="tab-title active"><a href="#panel11">Tab 1</a></li>
+				  <li class="tab-title"><a href="#panel21">Tab 2</a></li>
+				  <li class="tab-title"><a href="#panel31">Tab 3</a></li>
+				  <li class="tab-title"><a href="#panel41">Tab 4</a></li>
+				</ul>
+				-->
+				<div>
+				<input type="submit" name="" class="tab" id="tab-even" value="Even splits">
+				</div>
+				<div>
+				<input type="submit" name="" class="tab" id="tab-from-selection" value="From selection">
+				</div>
+				<div>
+				<input type="submit" name="" class="tab" id="tab-negative" value="Negative splits">
+				</div>
+				<div>
+				<input type="submit" name="" class="tab" id="tab-positive" value="Positive splits">
+				</div>
+			</div>
+			<div class="tabs-content" style="background-color: #fff; height: 300px; width: 70%; float: left;">
+				  <div class="tab-content" id="tab-content-even" style="height: 205px;">
+					<p>Calculate pacing that is steady for the whole race.</p>
+					<span>My target time:</span><input type="text" id="target-time-even-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
+					<input type="text" id="target-time-even-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
+					<input type="text" id="target-time-even-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
+					<input type="submit" name="" class="calculate-button" id="calculate-even-splits" value="Calculate" style="display: block;">
+				  </div>
+				  <div class="tab-content" id="tab-content-from-selection" style="height: 205px;">
+					<p>Calculate pacing from the profile you've selected, adjusted to your target time.</p>
+					<div id="selection-sparkline" style="margin-bottom: 20px"></div>
+					<span>My target time:</span><input type="text" id="target-time-from-selection-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
+					<input type="text" id="target-time-from-selection-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
+					<input type="text" id="target-time-from-selection-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
+					
+					<input type="submit" name="" class="calculate-button" id="calculate-from-selection" value="Calculate" style="display: block;" >
+					<p style="font-weight: bold;">This is not implemented yet</p>
+				  </div>
+				  <div class="tab-content" id="tab-content-negative" style="height: 205px;">
+					<p>Negative splits</p>
+					<p>Not implemented yet</p>
+				  </div>
+ 				  <div class="tab-content" id="tab-content-positive" style="height: 205px;">
+					<p>Positive splits</p>
+					<p>Not implemented yet</p>
+				  </div>
+
+				</div>
+			</div>
+		</div>
+		 
 		
-		<table>
+		
+		<div class="wrap" style="margin-top: 10px;">
+		
+			
+		</div>
+		<table id="pacing-table" style="width: auto; margin-top: 20px">
 		  <tr>
 			<th style="width: 150px;">Distance</th>
-			<th>Time</th>
+			<th style="width: 60px;">Time</th>
+			<th style="width: 140px;"></th> <!--Buttons-->
+			<th style="width: 60px;"></th>
+			<th style="width: 150px;">Distance</th>
+			<th style="width: 60px;">Time</th>
+			<th style="width: 140px;"></th> <!--Buttons-->
 		  </tr>
 		  <tr>
 			<td>Mile 1</td>
-			<td id="mile-1-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-1" value="+"></td>
+			<td id="mile-1-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-1" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-1" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-1" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-1" value="+15">
+			</td>
+			<td class="pacing-table-middle-margin"></td>
+			<td>Mile 14</td>
+			<td id="mile-14-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-14" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-14" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-14" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-14" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 2</td>
-			<td id="mile-2-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-2" value="+"></td>
+			<td id="mile-2-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-2" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-2" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-2" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-2" value="+15">
+			</td>
+			<td class="pacing-table-middle-margin"></td>
+			<td>Mile 15</td>
+			<td id="mile-15-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-15" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-15" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-15" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-15" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 3</td>
-			<td id="mile-3-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-3" value="+"></td>
+			<td id="mile-3-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-3" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-3" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-3" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-3" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 16</td>
+			<td id="mile-16-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-16" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-16" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-16" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-16" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 4</td>
-			<td id="mile-4-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-4" value="+"></td>
+			<td id="mile-4-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-4" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-4" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-4" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-4" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 17</td>
+			<td id="mile-17-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-17" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-17" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-17" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-17" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 5</td>
-			<td id="mile-5-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-5" value="+"></td>
+			<td id="mile-5-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-5" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-5" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-5" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-5" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 18</td>
+			<td id="mile-18-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-18" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-18" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-18" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-18" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 6</td>
-			<td id="mile-6-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-6" value="+"></td>
+			<td id="mile-6-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-6" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-6" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-6" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-6" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 19</td>
+			<td id="mile-19-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-19" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-19" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-19" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-19" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 7</td>
-			<td id="mile-7-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-7" value="+"></td>
+			<td id="mile-7-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-7" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-7" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-7" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-7" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 20</td>
+			<td id="mile-20-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-20" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-20" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-20" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-20" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 8</td>
-			<td id="mile-8-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-8" value="+"></td>
+			<td id="mile-8-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-8" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-8" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-8" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-8" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 21</td>
+			<td id="mile-21-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-21" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-21" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-21" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-21" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 9</td>
-			<td id="mile-9-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-9" value="+"></td>
+			<td id="mile-9-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-9" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-9" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-9" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-9" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 22</td>
+			<td id="mile-22-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-22" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-22" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-22" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-22" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 10</td>
-			<td id="mile-10-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-10" value="+"></td>
+			<td id="mile-10-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-10" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-10" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-10" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-10" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 23</td>
+			<td id="mile-23-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-23" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-23" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-23" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-23" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 11</td>
-			<td id="mile-8-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-8" value="+"></td>
+			<td id="mile-11-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-11" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-11" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-11" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-11" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 24</td>
+			<td id="mile-24-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-24" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-24" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-24" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-24" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 12</td>
-			<td id="mile-9-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-9" value="+"></td>
+			<td id="mile-12-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-12" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-12" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-12" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-12" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 25</td>
+			<td id="mile-25-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-25" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-25" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-25" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-25" value="+15">
+			</td>
 		  </tr>
 		  <tr>
 			<td>Mile 13</td>
-			<td id="mile-10-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-10" value="+"></td>
+			<td id="mile-13-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-13" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-13" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-13" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-13" value="+15">
+			</td>
+			<td></td>
+			<td>Mile 26</td>
+			<td id="mile-26-split"></td>
+			<td>
+				<input type="submit" name="increment" class="increment-time" id="increment-15-mile-26" value="-15">
+				<input type="submit" name="increment" class="increment-time" id="increment-01-mile-26" value="-1">
+				<input type="submit" name="increment" class="increment-time" id="increment+01-mile-26" value="+1">
+				<input type="submit" name="increment" class="increment-time" id="increment+15-mile-26" value="+15">
+			</td>
 		  </tr>
 
 		  <tr>
-			<td>Finish</td>
-			<td id="finish-hhmmss" style="font-weight: bold">1:05:00</td>
+			<td style="font-weight: bold;">13 miles</td>
+			<td id="halfway-hhmmss" style="font-weight: bold;"></td>
+			<td></td>
+			<td></td>
+			<td style="font-weight: bold;">Finish</td>
+			<td id="finish-hhmmss" style="font-weight: bold"></td>
 		  </tr>
 		 </table>
-		 <table style="visibility: collapse;">
+		 
+		 <table id="pacing-table-seconds-hidden" style="visibility: collapse;">
 		  <tr>
 			  <td>Mile 1 (s)<td>
 			  <td id="mile-1-split-secs">300</td>
@@ -202,156 +468,83 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 			  <td id="mile-13-split-secs">300</td>
 		  </tr> 
 		  <tr>
+			  <td>Mile 14 (s)<td>
+			  <td id="mile-14-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 15 (s)<td>
+			  <td id="mile-15-split-secs">300</td>
+		  </tr>
+		  		  <tr>
+			  <td>Mile 16 (s)<td>
+			  <td id="mile-16-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 17 (s)<td>
+			  <td id="mile-17-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 18 (s)<td>
+			  <td id="mile-18-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 19 (s)<td>
+			  <td id="mile-19-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 20 (s)<td>
+			  <td id="mile-20-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 21 (s)<td>
+			  <td id="mile-21-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 22 (s)<td>
+			  <td id="mile-22-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 23 (s)<td>
+			  <td id="mile-23-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 24 (s)<td>
+			  <td id="mile-24-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 25 (s)<td>
+			  <td id="mile-25-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 26 (s)<td>
+			  <td id="mile-26-split-secs">300</td>
+		  </tr> 
+		  <tr>
+			  <td>Halfways (s)<td>
+			  <td id="halfway-secs">7800</td>
+		  </tr>
+		  <tr>
 			  <td>Finish (s)<td>
-			  <td id="finish-secs">3900</td>
+			  <td id="finish-secs">7800</td>
 		  </tr>
 		</table>
 
-		<p>This calculator is based on the pacing of runners who were accurate predictors of their time in London Marathon 2015.</p>
-		<span>I want to run the marathon in (hh:mm:ss):</span> <input type="text" id="target-time" style="width: 300px; padding: 4px; height: 2.5em;">
-
-		<div class="wrap">
-			<div class="one-half first" style="background-color: #f0f0f0; margin-top: 1em;">
-				<div style="margin: 1em 1em 1em 1em; ">
-					<h2 style="font-size: 1em; margin-top: 0px; margin-bottom: 0.5em;">Include these runners in the calculations</h2>
-					<div>
-						<span>Runners who ran within</span> 
-						<select id="ran-within-minutes-of-this-target-time" style="width: 120px; padding: 4px">
-							<option value="2">2 minutes</option>
-							<option value="4">4 minutes</option>
-							<option value="6">6 minutes</option>
-							<option value="8">8 minutes</option>
-							<option value="10">10 minutes</option>
-							<option value="15">15 minutes</option>
-							<option value="20">20 minutes</option>
-							<option value="30">30 minutes</option>
-							<option value="40">40 minutes</option>
-						</select> 		
-						<span>of this target time</span>
-					</div>
-					<div>
-						<span>Runners who ran within</span> 
-						<select id="ran-within-minutes-of-prediction" style="width: 120px; padding: 4px">
-							<option value="2">2 minutes</option>
-							<option value="4">4 minutes</option>
-							<option value="6">6 minutes</option>
-							<option value="8">8 minutes</option>
-							<option value="10">10 minutes</option>
-							<option value="15">15 minutes</option>
-							<option value="20">20 minutes</option>
-							<option value="30">30 minutes</option>
-							<option value="40">40 minutes</option>
-						</select> 		
-						<span>of their predicted time</span>
-					</div>
-					<div style="margin-top: 0.75em;">
-						<span>Runners who had previously run</span>
-						<select id="previous-marathons" style="width: 150px; padding: 4px">
-							<option value="Any">Any number of</option>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="3">4</option>
-							<option value="3">5</option>
-							<option value="6-10">6 to 10</option>
-							<option value=">10">More than 10</option>
-						</select> 		
-						<span>marathons</span>
-					</div>
-					<div style="margin-top: 0.75em;">
-						<span>Runners aged</span>
-						<select id="age-category" style="width: 120px; padding: 4px" >
-							<option value="Any" selected>Anything</option>
-							<option value="18-39">18 to 39</option>
-							<option value="40-49">40 to 49</option>
-							<option value="50-59">50 to 59</option>
-							<option value="60+">60 and over</option>
-						</select> 		
-					</div>
-				</div>
-			</div>
-			<div class="one-half" style="margin-top: 1em;">
-				<input type="submit" name="predict" class="predictor-submit" id="predictor" value="Calculate my pacing">
-			</div>		
-
-		</div>
-
-		<div class="wrap">
-			<h2>Pacing for a <span id="pacing-target-time">????</span> marathon</h2>
-			<p>These splits are based on the splits of the <span id="number-of-runners"></span> runners included in the calculations.</p> 
-			<div id="number-of-runners-icons"></div>
-			<div id="sparkline"></div>
-			<div id="splits-results">
-			 <table style="width:100%">
-				  <tr>
-					<th style="width: 150px;">Distance</th>
-					<th>Time</th>
-					<th>Speed (mins/km)</th>
-					<th>Speed (mins/mile)</th>
-				  </tr>
-				  <tr>
-					<td>5km</td>
-					<td id="5k-split"></td>
-					<td id="5k-min-per-km"></td>
-					<td id="5k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>10km</td>
-					<td id="10k-split"></td>
-					<td id="10k-min-per-km"></td>
-					<td id="10k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>15km</td>
-					<td id="15k-split"></td>
-					<td id="15k-min-per-km"></td>
-					<td id="15k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>20km</td>
-					<td id="20k-split"></td>
-					<td id="20k-min-per-km"></td>
-					<td id="20k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>Halfway</td>
-					<td id="21k-split"></td>
-				  </tr>
-				  <tr>
-					<td>25km</td>
-					<td id="25k-split"></td>
-					<td id="25k-min-per-km"></td>
-					<td id="25k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>30km</td>
-					<td id="30k-split"></td>
-					<td id="30k-min-per-km"></td>
-					<td id="30k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>35km</td>
-					<td id="35k-split"></td>
-					<td id="35k-min-per-km"></td>
-					<td id="35k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>40km</td>
-					<td id="40k-split"></td>
-					<td id="40k-min-per-km"></td>
-					<td id="40k-min-per-mile"></td>
-				  </tr>
-				  <tr>
-					<td>Finish</td>
-					<td id="finish" style="font-weight: bold"></td>
-				  </tr>
+		<!--Hidden storage for any pacing values passed in through query string-->
+		<div id="splits-passed-in-hidden" style="visibility: collapse;">
+			<table style="width:100%">
+			  <tr>
+				<td id="5k-passed-in-split-s"></td>
+				<td id="10k-passed-in-split-s"></td>
+				<td id="15k-passed-in-split-s"></td>
+				<td id="20k-passed-in-split-s"></td>
+				<td id="25k-passed-in-split-s"></td>
+				<td id="30k-passed-in-split-s"></td>
+				<td id="35k-passed-in-split-s"></td>
+				<td id="40k-passed-in-split-s"></td>				
+			  </tr>
 			</table> 
-			</div>
 		</div>
-		<div id="runners-details"></div>
-		<div id="debug" style="background-color: #eee;">
-		</div>		
+
 		<?php
 		echo $after_widget;
 

@@ -110,8 +110,7 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		Finish_time_s >=" . strval($finish_time_min) . " AND 
 		Finish_time_s <=" . strval($finish_time_max) . " AND
 		Slower_than_prediction_by_s >=" . strval($slower_than_prediction_min) . " AND
-		Slower_than_prediction_by_s <=" . strval($slower_than_prediction_max) . "
-		ORDER BY Slower_than_prediction_by_s";
+		Slower_than_prediction_by_s <=" . strval($slower_than_prediction_max);
 
 	if ($age_category != 'Any') {
 		$sql = $sql . " AND Age_category = '" . $age_category . "'";
@@ -119,6 +118,8 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 	if ($previous_marathons != 'Any') {
 		$sql = $sql . " AND Experience_races = '" . $previous_marathons . "'";		
 	}
+	
+	$sql = $sql . " ORDER BY Slower_than_prediction_by_s";
 	
 	if(!$result = $db->query($sql)){
 		$debug[] = 'There was an error running the query [' . $db->error . ']';
@@ -185,15 +186,15 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 	
 	//Means are in SECONDS
 	$split_means = array(); //The mean of each split (i.e. the sum of all 5k splits / number of runners)
-	$split_means['5k'] = $split_totals['5k'] / $number_of_results;
-	$split_means['10k'] = $split_totals['10k'] / $number_of_results;
-	$split_means['15k'] = $split_totals['15k'] / $number_of_results;
-	$split_means['20k'] = $split_totals['20k'] / $number_of_results;
-	$split_means['21k'] = $split_totals['21k'] / $number_of_results;
-	$split_means['25k'] = $split_totals['25k'] / $number_of_results;
-	$split_means['30k'] = $split_totals['30k'] / $number_of_results;
-	$split_means['35k'] = $split_totals['35k'] / $number_of_results;
-	$split_means['40k'] = $split_totals['40k'] / $number_of_results;
+	$split_means['5k'] = round($split_totals['5k'] / $number_of_results);
+	$split_means['10k'] = round($split_totals['10k'] / $number_of_results);
+	$split_means['15k'] = round($split_totals['15k'] / $number_of_results);
+	$split_means['20k'] = round($split_totals['20k'] / $number_of_results);
+	$split_means['21k'] = round($split_totals['21k'] / $number_of_results);
+	$split_means['25k'] = round($split_totals['25k'] / $number_of_results);
+	$split_means['30k'] = round($split_totals['30k'] / $number_of_results);
+	$split_means['35k'] = round($split_totals['35k'] / $number_of_results);
+	$split_means['40k'] = round($split_totals['40k'] / $number_of_results);
 	
 	//$splits_cumulative = array(); //The cumulative time for each split
 	$splits_cumulative['5k'] = $split_means['5k'];
