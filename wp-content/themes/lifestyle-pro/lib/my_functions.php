@@ -34,6 +34,10 @@ function add_pacing_calculator_javascript() {
 		wp_localize_script( 'marathon-pacing-calculator', 'ajax_parameters', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 		//Queue the script to be included in the html
 		wp_enqueue_script( 'marathon-pacing-calculator');
+		
+		//Register and queue the jquery sparkline script
+		wp_register_script( 'marathon-pacing-calculator-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'marathon-pacing-calculator-sparkline');
 	}
 }
 
@@ -281,6 +285,10 @@ function custom_load_custom_style_sheet() {
 	wp_enqueue_style( 'fr-main-stylesheet', CHILD_URL . '/custom.css', false, filemtime( get_stylesheet_directory() . '/custom.css' ) );
 	wp_enqueue_style( 'fr-headlines-stylesheet', CHILD_URL . '/headlines.css', false, filemtime( get_stylesheet_directory() . '/headlines.css' ) );
 	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );	
+	
+	if ( get_the_title() == "Marathon Pacing Calculator" )	{
+		wp_enqueue_style( 'fr-pacing-calculator-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing-calculator.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing-calculator.css' ) );	
+	}
 }
 
 /** Use copies of the Magic Action Box css files that are in our theme

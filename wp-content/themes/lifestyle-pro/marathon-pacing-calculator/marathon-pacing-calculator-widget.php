@@ -85,90 +85,273 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 		?>
 		
 		
-		<span>Age:</span>
-		<select id="age-category">
-			<option value="Any">Any</option>
-			<option value="18-39">18 to 39</option>
-			<option value="40-49">40 to 49</option>
-			<option value="50-59">50 to 59</option>
-			<option value="60+">60 and over</option>
-		</select> 		
-		<br>
-		<span>Number of previous marathons:</span>
-		<select id="previous-marathons">
-			<option value="Any">Any</option>
-			<option value="0">None</option>
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="3">4</option>
-			<option value="3">5</option>
-			<option value="6-10">6 to 10</option>
-			<option value=">10">More than 10</option>
-		</select> 		
-		<br>				
-		<span>Target time:</span> <input type="text" id="target-time">
-		<br>
-			
-		</div>
-		<input type="submit" name="predict" class="predictor-submit" id="predictor" value="Calculate my splits">
+		<table>
+		  <tr>
+			<th style="width: 150px;">Distance</th>
+			<th>Time</th>
+		  </tr>
+		  <tr>
+			<td>Mile 1</td>
+			<td id="mile-1-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-1" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 2</td>
+			<td id="mile-2-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-2" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 3</td>
+			<td id="mile-3-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-3" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 4</td>
+			<td id="mile-4-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-4" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 5</td>
+			<td id="mile-5-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-5" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 6</td>
+			<td id="mile-6-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-6" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 7</td>
+			<td id="mile-7-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-7" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 8</td>
+			<td id="mile-8-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-8" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 9</td>
+			<td id="mile-9-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-9" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 10</td>
+			<td id="mile-10-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-10" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 11</td>
+			<td id="mile-8-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-8" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 12</td>
+			<td id="mile-9-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-9" value="+"></td>
+		  </tr>
+		  <tr>
+			<td>Mile 13</td>
+			<td id="mile-10-split">5:00</td><td><input type="submit" name="increment" class="increment-time" id="increment-mile-10" value="+"></td>
+		  </tr>
 
-		<br>
-		<p>Based on the pacing of <span id="number-of-runners"></span> runners who ran with +/- 4 minutes of this time, you should run these splits:</span> 
-		<div id="number-of-runners-icons"></div>
-		
-		<div id="splits-results">
-		 <table style="width:100%">
-			  <tr>
-				<th>Distance</th>
-				<th>Time</th>
-			  </tr>
-			  <tr>
-				<td>5km</td>
-				<td id="5k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>10km</td>
-				<td id="10k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>15km</td>
-				<td id="15k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>20km</td>
-				<td id="20k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>Halfway</td>
-				<td id="21k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>25km</td>
-				<td id="25k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>30km</td>
-				<td id="30k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>35km</td>
-				<td id="35k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>40km</td>
-				<td id="40k-split"></td>
-			  </tr>
-  			  <tr>
-				<td>Finish</td>
-				<td id="finish" style="font-weight: bold"></td>
-			  </tr>
-		</table> 
+		  <tr>
+			<td>Finish</td>
+			<td id="finish-hhmmss" style="font-weight: bold">1:05:00</td>
+		  </tr>
+		 </table>
+		 <table style="visibility: collapse;">
+		  <tr>
+			  <td>Mile 1 (s)<td>
+			  <td id="mile-1-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 2 (s)<td>
+			  <td id="mile-2-split-secs">300</td>
+		  </tr>
+		  		  <tr>
+			  <td>Mile 3 (s)<td>
+			  <td id="mile-3-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 4 (s)<td>
+			  <td id="mile-4-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 5 (s)<td>
+			  <td id="mile-5-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 6 (s)<td>
+			  <td id="mile-6-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 7 (s)<td>
+			  <td id="mile-7-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 8 (s)<td>
+			  <td id="mile-8-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 9 (s)<td>
+			  <td id="mile-9-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 10 (s)<td>
+			  <td id="mile-10-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 11 (s)<td>
+			  <td id="mile-11-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 12 (s)<td>
+			  <td id="mile-12-split-secs">300</td>
+		  </tr>
+		  <tr>
+			  <td>Mile 13 (s)<td>
+			  <td id="mile-13-split-secs">300</td>
+		  </tr> 
+		  <tr>
+			  <td>Finish (s)<td>
+			  <td id="finish-secs">3900</td>
+		  </tr>
+		</table>
+
+		<p>This calculator is based on the pacing of runners who were accurate predictors of their time in London Marathon 2015.</p>
+		<span>I want to run the marathon in (hh:mm:ss):</span> <input type="text" id="target-time" style="width: 300px; padding: 4px; height: 2.5em;">
+
+		<div class="wrap">
+			<div class="one-half first" style="background-color: #f0f0f0; margin-top: 1em;">
+				<div style="margin: 1em 1em 1em 1em; ">
+					<h2 style="font-size: 1em; margin-top: 0px; margin-bottom: 0.5em;">Include these runners in the calculations</h2>
+					<div>
+						<span>Runners who ran within</span> 
+						<select id="ran-within-minutes-of-this-target-time" style="width: 120px; padding: 4px">
+							<option value="2">2 minutes</option>
+							<option value="4">4 minutes</option>
+							<option value="6">6 minutes</option>
+							<option value="8">8 minutes</option>
+							<option value="10">10 minutes</option>
+							<option value="15">15 minutes</option>
+							<option value="20">20 minutes</option>
+							<option value="30">30 minutes</option>
+							<option value="40">40 minutes</option>
+						</select> 		
+						<span>of this target time</span>
+					</div>
+					<div>
+						<span>Runners who ran within</span> 
+						<select id="ran-within-minutes-of-prediction" style="width: 120px; padding: 4px">
+							<option value="2">2 minutes</option>
+							<option value="4">4 minutes</option>
+							<option value="6">6 minutes</option>
+							<option value="8">8 minutes</option>
+							<option value="10">10 minutes</option>
+							<option value="15">15 minutes</option>
+							<option value="20">20 minutes</option>
+							<option value="30">30 minutes</option>
+							<option value="40">40 minutes</option>
+						</select> 		
+						<span>of their predicted time</span>
+					</div>
+					<div style="margin-top: 0.75em;">
+						<span>Runners who had previously run</span>
+						<select id="previous-marathons" style="width: 150px; padding: 4px">
+							<option value="Any">Any number of</option>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="3">4</option>
+							<option value="3">5</option>
+							<option value="6-10">6 to 10</option>
+							<option value=">10">More than 10</option>
+						</select> 		
+						<span>marathons</span>
+					</div>
+					<div style="margin-top: 0.75em;">
+						<span>Runners aged</span>
+						<select id="age-category" style="width: 120px; padding: 4px" >
+							<option value="Any" selected>Anything</option>
+							<option value="18-39">18 to 39</option>
+							<option value="40-49">40 to 49</option>
+							<option value="50-59">50 to 59</option>
+							<option value="60+">60 and over</option>
+						</select> 		
+					</div>
+				</div>
+			</div>
+			<div class="one-half" style="margin-top: 1em;">
+				<input type="submit" name="predict" class="predictor-submit" id="predictor" value="Calculate my pacing">
+			</div>		
+
 		</div>
-		
+
+		<div class="wrap">
+			<h2>Pacing for a <span id="pacing-target-time">????</span> marathon</h2>
+			<p>These splits are based on the splits of the <span id="number-of-runners"></span> runners included in the calculations.</p> 
+			<div id="number-of-runners-icons"></div>
+			<div id="sparkline"></div>
+			<div id="splits-results">
+			 <table style="width:100%">
+				  <tr>
+					<th style="width: 150px;">Distance</th>
+					<th>Time</th>
+					<th>Speed (mins/km)</th>
+					<th>Speed (mins/mile)</th>
+				  </tr>
+				  <tr>
+					<td>5km</td>
+					<td id="5k-split"></td>
+					<td id="5k-min-per-km"></td>
+					<td id="5k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>10km</td>
+					<td id="10k-split"></td>
+					<td id="10k-min-per-km"></td>
+					<td id="10k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>15km</td>
+					<td id="15k-split"></td>
+					<td id="15k-min-per-km"></td>
+					<td id="15k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>20km</td>
+					<td id="20k-split"></td>
+					<td id="20k-min-per-km"></td>
+					<td id="20k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>Halfway</td>
+					<td id="21k-split"></td>
+				  </tr>
+				  <tr>
+					<td>25km</td>
+					<td id="25k-split"></td>
+					<td id="25k-min-per-km"></td>
+					<td id="25k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>30km</td>
+					<td id="30k-split"></td>
+					<td id="30k-min-per-km"></td>
+					<td id="30k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>35km</td>
+					<td id="35k-split"></td>
+					<td id="35k-min-per-km"></td>
+					<td id="35k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>40km</td>
+					<td id="40k-split"></td>
+					<td id="40k-min-per-km"></td>
+					<td id="40k-min-per-mile"></td>
+				  </tr>
+				  <tr>
+					<td>Finish</td>
+					<td id="finish" style="font-weight: bold"></td>
+				  </tr>
+			</table> 
+			</div>
+		</div>
+		<div id="runners-details"></div>
 		<div id="debug" style="background-color: #eee;">
-		
-				
+		</div>		
 		<?php
 		echo $after_widget;
 

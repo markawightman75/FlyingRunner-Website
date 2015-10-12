@@ -1,0 +1,52 @@
+/*Use our standard non-serif font for everything*/
+.marathonpacingcalculatorcontentarea p,
+.marathonpacingcalculatorcontentarea span,
+.marathonpacingcalculatorcontentarea input,
+.marathonpacingcalculatorcontentarea select,
+.marathonpacingcalculatorcontentarea td,
+.marathonpacingcalculatorcontentarea th {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+.marathonpacingcalculatorcontentarea p {
+font-size: 1em;
+}
+
+.marathonpacingcalculatorcontentarea #predictor {
+background-color: #A46497;
+color: #fff;
+font-size: 100%;
+margin: 0px;
+line-height: 1;
+cursor: pointer;
+position: relative;
+text-decoration: none;
+overflow: visible;
+padding: 0.618em 1em;
+font-weight: 700;
+border-radius: 3px;
+left: auto;
+border: 0px none;
+white-space: nowrap;
+display: inline-block;
+background-image: none;
+box-shadow: none;
+text-shadow: none;
+}
+
+.jqstooltip {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.sparkline-tooltip-class {
+width: 40px; 
+height: 23px;
+/*color:#00FFFF;*/
+background-color: transparent; 
+margin: 0;     
+ -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
