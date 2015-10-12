@@ -70,7 +70,11 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 	$debug = array();
 
 	//Connect to server/database
-	$db = new mysqli('127.0.0.1', 'root', 'password', 'marathon_pacing_calculator_v1');
+	
+	$db = new mysqli('127.0.0.1', 'root', 'password', 'marathon_pacing_calculator_v1');		
+	//$db = new mysqli('10.169.0.50', 'flyingru_calc_ro', 'C4jQIiAmGaJ4', 'flyingru_calculator_v1');		
+	
+		
 
 	if($db->connect_errno > 0){
 		//TODO: Establish what this does...
@@ -125,6 +129,8 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		$debug[] = 'There was an error running the query [' . $db->error . ']';
 		return $debug;
 	}
+	
+	
 	$number_of_results = $result->num_rows;
 	$number_of_runners = $number_of_results;
 	

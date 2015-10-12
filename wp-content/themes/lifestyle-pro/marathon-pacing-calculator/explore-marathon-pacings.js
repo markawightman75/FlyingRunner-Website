@@ -25,6 +25,11 @@ jQuery(document).ready(function(){
 		},
 		success:function(data) {
 			
+			
+				//TODO - really we should be throwing an error back in the ajax response
+				jQuery('div#debug').html(data.debug);
+				jQuery('div#debug').css('display', 'block');
+			
 			if (data.number_of_runners == 0)
 			{
 				var intro_html = "";
@@ -197,6 +202,7 @@ jQuery(document).ready(function(){
 			console.log(data);
 			//TODO: Log error to screen
 			jQuery('div#debug').html(data);		
+			jQuery('div#debug').css('display', 'block');
 		}
 		});   
 		
@@ -226,11 +232,15 @@ jQuery(document).ready(function(){
 		var query_string;
 		query_string = jQuery.param(params);
 		
-		var root_url = location.protocol + '//' + location.host;
+		var root_url = window.location.protocol + '//' + window.location.host;
 		if (root_url = "127.0.0.1:82") {
 			root_url = root_url + "/wordpress";
 		}
-		var calculator_page_url = "http://" + root_url + "/marathon-pacing-calculator?" + query_string;
+		//alert(root_url);
+		//alert(window.location);
+		url = window.location.href;
+		calculator_page_url =  url.replace("explore-marathon-pacings","marathon-pacing-calculator");		
+		calculator_page_url = calculator_page_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
 		window.open(calculator_page_url);
 		
 		/*
