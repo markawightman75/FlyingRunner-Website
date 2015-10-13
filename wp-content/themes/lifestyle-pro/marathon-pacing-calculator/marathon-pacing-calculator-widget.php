@@ -97,45 +97,66 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				</ul>
 				-->
 				<div>
-				<input type="submit" name="" class="tab" id="tab-even" value="Even splits">
+				<input type="submit" name="" class="tab" id="tab-even" value="Even pacing">
 				</div>
 				<div>
-				<input type="submit" name="" class="tab" id="tab-from-selection" value="From selection">
+				<input type="submit" name="" class="tab" id="tab-negative" value="Negative pacing">
 				</div>
 				<div>
-				<input type="submit" name="" class="tab" id="tab-negative" value="Negative splits">
+				<input type="submit" name="" class="tab" id="tab-positive" value="Positive pacing">
 				</div>
 				<div>
-				<input type="submit" name="" class="tab" id="tab-positive" value="Positive splits">
+				<input type="submit" name="" class="tab" id="tab-dans-pacing" value="Dan Gordon pacing">
 				</div>
+				<div>
+				<input type="submit" name="" class="tab" id="tab-from-selection" value="From research data">
+				</div>
+
 			</div>
 			<div class="tabs-content" style="background-color: #fff; height: 300px; width: 70%; float: left;">
 				  <div class="tab-content" id="tab-content-even" style="height: 205px;">
-					<p>Calculate pacing that is steady for the whole race.</p>
+					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is even across the whole race.</p>
+					<div id="pacing-example-sparkline-even" style="margin-bottom: 1em;"></div>
 					<span>My target time:</span><input type="text" id="target-time-even-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
 					<input type="text" id="target-time-even-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
 					<input type="text" id="target-time-even-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
 					<input type="submit" name="" class="calculate-button" id="calculate-even-splits" value="Calculate" style="display: block;">
 				  </div>
+				  <div class="tab-content" id="tab-content-negative" style="height: 205px;">
+					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is faster in the second half than first half</p>
+					<div id="pacing-example-sparkline-negative" style="margin-bottom: 1em;"></div>
+					<p>Not implemented yet</p>
+				  </div>
+ 				  <div class="tab-content" id="tab-content-positive" style="height: 205px;">
+					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is slower in the second half than first half</p>
+					<div id="pacing-example-sparkline-positive" style="margin-bottom: 1em;"></div>
+					<p>Not implemented yet</p>
+				  </div>
+				  <div class="tab-content" id="tab-content-dans-pacing" style="height: 205px;">
+					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing according to the profile proposed by Dan Gordon's research.</p>
+					<div id="pacing-example-sparkline-dan" style="margin-bottom: 1em;"></div>
+					<p>(Link to article, seminar video etc. here)</p>
+					<span>My target time:</span><input type="text" id="target-time-dan-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
+					<input type="text" id="target-time-dan-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
+					<input type="text" id="target-time-dan-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
+					<p>Not implemented yet</p>
+					<!--<input type="submit" name="" class="calculate-button" id="calculate-dan-splits" value="Calculate" style="display: block;">-->
+				  </div>
 				  <div class="tab-content" id="tab-content-from-selection" style="height: 205px;">
-					<p>Calculate pacing from the profile you've selected, adjusted to your target time.</p>
+					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing from the profile you've selected, adjusted to your target time.</p>
 					<div id="selection-sparkline" style="margin-bottom: 20px"></div>
 					<span>My target time:</span><input type="text" id="target-time-from-selection-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
 					<input type="text" id="target-time-from-selection-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
 					<input type="text" id="target-time-from-selection-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
 					
-					<input type="submit" name="" class="calculate-button" id="calculate-from-selection" value="Calculate" style="display: block;" >
+					<!--<input type="submit" name="" class="calculate-button" id="calculate-from-selection" value="Calculate" style="display: block;" >-->
 					<p style="font-weight: bold;">This is not implemented yet</p>
 				  </div>
-				  <div class="tab-content" id="tab-content-negative" style="height: 205px;">
-					<p>Negative splits</p>
-					<p>Not implemented yet</p>
+				 <div class="tab-content" id="tab-content-from-selection-none-provided" style="height: 205px;">
+					<p style="font-weight: bold;">Calculate pacing from our research data</p>
+					<p>You can build pacing based on the pacing of a particular runner in our research data from London Marathon 2015, or an average of a set of runners.</p>
+					<p>You can find out more <a href="explore-marathon-pacings" target="_blank">here</a></p>
 				  </div>
- 				  <div class="tab-content" id="tab-content-positive" style="height: 205px;">
-					<p>Positive splits</p>
-					<p>Not implemented yet</p>
-				  </div>
-
 				</div>
 			</div>
 		</div>

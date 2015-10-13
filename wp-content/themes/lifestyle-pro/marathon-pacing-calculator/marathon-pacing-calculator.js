@@ -1,3 +1,5 @@
+var selection_data_provided_in_query = false;
+
 jQuery(document).ready(function(){
 
 	var qs = (function(a) {
@@ -32,6 +34,7 @@ jQuery(document).ready(function(){
 	//alert(qs['km5']);
 	if (typeof qs['km5'] != 'undefined')
 	{
+		selection_data_provided_in_query = true;
 		Select_From_Selection_Tab();
 	}
 	else
@@ -42,14 +45,36 @@ jQuery(document).ready(function(){
 
 function Select_Even_Splits_Tab() {
 	jQuery("#tab-even").addClass('tab-selected');
-		jQuery("#tab-from-selection").removeClass('tab-selected');
-		jQuery("#tab-negative").removeClass('tab-selected');
-		jQuery("#tab-positive").removeClass('tab-selected');
+	jQuery("#tab-from-selection").removeClass('tab-selected');
+	jQuery("#tab-negative").removeClass('tab-selected');
+	jQuery("#tab-positive").removeClass('tab-selected');
+	jQuery("#tab-dans-pacing").removeClass('tab-selected');	
+
+	jQuery("#tab-content-even").addClass('tab-content-active');
+	jQuery("#tab-content-from-selection").removeClass('tab-content-active');
+	jQuery("#tab-content-from-selection-none-provided").removeClass('tab-content-active');
+	jQuery("#tab-content-negative").removeClass('tab-content-active');
+	jQuery("#tab-content-positive").removeClass('tab-content-active');
+	jQuery("#tab-content-dans-pacing").removeClass('tab-content-active');
 		
-		jQuery("#tab-content-even").addClass('tab-content-active');
-		jQuery("#tab-content-from-selection").removeClass('tab-content-active');
-		jQuery("#tab-content-negative").removeClass('tab-content-active');
-		jQuery("#tab-content-positive").removeClass('tab-content-active');
+	jQuery("#pacing-example-sparkline-even").sparkline([
+	1200,1200,1200,1200,1200,1200,1200,1200	], {
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
+		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
+			tooltipValueLookups: {
+				names: {
+					0: '5km',
+					1: '10km',
+					2: '15km',
+					3: '20km',
+					4: '25km',
+					5: '30km',
+					6: '35km',
+					7: '40km'
+					// Add more here
+				}
+			}	
+	});
 };
 
 function Select_From_Selection_Tab() {
@@ -57,12 +82,20 @@ function Select_From_Selection_Tab() {
 	jQuery("#tab-from-selection").addClass('tab-selected');
 	jQuery("#tab-negative").removeClass('tab-selected');
 	jQuery("#tab-positive").removeClass('tab-selected');
+	jQuery("#tab-dans-pacing").removeClass('tab-selected');
 	
 	jQuery("#tab-content-even").removeClass('tab-content-active');
-	jQuery("#tab-content-from-selection").addClass('tab-content-active');
+	if (selection_data_provided_in_query)
+	{
+		jQuery("#tab-content-from-selection").addClass('tab-content-active');
+	}
+	else
+	{
+		jQuery("#tab-content-from-selection-none-provided").addClass('tab-content-active');
+	}
 	jQuery("#tab-content-negative").removeClass('tab-content-active');
 	jQuery("#tab-content-positive").removeClass('tab-content-active');
-	
+	jQuery("#tab-content-dans-pacing").removeClass('tab-content-active');
 			
 	
 	
@@ -108,11 +141,34 @@ jQuery(document).ready(function(){
 		jQuery("#tab-from-selection").removeClass('tab-selected');
 		jQuery("#tab-negative").addClass('tab-selected');
 		jQuery("#tab-positive").removeClass('tab-selected');
+		jQuery("#tab-dans-pacing").removeClass('tab-selected');
 		
 		jQuery("#tab-content-even").removeClass('tab-content-active');
 		jQuery("#tab-content-from-selection").removeClass('tab-content-active');
+		jQuery("#tab-content-from-selection-none-provided").removeClass('tab-content-active');
 		jQuery("#tab-content-negative").addClass('tab-content-active');
 		jQuery("#tab-content-positive").removeClass('tab-content-active');
+		jQuery("#tab-content-dans-pacing").removeClass('tab-content-active');
+		
+		jQuery("#pacing-example-sparkline-negative").sparkline([
+		1200,1200,1200,1200,1150,1150,1150,1150	], {
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
+		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
+			tooltipValueLookups: {
+				names: {
+					0: '5km',
+					1: '10km',
+					2: '15km',
+					3: '20km',
+					4: '25km',
+					5: '30km',
+					6: '35km',
+					7: '40km'
+					// Add more here
+				}
+			}	
+		});
+
 	});
 });
 
@@ -122,11 +178,72 @@ jQuery(document).ready(function(){
 		jQuery("#tab-from-selection").removeClass('tab-selected');
 		jQuery("#tab-negative").removeClass('tab-selected');
 		jQuery("#tab-positive").addClass('tab-selected');
+		jQuery("#tab-dans-pacing").removeClass('tab-selected');
 		
 		jQuery("#tab-content-even").removeClass('tab-content-active');
 		jQuery("#tab-content-from-selection").removeClass('tab-content-active');
+		jQuery("#tab-content-from-selection-none-provided").removeClass('tab-content-active');
 		jQuery("#tab-content-negative").removeClass('tab-content-active');
 		jQuery("#tab-content-positive").addClass('tab-content-active');
+		jQuery("#tab-content-dans-pacing").removeClass('tab-content-active');
+		
+		jQuery("#pacing-example-sparkline-positive").sparkline([
+		1150,1150,1150,1150,1200,1200,1200,1200	], {
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
+		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
+			tooltipValueLookups: {
+				names: {
+					0: '5km',
+					1: '10km',
+					2: '15km',
+					3: '20km',
+					4: '25km',
+					5: '30km',
+					6: '35km',
+					7: '40km'
+					// Add more here
+				}
+			}	
+		});
+
+	});
+});
+
+
+jQuery(document).ready(function(){
+	jQuery("#tab-dans-pacing").on('click',function(event) {
+		jQuery("#tab-even").removeClass('tab-selected');
+		jQuery("#tab-from-selection").removeClass('tab-selected');
+		jQuery("#tab-negative").removeClass('tab-selected');
+		jQuery("#tab-positive").removeClass('tab-selected');
+		jQuery("#tab-dans-pacing").addClass('tab-selected');
+		
+		jQuery("#tab-content-even").removeClass('tab-content-active');
+		jQuery("#tab-content-from-selection").removeClass('tab-content-active');
+		jQuery("#tab-content-from-selection-none-provided").removeClass('tab-content-active');
+		jQuery("#tab-content-negative").removeClass('tab-content-active');
+		jQuery("#tab-content-positive").removeClass('tab-content-active');
+		jQuery("#tab-content-dans-pacing").addClass('tab-content-active');
+		
+		jQuery("#pacing-example-sparkline-dan").sparkline([
+		1150,1150,1150,1200,1200,1200,1150,1150	], {
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
+		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
+			tooltipValueLookups: {
+				names: {
+					0: '5km',
+					1: '10km',
+					2: '15km',
+					3: '20km',
+					4: '25km',
+					5: '30km',
+					6: '35km',
+					7: '40km'
+					// Add more here
+				}
+			}	
+		});
+
 	});
 });
 
