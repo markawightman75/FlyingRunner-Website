@@ -206,7 +206,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 			</table> 
 		</div>
 
-		<div id="debug" style="background-color: #eee; display: block;">
+		<div id="debug" style="background-color: #eee; display: none;">
 		</div>		
 		
 		<?php

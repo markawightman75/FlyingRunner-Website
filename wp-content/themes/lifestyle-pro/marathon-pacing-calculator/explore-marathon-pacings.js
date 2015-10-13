@@ -6,6 +6,30 @@ jQuery(document).ready(function() {
 	jQuery("input#target-time-h").val("4");
 	jQuery("input#target-time-h").focus();
 	jQuery("input#target-time-h").select();
+	
+	//If query string includes 'debug', show debug info
+	var qs = (function(a) {
+		if (a == "") return {};
+		var b = {};
+		for (var i = 0; i < a.length; ++i)
+		{
+			var p=a[i].split('=', 2);
+			if (p.length == 1)
+				b[p[0]] = "";
+			else
+				b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+		}
+		return b;
+	})(window.location.search.substr(1).split('&'));
+
+	if (typeof qs['debug'] != 'undefined')
+	{
+		jQuery('div#debug').css('display','block');	
+	}
+	else
+	{
+		jQuery('div#debug').css('display','none');	
+	}
 });
 
 jQuery(document).ready(function() {
@@ -80,11 +104,9 @@ jQuery(document).ready(function(){
 			'ran_within_minutes_of_this_target_time' : ran_within_minutes_of_this_target_time
 		},
 		success:function(data) {
-			
-			
-				//TODO - really we should be throwing an error back in the ajax response
-				jQuery('div#debug').html(data.debug);
-				jQuery('div#debug').css('display', 'block');
+					
+			//TODO - really we should be throwing an error back in the ajax response
+			jQuery('div#debug').html(data.debug);
 			
 			if (data.number_of_runners == 0)
 			{
