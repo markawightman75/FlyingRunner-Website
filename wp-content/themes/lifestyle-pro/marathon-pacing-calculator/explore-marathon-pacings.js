@@ -1,10 +1,66 @@
+
+
+
+jQuery(document).ready(function() {
+	//On page load, default the hours to 4, focus and select the text
+	jQuery("input#target-time-h").val("4");
+	jQuery("input#target-time-h").focus();
+	jQuery("input#target-time-h").select();
+});
+
+jQuery(document).ready(function() {
+	jQuery('input#target-time-h').on('blur',function() {
+		var target_time_h = jQuery('input#target-time-h').val();
+		if (target_time_h == "")
+		{
+			jQuery('p#time-validation-error').text("Please enter a number of hours");
+			jQuery('input#target-time-h').addClass('input-empty');
+		}
+		else
+		{
+			jQuery('p#time-validation-error').text("");
+			jQuery('input#target-time-h').removeClass('input-empty');
+		}
+	});	
+});
+
+jQuery(document).ready(function() {
+	jQuery('input#target-time-m').on('blur',function() {
+		if (jQuery('input#target-time-m').val() == "")
+		{
+			jQuery('input#target-time-m').val('00');
+		}
+	});	
+});
+
+jQuery(document).ready(function() {
+	jQuery('input#target-time-s').on('blur',function() {
+		if (jQuery('input#target-time-s').val() == "")
+		{
+			jQuery('input#target-time-s').val('00');
+		}
+	});	
+});
+
+
 jQuery(document).ready(function(){
 	jQuery('#find-runners').on('click',function() {
-		var target_time = jQuery('input#target-time').val();
+		var target_time_h = jQuery('input#target-time-h').val();
 		var age_category = jQuery('select#age-category').val();
 		var previous_marathons = jQuery('select#previous-marathons').val();
 		var ran_within_minutes_of_prediction = jQuery('select#ran-within-minutes-of-prediction').val();
 		var ran_within_minutes_of_this_target_time = jQuery('select#ran-within-minutes-of-this-target-time').val();
+		
+		if (target_time_h == "")
+		{
+			//alert("Please complete time");
+			jQuery('p#time-validation-error').text("Please enter a number of hours");
+			jQuery('input#target-time-h').addClass('input-empty');
+			jQuery('input#target-time-h').focus();
+			return;
+		}
+		
+		var target_time = target_time_h + ":" + "00:00";
 		
 		//alert("Age:" + age_category + " Marathons: " + previous_marathons + " Target time: " + target_time);
 		//alert(ran_within_minutes_of_prediction);

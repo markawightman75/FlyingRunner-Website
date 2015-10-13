@@ -6,6 +6,7 @@
 .marathonpacingcalculatorcontentarea td,
 .marathonpacingcalculatorcontentarea th,
 .exploremarathonpacingscontentarea p,
+.exploremarathonpacingscontentarea label,
 .exploremarathonpacingscontentarea span,
 .exploremarathonpacingscontentarea input,
 .exploremarathonpacingscontentarea select,
@@ -51,6 +52,19 @@ margin-top: 1em;
 border-radius: 8px;
 padding: 15px;
 }
+
+.exploremarathonpacingscontentarea .time-input {
+box-shadow: none;
+background-color: #fff;
+color: #333;
+}
+
+.exploremarathonpacingscontentarea .input-empty {
+background-color: #C2E6E1;    
+}
+
+
+
 
 .jqstooltip {
   -webkit-box-sizing: content-box;

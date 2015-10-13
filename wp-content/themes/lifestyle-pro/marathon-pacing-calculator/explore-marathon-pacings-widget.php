@@ -86,6 +86,13 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 				
 		<p>Explore the pacing and prediction accuracy of the 778 runners who took part in our research at London Marathon 2015.</p>
 		
+		<div>
+		<label style="display: block; margin-bottom: 0.5em;">Show me runners who finished in around this time:</label>
+		<input type="text" id="target-time-h" style="width: 2em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input input-empty" ><span style="font-size: 0.9em;">hours</span>
+		<input type="text" id="target-time-m" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">m</span>
+		<input type="text" id="target-time-s" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">s</span>
+		<p id="time-validation-error" style="margin-top: 0.5em; margin-bottom: 0px; color: red; font-weight: bold; font-size: 0.9em;"></p>
+		</div>
 		<div class="wrap">
 			<div id="selection-criteria" class="xone-half xfirst" >
 				<div >
@@ -106,7 +113,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 							<option value="30">30 minutes</option>
 							<option value="40">40 minutes</option>
 						</select> 		
-						<span>of this time:</span><input type="text" id="target-time" style="width: 150px; margin-left: 0.5em; padding: 4px; height: 2.5em;">
+						
 					</div>
 					<div>
 						<span>Runners who ran within</span> 
