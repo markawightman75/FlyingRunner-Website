@@ -15,11 +15,6 @@ jQuery(document).ready(function(){
 		}
 		return b;
 	})(window.location.search.substr(1).split('&'));
-
-	/*alert (qs['km5']);
-	alert (qs['km10']);
-	alert (qs['km15']);
-	alert (qs['km20']);*/
 	
 	jQuery('td#5k-passed-in-split-s').text(qs['km5']);
 	jQuery('td#10k-passed-in-split-s').text(qs['km10']);
@@ -41,6 +36,133 @@ jQuery(document).ready(function(){
 	{
 		Select_Even_Splits_Tab();
 	}
+});
+
+//Calculate even splits
+jQuery(document).ready(function(){
+	jQuery("#calculate-even-splits").on('click',function(event) {
+		//TODO: VALIDATE TIME INPUT
+		//Get target time
+		var hours = parseInt(jQuery('input#target-time-even-h').val());
+		var minutes = parseInt(jQuery('input#target-time-even-m').val());
+		var seconds = parseInt(jQuery('input#target-time-even-s').val());
+		
+		var totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+		
+		var secondsPerMile = Math.round(totalSeconds /26.21875);
+		
+		for (mile = 1; mile <= 26; mile++) {
+			//Update the value in seconds
+			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile);
+			//Update the user-visible value (in mm:ss)
+			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile));
+		}
+		//alert(totalSeconds);
+		
+		//Update the halfway value in seconds
+		jQuery('td#halfway-secs').text(totalSeconds/2);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss(Math.round(totalSeconds/2)));
+		
+		//Update the finish value in seconds
+		jQuery('td#finish-secs').text(totalSeconds);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+	});
+});
+
+//Calculate negative splits
+jQuery(document).ready(function(){
+	jQuery("#calculate-negative-splits").on('click',function(event) {
+		//TODO: VALIDATE TIME INPUT
+		//alert(1);
+		//Get target time
+		var hours = parseInt(jQuery('input#target-time-negative-h').val());
+		var minutes = parseInt(jQuery('input#target-time-negative-m').val());
+		var seconds = parseInt(jQuery('input#target-time-negative-s').val());
+		
+		var second_half_faster_by_minutes = parseInt(jQuery('input#second-half-negative-m').val());
+		var second_half_faster_by_seconds = parseInt(jQuery('input#second-half-negative-s').val());
+				
+		var totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+		var totalSecondsFirstHalf = (totalSeconds/2) + (((second_half_faster_by_minutes * 60) + second_half_faster_by_seconds)/2);
+		var totalSecondsSecondHalf = (totalSeconds/2) - (((second_half_faster_by_minutes * 60) + second_half_faster_by_seconds)/2);
+		
+		var secondsPerMileFirstHalf = Math.round(totalSecondsFirstHalf / 13.109375);
+		var secondsPerMileSecondHalf = Math.round(totalSecondsSecondHalf /13.109375);
+		
+		for (mile = 1; mile <= 26; mile++) {
+			var secondsPerMile = (mile <= 13) ? secondsPerMileFirstHalf : secondsPerMileSecondHalf;
+			
+			//Update the value in seconds
+			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile);
+			//Update the user-visible value (in mm:ss)
+			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile));
+		}
+		//alert(totalSeconds);
+		
+		//Update the halfway value in seconds
+		jQuery('td#halfway-secs').text(totalSecondsFirstHalf);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss(totalSecondsFirstHalf));
+		
+		//Update the finish value in seconds
+		jQuery('td#finish-secs').text(totalSeconds);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+	});
+});
+
+//Calculate negative splits
+jQuery(document).ready(function(){
+	jQuery("#calculate-positive-splits").on('click',function(event) {
+		//TODO: VALIDATE TIME INPUT
+		//alert(1);
+		//Get target time
+		var hours = parseInt(jQuery('input#target-time-positive-h').val());
+		var minutes = parseInt(jQuery('input#target-time-positive-m').val());
+		var seconds = parseInt(jQuery('input#target-time-positive-s').val());
+		
+		var second_half_faster_by_minutes = parseInt(jQuery('input#second-half-positive-m').val());
+		var second_half_faster_by_seconds = parseInt(jQuery('input#second-half-positive-s').val());
+				
+		var totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
+		var totalSecondsFirstHalf = (totalSeconds/2) - (((second_half_faster_by_minutes * 60) + second_half_faster_by_seconds)/2);
+		var totalSecondsSecondHalf = (totalSeconds/2) + (((second_half_faster_by_minutes * 60) + second_half_faster_by_seconds)/2);
+		
+		var secondsPerMileFirstHalf = Math.round(totalSecondsFirstHalf / 13.109375);
+		var secondsPerMileSecondHalf = Math.round(totalSecondsSecondHalf /13.109375);
+		
+		for (mile = 1; mile <= 26; mile++) {
+			var secondsPerMile = (mile <= 13) ? secondsPerMileFirstHalf : secondsPerMileSecondHalf;
+			
+			//Update the value in seconds
+			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile);
+			//Update the user-visible value (in mm:ss)
+			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile));
+		}
+		//alert(totalSeconds);
+		
+		//Update the halfway value in seconds
+		jQuery('td#halfway-secs').text(totalSecondsFirstHalf);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss(totalSecondsFirstHalf));
+		
+		//Update the finish value in seconds
+		jQuery('td#finish-secs').text(totalSeconds);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+	});
+});
+
+//Calculate negative splits
+jQuery(document).ready(function(){
+	jQuery(".time-m, .time-s").on('blur',function(event) {		
+		
+		if (!jQuery(this).val()) {
+			jQuery(this).val("00");
+		}
+	});
 });
 
 function Select_Even_Splits_Tab() {
@@ -122,12 +244,12 @@ function Select_From_Selection_Tab() {
 
 };
 
-
 jQuery(document).ready(function(){
 	jQuery("#tab-even").on('click',function(event) {
 		Select_Even_Splits_Tab();
 	});
 });
+
 jQuery(document).ready(function(){
 	jQuery("#tab-from-selection").on('click',function(event) {
 
@@ -209,7 +331,6 @@ jQuery(document).ready(function(){
 	});
 });
 
-
 jQuery(document).ready(function(){
 	jQuery("#tab-dans-pacing").on('click',function(event) {
 		jQuery("#tab-even").removeClass('tab-selected');
@@ -246,44 +367,6 @@ jQuery(document).ready(function(){
 
 	});
 });
-
-
-
-
-
-jQuery(document).ready(function(){
-	jQuery("#calculate-even-splits").on('click',function(event) {
-		//TODO: VALIDATE TIME INPUT
-		//Get target time
-		var hours = parseInt(jQuery('input#target-time-even-h').val());
-		var minutes = parseInt(jQuery('input#target-time-even-m').val());
-		var seconds = parseInt(jQuery('input#target-time-even-s').val());
-		
-		
-		var totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
-		
-		var secondsPerMile = Math.round(totalSeconds /26.21875);
-		
-		for (mile = 1; mile <= 26; mile++) {
-			//Update the value in seconds
-			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile);
-			//Update the user-visible value (in mm:ss)
-			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile));
-		}
-		//alert(totalSeconds);
-		
-		//Update the halfway value in seconds
-		jQuery('td#halfway-secs').text(secondsPerMile * 13);
-		//Update the user-visible value (in mm:ss)
-		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss((secondsPerMile * 13)));
-		
-		//Update the finish value in seconds
-		jQuery('td#finish-secs').text(totalSeconds);
-		//Update the user-visible value (in mm:ss)
-		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
-	});
-});
-
 
 jQuery(document).ready(function(){
 	jQuery(".increment-time").on('click',function(event) {

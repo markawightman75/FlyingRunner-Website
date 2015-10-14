@@ -117,20 +117,38 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				  <div class="tab-content" id="tab-content-even" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is even across the whole race.</p>
 					<div id="pacing-example-sparkline-even" style="margin-bottom: 1em;"></div>
-					<span>My target time:</span><input type="text" id="target-time-even-h" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="4"><span>h</span>
-					<input type="text" id="target-time-even-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
-					<input type="text" id="target-time-even-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
+					<span>My target time:</span><input type="text" class="time-h" id="target-time-even-h" value="4"><span>h</span>
+					<input type="text" class="time-m" id="target-time-even-m" value="00"><span>m</span>
+					<input type="text" class="time-h" id="target-time-even-s" value="00"><span>s</span>
 					<input type="submit" name="" class="calculate-button" id="calculate-even-splits" value="Calculate" style="display: block;">
 				  </div>
 				  <div class="tab-content" id="tab-content-negative" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is faster in the second half than first half</p>
 					<div id="pacing-example-sparkline-negative" style="margin-bottom: 1em;"></div>
-					<p>Not implemented yet</p>
+					<span>My target time:</span><input type="text" class="time-h" id="target-time-negative-h" value="4"><span>h</span>
+					<input type="text" class="time-m" id="target-time-negative-m" value="00"><span>m</span>
+					<input type="text" class="time-s" id="target-time-negative-s" value="00"><span>s</span>
+					<div style="margin-top: 1em;">
+					<span>Run second half this much faster than first half:</span><input type="text" class="time-m" id="second-half-negative-m" value="1"><span>m</span>
+					<input type="text" class="time-s" id="second-half-negative-s" value="00"><span>s</span>
+					</div>
+					<input type="submit" name="" class="calculate-button" id="calculate-negative-splits" value="Calculate" style="display: block;">
+					
 				  </div>
  				  <div class="tab-content" id="tab-content-positive" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is slower in the second half than first half</p>
 					<div id="pacing-example-sparkline-positive" style="margin-bottom: 1em;"></div>
-					<p>Not implemented yet</p>
+					<span>My target time:</span><input type="text" class="time-h" id="target-time-positive-h" value="4"><span>h</span>
+					<input type="text" class="time-m" id="target-time-positive-m" value="00"><span>m</span>
+					<input type="text" class="time-s" id="target-time-positive-s" value="00"><span>s</span>
+					<div style="margin-top: 1em;">
+					<span>Run second half this much slower than first half:</span><input type="text" class="time-m" id="second-half-positive-m" value="1"><span>m</span>
+					<input type="text" class="time-s" id="second-half-positive-s" value="00"><span>s</span>
+					</div>
+					<input type="submit" name="" class="calculate-button" id="calculate-positive-splits" value="Calculate" style="display: block;">
+					
+					
+					
 				  </div>
 				  <div class="tab-content" id="tab-content-dans-pacing" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing according to the profile proposed by Dan Gordon's research.</p>
@@ -426,7 +444,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 		  </tr>
 
 		  <tr>
-			<td style="font-weight: bold;">13 miles</td>
+			<td style="font-weight: bold;">Halfway</td>
 			<td id="halfway-hhmmss" style="font-weight: bold;"></td>
 			<td></td>
 			<td></td>

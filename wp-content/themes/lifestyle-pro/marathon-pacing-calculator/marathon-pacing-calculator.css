@@ -120,6 +120,23 @@ display: block;
 /*border-left: 2px solid #47B7A8;*/
 }
 
+.marathonpacingcalculatorcontentarea  input.time-h {
+margin-left: 0.5em; 
+padding: 4px;
+width: 2em;
+height: 2.5em;
+text-align: center;
+}
+
+.marathonpacingcalculatorcontentarea  input.time-m,
+.marathonpacingcalculatorcontentarea  input.time-s { 
+margin-left: 0.5em; 
+padding: 4px;
+width: 3em;
+height: 2.5em;
+text-align: center;
+}
+
 
 .pacing-table-middle-margin {
 border-top: none;
