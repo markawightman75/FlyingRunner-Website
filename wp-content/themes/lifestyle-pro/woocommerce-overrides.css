@@ -3,18 +3,32 @@
 /* ***********************************************  */
 
 /*Use our standard non-serif font for everything*/
-.woocommerce, 
-.woocommerce p, 
-.woocommerce label, 
-.woocommerce input, 
-.woocommerce select,
-.woocommerce a,
-.woocommerce span {
+.woocommerce-cart, 
+.woocommerce-cart p, 
+.woocommerce-cart label, 
+.woocommerce-cart input, 
+.woocommerce-cart select,
+.woocommerce-cart a,
+.woocommerce-cart span,
+.woocommerce-checkout, 
+.woocommerce-checkout p, 
+.woocommerce-checkout label, 
+.woocommerce-checkout input, 
+.woocommerce-checkout select,
+.woocommerce-checkout a,
+.woocommerce-checkout span,
+.woocommerce .site-inner *{
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
+/*Reset the star-rating font overridden by above */
+.woocommerce .star-rating span {
+font-family: star;
+}
+
 /* Override the slightly larger size defaulted to by WC */
-.woocommerce p {
+.woocommerce-cart p,
+.woocommerce-checkout p{
 font-size: 1em;
 }
 
@@ -165,4 +179,15 @@ border-color: #a46497;
 .woocommerce-checkout #payment div.payment_method_paymentsense_direct input {
 padding-top: 4px;
 padding-bottom: 4px;
+}
+
+
+/* ***********************************************  */
+/* Overrides for Product category pages             */
+/* ***********************************************  */
+/*Reduce vertical height of sorting listbox*/
+.woocommerce-ordering select {
+padding-top: 6px;
+padding-bottom: 6px;
+padding-left: 6px;
 }
