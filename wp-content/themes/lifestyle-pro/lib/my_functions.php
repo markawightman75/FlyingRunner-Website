@@ -541,4 +541,34 @@ function themeprefix_remove_post_meta() {
 }
 /**add_action ( 'genesis_entry_header', 'themeprefix_remove_post_meta' );**/
 
+/** genesis_before_content_sidebar_wrap is immediately after main menu */
+//add_action( 'genesis_before_content_sidebar_wrap', 'custom_welcome_text' );
+
+
+// Display 24 products per page. 
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 24;' ), 20 );
+
+add_action( 'genesis_before_content_sidebar_wrap', 'add_top_banner' );
+//add_action( 'genesis_before_footer', 'add_bottom_banner' );
+
+
+function add_top_banner() {
+	//If we don't want to show a banner, we must include this so we put a margin between 
+	//bottom of main menu and top of content 
+	echo "<div class=\"banner-top-empty\"></div>";
+	return;
+	
+	if (is_shop() or is_product() or is_product_category() or is_cart() or is_checkout())
+	{
+		echo "<div class=\"banner-top\">Can we help you? Call us now on (01223) 968262</div>";
+	}
+	else
+	{
+		//banner-empty duplicates 32px margin on banner-top between nav and content that we need
+		echo "<div class=\"banner-top-empty\"></div>";
+	}
+}
+function add_bottom_banner() {
+echo "<div class=\"banner-bottom\">Can we help you? Call us now on (01223) 968262</div>";
+}
 ?>
