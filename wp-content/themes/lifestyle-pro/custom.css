@@ -359,6 +359,44 @@ overflow: hidden;
 height: 168px;
 }
 
+/* Override the 32px padding set elsewhere*/
+/* Replace it with 32px bottom margin on banner*/
+.site-inner {
+padding-top: 0px;
+}
+
+.banner-top {
+margin-bottom: 32px;
+font-family: "jaf-bernina-sans",sans-serif;
+background-color: #A46497;
+color: white;
+text-align: right;
+/*font-weight: 700;*/
+padding-top: 4px;
+padding-bottom: 4px;
+padding-right: 4px;
+}
+
+/*Empty banner, shown when we don't want an actual banner, that duplicates the vertical
+  margin we need between nav and content*/
+.banner-top-empty {
+margin-bottom: 32px;
+}
+
+.banner-bottom {
+/*margin-bottom: 32px;*/
+font-family: "jaf-bernina-sans",sans-serif;
+background-color: #A46497;
+color: white;
+text-align: right;
+/*font-weight: 700;*/
+padding-top: 4px;
+padding-bottom: 4px;
+padding-right: 8px;
+}
+
+
+
 /*Override home page main featured article image size*/
 .home .main-featured-content img {
 /*
