@@ -202,6 +202,86 @@ max-width: 400px;
 }
 }
 
+
+
+/* ************************************************ */
+/*       Newsletter sidebar advert                  */
+/* ************************************************ */
+.advert-newsletter-sidebar {
+background-image: url("http://images.flyingrunner.co.uk/newsletter-subscription/newsletter-sidebar-advert.jpg");
+width: 205px;
+height: 339px;
+}
+
+.advert-newsletter-sidebar-content {
+padding-top: 185px;
+}
+
+.advert-newsletter-sidebar-content h1 {
+padding-left: 10px;
+color: #fff;
+font-family: "jaf-bernina-sans",sans-serif;
+font-size: 18px;
+}
+.advert-newsletter-sidebar-content p {
+font-family: "jaf-bernina-sans",sans-serif;
+font-size: 0.875em;
+font-weight: 500;
+line-height: 1.35em;
+color: white;
+padding-left: 10px;
+padding-right: 10px;
+margin-bottom: 0px;
+}
+
+.advert-newsletter-sidebar-content input {
+/*width: 120px;*/
+width: 185px;
+height: 39px;
+/*margin-left: 42px;*/
+margin-top: 0.75em;
+margin-left: 10px;
+padding: 10px;
+background-color: #A46497;
+color: white;
+font-family: 'Open Sans', sans-serif;
+font-size: 14px;
+font-weight: 700;
+border-radius: 3px;
+}
+
+.sidebar .widget_text {
+margin-bottom: 0px;
+}
+
+/* When this is an advert in the sidebar, but screen is narrow so sidebar wraps underneath main content,
+set max width so the advert doesn't go wide*/
+.sidebar .advert-small {
+max-width: 205px;
+}
+    
+.sidebar .advert-small {
+margin-left: 28px;
+margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 1024px)  {
+.sidebar .advert-newsletter-sidebar {
+margin-left: 28px;
+}
+}
+
+/*When sidebar wraps below content, */
+/*eeduce left margin of sidebar product advert and newsletter advert to left align with left edge of other content*/
+@media only screen and (max-width: 1023px) {
+.sidebar .advert-small {
+margin-left: -10px;
+}
+.sidebar .advert-newsletter-sidebar {
+margin-left: -10px;
+}   
+}
+
 /*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
 html {
   box-sizing: border-box;
