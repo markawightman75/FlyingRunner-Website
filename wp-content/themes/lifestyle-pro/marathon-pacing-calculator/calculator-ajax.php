@@ -293,3 +293,32 @@ function format_mm_ss($t,$f=':') // t = seconds, f = separator
   return sprintf("%01d%s%02d", ($t/60)%60, $f, $t%60);
 }
 
+ // For logged-in users...
+add_action( 'wp_ajax_create_pacing_band_ajax_request', 'create_pacing_band_ajax_request' );
+// For non-logged in users...
+add_action( 'wp_ajax_nopriv_create_pacing_band_ajax_request', 'create_pacing_band_ajax_request' );
+
+function create_pacing_band_ajax_request() {
+ // The $_REQUEST contains all the data sent via ajax
+    if ( isset($_REQUEST) ) {
+		//Get the inputs
+        $mile_1_split = $_REQUEST['mile-1-split'];		
+		
+		require_once('create-pacing-band.php');
+		create_pacing_band();
+	
+	}
+	
+	//Required if we're returning json
+	header('Content-Type: application/json');
+		
+    // Now we'll return it to the javascript function
+    // Anything outputted will be returned in the response
+	//echo json_encode(array(
+	//	'mile_1_split_return' => $mile_1_split,
+	//	'status'=> 'Success'));
+
+	  
+    // Always die in functions echoing ajax content
+    die();
+}

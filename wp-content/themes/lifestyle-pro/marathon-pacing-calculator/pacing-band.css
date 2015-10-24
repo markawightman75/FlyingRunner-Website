@@ -1,0 +1,49 @@
+table {
+border-spacing: 0px;
+border-collapse: collapse;
+}
+
+.redbackground {
+background-color: red;
+color: white;
+}
+
+.whitebackground {
+background-color: #f2f2f2;
+color: #000;
+}
+
+.headerbackground {
+background-color: #D9D9D9;
+color: #000;
+}
+
+th {
+text-align: center;
+font-weight: 700;
+font-family: Calibri, arial, sans-serif;
+font-size: 16.5px;
+padding: 3px 3px 3px 3px;
+border-spacing: 0px;
+border-collapse: collapse;
+}
+
+td {
+text-align: center;
+font-weight: 700;
+font-family: Calibri, arial, sans-serif;
+font-size: 16.5px;
+padding: 3px 3px 3px 3px;
+//border-spacing: 0px;
+//border-collapse: collapse;
+}
+
+.redbackground td {
+border-right: 1px solid;
+border-color: white;
+}
+
+.whitebackground td {
+border-right: 1px solid;
+border-color: #000;
+}

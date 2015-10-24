@@ -453,6 +453,8 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 		  </tr>
 		 </table>
 		 
+		 <input type="submit" name="" class="" id="download-pacing-band" value="Download Pacing Band" style="display: block;">
+		 
 		 <table id="pacing-table-seconds-hidden" style="visibility: collapse;">
 		  <tr>
 			  <td>Mile 1 (s)<td>

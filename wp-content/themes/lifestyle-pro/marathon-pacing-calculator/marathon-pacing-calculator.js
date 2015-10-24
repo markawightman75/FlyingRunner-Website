@@ -113,7 +113,7 @@ jQuery(document).ready(function(){
 	});
 });
 
-//Calculate negative splits
+//Calculate positive splits
 jQuery(document).ready(function(){
 	jQuery("#calculate-positive-splits").on('click',function(event) {
 		//TODO: VALIDATE TIME INPUT
@@ -432,6 +432,69 @@ jQuery(document).ready(function(){
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
 		
+	});
+});
+
+jQuery(document).ready(function(){
+	jQuery("#download-pacing-band").on('click',function(event) {
+		 var params = {
+			mile1: jQuery('td#mile-1-split').text(),
+			mile2: jQuery('td#mile-2-split').text(),
+			mile3: jQuery('td#mile-3-split').text(),
+			mile4: jQuery('td#mile-4-split').text(),
+			mile5: jQuery('td#mile-5-split').text(),
+			mile6: jQuery('td#mile-6-split').text(),
+			mile7: jQuery('td#mile-7-split').text(),
+			mile8: jQuery('td#mile-8-split').text(),
+			mile9: jQuery('td#mile-9-split').text(),
+			mile10: jQuery('td#mile-10-split').text(),
+			mile11: jQuery('td#mile-11-split').text(),
+			mile12: jQuery('td#mile-12-split').text(),
+			mile13: jQuery('td#mile-13-split').text(),
+			mile14: jQuery('td#mile-14-split').text(),
+			mile15: jQuery('td#mile-15-split').text(),
+			mile16: jQuery('td#mile-16-split').text(),
+			mile17: jQuery('td#mile-17-split').text(),
+			mile18: jQuery('td#mile-18-split').text(),
+			mile19: jQuery('td#mile-19-split').text(),
+			mile20: jQuery('td#mile-20-split').text(),
+			mile21: jQuery('td#mile-21-split').text(),
+			mile22: jQuery('td#mile-22-split').text(),
+			mile23: jQuery('td#mile-23-split').text(),
+			mile24: jQuery('td#mile-24-split').text(),
+			mile25: jQuery('td#mile-25-split').text(),
+			mile26: jQuery('td#mile-26-split').text(),
+			halfway: jQuery('td#halfway-hhmmss').text(),
+			finish: jQuery('td#finish-hhmmss').text(),
+		}; 
+				
+		var query_string;
+		query_string = jQuery.param(params);
+		//alert(query_string);
+		url = window.location.href;
+		download_pacing_band_url =  url.replace("marathon-pacing-calculator","download-pacing-band.php");		
+		download_pacing_band_url = download_pacing_band_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
+		//window.open(download_pacing_band_url); 
+		window.location.href = download_pacing_band_url;
+		/* 
+		jQuery.ajax({
+		url: ajax_parameters.ajaxurl,
+		type: "GET",
+		dataType: "JSON",
+		data: {
+			'action':'create_pacing_band_ajax_request',
+			'mile-1-split' : '5:13'
+		},
+		success:function(data) {
+					alert(data.status);
+			
+		},
+		error: function(data){
+			alert(data);
+			console.log(data);
+			
+		}
+		});    */
 	});
 });
 
