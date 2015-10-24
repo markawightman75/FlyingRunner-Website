@@ -15,4 +15,5 @@
 *~imageoptim*
 *.htaccess
 *.htaccess
+wp-content/debug.log
 *.log
