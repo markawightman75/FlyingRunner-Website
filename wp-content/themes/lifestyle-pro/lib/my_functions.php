@@ -565,10 +565,10 @@ function add_top_banner() {
 		$banner = "<div class=\"banner-top\">";
 			$banner .= "<div class=\"banner-top-small\">";
 				//$banner .= "10% off!";
-				$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Saturday!</div><div>Enter <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
+				$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Saturday!</div><div>Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
 			$banner .= "</div>";
 			$banner .= "<div class=\"banner-top-medium\">";
-				$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Saturday! Enter <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
+				$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Saturday! Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
 			$banner .= "</div>";
 		$banner .= "</div>";
 		echo $banner;
