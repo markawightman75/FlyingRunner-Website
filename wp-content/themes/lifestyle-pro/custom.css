@@ -368,7 +368,8 @@ padding-top: 0px;
 .banner-top {
 margin-bottom: 32px;
 font-family: "jaf-bernina-sans",sans-serif;
-background-color: #A46497;
+/*background-color: #A46497;*/
+background-color: #8B4B7E;
 color: white;
 text-align: right;
 /*font-weight: 700;*/
@@ -377,10 +378,32 @@ padding-bottom: 4px;
 padding-right: 4px;
 }
 
+.banner-top a {
+color: inherit;
+text-decoration: none;
+}
 /*Empty banner, shown when we don't want an actual banner, that duplicates the vertical
   margin we need between nav and content*/
 .banner-top-empty {
 margin-bottom: 32px;
+}
+
+@media only screen and (max-width: 767px) {
+.banner-top-small {
+display: block;
+}
+.banner-top-medium {
+display: none;
+}
+
+}
+@media only screen and (min-width: 768px) {
+.banner-top-small {
+display: none;
+}
+.banner-top-medium {
+display: block;
+}
 }
 
 .banner-bottom {
