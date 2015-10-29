@@ -43,6 +43,10 @@ function add_pacing_calculator_javascript() {
 		wp_register_script( 'fr-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
 		wp_enqueue_script( 'fr-sparkline');		
 		
+		//Register and queue the chartist.js script
+		wp_register_script( 'fr-chartist', CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.js', array( 'jquery' ), '', true );
+		wp_enqueue_script( 'fr-chartist');
+		
 		//Queue our css with chartist overrides etc.
 		//wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css' ) );
 		
@@ -76,25 +80,27 @@ function add_pacing_calculator_javascript() {
 		
 		//Register and queue the jquery sparkline script
 		wp_register_script( 'fr-sparkline', CHILD_URL . '/marathon-pacing-calculator/jquery.sparkline.js', array( 'jquery' ), '', true );
-		wp_enqueue_script( 'fr-sparkline');
-	
+		wp_enqueue_script( 'fr-sparkline');			
 	}
 }
 add_action( 'wp_enqueue_scripts', 'add_pacing_calculator_css' );
 function add_pacing_calculator_css() {
 	if ( get_the_title() == "Explore Marathon Pacings" )	{
+		//Register and queue the chartist.js default css 
+		wp_enqueue_style( 'fr-chartist-default-stylesheet', CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/chartist.js/chartist.min.css' ) );
+
 		//Queue our css with chartist overrides etc.
-		wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css' ) );
+		wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing.css' ) );
 		
 		//Queue the Pocketgrid css
-		wp_enqueue_style( 'fr-pocketgrid', CHILD_URL . '/pocketgrid/pocketgrid.min.css', false, filemtime( CHILD_URL . '/pocketgrid/pocketgrid.min.css' ) );
+		wp_enqueue_style( 'fr-pocketgrid', CHILD_URL . '/pocketgrid/pocketgrid.min.css', false, filemtime( get_stylesheet_directory() . '/pocketgrid/pocketgrid.min.css' ) );
 	}
 	
 	if ( get_the_title() == "Explore Marathon Groups" )	{
 		//Register and queue the chartist.js default css 
-		wp_enqueue_style( 'fr-chartist-default-stylesheet', CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.css', false, filemtime( CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.css' ) );
+		wp_enqueue_style( 'fr-chartist-default-stylesheet', CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/chartist.js/chartist.min.css' ) );
 		//Register and queue our css with chartist overrides etc.
-		wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css' ) );
+		wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing.css' ) );
 	}
 	
 	if ( get_the_title() == "Marathon Pacing Calculator" )	{
@@ -392,10 +398,10 @@ function custom_load_custom_style_sheet() {
 wp_dequeue_style( 'lifestyle-pro-theme-css' );
 if ( ! is_admin() )
 {
-  wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( CHILD_URL . '/style.css' ) );
+  wp_enqueue_style( 'lifestyle-pro-theme', CHILD_URL . '/style.css', false, filemtime( get_stylesheet_directory() . '/style.css' ) );
 }
 
-wp_enqueue_style( 'fr-font-awesome', CHILD_URL . '/font-awesome-4.4.0/css/font-awesome.min.css', false, filemtime( CHILD_URL . '/font-awesome-4.4.0/css/font-awesome.min.css') );
+wp_enqueue_style( 'fr-font-awesome', CHILD_URL . '/font-awesome-4.4.0/css/font-awesome.min.css', false, filemtime( get_stylesheet_directory() . '/font-awesome-4.4.0/css/font-awesome.min.css') );
 
 $this_page_title = get_the_title();
 if ($this_page_title != "Contact Us") {

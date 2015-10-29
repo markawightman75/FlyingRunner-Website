@@ -35,8 +35,109 @@ color: #666;
 /*           Explore marathon pacing page                             */
 /**********************************************************************/
 
-.block-group.runner-detail {
+/**********************************************************************/
+/*           Runner selection criteria                             */
+/**********************************************************************/
+
+.block-group.runner-detail,
+.block-group#runner-selection {
 font-family: "jaf-bernina-sans",sans-serif;
+}
+
+.runner-selection-help {width: 45%;}
+.runner-selection-inputs {width: 55%;}
+
+.runner-selection-label { width: 25%;} /*% of runner-selection-inputs*/
+div.find-runners-button {margin-left: 25%;} /*Offset the button div so it is in the second column under the inputs*/
+.runner-selection-input { width: 75%;}
+
+#runner-selection {
+margin-bottom: 24px;
+/*border: 2px solid cornsilk;*/
+background-color: cornsilk;
+}
+
+.runner-selection-help {
+/*border-right: 1px solid #ccc;*/
+}
+.runner-selection-help-header {
+font-size: 17px;
+font-weight: 700;
+color: #444;
+margin-bottom: 4px;
+}
+.runner-selection-help-text {
+color: #333;
+}
+
+.runner-selection-inputs {
+background-color: cornsilk;
+margin-top: 1em;
+margin-bottom: 2em;
+border-radius: 8px;
+/*padding: 5px 22px 4px 0px;*/
+}
+
+.runner-selection-help,
+.runner-selection-label,
+.runner-selection-input select {
+font-size: 14px;
+border-color: #ccc;
+}
+
+.runner-selection-label {
+margin-top: 6px;
+color: #333;
+clear: left; /*Pocketgrid: Force label block onto new row*/
+}
+
+.runner-selection-input select {
+padding: 4px;
+margin-left: -6px;
+}
+.runner-selection-input select#finish-time-to {
+margin-left: 0px;
+}
+
+.runner-selection-input select#age-category,
+.runner-selection-input select#gender,
+.runner-selection-input select#prediction-accuracy,
+.runner-selection-input select#previous-marathons {
+width: 260px;
+}
+
+.runner-selection-input select#finish-time-from,
+.runner-selection-input select#finish-time-to {
+width: 118px;
+}
+
+#label-finish-time {
+margin-top: 28px; /*Force top label down to level of first line of help text*/
+}
+.runner-selection-input select#finish-time-from,
+.runner-selection-input select#finish-time-to {
+margin-top: 22px; /*Force top input down to level of first line of help text*/
+}
+/*
+.exploremarathonpacingscontentarea .time-input {
+box-shadow: none;
+background-color: #fff;
+color: #333;
+}
+
+.exploremarathonpacingscontentarea .input-empty {
+background-color: #C2E6E1;    
+}
+*/
+
+
+
+/**********************************************************************/
+/*           Runner detail blocks                                     */
+/**********************************************************************/
+
+
+.block-group.runner-detail {
 background-color: #f5f5f5;
 border-radius: 5px;
 padding: 5px 3px 3px;
@@ -204,8 +305,12 @@ border-radius: 50%;
 text-align: center;
 }
 
-.runner-accuracy-good {
+
+.runner-accuracy-excellent {
 background-color: darkgreen;
+}
+.runner-accuracy-good {
+background-color: #4DB14D;
 }
 .runner-accuracy-ok {
 background-color: #f5a432;
@@ -260,6 +365,10 @@ margin-top: -4px; /*Hack: Align top of top row text with top of accuracy block*/
     text-shadow: none;
 }
 
+
+input[type="submit"]#find-runners {
+margin-left: -6px;
+}
 input[type="submit"].view-splits-button:hover,
 input[type="submit"]#find-runners:hover {
 background-color: #999;

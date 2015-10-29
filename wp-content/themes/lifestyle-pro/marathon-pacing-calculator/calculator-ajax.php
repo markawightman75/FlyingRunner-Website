@@ -19,9 +19,10 @@ function example_ajax_request() {
 		//Get the inputs
         $age_category = $_REQUEST['age_category'];
         $previous_marathons = $_REQUEST['previous_marathons'];
-		$target_time = $_REQUEST['target_time'];
-		$ran_within_minutes_of_prediction = $_REQUEST['ran_within_minutes_of_prediction'];
-		$ran_within_minutes_of_this_target_time = $_REQUEST['ran_within_minutes_of_this_target_time'];
+		$finish_time_from = $_REQUEST['finish_time_from'];
+		$finish_time_to = $_REQUEST['finish_time_to'];
+		$gender = $_REQUEST['gender'];
+		$prediction_accuracy_tag = $_REQUEST['prediction_accuracy_tag'];
 		
 		//Do a look up and calculations from the inputs		
 		$split_means = array();
@@ -30,7 +31,7 @@ function example_ajax_request() {
 		$speeds_min_per_mile = array();
 		$speeds_sec_per_mile = array();
 		$runners_details = array();
-		$debug_array = lookup_splits($age_category, $previous_marathons, $target_time, $ran_within_minutes_of_prediction, $ran_within_minutes_of_this_target_time, $number_of_runners, $runners_details, $split_means, $splits_cumulative_hms, $speeds_min_per_km, $speeds_min_per_mile, $speeds_sec_per_mile);
+		$debug_array = lookup_splits($age_category, $previous_marathons, $gender, $finish_time_from, $finish_time_to, $prediction_accuracy_tag, $number_of_runners, $runners_details, $split_means, $splits_cumulative_hms, $speeds_min_per_km, $speeds_min_per_mile, $speeds_sec_per_mile);
 		$debug = 'SPLITS COUNT: ' . count($splits_cumulative_hms);
 		foreach ($debug_array as $debug_line) {
 			$debug = $debug . "<p style=\"margin-bottom: 0px;\">" . $debug_line . "</p>";
@@ -64,7 +65,7 @@ function example_ajax_request() {
 
 /*Cumulative splits parameter is an array that should be created and passed in (parameter is defined as reference) */
 /*Returns debug message*/
-function lookup_splits($age_category, $previous_marathons, $target_time, $ran_within_minutes_of_prediction, $ran_within_minutes_of_this_target_time, 
+function lookup_splits($age_category, $previous_marathons, $gender, $finish_time_from, $finish_time_to, $prediction_accuracy_tag, 
 & $number_of_runners, & $results, & $split_means, & $splits_cumulative_hms, & $speeds_min_per_km, & $speeds_min_per_mile, & $speeds_sec_per_mile) {
 //http://codular.com/php-mysqli
 	$debug = array();
@@ -91,13 +92,13 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 	//$previous_marathons = ">10";
 	
 	//Convert $target_time (in format hh:mm:ss) to seconds
-	$str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $target_time);
-	sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
-	$finish_time = $hours * 3600 + $minutes * 60 + $seconds;
+	//$str_time = preg_replace("/^([\d]{1,2})\:([\d]{2})$/", "00:$1:$2", $target_time);
+	//sscanf($str_time, "%d:%d:%d", $hours, $minutes, $seconds);
+	//$finish_time = $hours * 3600 + $minutes * 60 + $seconds;
 	
 	//$finish_time = 10800; //3 hours   (4 hours = 14400)
-	$finish_time_min = $finish_time - ($ran_within_minutes_of_this_target_time * 60); //- 5 minutes
-	$finish_time_max = $finish_time + ($ran_within_minutes_of_this_target_time * 60); //+ 5 minutes
+	//$finish_time_min = $finish_time - ($ran_within_minutes_of_this_target_time * 60); //- 5 minutes
+	//$finish_time_max = $finish_time + ($ran_within_minutes_of_this_target_time * 60); //+ 5 minutes
 	
 	$slower_than_prediction_min = 0 - ($ran_within_minutes_of_prediction * 60);
 	$slower_than_prediction_max = $ran_within_minutes_of_prediction * 60;
@@ -115,10 +116,11 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		5k_Split_s, 10k_Split_s, 15k_Split_s, 20k_Split_s, 25k_Split_s, 30k_Split_s, 35k_Split_s, 40k_Split_s
 		FROM lookup 
 		WHERE 
-		Finish_time_s >=" . strval($finish_time_min) . " AND 
-		Finish_time_s <=" . strval($finish_time_max) . " AND
-		Slower_than_prediction_by_s >=" . strval($slower_than_prediction_min) . " AND
-		Slower_than_prediction_by_s <=" . strval($slower_than_prediction_max);
+		Finish_time_s >=" . strval($finish_time_from) . " AND 
+		Finish_time_s <=" . strval($finish_time_to);
+//		AND
+		//Slower_than_prediction_by_s >=" . strval($slower_than_prediction_min) . " AND
+		//Slower_than_prediction_by_s <=" . strval($slower_than_prediction_max);
 
 		//, Slower_than_prediction_by_%
 		
@@ -128,10 +130,20 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 	if ($previous_marathons != 'Any') {
 		$sql = $sql . " AND Experience_races = '" . $previous_marathons . "'";		
 	}
+	if ($gender != 'Any') {
+		$sql = $sql . " AND Gender = '" . $gender . "'";		
+	}
+	if ($prediction_accuracy_tag != 'Any') {
+		if ($prediction_accuracy_tag == '99+') $sql = $sql . " AND Prediction_accuracy_percent >= 99.0 ";		
+		if ($prediction_accuracy_tag == '95+') $sql = $sql . " AND Prediction_accuracy_percent >= 95.0 ";		
+		if ($prediction_accuracy_tag == '90+') $sql = $sql . " AND Prediction_accuracy_percent >= 90.0 ";		
+		if ($prediction_accuracy_tag == '-90') $sql = $sql . " AND Prediction_accuracy_percent < 90.0 ";		
+	}
 	
 	$sql = $sql . " ORDER BY Prediction_accuracy_percent DESC";
+	$debug[] = $sql;
 	
-	if(!$result = $db->query($sql)){
+	if(!$result = $db->query($sql)){	
 		$debug[] = 'There was an error running the query [' . $db->error . ']';
 		return $debug;
 	}

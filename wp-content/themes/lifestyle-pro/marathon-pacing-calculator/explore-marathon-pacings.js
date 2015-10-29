@@ -74,12 +74,14 @@ jQuery(document).ready(function(){
 	jQuery('#find-runners').on('click',function() {
 		jQuery('div#runners-details-intro').html("<p style=\"margin-bottom: 0px;\">Finding runners...</p>");
 		
-		var target_time_h = jQuery('input#target-time-h').val();
+		var finish_time_from_s = jQuery('select#finish-time-from').val();
+		var finish_time_to_s = jQuery('select#finish-time-to').val();
 		var age_category = jQuery('select#age-category').val();
 		var previous_marathons = jQuery('select#previous-marathons').val();
-		var ran_within_minutes_of_prediction = jQuery('select#ran-within-minutes-of-prediction').val();
-		var ran_within_minutes_of_this_target_time = jQuery('select#ran-within-minutes-of-this-target-time').val();
+		var gender = jQuery('select#gender').val();
+		var prediction_accuracy_tag = jQuery('select#prediction-accuracy').val();
 		
+		/*
 		if (target_time_h == "")
 		{
 			//alert("Please complete time");
@@ -90,23 +92,19 @@ jQuery(document).ready(function(){
 		}
 		
 		var target_time = target_time_h + ":" + "00:00";
-		
-		//alert("Age:" + age_category + " Marathons: " + previous_marathons + " Target time: " + target_time);
-		//alert(ran_within_minutes_of_prediction);
-		//TODO: Validate inputs
-		//cumulative_splits = new Array();
-		
+		*/
 		jQuery.ajax({
 		url: ajax_parameters.ajaxurl,
 		type: "GET",
 		dataType: "JSON",
 		data: {
 			'action':'example_ajax_request',
-			'target_time' : target_time,
+			'finish_time_from' : finish_time_from_s,
+			'finish_time_to' : finish_time_to_s,
 			'age_category' : age_category,
 			'previous_marathons' : previous_marathons,
-			'ran_within_minutes_of_prediction' : ran_within_minutes_of_prediction,
-			'ran_within_minutes_of_this_target_time' : ran_within_minutes_of_this_target_time
+			'gender' : gender,
+			'prediction_accuracy_tag' : prediction_accuracy_tag
 		},
 		success:function(data) {
 					
@@ -188,8 +186,8 @@ jQuery(document).ready(function(){
 				jQuery('td#30k-mean-split-s').text(split_means['30k']);
 				jQuery('td#35k-mean-split-s').text(split_means['35k']);
 				jQuery('td#40k-mean-split-s').text(split_means['40k']);
-				
-				
+								
+				//Build average pacing curve sparkline
 				jQuery("#sparkline").sparkline([
 					split_means['5k'],split_means['10k'],split_means['15k'],
 					split_means['20k'], split_means['25k'], split_means['30k'],
@@ -212,11 +210,29 @@ jQuery(document).ready(function(){
 						}	
 				});
 
-				jQuery('input#build-pacing-average').css('visibility','visible');
-				jQuery('span#pacing-target-time').text(target_time);		
-				jQuery('td#finish').text(target_time);		
-							
-				//alert(data.runners_details);
+				//Build pacing accuracy distribution chart
+				labelCount =0;
+				new Chartist.Pie('#chart-group-prediction-accuracy', {
+				  series: [10, 5, 3, 2]
+				}, {
+				  
+				  showLabel: true,
+				  labelPosition: 'explode',
+				  labelInterpolationFnc: function(value) {
+					  labelCount += 1;
+					  if (labelCount == 1) return 'Extremely accurate (' + value + ')';
+					  if (labelCount == 2) return 'Very accurate (' + value + ')';
+					  if (labelCount == 3) return 'Quite accurate (' + value + ')';
+					  if (labelCount == 4) return 'Not accurate (' + value + ')';
+					  return value;
+				  }
+				});
+				/*donut: false,
+				  donutWidth: 60,
+				  startAngle: 270,
+				  total: 40,*/
+				//jQuery('input#build-pacing-average').css('visibility','visible');
+				
 				var runners_details = jQuery.parseJSON(data.runners_details);
 				var runners_details_html = '';
 				var initials = runners_details['initials'];
@@ -225,9 +241,7 @@ jQuery(document).ready(function(){
 				var prediction_accuracy_percents = runners_details['prediction-accuracy-percent'];
 				
 				var age_categories = runners_details['age-category'];
-				var genders = runners_details['gender'];
-				alert(genders[0]);
-				alert(genders[1]);
+				var genders = runners_details['gender'];				
 				var previous_marathons = runners_details['previous-marathons'];
 				var fivek_splits = runners_details['5k_Split_s'];
 				var tenk_splits = runners_details['10k_Split_s'];
@@ -244,19 +258,21 @@ jQuery(document).ready(function(){
 					var runner_detail = runner_detail_template;					
 					//Search and replace all the things we need to
 					runner_detail = runner_detail.replace('[RUNNER-IMAGE]', 'runner-icon-' + ((genders[i] == 'Female') ? 'female' : 'male' ) + '-57x70.png');
-					
+					runner_detail = runner_detail.replace('[GENDER-AND-INITIALS]', 'Runner: ' + initials[i].toUpperCase() + ' (' + genders[i] + ')');
 					runner_detail = runner_detail.replace('[AGE]', age_categories[i]);
 					runner_detail = runner_detail.replace('[MARATHONS]', previous_marathons[i]);
 					runner_detail = runner_detail.replace('[PREDICTED]', predicted_times[i]);
 					runner_detail = runner_detail.replace('[ACTUAL]', finish_times[i]);			
 					//alert(slower_than_predicted_by_percents[i]);
-					var accuracy = Math.floor(prediction_accuracy_percents[i]);
+					var accuracy = Math.floor(parseFloat(prediction_accuracy_percents[i]));
 					var accuracy_class = '';					
 					runner_detail = runner_detail.replace('[ACCURACY%]', accuracy + '%');
 					
 					accuracy_class = 'runner-accuracy-bad';
-					if (accuracy >= 96) accuracy_class = 'runner-accuracy-ok';
-					if (accuracy >= 98) accuracy_class = 'runner-accuracy-good';
+					if (prediction_accuracy_percents[i] >= 90.0) accuracy_class = 'runner-accuracy-ok';
+					if (prediction_accuracy_percents[i] >= 95.0) accuracy_class = 'runner-accuracy-good';
+					if (prediction_accuracy_percents[i] >= 99.0) accuracy_class = 'runner-accuracy-excellent';
+					
 					runner_detail = runner_detail.replace('[ACCURACY-CLASS]', accuracy_class);
 					
 					runner_detail = runner_detail.replace('[ID-SPARKLINE]','sparkline-runner-' + i);

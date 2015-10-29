@@ -2,11 +2,13 @@
 <head>
  <!-- Don't forget the viewport meta tag for responsive sites! -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../style.css" />
 <!-- Include PocketGrid -->
 <link rel="stylesheet" href="pocketgrid.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" href="pocketgrid-test.css" />-->
 <link rel="stylesheet" href="../marathon-pacing-calculator/marathon-pacing.css" />
+<link rel="stylesheet" href="../marathon-pacing-calculator/marathon-pacing-calculator.css" />
 <script src="//use.typekit.net/bct3hmv.js"></script>
 <script>try{Typekit.load( {async: true});}catch(e){}</script>
             <script type='text/javascript' src='http://127.0.0.1:82/wordpress/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
@@ -14,7 +16,130 @@
 <script src="../marathon-pacing-calculator/jquery.sparkline.js"></script>
 <script src="pocketgrid-test.js"></script>
 </head>
-<body>
+<body style="background-color: #fff">
+    <div class="exploremarathonpacingscontentarea" style="width: 700px;">
+    <p>Explore the pacing and prediction accuracy of the 778 runners who took part in our research at London Marathon 2015.</p>
+		
+		<div>
+		<label style="display: block; margin-bottom: 0.5em;">Show me runners who finished in around this time:</label>
+		<input type="text" id="target-time-h" style="width: 2em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input input-empty" ><span style="font-size: 0.9em;">hours</span>
+		<input type="text" id="target-time-m" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">m</span>
+		<input type="text" id="target-time-s" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">s</span>
+		<p id="time-validation-error" style="margin-top: 0.5em; margin-bottom: 0px; color: red; font-weight: bold; font-size: 0.9em;"></p>
+		</div>
+		<div class="wrap">
+			<div id="runner-selection" class="block-group">			
+                    <div class="block-group runner-selection-help">
+                        <div class="block">
+                            <div class="runner-selection-help-header">How to use this tool</div>
+                            <div class="runner-selection-help-text">            
+                                <p>To explore the prediction accuracy or pacing profile of a group of runners simply select the characteristics of the group you are interested in and click <strong>Find runners</strong>.</p>
+                                <p>To build your own pacing based on any pacing profile you see, simply click the <i class="fa fa-arrow-circle-right" style="color: #666"></i> arrow to open our pacing calculator with that profile. You can customise the pacing and even print a pacing band.</p>                                
+                            </div>
+                        </div>
+                        
+                    </div>                
+                    <div class="block-group runner-selection-inputs">
+                        <div class="block runner-selection-label">Finish time:</div>
+                        <div class="block runner-selection-input">
+                            <select id="finish-time-from">
+                                <option value="7200">2 hours</option>
+                                <option value="8100">2 hours 15 min</option>
+                                <option value="9000">2 hours 30 min</option>
+                                <option value="9900">2 hours 45 min</option>
+                                <option value="10800">3 hours</option>
+                                <option value="11700">3 hours 15 min</option>
+                                <option value="12600">3 hours 30 min</option>
+                                <option value="13500">3 hours 45 min</option>
+                                <option value="14400">4 hours</option>
+                                <option value="15300">4 hours 15 min</option>
+                                <option value="16200">4 hours 30 min</option>
+                                <option value="17100">4 hours 45 min</option>
+                                <option value="18000">5 hours</option>
+                                <option value="19800">5 hours 30 min</option>
+                                <option value="21600">6 hours</option>
+                                <option value="23400">6 hours 30 min</option>
+                                <option value="25200">7 hours</option>
+                                <option value="27000">7 hours 30 min</option>
+                            </select> 	
+                            to
+                            <select id="finish-time-to">
+                                <option value="7200">2 hours</option>
+                                <option value="8100">2 hours 15 min</option>
+                                <option value="9000">2 hours 30 min</option>
+                                <option value="9900">2 hours 45 min</option>
+                                <option value="10800">3 hours</option>
+                                <option value="11700">3 hours 15 min</option>
+                                <option value="12600">3 hours 30 min</option>
+                                <option value="13500">3 hours 45 min</option>
+                                <option value="14400">4 hours</option>
+                                <option value="15300">4 hours 15 min</option>
+                                <option value="16200">4 hours 30 min</option>
+                                <option value="17100">4 hours 45 min</option>
+                                <option value="18000">5 hours</option>
+                                <option value="19800">5 hours 30 min</option>
+                                <option value="21600">6 hours</option>
+                                <option value="23400">6 hours 30 min</option>
+                                <option value="25200">7 hours</option>
+                                <option value="27000">7 hours 30 min</option>
+						    </select> 	                        
+                        </div>
+                        
+                        <div class="block runner-selection-label">Experience:</div>
+                        <div class="block runner-selection-input">
+                            <select id="previous-marathons">
+                                <option value="Any">Any number of marathons</option>
+                                <option value="0">No previous marathons</option>
+                                <option value="1">1 previous marathon</option>
+                                <option value="2">2 previous marathons</option>
+                                <option value="3">3 previous marathons</option>
+                                <option value="3">4 previous marathons</option>
+                                <option value="3">5 previous marathons</option>
+                                <option value="6-10">6 to 10 previous marathons</option>
+                                <option value=">10">More than 10 previous marathons</option>
+						    </select> 
+                        </div>
+                        
+                        <div class="block runner-selection-label">Age:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="age-category">
+                                <option value="Any" selected>Any age</option>
+                                <option value="18-39">18 to 39</option>
+                                <option value="40-49">40 to 49</option>
+                                <option value="50-59">50 to 59</option>
+                                <option value="60+">60 and over</option>
+                            </select> 		
+                        </div>
+                        
+                        <div class="block runner-selection-label">Gender:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="gender">
+                                <option value="Any" selected>Male and Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select> 		
+                        </div>
+
+                        <div class="block runner-selection-label">Prediction:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="prediction-accuracy">
+                                <option value="Any" selected>Any</option>
+                                <option value="99+">Extremely accurate (99% and over)</option>
+                                <option value="98+">Very accurate (98% and over)</option>
+                                <option value="96+">Quite accurate (96% and over)</option>
+                                <option value="-95">Not very accurate (95% and less)</option>
+                            </select> 		
+                        </div>
+                        <div class="block find-runners-button">
+                        <input type="submit" name="predict" class="predictor-submit" id="find-runners" value="Find runners">
+                        </div>		
+                    </div>
+
+                    <!-- Force parent div to full height of its content -->
+                    <br style="clear: both;" />
+			</div>
+
+		</div>
     
 <!--
 <div class="runner-detail">
@@ -169,6 +294,7 @@
             </table>
         </div>        
       </div>
+    </div>
     </div>
 </body>
 </html>

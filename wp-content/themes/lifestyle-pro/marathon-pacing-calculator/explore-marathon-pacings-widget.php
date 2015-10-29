@@ -86,82 +86,124 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 
 		<p>Explore the pacing and prediction accuracy of the 778 runners who took part in our research at London Marathon 2015.</p>
 		
-		<div>
+<!--		<div>
 		<label style="display: block; margin-bottom: 0.5em;">Show me runners who finished in around this time:</label>
 		<input type="text" id="target-time-h" style="width: 2em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input input-empty" ><span style="font-size: 0.9em;">hours</span>
 		<input type="text" id="target-time-m" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">m</span>
 		<input type="text" id="target-time-s" style="width: 3em; margin-left: 0.5em; margin-right: 0.5em; padding: 4px; height: 2.5em; text-align: center;" class="time-input" value="00"><span style="font-size: 0.9em;">s</span>
 		<p id="time-validation-error" style="margin-top: 0.5em; margin-bottom: 0px; color: red; font-weight: bold; font-size: 0.9em;"></p>
-		</div>
+		</div>-->
 		<div class="wrap">
-			<div id="selection-criteria" class="xone-half xfirst" >
-				<div >
-					<h2 style="font-size: 1em; margin-top: 0px; margin-bottom: 0.5em;">Speed</h2>
-					<!--<span>I want to run the marathon in (hh:mm:ss):</span> -->
+						<div id="runner-selection" class="block-group">			
+                    <div class="block-group runner-selection-help">
+                        <div class="block">
+                            <div class="runner-selection-help-header">How to use this tool</div>
+                            <div class="runner-selection-help-text">            
+                                <p>To explore the prediction accuracy or pacing profile of a group of runners simply select the characteristics of the group you are interested in and click <strong>Find runners</strong>.</p>
+                                <p>To build your own pacing based on any pacing profile you see, simply click the <i class="fa fa-arrow-circle-right" style="color: #666"></i> arrow to open our pacing calculator with that profile. You can customise the pacing and even print a pacing band.</p>                                
+                            </div>
+                        </div>
+                        
+                    </div>                
+                    <div class="block-group runner-selection-inputs">
+                        <div class="block runner-selection-label" id="label-finish-time">Finish time:</div>
+                        <div class="block runner-selection-input">
+                            <select id="finish-time-from">
+                                <option value="7200">2 hours</option>
+                                <option value="8100">2 hours 15 m</option>
+                                <option value="9000">2 hours 30 m</option>
+                                <option value="9900">2 hours 45 m</option>
+                                <option value="10800" selected>3 hours</option>
+                                <option value="11700">3 hours 15 m</option>
+                                <option value="12600">3 hours 30 m</option>
+                                <option value="13500">3 hours 45 m</option>
+                                <option value="14400">4 hours</option>
+                                <option value="15300">4 hours 15 m</option>
+                                <option value="16200">4 hours 30 m</option>
+                                <option value="17100">4 hours 45 m</option>
+                                <option value="18000">5 hours</option>
+                                <option value="19800">5 hours 30 m</option>
+                                <option value="21600">6 hours</option>
+                                <option value="23400">6 hours 30 m</option>
+                                <option value="25200">7 hours</option>
+                                <option value="27000">7 hours 30 m</option>
+                            </select> 	
+                            to
+                            <select id="finish-time-to">
+                                <option value="7200">2 hours</option>
+                                <option value="8100">2 hours 15 m</option>
+                                <option value="9000">2 hours 30 m</option>
+                                <option value="9900">2 hours 45 m</option>
+                                <option value="10800">3 hours</option>
+                                <option value="11700">3 hours 15 m</option>
+                                <option value="12600"selected>3 hours 30 m</option>
+                                <option value="13500">3 hours 45 m</option>
+                                <option value="14400">4 hours</option>
+                                <option value="15300">4 hours 15 m</option>
+                                <option value="16200">4 hours 30 m</option>
+                                <option value="17100">4 hours 45 m</option>
+                                <option value="18000">5 hours</option>
+                                <option value="19800">5 hours 30 m</option>
+                                <option value="21600">6 hours</option>
+                                <option value="23400">6 hours 30 m</option>
+                                <option value="25200">7 hours</option>
+                                <option value="27000">7 hours 30 m</option>
+						    </select> 	                        
+                        </div>
+                        
+                        <div class="block runner-selection-label">Experience:</div>
+                        <div class="block runner-selection-input">
+                            <select id="previous-marathons">
+                                <option value="Any" selected>Any number of marathons</option>
+                                <option value="0">No previous marathons</option>
+                                <option value="1">1 previous marathon</option>
+                                <option value="2">2 previous marathons</option>
+                                <option value="3">3 previous marathons</option>
+                                <option value="3">4 previous marathons</option>
+                                <option value="3">5 previous marathons</option>
+                                <option value="6-10">6 to 10 previous marathons</option>
+                                <option value=">10">More than 10 previous marathons</option>
+						    </select> 
+                        </div>
+                        
+                        <div class="block runner-selection-label">Age:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="age-category">
+                                <option value="Any" selected>Any age</option>
+                                <option value="18-39">18 to 39</option>
+                                <option value="40-49">40 to 49</option>
+                                <option value="50-59">50 to 59</option>
+                                <option value="60+">60 and over</option>
+                            </select> 		
+                        </div>
+                        
+                        <div class="block runner-selection-label">Gender:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="gender">
+                                <option value="Any" selected>Male and Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select> 		
+                        </div>
 
-					<div>
-					
-						<span>Runners who finished within</span> 
-						<select id="ran-within-minutes-of-this-target-time" style="width: 120px; margin-left: 0.5em; margin-right: 0.5em; padding: 4px">
-							<option value="2">2 minutes</option>
-							<option value="4">4 minutes</option>
-							<option value="6">6 minutes</option>
-							<option value="8">8 minutes</option>
-							<option value="10">10 minutes</option>
-							<option value="15">15 minutes</option>
-							<option value="20">20 minutes</option>
-							<option value="30">30 minutes</option>
-							<option value="40">40 minutes</option>
-						</select> 		
-						
-					</div>
-					<div>
-						<span>Runners who ran within</span> 
-						<select id="ran-within-minutes-of-prediction" style="width: 120px; padding: 4px">
-							<option value="1000">Any minutes</option>
-							<option value="2">2 minutes</option>
-							<option value="4">4 minutes</option>
-							<option value="6">6 minutes</option>
-							<option value="8">8 minutes</option>
-							<option value="10">10 minutes</option>
-							<option value="15">15 minutes</option>
-							<option value="20">20 minutes</option>
-							<option value="30">30 minutes</option>
-							<option value="40">40 minutes</option>
-						</select> 		
-						<span>of their predicted time</span>
-					</div>
-					<div style="margin-top: 0.75em;">
-						<span>Runners who had previously run</span>
-						<select id="previous-marathons" style="width: 150px; padding: 4px">
-							<option value="Any">Any number of</option>
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="3">4</option>
-							<option value="3">5</option>
-							<option value="6-10">6 to 10</option>
-							<option value=">10">More than 10</option>
-						</select> 		
-						<span>marathons</span>
-					</div>
-					<div style="margin-top: 0.75em;">
-						<span>Runners aged</span>
-						<select id="age-category" style="width: 120px; padding: 4px" >
-							<option value="Any" selected>Anything</option>
-							<option value="18-39">18 to 39</option>
-							<option value="40-49">40 to 49</option>
-							<option value="50-59">50 to 59</option>
-							<option value="60+">60 and over</option>
-						</select> 		
-					</div>
-				</div>
+                        <div class="block runner-selection-label">Prediction:</div>                    
+                        <div class="block runner-selection-input">
+                            <select id="prediction-accuracy">
+                                <option value="Any" selected>Any prediction accuracy</option>
+                                <option value="99+">Extremely accurate (99% and over)</option>
+                                <option value="95+">Very accurate (95% and over)</option>
+                                <option value="90+">Quite accurate (90% and over)</option>
+                                <option value="-90">Not very accurate (less than 90%)</option>
+                            </select> 		
+                        </div>
+                        <div class="block find-runners-button">
+                        <input type="submit" name="predict" class="predictor-submit" id="find-runners" value="Find runners">
+                        </div>		
+                    </div>
+
+                    <!-- Force parent div to full height of its content -->
+                    <br style="clear: both;" />
 			</div>
-			<div class="xone-half" style="margin-top: 1em;">
-				<input type="submit" name="predict" class="predictor-submit" id="find-runners" value="Find runners">
-			</div>		
-
 		</div>
 
 		<!--
@@ -173,6 +215,9 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 		<!--
 		</div>
 		-->
+		
+		<div id="chart-group-prediction-accuracy" class="ct-chart ct-octave"></div>
+		
 		
 		<div id="runners-details-intro"></div>
 		<div id="sparkline-intro" style="height: 0px; visibility: collapse;">
@@ -214,7 +259,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 			<div class="runner-detail block-group">
 			  <div class="runner-profile block-group">
 				  <div class="block runner-image">
-					  <img style="width:57px; height:auto;" src="http://images.flyingrunner.co.uk/marathon-pacing-research/[RUNNER-IMAGE]">
+					  <img style="width:57px; height:auto;" src="http://images.flyingrunner.co.uk/marathon-pacing-research/[RUNNER-IMAGE]" title="[GENDER-AND-INITIALS]">
 				  </div>
 				  <div class="block runner-info"><strong>Age:</strong> [AGE]<br><strong>Marathons:</strong> [MARATHONS]</div>
 				  <div class="block runner-accuracy-and-times">
