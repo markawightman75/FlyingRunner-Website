@@ -83,7 +83,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 
 			
 		?>
-				
+
 		<p>Explore the pacing and prediction accuracy of the 778 runners who took part in our research at London Marathon 2015.</p>
 		
 		<div>
@@ -118,6 +118,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 					<div>
 						<span>Runners who ran within</span> 
 						<select id="ran-within-minutes-of-prediction" style="width: 120px; padding: 4px">
+							<option value="1000">Any minutes</option>
 							<option value="2">2 minutes</option>
 							<option value="4">4 minutes</option>
 							<option value="6">6 minutes</option>
@@ -208,6 +209,74 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 
 		<div id="debug" style="background-color: #eee; display: none;">
 		</div>		
+		
+		<div id="runner-detail-template" style="display: none;">
+			<div class="runner-detail block-group">
+			  <div class="runner-profile block-group">
+				  <div class="block runner-image">
+					  <img style="width:57px; height:auto;" src="http://images.flyingrunner.co.uk/marathon-pacing-research/[RUNNER-IMAGE]">
+				  </div>
+				  <div class="block runner-info"><strong>Age:</strong> [AGE]<br><strong>Marathons:</strong> [MARATHONS]</div>
+				  <div class="block runner-accuracy-and-times">
+					  <div class="block runner-accuracy">
+						  <div class="runner-accuracy-circle [ACCURACY-CLASS]">
+							  <div class="accuracy-percent">[ACCURACY%]</div>
+							  <div class="accuracy-caption">Accurate</div>
+						  </div>
+					  </div>
+					  <div class="block runner-times"><strong>Predicted:</strong> [PREDICTED]<br><strong>Actual:</strong> [ACTUAL]</div>
+				  </div>
+			  </div>
+				
+			  <div class="runner-pacing block-group">
+				<div class="runner-chart block">
+					<div id="[ID-SPARKLINE]" >
+					</div>
+					<a id="[ID-BUILD-PACING-BUTTON]" class="build-pacing-button" title="Open the pacing calculator with this pacing"></a>
+				</div>
+				<div class="runner-splits block">
+					<input type="submit" name="" class="view-splits-button" id="[ID-VIEW-SPLITS-BUTTON]" value="View details..." style="display: block;" >
+					<table class="splits-table hidden" id="[ID-SPLITS-TABLE]" style="display: none;">
+						<tr class="splits-header">
+							<td>5km</td>
+							<td>10km</td>
+							<td>15km</td>
+							<td>20km</td>
+							<td>25km</td>
+							<td>30km</td>
+							<td>35km</td>
+							<td>40km</td>
+							<td></td>
+						</tr>
+						<tr class="splits-time">
+							<td id="td-5k-split">[SPLIT-5K]</td>
+							<td id="td-10k-split">[SPLIT-10K]</td>
+							<td id="td-15k-split">[SPLIT-15K]</td>
+							<td id="td-20k-split">[SPLIT-20K]</td>
+							<td id="td-25k-split">[SPLIT-25K]</td>
+							<td id="td-30k-split">[SPLIT-30K]</td>
+							<td id="td-35k-split">[SPLIT-35K]</td>
+							<td id="td-40k-split">[SPLIT-40K]</td>
+							<td>Time</td>
+						</tr>
+						<tr class="splits-pace">
+							<td>[PACE-5K]</td>
+							<td>[PACE-10K]</td>
+							<td>[PACE-15K]</td>
+							<td>[PACE-20K]</td>
+							<td>[PACE-25K]</td>
+							<td>[PACE-30K]</td>
+							<td>[PACE-35K]</td>
+							<td>[PACE-40K]</td>
+							<td>Mile pace</td>                    
+						</tr>
+					</table>
+				</div>        
+			  </div>
+			</div>
+		</div>
+		<!--Hidden div that we'll inject a tag indicating screen size in via media query in css, that we can pick up in chart buliding to ensure bars are the correct width-->
+		<div id="screen-size-tag" style="display: none;"></div>
 		
 		<?php
 		echo $after_widget;

@@ -1,0 +1,174 @@
+<html>
+<head>
+ <!-- Don't forget the viewport meta tag for responsive sites! -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Include PocketGrid -->
+<link rel="stylesheet" href="pocketgrid.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="pocketgrid-test.css" />-->
+<link rel="stylesheet" href="../marathon-pacing-calculator/marathon-pacing.css" />
+<script src="//use.typekit.net/bct3hmv.js"></script>
+<script>try{Typekit.load( {async: true});}catch(e){}</script>
+            <script type='text/javascript' src='http://127.0.0.1:82/wordpress/wp-includes/js/jquery/jquery.js?ver=1.11.2'></script>
+<script type='text/javascript' src='http://127.0.0.1:82/wordpress/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<script src="../marathon-pacing-calculator/jquery.sparkline.js"></script>
+<script src="pocketgrid-test.js"></script>
+</head>
+<body>
+    
+<!--
+<div class="runner-detail">
+    <div class="block-group">  First row 
+        <div class="runner-profile block-group">
+            <div class="runner-image block">Image</div>
+            <div class="runner-accuracy block">Accuracy</div>
+            <div class="runner-info block">Info</div>
+        </div>
+    </div>
+    <div class="runner-pacing block-group">
+        <div class="runner-chart block">Chart</div>
+        <div class="runner-splits block">Splits</div>
+    </div>
+</div>
+
+<br><br>
+    
+    <div class="runner-detail">
+        <div class="runner-profile block">ss
+        </div>
+        <div class="runner-pacing block-group">ss
+            <div class="runner-chart block">Chart</div>
+            <div class="runner-splits block">Splits</div>
+        </div>
+
+    </div>
+    -->
+    
+    
+    <div class="runner-detail block-group">
+      <div class="runner-profile block-group">
+          <div class="block runner-image">
+              <img style="width:49px; height:auto;" src="http://images.flyingrunner.co.uk/marathon-pacing-research/runner-icon-female-40x57.png">
+          </div>
+          <div class="block runner-info"><strong>Age:</strong> 18-39<br><strong>Marathons:</strong> 4<br><strong>Target:</strong> 4:00:00<br><strong>Actual:</strong> 3:58:42</div>
+          <div class="block runner-accuracy-and-times">
+              <div class="block runner-accuracy">
+                  <div class="runner-accuracy-circle runner-accuracy-bad">
+                      <div class="accuracy-percent">98%</div>
+                      <div class="accuracy-caption">Accurate</div>
+                  </div>
+              </div>
+              <div class="block runner-times">dfdfd</div>
+          </div>
+      </div>
+        
+      <div class="runner-pacing block-group">
+        <div class="runner-chart block">            
+            <div id="test-chart" ></div>
+            <a id="build-pacing-button-runner-0" class="build-pacing-button xsmGlobalBtn" title="Open the pacing calculator with this pacing"></a>
+        </div>
+<!--
+        <div class="runner-build-pacing-button-block block">
+                <a id="build-pacing-button-runner-0" class="build-pacing-button smGlobalBtn"></a>
+        </div>
+-->
+        <div class="runner-splits block">
+            <input type="submit" name="" class="view-splits-button visible" id="view-splits-runner-1" value="View splits and pace..." >
+            <table class="splits-table hidden" id="splits-runner-1">
+                <tr class="splits-header">
+                    <td>5km</td>
+                    <td>10km</td>
+                    <td>15km</td>
+                    <td>20km</td>
+                    <td>25km</td>
+                    <td>30km</td>
+                    <td>35km</td>
+                    <td>40km</td>
+                    <td></td>
+                </tr>
+                <tr class="splits-time">
+                    <td id="5k-split">23:10</td>
+                    <td>23:11</td>
+                    <td>23:12</td>
+                    <td>23:13</td>
+                    <td>23:14</td>
+                    <td>23:15</td>
+                    <td>23:16</td>
+                    <td>23:17</td>
+                    <td>Time</td>
+                </tr>
+                <tr class="splits-pace">
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>Mile pace</td>                    
+                </tr>
+            </table>
+        </div>        
+      </div>
+    </div>
+    
+    
+    
+    <div class="runner-detail block-group">
+      <div class="runner-profile block-group">
+          <div class="block runner-image">
+              <img style="width:49px; height:auto;" src="../runner-icon-female-40x57.png">
+          </div>
+          <div class="block runner-info"><strong>Age:</strong> 18-39<br><strong>Marathons:</strong> 4<br><strong>Target:</strong> 4:00:00<br><strong>Actual:</strong> 3:58:42</div>
+          <div class="block runner-accuracy runner-accuracy-ok">
+              <div class="accuracy-percent">98%</div>
+              <div class="accuracy-caption">Accurate</div>
+          </div>
+      </div>
+        
+      <div class="runner-pacing block-group">
+        <div class="runner-chart block">
+            <div id="test-chart2" >Chart</div>
+        </div>
+        <div class="runner-splits block">
+            <table>
+                <tr class="splits-header">
+                    <td>5km</td>
+                    <td>10km</td>
+                    <td>15km</td>
+                    <td>20km</td>
+                    <td>25km</td>
+                    <td>30km</td>
+                    <td>35km</td>
+                    <td>40km</td>
+                    <td></td>
+                </tr>
+                <tr class="splits-time">
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>23:10</td>
+                    <td>Time</td>
+                </tr>
+                <tr class="splits-pace">
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>9:03</td>
+                    <td>Mile pace</td>                    
+                </tr>
+            </table>
+        </div>        
+      </div>
+    </div>
+</body>
+</html>

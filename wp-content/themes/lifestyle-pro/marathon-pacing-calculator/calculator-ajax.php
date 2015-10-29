@@ -109,8 +109,9 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		Finish_time_s <=" . strval($finish_time_max);
  */
  	
-	$sql = "SELECT Runner_id, Name, Experience_races, Age_category,
+	$sql = "SELECT Runner_id, Name, Experience_races, Age_category, Gender,
 		Finish_time, Prediction_hh_mm, Slower_than_prediction_by_s,
+		Prediction_accuracy_percent,
 		5k_Split_s, 10k_Split_s, 15k_Split_s, 20k_Split_s, 25k_Split_s, 30k_Split_s, 35k_Split_s, 40k_Split_s
 		FROM lookup 
 		WHERE 
@@ -119,6 +120,8 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		Slower_than_prediction_by_s >=" . strval($slower_than_prediction_min) . " AND
 		Slower_than_prediction_by_s <=" . strval($slower_than_prediction_max);
 
+		//, Slower_than_prediction_by_%
+		
 	if ($age_category != 'Any') {
 		$sql = $sql . " AND Age_category = '" . $age_category . "'";
 	}
@@ -126,7 +129,7 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		$sql = $sql . " AND Experience_races = '" . $previous_marathons . "'";		
 	}
 	
-	$sql = $sql . " ORDER BY Slower_than_prediction_by_s";
+	$sql = $sql . " ORDER BY Prediction_accuracy_percent DESC";
 	
 	if(!$result = $db->query($sql)){
 		$debug[] = 'There was an error running the query [' . $db->error . ']';
@@ -161,7 +164,11 @@ function lookup_splits($age_category, $previous_marathons, $target_time, $ran_wi
 		$results['initials'][$result_index] = $initials;
 		$results['finish-time'][$result_index] = $row['Finish_time'];
 		$results['predicted-time'][$result_index] = $row['Prediction_hh_mm'];
+		//$results['slower-than-prediction-by-%'][$result_index] = round($row['Slower_than_prediction_by_%']);
+		$results['prediction-accuracy-percent'][$result_index] = $row['Prediction_accuracy_percent'];
+		
 		$results['age-category'][$result_index] = $row['Age_category'];
+		$results['gender'][$result_index] = $row['Gender'];
 		$results['previous-marathons'][$result_index] = $row['Experience_races'];
 		$results['5k_Split_s'][$result_index] = $row['5k_Split_s'];
 		$results['10k_Split_s'][$result_index] = $row['10k_Split_s'];

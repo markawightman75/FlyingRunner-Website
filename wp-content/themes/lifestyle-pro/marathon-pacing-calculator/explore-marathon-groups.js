@@ -1,38 +1,92 @@
 
 
 
-jQuery(document).ready(function() {
-	//On page load, default the hours to 4, focus and select the text
-	jQuery("input#target-time-h").val("4");
-	jQuery("input#target-time-h").focus();
-	jQuery("input#target-time-h").select();
+jQuery(document).ready(function() {	
+	////////////////////////////////////////////////////
+	//See https://gionkunz.github.io/chartist-js/api-documentation.html#chartistbar-declaration-defaultoptions for options
 	
-	//If query string includes 'debug', show debug info
-	var qs = (function(a) {
-		if (a == "") return {};
-		var b = {};
-		for (var i = 0; i < a.length; ++i)
-		{
-			var p=a[i].split('=', 2);
-			if (p.length == 1)
-				b[p[0]] = "";
-			else
-				b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
-		}
-		return b;
-	})(window.location.search.substr(1).split('&'));
-
-	if (typeof qs['debug'] != 'undefined')
-	{
-		jQuery('div#debug').css('display','block');	
-	}
-	else
-	{
-		jQuery('div#debug').css('display','none');	
-	}
+	new Chartist.Bar('#chart-by-experience', {
+		labels: ['No marathons', '1 marathon', '2 marathons', '3 marathons', '4 marathons', '5 marathons', '6-10 marathons', 'More than 10 marathons'],
+		series: [
+					[0.7738, 0.8065, 0.9288, 0.9329, 0.8957, 0.8521, 0.7339, 0.9593],
+				]
+		}, {
+		  seriesBarDistance: 19, //Only relevant when there is more than one bar in a group 
+		  reverseData: true,
+		  horizontalBars: true,
+		  axisX: {			  
+			  showLabel: true,
+			  showGrid: false,
+			  labelInterpolationFnc: function(value) {
+				return value;
+			  },
+			  scaleMinSpace: 80, //Force only a few x axis grid lines and labels
+		  },
+		  axisY: {
+			offset: 110,
+			showLabel: true,
+			position: 'start', 
+			showGrid: false
+		  },
+		 low: 0.0,
+		 high: 1.0,
+		 chartPadding: {
+			top: -11,
+			right: 10,
+			bottom: 5,
+			left: 0
+		  },
+	});
 	
+	new Chartist.Bar('#chart-by-experience-and-gender', {
+		labels: ['No marathons', '1 marathon', '2 marathons', '3 marathons', '4 marathons', '5 marathons', '6-10 marathons', 'More than 10 marathons'],
+		series: [
+					[0.7248, 0.7507, 0.9205, 0.9267, 0.9797, 0.727, 0.8045, 0.9759], //Female by experience
+					[0.7993, 0.8536, 0.9267, 0.9336, 0.8493, 0.8632, 0.6959, 0.9532]  //Male by experience
+				]
+		}, {
+		  seriesBarDistance: 19,
+		  reverseData: true,
+		  horizontalBars: true,
+		  axisX: {			  
+			  showLabel: true,
+			  showGrid: false,
+			  labelInterpolationFnc: function(value) {
+				return value;
+			  },
+			  scaleMinSpace: 80, //Force only a few x axis grid lines and labels
+		  },
+		  axisY: {
+			offset: 110,
+			showLabel: true,
+			position: 'start', 
+			showGrid: false
+		  },
+		 low: 0.0,
+		 high: 1.0,
+		 chartPadding: {
+			top: -11,
+			right: 10,
+			bottom: 5,
+			left: 0
+		  },
+	});
 	
-	
+	/*new Chartist.Bar('.ct-chart', {
+		labels: ['No marathons', '1 marathon', '2 marathons', '3 marathons', '4 marathons', '5 marathons', '6-10 marathons', 'More than 10 marathons'],
+		series: [
+					[5, 4, 3, 7, 5, 10, 3],
+					[3, 2, 9, 5, 4, 6, 4]
+				]
+		}, {
+		  seriesBarDistance: 10,
+		  reverseData: true,
+		  horizontalBars: true,
+		  axisY: {
+			offset: 70
+		  }
+	});*/
+	/////////////////////////////
 });
 
 jQuery(document).ready(function() {
@@ -72,8 +126,6 @@ jQuery(document).ready(function() {
 
 jQuery(document).ready(function(){
 	jQuery('#find-runners').on('click',function() {
-		jQuery('div#runners-details-intro').html("<p style=\"margin-bottom: 0px;\">Finding runners...</p>");
-		
 		var target_time_h = jQuery('input#target-time-h').val();
 		var age_category = jQuery('select#age-category').val();
 		var previous_marathons = jQuery('select#previous-marathons').val();
@@ -195,7 +247,7 @@ jQuery(document).ready(function(){
 					split_means['20k'], split_means['25k'], split_means['30k'],
 					split_means['35k'], split_means['40k']
 				], {
-					type: 'bar', barWidth: '35', chartRangeMin: '900', barColor: '#A46497', height: '50px',
+					type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#A46497', height: '50px',
 					tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
 						tooltipValueLookups: {
 							names: {
@@ -222,12 +274,7 @@ jQuery(document).ready(function(){
 				var initials = runners_details['initials'];
 				var finish_times = runners_details['finish-time'];
 				var predicted_times = runners_details['predicted-time'];
-				var prediction_accuracy_percents = runners_details['prediction-accuracy-percent'];
-				
 				var age_categories = runners_details['age-category'];
-				var genders = runners_details['gender'];
-				alert(genders[0]);
-				alert(genders[1]);
 				var previous_marathons = runners_details['previous-marathons'];
 				var fivek_splits = runners_details['5k_Split_s'];
 				var tenk_splits = runners_details['10k_Split_s'];
@@ -237,68 +284,22 @@ jQuery(document).ready(function(){
 				var thirtyk_splits = runners_details['30k_Split_s'];
 				var thirtyfivek_splits = runners_details['35k_Split_s'];
 				var fortyk_splits = runners_details['40k_Split_s'];
-
-
-				var runner_detail_template = jQuery('#runner-detail-template').html();
+				
 				for (i = 0; i < data.number_of_runners; i++) { 			
-					var runner_detail = runner_detail_template;					
-					//Search and replace all the things we need to
-					runner_detail = runner_detail.replace('[RUNNER-IMAGE]', 'runner-icon-' + ((genders[i] == 'Female') ? 'female' : 'male' ) + '-57x70.png');
 					
-					runner_detail = runner_detail.replace('[AGE]', age_categories[i]);
-					runner_detail = runner_detail.replace('[MARATHONS]', previous_marathons[i]);
-					runner_detail = runner_detail.replace('[PREDICTED]', predicted_times[i]);
-					runner_detail = runner_detail.replace('[ACTUAL]', finish_times[i]);			
-					//alert(slower_than_predicted_by_percents[i]);
-					var accuracy = Math.floor(prediction_accuracy_percents[i]);
-					var accuracy_class = '';					
-					runner_detail = runner_detail.replace('[ACCURACY%]', accuracy + '%');
-					
-					accuracy_class = 'runner-accuracy-bad';
-					if (accuracy >= 96) accuracy_class = 'runner-accuracy-ok';
-					if (accuracy >= 98) accuracy_class = 'runner-accuracy-good';
-					runner_detail = runner_detail.replace('[ACCURACY-CLASS]', accuracy_class);
-					
-					runner_detail = runner_detail.replace('[ID-SPARKLINE]','sparkline-runner-' + i);
-					runner_detail = runner_detail.replace('[ID-BUILD-PACING-BUTTON]','build-pacing-button-runner-' + i);
-										
-					runner_detail = runner_detail.replace('[ID-VIEW-SPLITS-BUTTON]','view-splits-button-runner-' + i);
-					runner_detail = runner_detail.replace('[ID-SPLITS-TABLE]','splits-table-runner-' + i);	
-					
-					//[SPLIT-5K]
-					runner_detail = runner_detail.replace('[SPLIT-5K]',seconds_to_hhmmss(fivek_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-10K]',seconds_to_hhmmss(tenk_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-15K]',seconds_to_hhmmss(fifteenk_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-20K]',seconds_to_hhmmss(twentyk_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-25K]',seconds_to_hhmmss(twentyfivek_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-30K]',seconds_to_hhmmss(thirtyk_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-35K]',seconds_to_hhmmss(thirtyfivek_splits[i]));	
-					runner_detail = runner_detail.replace('[SPLIT-40K]',seconds_to_hhmmss(fortyk_splits[i]));	
-					
-					runner_detail = runner_detail.replace('[PACE-5K]',seconds_to_hhmmss(Math.round(fivek_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-10K]',seconds_to_hhmmss(Math.round(tenk_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-15K]',seconds_to_hhmmss(Math.round(fifteenk_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-20K]',seconds_to_hhmmss(Math.round(twentyk_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-25K]',seconds_to_hhmmss(Math.round(twentyfivek_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-30K]',seconds_to_hhmmss(Math.round(thirtyk_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-35K]',seconds_to_hhmmss(Math.round(thirtyfivek_splits[i] / 3.10686)));	
-					runner_detail = runner_detail.replace('[PACE-40K]',seconds_to_hhmmss(Math.round(fortyk_splits[i] / 3.10686)));	
-					
-					runners_details_html += runner_detail;				
+					//console.log(names);
+					runners_details_html = runners_details_html += "<p style=\"margin-bottom: 0px;\">";
+					runners_details_html = runners_details_html.concat(initials[i], " Predicted: ", predicted_times[i], " Finished: ", finish_times[i]);
+					//runners_details_html = runners_details_html += finish_times[i];
+					runners_details_html = runners_details_html += "</p>";
+					runners_details_html = runners_details_html += "<p style=\"margin-bottom: 0px; color: #999;\">";
+					runners_details_html = runners_details_html.concat(" Age category: ", age_categories[i], " Previous marathons: ", previous_marathons[i]);
+					runners_details_html = runners_details_html += "</p>";
+					runners_details_html = runners_details_html.concat("<div style=\"margin-bottom: 30px;\" id=\"", "sparkline-runner-", i, "\"", "></div>");
 				}
 				
 				jQuery('div#runners-details').html(runners_details_html);
-							
-				//Pickup the media query we're using from the size of the div we've set the width of via css
-				//TODO: Think this is getting made more complicated than necessary because table columns are varying in width by content
-				//even though td width is set.
-				var mediaQuery = jQuery('div#screen-size-tag').width();
-				var barWidth = '44px';
-				if (mediaQuery == 767) barWidth = '49px'; //iPhone 6
-				if (mediaQuery == 768) barWidth = '48px'; //iPad portrait
-				if (mediaQuery == 1024) barWidth = '40px'; //iPad portrait
 				
-				//Build the sparkline pacing charts for each runner
 				for (i = 0; i < data.number_of_runners; i++) { 			
 				
 					jQuery("#sparkline-runner-".concat(i)).sparkline([
@@ -306,26 +307,23 @@ jQuery(document).ready(function(){
 						twentyk_splits[i], twentyfivek_splits[i], thirtyk_splits[i],
 						thirtyfivek_splits[i], fortyk_splits[i]
 					], {
-						type: 'bar', barWidth: barWidth, chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
-						tooltipFormat: "{{offset:names}}",
-						tooltipValueLookups: {
-							names: {
-								0: '0-5km',
-								1: '5-10km',
-								2: '10-15km',
-								3: '15-20km',
-								4: '20-25km',
-								5: '25-30km',
-								6: '30-35km',
-								7: '35-40km'
-							}
-						}	
+						type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
+						tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
+							tooltipValueLookups: {
+								names: {
+									0: '5km',
+									1: '10km',
+									2: '15km',
+									3: '20km',
+									4: '25km',
+									5: '30km',
+									6: '35km',
+									7: '40km'
+									// Add more here
+								}
+							}	
 					});
 				}
-				
-				//Immediately hide the button and show the splits table for the first runner
-				jQuery('#view-splits-button-runner-0').css('display','none');
-				jQuery('#splits-table-runner-0').css('display','block');
 				
 			}
 			
@@ -348,8 +346,8 @@ jQuery(document).ready(function(){
 	});
 });
 
+
 jQuery(document).ready(function(){
-	//The build pacing button on the mean pacing profile
 	jQuery(".build-pacing").on('click',function(event) {
 		//alert(event.target.id);
 		var button_id = event.target.id;  //e.g. build-pacing-average
@@ -366,60 +364,50 @@ jQuery(document).ready(function(){
 			km40: jQuery('td#40k-mean-split-s').text(),
 		}; 
 				
-		open_calculator_page(params);
+		var query_string;
+		query_string = jQuery.param(params);
+		
+		var root_url = window.location.protocol + '//' + window.location.host;
+		if (root_url = "127.0.0.1:82") {
+			root_url = root_url + "/wordpress";
+		}
+		//alert(root_url);
+		//alert(window.location);
+		url = window.location.href;
+		calculator_page_url =  url.replace("explore-marathon-pacings","marathon-pacing-calculator");		
+		calculator_page_url = calculator_page_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
+		window.open(calculator_page_url);
+		
+		/*
+		//Get the id of the td containing the time (in mm:ss) visible to the user
+		var time_td_id = button_id.substring(10) + "-split"; //e.g. mile-1-split
+		//alert(time_td_id);
+		//Get the id of the td containing the time (in seconds) which is invisible to the user
+		var time_secs_td_id = button_id.substring(10) + "-split-secs";  //e.g. mile-1-split-secs
+		
+		//Get the current value in seconds
+		var time_secs = parseInt(jQuery('td#' + time_secs_td_id).text());		
+		
+		//Increment it		
+		var new_time_secs = time_secs + 15;
+		//Update the value in seconds
+		jQuery('td#' + time_secs_td_id).text(new_time_secs);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#' + time_td_id).text(seconds_to_hhmmss(new_time_secs));
+		
+		//Recalculate finish time
+		var totalSeconds = 0;
+		for (mile = 1; mile <= 13; mile++) {
+			//alert(mile + " " + jQuery('td#mile-' + mile + '-split-secs').text());
+			totalSeconds = totalSeconds + parseInt(jQuery('td#mile-' + mile + '-split-secs').text());		
+		}
+		//alert(totalSeconds);
+		//Update the finish value in seconds
+		jQuery('td#finish-secs').text(totalSeconds);
+		//Update the user-visible value (in mm:ss)
+		var total_hhmmss = seconds_to_hhmmss(totalSeconds);
+		//alert(total_hhmmss);
+		jQuery('td#finish-hhmmss').text(total_hhmmss);
+		*/
 	});
 });
-
-jQuery(document).ready(function(){
-	//We have to hook into body, because the build pacing buttons are dynamically generated
-	jQuery('body').on('click', '.build-pacing-button',function(event) {
-		var button_id = event.target.id;  //e.g. build-pacing-button-runner-0
-		//alert(button_id);
-		var splits_table_id = 'splits-table-runner-' + button_id.substring(27);		
-		alert(splits_table_id);
-		alert(jQuery('table#' + splits_table_id).find('td#td-5k-split').text());
-	});
-;});
-
-function open_calculator_page(params) {
-	var query_string;
-	query_string = jQuery.param(params);		
-	var root_url = window.location.protocol + '//' + window.location.host;
-	if (root_url = "127.0.0.1:82") {
-		root_url = root_url + "/wordpress";
-	}
-	url = window.location.href;
-	calculator_page_url =  url.replace("explore-marathon-pacings","marathon-pacing-calculator");		
-	calculator_page_url = calculator_page_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
-	window.open(calculator_page_url);		
-
-}
-
-jQuery(document).ready(function(){
-	//We have to hook into body, because the view splits buttons are dynamically generated
-	jQuery('body').on('click', '.view-splits-button',function(event) {
-		var button_id = event.target.id;  //e.g. view-splits-button-runner-0
-		var splits_table_id = 'splits-table-runner-' + button_id.substring(26);		
-		jQuery('#' + button_id).css('display','none');
-		jQuery('#' + splits_table_id).css('display','block');
-	});
-;});
-
-
-
-function seconds_to_hhmmss(totalSec) {
-	var hours = parseInt( totalSec / 3600 ) % 24;
-	var minutes = parseInt( totalSec / 60 ) % 60;
-	var seconds = totalSec % 60;
-
-	var result = "";
-	if (hours > 0)
-	{
-		result = hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-	}
-	else
-	{
-		result = minutes + ":" + (seconds  < 10 ? "0" + seconds : seconds);
-	}
-	return result;
-}

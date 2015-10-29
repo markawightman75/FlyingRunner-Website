@@ -1,0 +1,164 @@
+body {
+/*	margin: 0;*/
+/*	font-size: .9em;*/
+/*	font-family: Arial;*/
+font-family: "jaf-bernina-sans",sans-serif;
+
+/*	line-height: 1.5em;*/
+}
+
+/*Set vertical and horizontal gutters (in that order)*/
+.block-group { margin: -5px -10px; }
+.block { padding: 5px 10px; }
+
+.runner-detail {
+/*background-color: #eee;*/
+border: 1px solid #ccc;
+border-radius: 5px;
+padding: 5px 10px 10px;
+margin-left: 5px;
+margin-right: 5px;
+margin-bottom: 20px;
+}
+
+.runner-profile {
+width: 30%;
+/*background-color: lavender;*/
+/*height: 200px;*/
+}
+
+.runner-pacing {
+width: 70%;
+/*background-color: bisque;*/
+}
+
+/***********************************/
+/* runner-profile blocks */
+/***********************************/
+.runner-image {
+width: 30%;  /*% of runner-profile block*/
+/*background-color: crimson*/
+/*padding-left: 5px;*/
+padding-left:2px;
+}
+
+.runner-info {
+width: 70%; /*% of runner-profile block*/
+/*background-color: darkgoldenrod;*/
+padding-left: 12px;
+/*padding-top: 0px;*/
+font-size: .9em;
+}
+
+.runner-accuracy {
+width: 100%; /*% of runner-profile block*/
+/*height: 57px; Same as runner image*/
+/*background-color: chocolate;*/
+padding-top: 0px;
+padding-bottom: 6px;
+padding-left: 0px;
+margin-left: 0%; /*Offset same width as runner image so we're aligned with info block*/
+/*border-radius: 3px;*/
+}
+
+.runner-accuracy-circle {
+border-radius: 50%;
+width: 80px;
+height: 80px;
+text-align: center;
+}
+.runner-accuracy-good {
+background-color: darkgreen;
+}
+.runner-accuracy-ok {
+background-color: #f5a432;
+}
+.runner-accuracy-bad {
+background-color: darkred;
+}
+
+.accuracy-percent {
+padding-top: 12px;
+padding-bottom: 0px;
+margin-bottom: -8px;
+font-size: 32px;
+/*line-height: 23px;*/
+color: white;
+font-weight: 400;
+}
+
+.accuracy-caption {
+/*display: none;*/
+padding-top: 0px;
+/*padding-bottom: 4px;*/
+font-size: 14px;
+color: white;
+}
+
+/***********************************/
+/* runner-pacing blocks */
+/***********************************/
+.runner-chart {
+width: 100%; /*% of runner-profile block*/
+}
+
+.runner-splits {
+width: 100%; /*% of runner-profile block*/
+}
+
+.view-splits-button {
+margin-top: -4px; /*Hack: Align top of top row text with top of accuracy block*/
+/*    background-color: #A46497;*/
+    background-color: #666;
+    color: #fff;
+    font-size: 14px;
+    margin: 0px;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: 0.618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    border: 0px none;
+    white-space: nowrap;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+}
+
+.runner-splits table {
+font-size: 14px;
+margin-top: -8px; /*Hack: Align top of top row text with top of accuracy block*/
+margin-bottom: -8px;
+}
+
+.visible {
+display: block;
+}
+.hidden {
+display: none;
+}
+
+/*Size columns to match bars in chart*/
+.runner-splits td {
+width: 41px;
+padding-left: 0px
+padding-right: 0px;
+margin-left: 0px;
+margin-right: 0px;
+}
+
+
+.runner-splits tr td:last-child {
+width: 70px;
+}
+.runner-splits .splits-header td, 
+.runner-splits tr td:last-child {
+font-weight: bold;
+font-size: 12px;
+}
