@@ -164,6 +164,7 @@ $html .= "<table>";
 		$pdf->SetFontSize(10);
 		// Data
 		$fill = 0;
+		$elapsed_time_secs = 0;
 		for ($m = 1; $m <= 13; $m++) {
 			if ($m%2 == 0) {
 				$pdf->SetTextColor(255,255,255);
@@ -176,11 +177,15 @@ $html .= "<table>";
 				$fill = 0;
 			}
 			$split = $splits['mile' . $m];
+			$elapsed_time_secs += $split;
+			$split_mm_ss = format_hh_mm_ss($split);
+			$elapsed_time_mm_ss = format_hh_mm_ss($elapsed_time_secs);
+			
 			$pdf->SetFontSize(10);
 			$pdf->Cell($w[0], 5.5, $m, 'L', 0, 'L', $fill);
-			$pdf->Cell($w[1], 5.5, $split, 0, 0, 'C', $fill);
+			$pdf->Cell($w[1], 5.5, $split_mm_ss, 0, 0, 'C', $fill);
 			//$pdf->SetFontSize(8);
-			$pdf->Cell($w[2], 5.5, '2:22:22', 'R', 0, 'R', $fill);			
+			$pdf->Cell($w[2], 5.5, $elapsed_time_mm_ss, 'R', 0, 'R', $fill);			
 			$pdf->Ln();
 			//$fill=!$fill;
 		}
@@ -205,9 +210,13 @@ $html .= "<table>";
 				$fill = 0;
 			}
 			$split = $splits['mile' . $m];
+			$elapsed_time_secs += $split;
+			$split_mm_ss = format_hh_mm_ss($split);
+			$elapsed_time_mm_ss = format_hh_mm_ss($elapsed_time_secs);
+			
 			$pdf->Cell($w[0], 5.5, $m, 'L', 0, 'C', $fill);
-			$pdf->Cell($w[1], 5.5, $split, 0, 0, 'C', $fill);
-			$pdf->Cell($w[2], 5.5, '2:22:22', 'R', 0, 'R', $fill);			
+			$pdf->Cell($w[1], 5.5, $split_mm_ss, 0, 0, 'C', $fill);
+			$pdf->Cell($w[2], 5.5, $elapsed_time_mm_ss, 'R', 0, 'R', $fill);			
 			$pdf->Ln();
 			//$fill=!$fill;
 		}
@@ -235,6 +244,17 @@ $html .= "<table>";
 $pdf->Output('marathon-pacing-band.pdf', 'D');
 //ob_end_flush();
 }
+
+function format_hh_mm_ss($t,$f=':') // t = seconds, f = separator 
+{
+	if ($t >= 3600) {
+		return sprintf("%02d%s%02d%s%02d", floor($t/3600), $f, ($t/60)%60, $f, $t%60);
+	}
+	else {
+		return sprintf("%01d%s%02d", ($t/60)%60, $f, $t%60);	
+	}
+}
+
 //============================================================+
 // END OF FILE
 //============================================================+

@@ -104,6 +104,8 @@ function add_pacing_calculator_css() {
 	}
 	
 	if ( get_the_title() == "Marathon Pacing Calculator" )	{
+		//Queue our css with chartist overrides etc.
+		wp_enqueue_style( 'fr-marathon-pacing-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing.css' ) );
 		
 	}
 }

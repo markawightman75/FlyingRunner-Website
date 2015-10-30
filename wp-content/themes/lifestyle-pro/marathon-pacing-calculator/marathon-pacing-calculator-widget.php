@@ -113,7 +113,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				</div>
 
 			</div>
-			<div class="tabs-content" style="background-color: #fff; height: 300px; width: 70%; float: left;">
+			<div class="tabs-content" style="background-color: #fff; height: 250px; width: 70%; float: left;">
 				  <div class="tab-content" id="tab-content-even" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is even across the whole race.</p>
 					<div id="pacing-example-sparkline-even" style="margin-bottom: 1em;"></div>
@@ -185,7 +185,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 		
 			
 		</div>
-		<table id="pacing-table" style="width: auto; margin-top: 20px">
+		<table id="pacing-table" style="width: auto; margin-top: 20px" class="hidden">
 		  <tr>
 			<th style="width: 150px;">Distance</th>
 			<th style="width: 60px;">Time</th>
@@ -452,9 +452,9 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 			<td id="finish-hhmmss" style="font-weight: bold"></td>
 		  </tr>
 		 </table>
-		 
-		 <input type="submit" name="" class="" id="download-pacing-band" value="Download Pacing Band" style="display: block;">
-		 
+		 <div id="download-pacing-band-div" class="hidden">
+		 <input type="submit" name="" id="download-pacing-band-button" value="Download Pacing Band">
+		 </div>
 		 <table id="pacing-table-seconds-hidden" style="visibility: collapse;">
 		  <tr>
 			  <td>Mile 1 (s)<td>

@@ -22,7 +22,8 @@ font-size: 1em;
 }
 
 /*Main buttons*/
-.marathonpacingcalculatorcontentarea .calculate-button
+.marathonpacingcalculatorcontentarea .calculate-button,
+.marathonpacingcalculatorcontentarea #download-pacing-band-button
 {
 /*background-color: #A46497;*/
 background-color: #666;
@@ -46,7 +47,12 @@ box-shadow: none;
 text-shadow: none;
 }
 
-
+.marathonpacingcalculatorcontentarea .calculate-button:hover,
+.marathonpacingcalculatorcontentarea #download-pacing-band-button:hover
+{
+background-color: #999;
+color: #fff;
+}
 
 
 

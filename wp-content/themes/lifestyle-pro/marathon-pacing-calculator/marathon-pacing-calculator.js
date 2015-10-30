@@ -69,6 +69,10 @@ jQuery(document).ready(function(){
 		jQuery('td#finish-secs').text(totalSeconds);
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+		
+		//Display the table and pacing band button
+		jQuery('div#download-pacing-band-div').removeClass("hidden");
+		jQuery('#pacing-table').removeClass("hidden");
 	});
 });
 
@@ -109,6 +113,10 @@ jQuery(document).ready(function(){
 		jQuery('td#finish-secs').text(totalSeconds);
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+		
+		//Display the table and pacing band button
+		jQuery('div#download-pacing-band-div').removeClass("hidden");
+		jQuery('#pacing-table').removeClass("hidden");
 	});
 });
 
@@ -150,6 +158,10 @@ jQuery(document).ready(function(){
 		jQuery('td#finish-secs').text(totalSeconds);
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+		
+		//Display the table and pacing band button
+		jQuery('div#download-pacing-band-div').removeClass("hidden");
+		jQuery('#pacing-table').removeClass("hidden");
 	});
 });
 
@@ -263,6 +275,10 @@ jQuery(document).ready(function(){
 		jQuery('td#finish-secs').text(totalSeconds);
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+		
+		//Display the table and pacing band button
+		jQuery('div#download-pacing-band-div').removeClass("hidden");
+		jQuery('#pacing-table').removeClass("hidden");
 	});
 });
 
