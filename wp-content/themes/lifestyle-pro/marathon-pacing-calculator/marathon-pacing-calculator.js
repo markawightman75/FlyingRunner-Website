@@ -516,7 +516,7 @@ jQuery(document).ready(function(){
 });
 
 jQuery(document).ready(function(){
-	jQuery("#download-pacing-band").on('click',function(event) {
+	jQuery("#download-pacing-band-button").on('click',function(event) {		
 		 var params = {
 			mile1: jQuery('td#mile-1-split-secs').text(),
 			mile2: jQuery('td#mile-2-split-secs').text(),
@@ -556,25 +556,6 @@ jQuery(document).ready(function(){
 		download_pacing_band_url = download_pacing_band_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
 		//window.open(download_pacing_band_url); 
 		window.location.href = download_pacing_band_url;
-		/* 
-		jQuery.ajax({
-		url: ajax_parameters.ajaxurl,
-		type: "GET",
-		dataType: "JSON",
-		data: {
-			'action':'create_pacing_band_ajax_request',
-			'mile-1-split' : '5:13'
-		},
-		success:function(data) {
-					alert(data.status);
-			
-		},
-		error: function(data){
-			alert(data);
-			console.log(data);
-			
-		}
-		});    */
 	});
 });
 

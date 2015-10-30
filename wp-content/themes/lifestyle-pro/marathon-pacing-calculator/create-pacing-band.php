@@ -26,8 +26,8 @@
 function create_pacing_band($splits) {
 // Include the main TCPDF library (search for installation path).
 //require_once('tcpdf\tcpdf_include.php');
-require_once('tcpdf\tcpdf.php');
-require_once('tcpdf\tcpdf_config_alt.php');
+require_once(__DIR__ . '/tcpdf/tcpdf.php');
+require_once(__DIR__ . '/tcpdf/tcpdf_config_alt.php');
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 // set document information
