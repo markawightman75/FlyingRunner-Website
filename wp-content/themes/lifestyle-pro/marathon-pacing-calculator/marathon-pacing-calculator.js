@@ -24,7 +24,8 @@ jQuery(document).ready(function(){
 	jQuery('td#30k-passed-in-split-s').text(qs['km30']);
 	jQuery('td#35k-passed-in-split-s').text(qs['km35']);
 	jQuery('td#40k-passed-in-split-s').text(qs['km40']);
-
+	jQuery('td#passed-in-finish-s').text(qs['finish']); //TOTAL finish time
+	
 	//TODO: Check all parameters are present	
 	//alert(qs['km5']);
 	if (typeof qs['km5'] != 'undefined')
@@ -98,9 +99,7 @@ jQuery(document).ready(function(){
 			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile);
 			//Update the user-visible value (in mm:ss)
 			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile));
-		}
-		//alert(totalSeconds);
-		
+		}		
 		//Update the halfway value in seconds
 		jQuery('td#halfway-secs').text(totalSecondsFirstHalf);
 		//Update the user-visible value (in mm:ss)
@@ -117,7 +116,6 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
 	jQuery("#calculate-positive-splits").on('click',function(event) {
 		//TODO: VALIDATE TIME INPUT
-		//alert(1);
 		//Get target time
 		var hours = parseInt(jQuery('input#target-time-positive-h').val());
 		var minutes = parseInt(jQuery('input#target-time-positive-m').val());
@@ -155,7 +153,119 @@ jQuery(document).ready(function(){
 	});
 });
 
-//Calculate negative splits
+//Calculate positive splits
+jQuery(document).ready(function(){
+	jQuery("#calculate-from-selection").on('click',function(event) {
+		//TODO: VALIDATE TIME INPUT
+		//Get target time
+		var hours = parseInt(jQuery('input#target-time-from-selection-h').val());
+		var minutes = parseInt(jQuery('input#target-time-from-selection-m').val());
+		var seconds = parseInt(jQuery('input#target-time-from-selection-s').val());
+		
+		var targetSeconds = (hours * 3600) + (minutes * 60) + seconds;
+		//alert('target seconds: ' + targetSeconds)
+		
+		var secondsPerMile = new Array();
+		var split_5km = parseInt(jQuery('td#5k-passed-in-split-s').text());
+		var split_10km = parseInt(jQuery('td#10k-passed-in-split-s').text());
+		var split_15km = parseInt(jQuery('td#15k-passed-in-split-s').text());
+		var split_20km = parseInt(jQuery('td#20k-passed-in-split-s').text());
+		var split_25km = parseInt(jQuery('td#25k-passed-in-split-s').text());
+		var split_30km = parseInt(jQuery('td#30k-passed-in-split-s').text());
+		var split_35km = parseInt(jQuery('td#35k-passed-in-split-s').text());
+		var split_40km = parseInt(jQuery('td#40k-passed-in-split-s').text());
+		var passed_in_finish = parseInt(jQuery('td#passed-in-finish-s').text()); //TOTAL finish time
+		
+		//*******************************************************
+		// Interpolate the pace for each mile from the 5km splits
+		//*******************************************************
+		var metres_per_mile = 1609.34;		
+		var speed_m_per_s_5k = 5000 /split_5km;
+		var speed_m_per_s_10k = 5000 /split_10km;
+		var speed_m_per_s_15k = 5000 /split_15km;
+		var speed_m_per_s_20k = 5000 /split_20km;
+		var speed_m_per_s_25k = 5000 /split_25km;
+		var speed_m_per_s_30k = 5000 /split_30km;
+		var speed_m_per_s_35k = 5000 /split_35km;
+		var speed_m_per_s_40k = 5000 /split_40km;
+		
+		secondsPerMile[1] = metres_per_mile / speed_m_per_s_5k;
+		secondsPerMile[2] = metres_per_mile / speed_m_per_s_5k;
+		secondsPerMile[3] = metres_per_mile / speed_m_per_s_5k;
+		secondsPerMile[4] = ((0.10686 * metres_per_mile) / speed_m_per_s_5k ) + (((1-0.10686) * metres_per_mile) / speed_m_per_s_10k);
+		secondsPerMile[5] = metres_per_mile / speed_m_per_s_10k;
+		secondsPerMile[6] = metres_per_mile / speed_m_per_s_10k;
+		//secondsPerMile[7] = (0.21371 * speed_m_per_s_10k) + ((1-0.21371) * speed_m_per_s_15k);
+		secondsPerMile[7] = ((0.21371 * metres_per_mile) / speed_m_per_s_10k ) + (((1-0.21371) * metres_per_mile) / speed_m_per_s_15k);
+		secondsPerMile[8] = metres_per_mile / speed_m_per_s_15k;
+		secondsPerMile[9] = metres_per_mile / speed_m_per_s_15k;
+		//secondsPerMile[10] = (0.32057 * speed_m_per_s_15k) + ((1-0.32057) * speed_m_per_s_20k);
+		secondsPerMile[10] = ((0.21371 * metres_per_mile) / speed_m_per_s_15k ) + (((1-0.21371) * metres_per_mile) / speed_m_per_s_20k);
+		secondsPerMile[11] = metres_per_mile / speed_m_per_s_20k;
+		secondsPerMile[12] = metres_per_mile / speed_m_per_s_20k;
+		//secondsPerMile[13] = (0.4274 * speed_m_per_s_20k) + ((1-0.4274) * speed_m_per_s_25k);
+		secondsPerMile[13] = ((0.4274 * metres_per_mile) / speed_m_per_s_20k ) + (((1-0.4274) * metres_per_mile) / speed_m_per_s_25k);
+		secondsPerMile[14] = metres_per_mile / speed_m_per_s_25k;
+		secondsPerMile[15] = metres_per_mile / speed_m_per_s_25k;
+		//secondsPerMile[16] = (0.5343 * speed_m_per_s_25k) + ((1-0.5343) * speed_m_per_s_30k);
+		secondsPerMile[16] = ((0.5343 * metres_per_mile) / speed_m_per_s_25k ) + (((1-0.5343) * metres_per_mile) / speed_m_per_s_30k);
+		secondsPerMile[17] = metres_per_mile / speed_m_per_s_30k;
+		secondsPerMile[18] = metres_per_mile / speed_m_per_s_30k;
+		//secondsPerMile[19] = (0.6411 * speed_m_per_s_30k) + ((1-0.6411) * speed_m_per_s_35k);
+		secondsPerMile[19] = ((0.6411 * metres_per_mile) / speed_m_per_s_30k ) + (((1-0.6411) * metres_per_mile) / speed_m_per_s_35k);
+		secondsPerMile[20] = metres_per_mile / speed_m_per_s_35k ;
+		secondsPerMile[21] = metres_per_mile / speed_m_per_s_35k;
+		//secondsPerMile[22] = (0.748 * speed_m_per_s_30k) + ((1-0.748) * speed_m_per_s_40k);
+		secondsPerMile[22] = ((0.748 * metres_per_mile) / speed_m_per_s_35k ) + (((1-0.748) * metres_per_mile) / speed_m_per_s_40k);
+		secondsPerMile[23] = metres_per_mile / speed_m_per_s_40k;
+		secondsPerMile[24] = metres_per_mile / speed_m_per_s_40k;
+		//Really we should be passing in the split for the final couple of kilometres but for now
+		//just continue same pace as 35-40km
+		secondsPerMile[25] = metres_per_mile / speed_m_per_s_40k;
+		secondsPerMile[26] = metres_per_mile / speed_m_per_s_40k;
+
+		//Adjust all mile times to reach our target time
+		var adjustment_factor = targetSeconds / passed_in_finish; //Need to multiply all times by this
+		for (mile = 1; mile <= 26; mile++) {
+			secondsPerMile[mile] = Math.round(secondsPerMile[mile] * adjustment_factor);
+		}
+		
+		var totalSecondsFirstHalf = 0;
+		for (mile = 1; mile <= 13; mile++) {
+			totalSecondsFirstHalf += secondsPerMile[mile];
+		}
+		totalSecondsFirstHalf +=  Math.round((secondsPerMile[14] * 0.109375));
+		
+		var totalSecondsSecondHalf = 0;
+		for (mile = 14; mile <= 26; mile++) {
+			totalSecondsSecondHalf += secondsPerMile[mile];
+		}
+		totalSecondsSecondHalf +=  Math.round((secondsPerMile[26] * 0.109375));
+		//alert(totalSecondsSecondHalf);
+		var totalSeconds = totalSecondsFirstHalf + totalSecondsSecondHalf;
+		
+		for (mile = 1; mile <= 26; mile++) {
+			//var secondsPerMile = 600;
+			
+			//Update the value in seconds
+			jQuery('td#mile-' + mile + '-split-secs').text(secondsPerMile[mile]);
+			//Update the user-visible value (in mm:ss)
+			jQuery('td#mile-' + mile + '-split').text(seconds_to_hhmmss(secondsPerMile[mile]));
+		}
+		//alert(totalSeconds);
+		
+		//Update the halfway value in seconds
+		jQuery('td#halfway-secs').text(totalSecondsFirstHalf);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss(totalSecondsFirstHalf));
+		
+		//Update the finish value in seconds
+		jQuery('td#finish-secs').text(totalSeconds);
+		//Update the user-visible value (in mm:ss)
+		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+	});
+});
+
 jQuery(document).ready(function(){
 	jQuery(".time-m, .time-s").on('blur',function(event) {		
 		
@@ -181,21 +291,9 @@ function Select_Even_Splits_Tab() {
 		
 	jQuery("#pacing-example-sparkline-even").sparkline([
 	1200,1200,1200,1200,1200,1200,1200,1200	], {
-		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
-		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-			tooltipValueLookups: {
-				names: {
-					0: '5km',
-					1: '10km',
-					2: '15km',
-					3: '20km',
-					4: '25km',
-					5: '30km',
-					6: '35km',
-					7: '40km'
-					// Add more here
-				}
-			}	
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
+		tooltipFormat: "{{offset:names}}",
+		tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
 	});
 };
 
@@ -225,21 +323,9 @@ function Select_From_Selection_Tab() {
 	jQuery('td#5k-passed-in-split-s').text(), jQuery('td#10k-passed-in-split-s').text(), jQuery('td#15k-passed-in-split-s').text(), jQuery('td#20k-passed-in-split-s').text(),
 	jQuery('td#25k-passed-in-split-s').text(), jQuery('td#30k-passed-in-split-s').text(), jQuery('td#35k-passed-in-split-s').text(), jQuery('td#40k-passed-in-split-s').text()
 	], {
-		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#A46497', height: '50px',
-		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-			tooltipValueLookups: {
-				names: {
-					0: '5km',
-					1: '10km',
-					2: '15km',
-					3: '20km',
-					4: '25km',
-					5: '30km',
-					6: '35km',
-					7: '40km'
-					// Add more here
-				}
-			}	
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
+		tooltipFormat: "{{offset:names}}",
+		tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
 	});
 
 };
@@ -274,21 +360,9 @@ jQuery(document).ready(function(){
 		
 		jQuery("#pacing-example-sparkline-negative").sparkline([
 		1200,1200,1200,1200,1150,1150,1150,1150	], {
-		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
-		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-			tooltipValueLookups: {
-				names: {
-					0: '5km',
-					1: '10km',
-					2: '15km',
-					3: '20km',
-					4: '25km',
-					5: '30km',
-					6: '35km',
-					7: '40km'
-					// Add more here
-				}
-			}	
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
+		tooltipFormat: "{{offset:names}}",
+		tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
 		});
 
 	});
@@ -311,58 +385,9 @@ jQuery(document).ready(function(){
 		
 		jQuery("#pacing-example-sparkline-positive").sparkline([
 		1150,1150,1150,1150,1200,1200,1200,1200	], {
-		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
-		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-			tooltipValueLookups: {
-				names: {
-					0: '5km',
-					1: '10km',
-					2: '15km',
-					3: '20km',
-					4: '25km',
-					5: '30km',
-					6: '35km',
-					7: '40km'
-					// Add more here
-				}
-			}	
-		});
-
-	});
-});
-
-jQuery(document).ready(function(){
-	jQuery("#tab-dans-pacing").on('click',function(event) {
-		jQuery("#tab-even").removeClass('tab-selected');
-		jQuery("#tab-from-selection").removeClass('tab-selected');
-		jQuery("#tab-negative").removeClass('tab-selected');
-		jQuery("#tab-positive").removeClass('tab-selected');
-		jQuery("#tab-dans-pacing").addClass('tab-selected');
-		
-		jQuery("#tab-content-even").removeClass('tab-content-active');
-		jQuery("#tab-content-from-selection").removeClass('tab-content-active');
-		jQuery("#tab-content-from-selection-none-provided").removeClass('tab-content-active');
-		jQuery("#tab-content-negative").removeClass('tab-content-active');
-		jQuery("#tab-content-positive").removeClass('tab-content-active');
-		jQuery("#tab-content-dans-pacing").addClass('tab-content-active');
-		
-		jQuery("#pacing-example-sparkline-dan").sparkline([
-		1150,1150,1150,1200,1200,1200,1150,1150	], {
-		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#999', height: '50px',
-		tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-			tooltipValueLookups: {
-				names: {
-					0: '5km',
-					1: '10km',
-					2: '15km',
-					3: '20km',
-					4: '25km',
-					5: '30km',
-					6: '35km',
-					7: '40km'
-					// Add more here
-				}
-			}	
+		type: 'bar', barWidth: '40', chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
+		tooltipFormat: "{{offset:names}}",
+		tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
 		});
 
 	});
@@ -411,26 +436,65 @@ jQuery(document).ready(function(){
 		jQuery('td#' + time_td_id).text(seconds_to_hhmmss(new_time_secs));
 		
 		//Recalculate finish time
+		/*
 		var totalSeconds = 0;
 		var halfwaySeconds = 0;
 		for (mile = 1; mile <= 26; mile++) {
-			//alert(mile + " " + jQuery('td#mile-' + mile + '-split-secs').text());
 			var seconds = parseInt(jQuery('td#mile-' + mile + '-split-secs').text());
 			totalSeconds = totalSeconds + seconds;;		
 			if (mile <= 13)	{
 				halfwaySeconds = halfwaySeconds + seconds;
 			}
-		}
+		}*/
 
 		//Update the halfway value in seconds
+		var halfwaySeconds = parseInt(jQuery('td#halfway-secs').text());
+		//alert(halfwaySeconds);
+		switch(increment_type) {
+			case "+15":
+				halfwaySeconds = halfwaySeconds + 15;
+				break;
+			case "+01":
+				halfwaySeconds = halfwaySeconds + 1;
+				break;
+			case "-15":
+				halfwaySeconds = halfwaySeconds - 15;
+				break;
+			case "-01":
+				halfwaySeconds = halfwaySeconds - 1;
+				break;				
+			default:
+				halfwaySeconds = halfwaySeconds; //Should never happen
+		}
+		
+		//alert(halfwaySeconds);
+		//alert(seconds_to_hhmmss(halfwaySeconds));
 		jQuery('td#halfway-secs').text(halfwaySeconds);
 		//Update the user-visible value (in mm:ss)
 		jQuery('td#halfway-hhmmss').text(seconds_to_hhmmss(halfwaySeconds));
 		
 		//Update the finish value in seconds
-		jQuery('td#finish-secs').text(totalSeconds);
+		var finishSeconds = parseInt(jQuery('td#finish-secs').text());
+		switch(increment_type) {
+			case "+15":
+				finishSeconds = finishSeconds + 15;
+				break;
+			case "+01":
+				finishSeconds = finishSeconds + 1;
+				break;
+			case "-15":
+				finishSeconds = finishSeconds - 15;
+				break;
+			case "-01":
+				finishSeconds = finishSeconds - 1;
+				break;				
+			default:
+				finishSeconds = finishSeconds; //Should never happen
+		}
+		
+		jQuery('td#finish-secs').text(finishSeconds);
 		//Update the user-visible value (in mm:ss)
-		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(totalSeconds));
+		jQuery('td#finish-hhmmss').text(seconds_to_hhmmss(finishSeconds));
 		
 	});
 });
@@ -438,32 +502,32 @@ jQuery(document).ready(function(){
 jQuery(document).ready(function(){
 	jQuery("#download-pacing-band").on('click',function(event) {
 		 var params = {
-			mile1: jQuery('td#mile-1-split').text(),
-			mile2: jQuery('td#mile-2-split').text(),
-			mile3: jQuery('td#mile-3-split').text(),
-			mile4: jQuery('td#mile-4-split').text(),
-			mile5: jQuery('td#mile-5-split').text(),
-			mile6: jQuery('td#mile-6-split').text(),
-			mile7: jQuery('td#mile-7-split').text(),
-			mile8: jQuery('td#mile-8-split').text(),
-			mile9: jQuery('td#mile-9-split').text(),
-			mile10: jQuery('td#mile-10-split').text(),
-			mile11: jQuery('td#mile-11-split').text(),
-			mile12: jQuery('td#mile-12-split').text(),
-			mile13: jQuery('td#mile-13-split').text(),
-			mile14: jQuery('td#mile-14-split').text(),
-			mile15: jQuery('td#mile-15-split').text(),
-			mile16: jQuery('td#mile-16-split').text(),
-			mile17: jQuery('td#mile-17-split').text(),
-			mile18: jQuery('td#mile-18-split').text(),
-			mile19: jQuery('td#mile-19-split').text(),
-			mile20: jQuery('td#mile-20-split').text(),
-			mile21: jQuery('td#mile-21-split').text(),
-			mile22: jQuery('td#mile-22-split').text(),
-			mile23: jQuery('td#mile-23-split').text(),
-			mile24: jQuery('td#mile-24-split').text(),
-			mile25: jQuery('td#mile-25-split').text(),
-			mile26: jQuery('td#mile-26-split').text(),
+			mile1: jQuery('td#mile-1-split-secs').text(),
+			mile2: jQuery('td#mile-2-split-secs').text(),
+			mile3: jQuery('td#mile-3-split-secs').text(),
+			mile4: jQuery('td#mile-4-split-secs').text(),
+			mile5: jQuery('td#mile-5-split-secs').text(),
+			mile6: jQuery('td#mile-6-split-secs').text(),
+			mile7: jQuery('td#mile-7-split-secs').text(),
+			mile8: jQuery('td#mile-8-split-secs').text(),
+			mile9: jQuery('td#mile-9-split-secs').text(),
+			mile10: jQuery('td#mile-10-split-secs').text(),
+			mile11: jQuery('td#mile-11-split-secs').text(),
+			mile12: jQuery('td#mile-12-split-secs').text(),
+			mile13: jQuery('td#mile-13-split-secs').text(),
+			mile14: jQuery('td#mile-14-split-secs').text(),
+			mile15: jQuery('td#mile-15-split-secs').text(),
+			mile16: jQuery('td#mile-16-split-secs').text(),
+			mile17: jQuery('td#mile-17-split-secs').text(),
+			mile18: jQuery('td#mile-18-split-secs').text(),
+			mile19: jQuery('td#mile-19-split-secs').text(),
+			mile20: jQuery('td#mile-20-split-secs').text(),
+			mile21: jQuery('td#mile-21-split-secs').text(),
+			mile22: jQuery('td#mile-22-split-secs').text(),
+			mile23: jQuery('td#mile-23-split-secs').text(),
+			mile24: jQuery('td#mile-24-split-secs').text(),
+			mile25: jQuery('td#mile-25-split-secs').text(),
+			mile26: jQuery('td#mile-26-split-secs').text(),
 			halfway: jQuery('td#halfway-hhmmss').text(),
 			finish: jQuery('td#finish-hhmmss').text(),
 		}; 

@@ -135,6 +135,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 					<input type="submit" name="" class="calculate-button" id="calculate-negative-splits" value="Calculate" style="display: block;">
 					
 				  </div>
+
  				  <div class="tab-content" id="tab-content-positive" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing that is slower in the second half than first half</p>
 					<div id="pacing-example-sparkline-positive" style="margin-bottom: 1em;"></div>
@@ -146,10 +147,8 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 					<input type="text" class="time-s" id="second-half-positive-s" value="00"><span>s</span>
 					</div>
 					<input type="submit" name="" class="calculate-button" id="calculate-positive-splits" value="Calculate" style="display: block;">
-					
-					
-					
 				  </div>
+
 				  <div class="tab-content" id="tab-content-dans-pacing" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing according to the profile proposed by Dan Gordon's research.</p>
 					<div id="pacing-example-sparkline-dan" style="margin-bottom: 1em;"></div>
@@ -160,6 +159,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 					<p>Not implemented yet</p>
 					<!--<input type="submit" name="" class="calculate-button" id="calculate-dan-splits" value="Calculate" style="display: block;">-->
 				  </div>
+
 				  <div class="tab-content" id="tab-content-from-selection" style="height: 205px;">
 					<p style="font-weight: bold; margin-bottom: 0.5em;">Calculate pacing from the profile you've selected, adjusted to your target time.</p>
 					<div id="selection-sparkline" style="margin-bottom: 20px"></div>
@@ -167,10 +167,10 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 					<input type="text" id="target-time-from-selection-m" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>m</span>
 					<input type="text" id="target-time-from-selection-s" style="width: 50px; margin-left: 0.5em; padding: 4px; height: 2.5em;" value="00"><span>s</span>
 					
-					<!--<input type="submit" name="" class="calculate-button" id="calculate-from-selection" value="Calculate" style="display: block;" >-->
-					<p style="font-weight: bold;">This is not implemented yet</p>
+					<input type="submit" name="" class="calculate-button" id="calculate-from-selection" value="Calculate" style="display: block;">
 				  </div>
-				 <div class="tab-content" id="tab-content-from-selection-none-provided" style="height: 205px;">
+
+				  <div class="tab-content" id="tab-content-from-selection-none-provided" style="height: 205px;">
 					<p style="font-weight: bold;">Calculate pacing from our research data</p>
 					<p>You can build pacing based on the pacing of a particular runner in our research data from London Marathon 2015, or an average of a set of runners.</p>
 					<p>You can find out more <a href="explore-marathon-pacings" target="_blank">here</a></p>
@@ -582,6 +582,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				<td id="30k-passed-in-split-s"></td>
 				<td id="35k-passed-in-split-s"></td>
 				<td id="40k-passed-in-split-s"></td>				
+				<td id="passed-in-finish-s"></td>	
 			  </tr>
 			</table> 
 		</div>

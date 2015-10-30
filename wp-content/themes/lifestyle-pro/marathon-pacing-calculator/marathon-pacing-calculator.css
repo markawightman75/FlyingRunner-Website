@@ -24,7 +24,8 @@ font-size: 1em;
 /*Main buttons*/
 .marathonpacingcalculatorcontentarea .calculate-button
 {
-background-color: #A46497;
+/*background-color: #A46497;*/
+background-color: #666;
 color: #fff;
 font-size: 100%;
 margin: 0px;
@@ -45,22 +46,6 @@ box-shadow: none;
 text-shadow: none;
 }
 
-.exploremarathonpacingscontentarea #selection-criteria {
-background-color: #f0f0f0; 
-margin-top: 1em;
-border-radius: 8px;
-padding: 15px;
-}
-
-.exploremarathonpacingscontentarea .time-input {
-box-shadow: none;
-background-color: #fff;
-color: #333;
-}
-
-.exploremarathonpacingscontentarea .input-empty {
-background-color: #C2E6E1;    
-}
 
 
 

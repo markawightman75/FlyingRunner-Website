@@ -175,7 +175,7 @@ function lookup_splits($age_category, $previous_marathons, $gender, $finish_time
 		//$initials = $name_parts[0]; 
 		$results['initials'][$result_index] = $initials;
 		$results['finish-time'][$result_index] = $row['Finish_time'];
-		$results['finish-time-s'][$result_index] = $row['Finish_time_s'];//We don't actually need to pass this back to client, but we need it below. Could be stripped and captured in separate array
+		$results['finish-time-s'][$result_index] = $row['Finish_time_s'];
 		$results['predicted-time'][$result_index] = $row['Prediction_hh_mm'];
 		//$results['slower-than-prediction-by-%'][$result_index] = round($row['Slower_than_prediction_by_%']);
 		$results['prediction-accuracy-percent'][$result_index] = $row['Prediction_accuracy_percent'];
@@ -202,7 +202,7 @@ function lookup_splits($age_category, $previous_marathons, $gender, $finish_time
 		$debug[] = $results['initials'][$runner] . "..........5K split: " . $results['5k_Split_s'][$runner] . ".........10K split: " . $results['10k_Split_s'][$runner];
 		//We need to normalise all split times to create a meaningful average
 		//Normalise them to 4 hour pace (14400 seconds)		
-		$normalise_factor = 14400 * ($results['finish-time-s'][$runner]);
+		$normalise_factor = 14400 / ($results['finish-time-s'][$runner]);
 		
 		$split_totals['5k'] += ($results['5k_Split_s'][$runner] * $normalise_factor);
 		$split_totals['10k'] += ($results['10k_Split_s'][$runner] * $normalise_factor);

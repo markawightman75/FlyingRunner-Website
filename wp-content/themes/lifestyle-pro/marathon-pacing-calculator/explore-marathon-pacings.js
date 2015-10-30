@@ -194,6 +194,7 @@ jQuery(document).ready(function(){
 				var runners_details_html = '';
 				var initials = runners_details['initials'];
 				var finish_times = runners_details['finish-time'];
+				var finish_times_secs = runners_details['finish-time-s'];
 				var predicted_times = runners_details['predicted-time'];
 				var prediction_accuracy_percents = runners_details['prediction-accuracy-percent'];
 				
@@ -265,6 +266,7 @@ jQuery(document).ready(function(){
 					runner_detail = runner_detail.replace('[SPLIT-30K]',seconds_to_hhmmss(thirtyk_splits[i]));	
 					runner_detail = runner_detail.replace('[SPLIT-35K]',seconds_to_hhmmss(thirtyfivek_splits[i]));	
 					runner_detail = runner_detail.replace('[SPLIT-40K]',seconds_to_hhmmss(fortyk_splits[i]));	
+					runner_detail = runner_detail.replace('[FINISH-TIME-S]',finish_times_secs[i]);	
 					
 					runner_detail = runner_detail.replace('[PACE-5K]',seconds_to_hhmmss(Math.round(fivek_splits[i] / 3.10686)));	
 					runner_detail = runner_detail.replace('[PACE-10K]',seconds_to_hhmmss(Math.round(tenk_splits[i] / 3.10686)));	
@@ -369,6 +371,7 @@ jQuery(document).ready(function(){
 		var params;
 		var button_id = event.target.id;  //e.g. build-pacing-button-runner-0
 		if (button_id == 'build-pacing-button-mean') {
+			//Mean pacing splits are normalised t0 14400 seconds finish in ajax script
 			params = {
 			km5: jQuery('td#5k-mean-split-s').text(),
 			km10: jQuery('td#10k-mean-split-s').text(),
@@ -378,10 +381,12 @@ jQuery(document).ready(function(){
 			km30: jQuery('td#30k-mean-split-s').text(),
 			km35: jQuery('td#35k-mean-split-s').text(),
 			km40: jQuery('td#40k-mean-split-s').text(),
+			finish: 14400
 			}; 
 		}
 		else {
 		var splits_table_id = 'splits-table-runner-' + button_id.substring(27);				
+		
 		params = {
 			km5: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-5k-split').text()),
 			km10: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-10k-split').text()),
@@ -391,6 +396,7 @@ jQuery(document).ready(function(){
 			km30: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-30k-split').text()),
 			km35: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-35k-split').text()),
 			km40: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-40k-split').text()),
+			finish: jQuery('table#' + splits_table_id).find('td#td-finish-time-s').text()
 			}; 			
 		}
 				

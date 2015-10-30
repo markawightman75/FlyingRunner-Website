@@ -339,6 +339,9 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 							<td>[PACE-40K]</td>
 							<td>Mile pace</td>                    
 						</tr>
+						<tr style="display: none;">
+							<td id="td-finish-time-s">[FINISH-TIME-S]</td>
+						</tr>
 					</table>
 				</div>        
 			  </div>
