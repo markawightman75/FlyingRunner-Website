@@ -11,24 +11,69 @@ Pinterest dark red: #ae181a
 
 */
 
-.ct-bar {
-stroke-width: 18px;  /* The width of your bars */
+/*Accuracy donut colours, to match circles in runner details*/
+.chart-group-prediction-accuracy-excellent .ct-slice-donut {stroke: darkgreen;}
+.chart-group-prediction-accuracy-good .ct-slice-donut {stroke: #4DB14D;}
+.chart-group-prediction-accuracy-ok .ct-slice-donut {stroke: #f5a432;}
+.chart-group-prediction-accuracy-bad .ct-slice-donut {stroke: darkred;}
+
+#prediction-accuracy-text-excellent {color: darkgreen;}
+#prediction-accuracy-text-good {color: #4DB14D;}
+#prediction-accuracy-text-ok {color: #f5a432;}
+#prediction-accuracy-text-bad {color: darkred;}
+
+.ct-label {
+font-family: "jaf-bernina-sans",sans-serif;
+font-size: 1em;
+color: #eee;
+fill: #eee;
+}
+
+.group-chart-left,
+.group-chart-right {width: 50%;}
+
+.group-charts {
+/*background-color: #f5f5f5;*/
+border-radius: 5px;
+padding: 5px 3px 3px;
+margin-bottom: 0px;
+}
+
+
+#chart-group-prediction-accuracy-text #chart-group-prediction-accuracy-text-title,
+#chart-group-pacing-profile-text #chart-group-pacing-profile-text-title{
+font-size: 17px; 
+font-weight: 700;
+color: #444;
+margin-bottom: 4px;
+}
+
+#chart-group-prediction-accuracy-text p,
+#chart-group-pacing-profile-text p {
+font-family: "jaf-bernina-sans",sans-serif;
+font-size: 14px;
+margin-bottom: 3px;
+}
+
+/******* For exploratory group pacing charts page */
+/*.ct-bar {
+stroke-width: 18px;
 }
 
 .ct-series-a .ct-bar {
-stroke: #3a579a;   /* Colour of bars */
+stroke: #3a579a;   
 }
 
 .ct-series-b .ct-bar {
-stroke: #6D8ACD;   /* Colour of bars */
+stroke: #6D8ACD;   
 }
 
-/*Axis labels*/
 .ct-label {
 font-family: "jaf-bernina-sans",sans-serif;
 font-size: 0.9em;
 color: #666;
-}
+}*/
+/***************************************************/
 
 
 /**********************************************************************/

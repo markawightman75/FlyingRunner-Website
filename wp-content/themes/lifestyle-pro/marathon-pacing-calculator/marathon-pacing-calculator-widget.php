@@ -105,7 +105,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				<div>
 				<input type="submit" name="" class="tab" id="tab-positive" value="Positive pacing">
 				</div>
-				<div>
+				<div style="display: none;">
 				<input type="submit" name="" class="tab" id="tab-dans-pacing" value="Dan Gordon pacing">
 				</div>
 				<div>

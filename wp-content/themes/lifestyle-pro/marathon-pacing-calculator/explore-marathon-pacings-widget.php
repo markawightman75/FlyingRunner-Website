@@ -216,14 +216,31 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 		</div>
 		-->
 		
-		<div id="chart-group-prediction-accuracy" class="ct-chart ct-octave"></div>
-		
-		
 		<div id="runners-details-intro"></div>
-		<div id="sparkline-intro" style="height: 0px; visibility: collapse;">
-			<p>This is the average pacing curve of all of these runners</p>
-		</div>
 		
+		<div class="block-group group-charts hidden">
+                <div id="" class="block group-chart-left" style="background: white;">
+                    <div id="chart-group-prediction-accuracy" class="ct-chart ct-perfect-fourth">
+                        <div id="chart-group-prediction-accuracy-text" style="padding-top: 140px; padding-left: 10px;">
+                            <p id="chart-group-prediction-accuracy-text-title">Prediction accuracy of these runners</p>
+                            <p id="prediction-accuracy-text-excellent">[NUMBER-EXCELLENT] were extremely accurate (2min @ 3 hour pace)</p>
+                            <p id="prediction-accuracy-text-good">[NUMBER-GOOD] were very accurate</p>
+                            <p id="prediction-accuracy-text-ok">[NUMBER-OK] were quite accurate</p>
+                            <p id="prediction-accuracy-text-bad">[NUMBER-BAD] were not very accurate </p>
+                        </div>
+                    </div>		
+                </div>
+                <div id="" class="block group-chart-right" style="background: white; position: relative;">
+                    <div id="sparkline-mean" style="padding-left: 10px; padding-top: 10px"></div>
+                    <a id="build-pacing-button-mean" class="build-pacing-button xsmGlobalBtn" title="Open the pacing calculator with this pacing"></a>
+                    <div id="chart-group-pacing-profile-text" style="padding-top: 10px; padding-left: 10px;">
+                        <p id="chart-group-pacing-profile-text-title">Average pacing profile</p>
+                        <p>This is the average pacing profile of all the runners in this group.</p>
+                    </div>
+                </div>
+            </div>
+		
+		<!--
 		<div>
 			<table>
 				<tr>
@@ -232,7 +249,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 				</tr>
 			</table>
 			
-		</div>
+		</div>-->
 		
 		<div id="runners-details" style="margin-top: 2em;"></div>
 		
@@ -255,6 +272,13 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 		<div id="debug" style="background-color: #eee; display: none;">
 		</div>		
 		
+		<div id="prediction-accuracy-text-template" style="display: none;">
+			<p id="chart-group-prediction-accuracy-text-title">Prediction accuracy of these runners</p>
+			<p id="prediction-accuracy-text-excellent">[NUMBER-EXCELLENT] were extremely accurate (2min @ 3 hour pace)</p>
+			<p id="prediction-accuracy-text-good">[NUMBER-GOOD] were very accurate</p>
+			<p id="prediction-accuracy-text-ok">[NUMBER-OK] were quite accurate</p>
+			<p id="prediction-accuracy-text-bad">[NUMBER-BAD] were not very accurate </p>
+		</div>
 		<div id="runner-detail-template" style="display: none;">
 			<div class="runner-detail block-group">
 			  <div class="runner-profile block-group">

@@ -187,50 +187,7 @@ jQuery(document).ready(function(){
 				jQuery('td#35k-mean-split-s').text(split_means['35k']);
 				jQuery('td#40k-mean-split-s').text(split_means['40k']);
 								
-				//Build average pacing curve sparkline
-				jQuery("#sparkline").sparkline([
-					split_means['5k'],split_means['10k'],split_means['15k'],
-					split_means['20k'], split_means['25k'], split_means['30k'],
-					split_means['35k'], split_means['40k']
-				], {
-					type: 'bar', barWidth: '35', chartRangeMin: '900', barColor: '#A46497', height: '50px',
-					tooltipFormat:  jQuery.spformat('<div style="font-size: 16px; padding-top: 0px; vertical-align: top"><span style="font-size: 16px; color: {{color}}">&#9679;</span></div> {{offset:names}} ({{value}}secs)','sparkline-tooltip-class'),
-						tooltipValueLookups: {
-							names: {
-								0: '5km',
-								1: '10km',
-								2: '15km',
-								3: '20km',
-								4: '25km',
-								5: '30km',
-								6: '35km',
-								7: '40km'
-								// Add more here
-							}
-						}	
-				});
-
-				//Build pacing accuracy distribution chart
-				labelCount =0;
-				new Chartist.Pie('#chart-group-prediction-accuracy', {
-				  series: [10, 5, 3, 2]
-				}, {
-				  
-				  showLabel: true,
-				  labelPosition: 'explode',
-				  labelInterpolationFnc: function(value) {
-					  labelCount += 1;
-					  if (labelCount == 1) return 'Extremely accurate (' + value + ')';
-					  if (labelCount == 2) return 'Very accurate (' + value + ')';
-					  if (labelCount == 3) return 'Quite accurate (' + value + ')';
-					  if (labelCount == 4) return 'Not accurate (' + value + ')';
-					  return value;
-				  }
-				});
-				/*donut: false,
-				  donutWidth: 60,
-				  startAngle: 270,
-				  total: 40,*/
+				
 				//jQuery('input#build-pacing-average').css('visibility','visible');
 				
 				var runners_details = jQuery.parseJSON(data.runners_details);
@@ -252,8 +209,13 @@ jQuery(document).ready(function(){
 				var thirtyfivek_splits = runners_details['35k_Split_s'];
 				var fortyk_splits = runners_details['40k_Split_s'];
 
-
 				var runner_detail_template = jQuery('#runner-detail-template').html();
+
+				var num_predictions_excellent = 0;
+				var num_predictions_good = 0;
+				var num_predictions_ok = 0;
+				var num_predictions_bad = 0;
+				
 				for (i = 0; i < data.number_of_runners; i++) { 			
 					var runner_detail = runner_detail_template;					
 					//Search and replace all the things we need to
@@ -267,11 +229,24 @@ jQuery(document).ready(function(){
 					var accuracy = Math.floor(parseFloat(prediction_accuracy_percents[i]));
 					var accuracy_class = '';					
 					runner_detail = runner_detail.replace('[ACCURACY%]', accuracy + '%');
-					
-					accuracy_class = 'runner-accuracy-bad';
-					if (prediction_accuracy_percents[i] >= 90.0) accuracy_class = 'runner-accuracy-ok';
-					if (prediction_accuracy_percents[i] >= 95.0) accuracy_class = 'runner-accuracy-good';
-					if (prediction_accuracy_percents[i] >= 99.0) accuracy_class = 'runner-accuracy-excellent';
+						
+					if (prediction_accuracy_percents[i] >= 99.0) {
+						accuracy_class = 'runner-accuracy-excellent';
+						num_predictions_excellent += 1;
+					} 						
+					else if (prediction_accuracy_percents[i] >= 95.0) {
+						accuracy_class = 'runner-accuracy-good';
+						num_predictions_good += 1;
+					}
+					else if (prediction_accuracy_percents[i] >= 90.0) {
+						accuracy_class = 'runner-accuracy-ok';
+						num_predictions_ok += 1;
+					}					
+					else
+					{
+						accuracy_class = 'runner-accuracy-bad';	
+						num_predictions_bad += 1;
+					}
 					
 					runner_detail = runner_detail.replace('[ACCURACY-CLASS]', accuracy_class);
 					
@@ -304,7 +279,43 @@ jQuery(document).ready(function(){
 				}
 				
 				jQuery('div#runners-details').html(runners_details_html);
-							
+
+				//Update the text under the prediction accuracy chart with real numbers
+				var accuracy_text_html = jQuery('div#prediction-accuracy-text-template').html();				
+				accuracy_text_html = accuracy_text_html.replace('[NUMBER-EXCELLENT]',num_predictions_excellent);
+				accuracy_text_html = accuracy_text_html.replace('[NUMBER-GOOD]',num_predictions_good);
+				accuracy_text_html = accuracy_text_html.replace('[NUMBER-OK]',num_predictions_ok);
+				accuracy_text_html = accuracy_text_html.replace('[NUMBER-BAD]',num_predictions_bad);
+				jQuery('div#chart-group-prediction-accuracy-text').html(accuracy_text_html);
+				
+				//Show the div containing the accuracy and average pacing charts
+				//Must happen before the sparkline is drawn
+				jQuery('.group-charts').removeClass('hidden');
+				
+				//Build pacing accuracy distribution chart
+				labelCount =0;
+				new Chartist.Pie('#chart-group-prediction-accuracy', {
+				  series: [{value: num_predictions_excellent, className: 'chart-group-prediction-accuracy-excellent'}, {value: num_predictions_good, className: 'chart-group-prediction-accuracy-good'}, {value: num_predictions_ok, className: 'chart-group-prediction-accuracy-ok'}, {value: num_predictions_bad, className: 'chart-group-prediction-accuracy-bad'}]
+				}, {
+				  donut: true,
+				  donutWidth: 60,
+				  startAngle: 270,
+				  total: ((num_predictions_excellent + num_predictions_good + num_predictions_ok + num_predictions_bad)*2), /*Total must be 2x sum of values to get a half-circle donut*/
+				  showLabel: true				  
+				});
+				
+				//Build average pacing curve sparkline
+				jQuery("#sparkline-mean").sparkline([
+					split_means['5k'],split_means['10k'],split_means['15k'],
+					split_means['20k'], split_means['25k'], split_means['30k'],
+					split_means['35k'], split_means['40k']
+				], {
+					type: 'bar', barWidth: '35', chartRangeMin: '900', barColor: '#3a579a', height: '120px',
+					tooltipFormat: "{{offset:names}}",
+					tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
+				});
+				
+				
 				//Pickup the media query we're using from the size of the div we've set the width of via css
 				//TODO: Think this is getting made more complicated than necessary because table columns are varying in width by content
 				//even though td width is set.
@@ -324,25 +335,13 @@ jQuery(document).ready(function(){
 					], {
 						type: 'bar', barWidth: barWidth, chartRangeMin: '900', barColor: '#6D8ACD', height: '70px',
 						tooltipFormat: "{{offset:names}}",
-						tooltipValueLookups: {
-							names: {
-								0: '0-5km',
-								1: '5-10km',
-								2: '10-15km',
-								3: '15-20km',
-								4: '20-25km',
-								5: '25-30km',
-								6: '30-35km',
-								7: '35-40km'
-							}
-						}	
+						tooltipValueLookups: {names: {0:'0-5km',1:'5-10km',2:'10-15km',3:'15-20km',4:'20-25km',5: '25-30km',6: '30-35km',7: '35-40km'}}	
 					});
 				}
 				
 				//Immediately hide the button and show the splits table for the first runner
 				jQuery('#view-splits-button-runner-0').css('display','none');
-				jQuery('#splits-table-runner-0').css('display','block');
-				
+				jQuery('#splits-table-runner-0').css('display','block');				
 			}
 			
 			
