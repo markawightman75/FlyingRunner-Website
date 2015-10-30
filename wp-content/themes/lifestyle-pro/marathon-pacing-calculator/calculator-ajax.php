@@ -111,7 +111,7 @@ function lookup_splits($age_category, $previous_marathons, $gender, $finish_time
  */
  	
 	$sql = "SELECT Runner_id, Name, Experience_races, Age_category, Gender,
-		Finish_time, Prediction_hh_mm, Slower_than_prediction_by_s,
+		Finish_time, Finish_time_s, Prediction_hh_mm, Slower_than_prediction_by_s,
 		Prediction_accuracy_percent,
 		5k_Split_s, 10k_Split_s, 15k_Split_s, 20k_Split_s, 25k_Split_s, 30k_Split_s, 35k_Split_s, 40k_Split_s
 		FROM lookup 
@@ -175,6 +175,7 @@ function lookup_splits($age_category, $previous_marathons, $gender, $finish_time
 		//$initials = $name_parts[0]; 
 		$results['initials'][$result_index] = $initials;
 		$results['finish-time'][$result_index] = $row['Finish_time'];
+		$results['finish-time-s'][$result_index] = $row['Finish_time_s'];//We don't actually need to pass this back to client, but we need it below. Could be stripped and captured in separate array
 		$results['predicted-time'][$result_index] = $row['Prediction_hh_mm'];
 		//$results['slower-than-prediction-by-%'][$result_index] = round($row['Slower_than_prediction_by_%']);
 		$results['prediction-accuracy-percent'][$result_index] = $row['Prediction_accuracy_percent'];
@@ -199,17 +200,19 @@ function lookup_splits($age_category, $previous_marathons, $gender, $finish_time
 	$split_totals = array(); //The sum of each split for all runners (i.e. 5k for runner 1 + 5k for runner 2...)
 	for ($runner = 0; $runner < $number_of_results; $runner++) {
 		$debug[] = $results['initials'][$runner] . "..........5K split: " . $results['5k_Split_s'][$runner] . ".........10K split: " . $results['10k_Split_s'][$runner];
-	
+		//We need to normalise all split times to create a meaningful average
+		//Normalise them to 4 hour pace (14400 seconds)		
+		$normalise_factor = 14400 * ($results['finish-time-s'][$runner]);
 		
-		$split_totals['5k'] += $results['5k_Split_s'][$runner];
-		$split_totals['10k'] += $results['10k_Split_s'][$runner];
-		$split_totals['15k'] += $results['15k_Split_s'][$runner];
-		$split_totals['20k'] += $results['20k_Split_s'][$runner];
-		$split_totals['21k'] += $results['21k_Split_s'][$runner];
-		$split_totals['25k'] += $results['25k_Split_s'][$runner];
-		$split_totals['30k'] += $results['30k_Split_s'][$runner];
-		$split_totals['35k'] += $results['35k_Split_s'][$runner];
-		$split_totals['40k'] += $results['40k_Split_s'][$runner];
+		$split_totals['5k'] += ($results['5k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['10k'] += ($results['10k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['15k'] += ($results['15k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['20k'] += ($results['20k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['21k'] += ($results['21k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['25k'] += ($results['25k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['30k'] += ($results['30k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['35k'] += ($results['35k_Split_s'][$runner] * $normalise_factor);
+		$split_totals['40k'] += ($results['40k_Split_s'][$runner] * $normalise_factor);
 	}
 	
 	//Means are in SECONDS

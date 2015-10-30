@@ -235,7 +235,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
                     <a id="build-pacing-button-mean" class="build-pacing-button xsmGlobalBtn" title="Open the pacing calculator with this pacing"></a>
                     <div id="chart-group-pacing-profile-text" style="padding-top: 10px; padding-left: 10px;">
                         <p id="chart-group-pacing-profile-text-title">Average pacing profile</p>
-                        <p>This is the average pacing profile of all the runners in this group.</p>
+                        <p>This is the average pacing profile of all the runners in this group. Each bar represents 5km of the race. Higher bars mean longer time.</p>
                     </div>
                 </div>
             </div>

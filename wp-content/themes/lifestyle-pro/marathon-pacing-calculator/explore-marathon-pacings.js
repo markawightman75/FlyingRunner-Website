@@ -177,7 +177,7 @@ jQuery(document).ready(function(){
 
 				var split_means = jQuery.parseJSON(data.split_means);			
 				
-				//Store split means so we can use them if user clicks "build pacing from this"
+				//Store split means so we can use them if user clicks build pacing button on average profile chart
 				jQuery('td#5k-mean-split-s').text(split_means['5k']);
 				jQuery('td#10k-mean-split-s').text(split_means['10k']);
 				jQuery('td#15k-mean-split-s').text(split_means['15k']);
@@ -364,13 +364,12 @@ jQuery(document).ready(function(){
 });
 
 jQuery(document).ready(function(){
-	//The build pacing button on the mean pacing profile
-	jQuery(".build-pacing").on('click',function(event) {
-		//alert(event.target.id);
-		var button_id = event.target.id;  //e.g. build-pacing-average
-		//alert(button_id);
-		
-		var params = {
+	//We have to hook into body, because the build pacing buttons are dynamically generated
+	jQuery('body').on('click', '.build-pacing-button',function(event) {
+		var params;
+		var button_id = event.target.id;  //e.g. build-pacing-button-runner-0
+		if (button_id == 'build-pacing-button-mean') {
+			params = {
 			km5: jQuery('td#5k-mean-split-s').text(),
 			km10: jQuery('td#10k-mean-split-s').text(),
 			km15: jQuery('td#15k-mean-split-s').text(),
@@ -379,20 +378,23 @@ jQuery(document).ready(function(){
 			km30: jQuery('td#30k-mean-split-s').text(),
 			km35: jQuery('td#35k-mean-split-s').text(),
 			km40: jQuery('td#40k-mean-split-s').text(),
-		}; 
+			}; 
+		}
+		else {
+		var splits_table_id = 'splits-table-runner-' + button_id.substring(27);				
+		params = {
+			km5: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-5k-split').text()),
+			km10: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-10k-split').text()),
+			km15: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-15k-split').text()),
+			km20: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-20k-split').text()),
+			km25: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-25k-split').text()),
+			km30: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-30k-split').text()),
+			km35: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-35k-split').text()),
+			km40: hhmmss_to_seconds(jQuery('table#' + splits_table_id).find('td#td-40k-split').text()),
+			}; 			
+		}
 				
 		open_calculator_page(params);
-	});
-});
-
-jQuery(document).ready(function(){
-	//We have to hook into body, because the build pacing buttons are dynamically generated
-	jQuery('body').on('click', '.build-pacing-button',function(event) {
-		var button_id = event.target.id;  //e.g. build-pacing-button-runner-0
-		//alert(button_id);
-		var splits_table_id = 'splits-table-runner-' + button_id.substring(27);		
-		alert(splits_table_id);
-		alert(jQuery('table#' + splits_table_id).find('td#td-5k-split').text());
 	});
 ;});
 
@@ -420,7 +422,30 @@ jQuery(document).ready(function(){
 	});
 ;});
 
+/*Convert either mm:ss or hh:mm:ss into seconds*/
+function hhmmss_to_seconds(hhmmss) {
+	var firstColon = hhmmss.indexOf(":");
+	if (firstColon == -1) return 0;
+	var firstPart = hhmmss.substr(0,firstColon);
+	var secondPart = hhmmss.substr(firstColon+1);
+	var secondColon = secondPart.indexOf(":");
+	if (secondColon > -1) {
+		//We have hh:mm:ss
+		var mm = secondPart.substr(0,secondColon);
+		var ss = secondPart.substr(secondColon+1);
+		//alert("hh: " + firstPart);
+		//alert("mm: " + mm);
+		//alert("ss: " + ss);
+		return ((parseInt(firstPart) * 3600) + (parseInt(mm) * 60) + parseInt(ss));
+	}	
+	else {
+		//We have mm:ss
 
+		//alert("mm: " + firstPart);
+		//alert("ss: " + secondPart);
+		return ((parseInt(firstPart) * 60) + parseInt(secondPart));
+	}
+}
 
 function seconds_to_hhmmss(totalSec) {
 	var hours = parseInt( totalSec / 3600 ) % 24;
