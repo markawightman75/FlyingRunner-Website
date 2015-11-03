@@ -31,7 +31,7 @@ add_action( 'widgets_init', 'add_custom_widgets' );
 
 add_action( 'genesis_after_entry_content', 'add_pacing_calculator_javascript' );
 function add_pacing_calculator_javascript() {
-	if ( get_the_title() == "Explore Marathon Pacings" )	{
+	if ( get_the_title() == "Explore Marathon Research Data" )	{
 		//Register the javascript file that contains client-side logic
 		wp_register_script( 'explore-marathon-pacings', CHILD_URL . '/marathon-pacing-calculator/explore-marathon-pacings.js', array( 'jquery' ), '', true );
 		//declare the URL to the file that handles the AJAX request (wp-admin/admin-ajax.php) so it gets stored in the html for the page and can be picked up by the javascript
@@ -85,7 +85,7 @@ function add_pacing_calculator_javascript() {
 }
 add_action( 'wp_enqueue_scripts', 'add_pacing_calculator_css' );
 function add_pacing_calculator_css() {
-	if ( get_the_title() == "Explore Marathon Pacings" )	{
+	if ( get_the_title() == "Explore Marathon Research Data" )	{
 		//Register and queue the chartist.js default css 
 		wp_enqueue_style( 'fr-chartist-default-stylesheet', CHILD_URL . '/marathon-pacing-calculator/chartist.js/chartist.min.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/chartist.js/chartist.min.css' ) );
 
@@ -214,7 +214,7 @@ function add_features_and_news_page_content() {
 		) );		
 	}
 
-	if ( $this_page_title == "Explore Marathon Pacings" )
+	if ( $this_page_title == "Explore Marathon Research Data" )
 	{	
 		genesis_widget_area ('exploremarathonpacingscontentarea', array(
 			'before' => '<div class="exploremarathonpacingscontentarea"><div class="wrap">',
@@ -381,7 +381,7 @@ function custom_load_custom_style_sheet() {
 	wp_enqueue_style( 'fr-headlines-stylesheet', CHILD_URL . '/headlines.css', false, filemtime( get_stylesheet_directory() . '/headlines.css' ) );
 	wp_enqueue_style( 'fr-adverts-stylesheet', CHILD_URL . '/adverts.css', false, filemtime( get_stylesheet_directory() . '/adverts.css' ) );	
 	
-	if ( get_the_title() == "Marathon Pacing Calculator" || get_the_title() == "Explore Marathon Pacings" )	{
+	if ( get_the_title() == "Marathon Pacing Calculator" || get_the_title() == "Explore Marathon Research Data" )	{
 		wp_enqueue_style( 'fr-pacing-calculator-stylesheet', CHILD_URL . '/marathon-pacing-calculator/marathon-pacing-calculator.css', false, filemtime( get_stylesheet_directory() . '/marathon-pacing-calculator/marathon-pacing-calculator.css' ) );	
 	}	
 }
@@ -624,18 +624,18 @@ add_action( 'genesis_before_content_sidebar_wrap', 'add_top_banner' );
 function add_top_banner() {
 	//If we don't want to show a banner, we must include this so we put a margin between 
 	//bottom of main menu and top of content 
-	//echo "<div class=\"banner-top-empty\"></div>";
-	//return;
+	echo "<div class=\"banner-top-empty\"></div>";
+	return;
 	
 	//if (is_shop() or is_product() or is_product_category() or is_cart() or is_checkout())
 	//{
 		$banner = "<div class=\"banner-top\">";
 			$banner .= "<div class=\"banner-top-small\">";
 				//$banner .= "10% off!";
-				$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Saturday!</div><div>Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
+				$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Sunday!</div><div>Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
 			$banner .= "</div>";
 			$banner .= "<div class=\"banner-top-medium\">";
-				$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Saturday! Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
+				$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Sunday! Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
 			$banner .= "</div>";
 		$banner .= "</div>";
 		echo $banner;

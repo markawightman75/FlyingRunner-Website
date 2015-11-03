@@ -173,7 +173,7 @@ class Marathon_Pacing_Calculator_Widget extends WP_Widget {
 				  <div class="tab-content" id="tab-content-from-selection-none-provided" style="height: 205px;">
 					<p style="font-weight: bold;">Calculate pacing from our research data</p>
 					<p>You can build pacing based on the pacing of a particular runner in our research data from London Marathon 2015, or an average of a set of runners.</p>
-					<p>You can find out more <a href="explore-marathon-pacings" target="_blank">here</a></p>
+					<p>You can find out more <a href="explore-marathon-research-data" target="_blank">here</a></p>
 				  </div>
 				</div>
 			</div>

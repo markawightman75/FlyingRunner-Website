@@ -412,7 +412,7 @@ function open_calculator_page(params) {
 		root_url = root_url + "/wordpress";
 	}
 	url = window.location.href;
-	calculator_page_url =  url.replace("explore-marathon-pacings","marathon-pacing-calculator");		
+	calculator_page_url =  url.replace("explore-marathon-research-data","marathon-pacing-calculator");		
 	calculator_page_url = calculator_page_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
 	window.open(calculator_page_url);		
 

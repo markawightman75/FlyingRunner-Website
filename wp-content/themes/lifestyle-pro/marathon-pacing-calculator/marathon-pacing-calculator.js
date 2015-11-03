@@ -552,7 +552,16 @@ jQuery(document).ready(function(){
 		query_string = jQuery.param(params);
 		//alert(query_string);
 		url = window.location.href;
-		download_pacing_band_url =  url.replace("marathon-pacing-calculator","download-pacing-band.php");		
+		
+		if (url.indexOf("www.flyingrunner.co.uk") > -1 ) {
+			//Haven't got the htaccess url rewrite working on www. yet, so use the full url
+			download_pacing_band_url =  "http://www.flyingrunner.co.uk/2/wp-content/themes/lifestyle-pro/marathon-pacing-calculator/download-pacing-band.php";
+		}
+		else
+		{
+			download_pacing_band_url =  url.replace("marathon-pacing-calculator","download-pacing-band.php");
+		}
+		
 		download_pacing_band_url = download_pacing_band_url + "?" + query_string; //http:// + root_url + "/marathon-pacing-calculator?" + query_string;		
 		//window.open(download_pacing_band_url); 
 		window.location.href = download_pacing_band_url;
