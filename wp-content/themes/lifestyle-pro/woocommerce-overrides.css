@@ -191,3 +191,237 @@ padding-top: 6px;
 padding-bottom: 6px;
 padding-left: 6px;
 }
+
+
+/* START Make the cart table responsive */
+/* From: http://www.jeremycarter.com.au/optimising-woocommerce-checkout-for-mobile/ */
+/* http://css-tricks.com/responsive-data-tables/ */
+@media screen and (max-width: 600px) {
+
+/* Force table to not be like tables anymore */
+.woocommerce table.shop_table,
+.woocommerce table.shop_table thead,
+.woocommerce table.shop_table tbody,
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td,
+.woocommerce table.shop_table tr {
+display: block;
+}
+
+/* Hide table headers (but not display: none;, for accessibility) */
+.woocommerce table.shop_table thead tr {
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+
+.woocommerce table.shop_table tr {
+/*border: 1px solid #d2d3d3; */
+}
+
+.woocommerce table.shop_table td {
+/* Behave like a "row" */
+border: 1px solid #d2d3d3;
+position: relative;
+padding-left: 50% !important;
+}
+
+.woocommerce table.shop_table {
+border: none;
+}
+
+.woocommerce table.shop_table td.product-spacer {
+border-color: #FFF;
+height: 10px;
+}
+
+.woocommerce table.shop_table td:before {
+/* Now like a table header */
+position: absolute;
+/* Top/left values mimic padding */
+top: 6px;
+left: 6px;
+width: 25%;
+padding-right: 10px;
+white-space: nowrap;
+}
+
+/*
+Label the data
+*/
+.woocommerce table.shop_table td.product-remove:before {
+content: "DELETE";
+}
+
+.woocommerce table.shop_table td.product-thumbnail:before {
+content: "IMAGE";
+}
+
+.woocommerce table.shop_table td.product-name:before {
+content: "PRODUCT";
+}
+
+.woocommerce table.shop_table td.product-price:before {
+content: "PRICE";
+}
+
+.woocommerce table.shop_table td.product-quantity:before {
+content: "QUANTITY";
+}
+
+.woocommerce table.shop_table td.product-subtotal:before {
+content: "SUBTOTAL";
+}
+
+.woocommerce table.shop_table td.product-total:before {
+content: "TOTAL";
+}
+
+.woocommerce .quantity,
+.woocommerce #content .quantity,
+.woocommerce .quantity,
+.woocommerce #content .quantity {
+margin: 0;
+}
+
+.woocommerce table.cart td.actions,
+.woocommerce #content table.cart td.actions {
+text-align: left;
+border:0;
+padding-left: 0 !important;
+}
+
+.woocommerce table.cart td.actions .button.alt,
+.woocommerce #content table.cart td.actions .button.alt {
+float: left;
+margin-top: 10px;
+}
+
+.woocommerce table.cart td.actions div,
+.woocommerce #content table.cart td.actions div,
+.woocommerce table.cart td.actions input,
+.woocommerce #content table.cart td.actions input {
+margin-bottom: 10px;
+}
+
+.woocommerce .cart-collaterals .cart_totals {
+float: left;
+width: 100%;
+text-align: left;
+}
+
+.woocommerce .cart-collaterals .cart_totals th,
+.woocommerce .cart-collaterals .cart_totals td {
+border:0 !important;
+}
+
+.woocommerce .cart-collaterals .cart_totals table tr.cart-subtotal td,
+.woocommerce .cart-collaterals .cart_totals table tr.shipping td,
+.woocommerce .cart-collaterals .cart_totals table tr.total td {
+padding-left: 6px !important;
+}
+
+.woocommerce table.shop_table tr.cart-subtotal td,
+.woocommerce table.shop_table tr.shipping td,
+.woocommerce table.shop_table tr.total td,
+.woocommerce table.shop_table.order_details tfoot th,
+.woocommerce table.shop_table.order_details tfoot td {
+padding-left: 6px !important;
+border:0 !important;
+}
+
+.woocommerce table.shop_table tbody {
+padding-top: 10px;
+}
+
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-2,
+.woocommerce .col2-set .col-2,
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last,
+.woocommerce form .form-row-first,
+.woocommerce form .form-row-last {
+float: none;
+width: 100%;
+}
+
+.woocommerce .order_details ul,
+.woocommerce .order_details ul,
+.woocommerce .order_details,
+.woocommerce .order_details {
+padding:0;
+}
+
+.woocommerce .order_details li,
+.woocommerce .order_details li {
+clear: left;
+margin-bottom: 10px;
+border:0;
+}
+
+/* make buttons full width, text wide anyway, improves effectiveness */
+#content table.cart td.actions .button,
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce #content table.cart td.actions input,
+.woocommerce table.cart td.actions .button,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce table.cart td.actions input,
+.woocommerce #content table.cart td.actions .button,
+.woocommerce #content table.cart td.actions .input-text,
+.woocommerce #content table.cart td.actions input,
+.woocommerce table.cart td.actions .button,
+.woocommerce table.cart td.actions .input-text,
+.woocommerce table.cart td.actions input {
+width: 100%;
+font-size:12px !important;
+}
+
+.woocommerce tfoot{
+display:block !important;
+}
+.woocommerce tfoot td{
+width:100% !important;
+display:block !important;
+}
+/* keep coupon at 50% */
+#content table.cart td.actions .coupon .button,
+.woocommerce #content table.cart td.actions .coupon .input-text,
+.woocommerce #content table.cart td.actions .coupon input,
+.woocommerce table.cart td.actions .coupon .button,
+.woocommerce table.cart td.actions .coupon .input-text,
+.woocommerce table.cart td.actions .coupon input,
+.woocommerce #content table.cart td.actions .coupon .button,
+.woocommerce #content table.cart td.actions .coupon .input-text,
+.woocommerce #content table.cart td.actions .coupon input,
+.woocommerce table.cart td.actions .coupon .button,
+.woocommerce table.cart td.actions .coupon .input-text,
+.woocommerce table.cart td.actions .coupon input {
+width: 48%;
+font-size:12px !important;
+}
+
+/* clean up how coupon inputs display */
+#content table.cart td.actions .coupon,
+.woocommerce table.cart td.actions .coupon,
+.woocommerce #content table.cart td.actions .coupon,
+.woocommerce table.cart td.actions .coupon {
+margin-top: 1.5em;
+}
+
+#content table.cart td.actions .coupon .input-text,
+.woocommerce table.cart td.actions .coupon .input-text,
+.woocommerce #content table.cart td.actions .coupon .input-text,
+.woocommerce table.cart td.actions .coupon .input-text {
+margin-bottom: 1em;
+}
+
+/* remove cross sells, they interfere with flow between cart and cart totals + shipping calculator */
+.woocommerce .cart-collaterals .cross-sells,
+.woocommerce .cart-collaterals .cross-sells {
+display: none;
+}
+
+}
+/* END Make the cart table responsive */
+
