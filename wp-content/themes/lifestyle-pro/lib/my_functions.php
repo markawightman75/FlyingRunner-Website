@@ -615,11 +615,18 @@ function themeprefix_remove_post_meta() {
 //add_action( 'genesis_before_content_sidebar_wrap', 'custom_welcome_text' );
 
 
+//Force IE to render using IE9 rendering engine, to fix crashes in IE10
+add_action( 'wp_head', 'wc_add_IE_10_meta_tag' , 2 );
+function wc_add_IE_10_meta_tag() {
+  echo '<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >' . "\n";
+}
+
 // Display 24 products per page. 
 add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 24;' ), 20 );
 
 add_action( 'genesis_before_content_sidebar_wrap', 'add_top_banner' );
 //add_action( 'genesis_before_footer', 'add_bottom_banner' );
+//add_action( 'genesis_after_content_sidebar_wrap', 'add_bottom_banner' );
 
 function add_top_banner() {
 	//If we don't want to show a banner, we must include this so we put a margin between 
@@ -631,11 +638,12 @@ function add_top_banner() {
 	//{
 		$banner = "<div class=\"banner-top\">";
 			$banner .= "<div class=\"banner-top-small\">";
-				//$banner .= "10% off!";
-				$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Sunday!</div><div>Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
+				$banner .= "Free shipping on everything until Monday!";
+				//$banner .= "<div><a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our medal displays until Sunday!</div><div>Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</div></a>";
 			$banner .= "</div>";
 			$banner .= "<div class=\"banner-top-medium\">";
-				$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Sunday! Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
+				$banner .= "Free shipping on everything until Monday!";
+				//$banner .= "<a href=\"" . esc_url( home_url( '/product-category/medal-displays' )) . "\">10% off our race medal displays until Sunday! Use coupon <span style=\"color:#CCC\">medal-madness-october</span> at Checkout</a>";
 			$banner .= "</div>";
 		$banner .= "</div>";
 		echo $banner;
@@ -647,6 +655,35 @@ function add_top_banner() {
 	//}
 }
 function add_bottom_banner() {
-echo "<div class=\"banner-bottom\">Can we help you? Call us now on (01223) 968262</div>";
+	if (is_checkout()){
+		echo "<div class=\"banner-bottom\">Can we help you? Just drop us an email at contact@flyingrunner.co.uk</div>";
+	}
 }
+
+ 
+/**
+ * Hide shipping rates when free shipping is available
+ *
+ * @param array $rates Array of rates found for the package
+ * @param array $package The package array/object being shipped
+ * @return array of modified rates
+ */
+//add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
+function hide_shipping_when_free_is_available( $rates, $package ) {
+ 	
+ 	// Only modify rates if free_shipping is present
+  	if ( isset( $rates['free_shipping'] ) ) {
+  	
+  		// To unset a single rate/method, do the following. This example unsets flat_rate shipping
+  		unset( $rates['flat_rate'] );
+  		
+  		// To unset all methods except for free_shipping, do the following
+  		$free_shipping          = $rates['free_shipping'];
+  		$rates                  = array();
+  		$rates['free_shipping'] = $free_shipping;
+	}
+	
+	return $rates;
+}
+
 ?>
