@@ -660,6 +660,13 @@ function add_bottom_banner() {
 	}
 }
 
+add_image_size( 'cart_item_image_size',200, 200, true );
+add_filter( 'woocommerce_cart_item_thumbnail', 'cart_item_thumbnail', 10, 3 );
+function cart_item_thumbnail( $thumb, $cart_item, $cart_item_key ) { 
+ // create the product object 
+ $product = get_product( $cart_item['product_id'] );
+ return $product->get_image( 'cart_item_image_size' ); 
+} 
  
 /**
  * Hide shipping rates when free shipping is available

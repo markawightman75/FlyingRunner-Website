@@ -62,6 +62,15 @@ margin-top: 1em;
 border: none;
 }
 
+/* Override 32px width setting for image size*/
+.woocommerce-cart table.cart img {
+width: 200px;
+}
+/* Display images on mobile & tablet */
+.woocommerce-cart table.cart td.product-thumbnail {
+display: table-cell;
+}
+
 /* ***********************************************  */
 /* Overrides for Checkout                           */
 /* ***********************************************  */
