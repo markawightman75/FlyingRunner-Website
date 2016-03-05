@@ -708,11 +708,13 @@ function fb_opengraph() {
  
     if(is_single()) {
         $thumb_url = '';
+		$using_large_featured_image = false;
 		if( class_exists('Dynamic_Featured_Image') ) {
 			global $dynamic_featured_image;
 			$featured_images = $dynamic_featured_image->get_featured_images( );
 			$featured_image = $featured_images[0];
 			$thumb_url = $featured_image['full'];
+			$using_large_featured_image = true;
 		   //You can now loop through the image to display them as required
 		}
 		else
@@ -738,26 +740,47 @@ function fb_opengraph() {
 		if (! empty ($thumb_url)) {						
 			$img_src = $thumb_url;
 		} else {
-			$img_src = "http://images.flyingrunner.co.uk/2014/07/RunnersHorizon-banner10.jpg";
+			$img_src = "http://images.flyingrunner.co.uk/2014/06/FlyingRunner-main-purple-crop.jpg";
 		}
 		
         if($excerpt = $post->post_excerpt) {
             $excerpt = strip_tags($post->post_excerpt);
+			$excerpt = esc_html($excerpt);
             $excerpt = str_replace("", "'", $excerpt);
         } else {
             $excerpt = get_bloginfo('description');
         }
         ?>
- 
+	<meta property="og:locale" content="en_GB"/>
     <meta property="og:title" content="<?php echo the_title(); ?>"/>
     <meta property="og:description" content="<?php echo $excerpt; ?>"/>
     <meta property="og:type" content="article"/>
     <meta property="og:url" content="<?php echo the_permalink(); ?>"/>
     <meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
     <meta property="og:image" content="<?php echo $img_src; ?>"/>
- 
+	<meta property="og:image:type" content="image/jpeg" />
+	<link rel="image_src" type="image/jpeg" href="<?php echo $img_src; ?>" />
 <?php
+	if ($using_large_featured_image)
+	{		
+?>
+	<meta property="og:image:width" content="400"/>
+	<meta property="og:image:height" content="267"/>
+<?php
+		
+	}
     } else {
+		//Everything that isn't an article
+	    ?>
+ 		<meta property="og:locale" content="en_GB"/>
+		<meta property="og:title" content="<?php echo the_title(); ?>"/>
+		<meta property="og:description" content="Welcome to The Flying Runner. Thought-provoking articles, latest news, helpful resources and beautiful gifts for runners. Please come in and explore..."/>
+		<meta property="og:type" content="website"/>
+		<meta property="og:url" content="<?php echo the_permalink(); ?>"/>
+		<meta property="og:site_name" content="<?php echo get_bloginfo(); ?>"/>
+		<meta property="og:image" content="http://images.flyingrunner.co.uk/2014/06/FlyingRunner-main-purple-crop.jpg"/>
+	 
+<?php
         return;
     }
 }
