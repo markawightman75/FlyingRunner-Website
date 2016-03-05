@@ -4,7 +4,7 @@ require_once('create-pacing-band.php');
 
 $splits = array();
 for ($m = 1; $m <= 26; $m++) {
-    $splits['mile' . $m] = $_GET['mile' . $m];
+    $splits['mile' . $m] = $_GET['mile' . $m]; //In seconds
 } 
 $splits['halfway'] = $_GET['halfway'];
 $splits['finish'] = $_GET['finish'];
