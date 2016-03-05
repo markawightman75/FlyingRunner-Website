@@ -280,7 +280,8 @@ jQuery(document).ready(function(){
 					runners_details_html += runner_detail;				
 				}
 				
-				jQuery('div#runners-details').html(runners_details_html);
+				//DON'T SHOW INDIVIDUAL RUNNER DETAILS
+				//jQuery('div#runners-details').html(runners_details_html);
 
 				//Update the text under the prediction accuracy chart with real numbers
 				var accuracy_text_html = jQuery('div#prediction-accuracy-text-template').html();				
@@ -328,6 +329,7 @@ jQuery(document).ready(function(){
 				if (mediaQuery == 1024) barWidth = '40px'; //iPad portrait
 				
 				//Build the sparkline pacing charts for each runner
+				/*
 				for (i = 0; i < data.number_of_runners; i++) { 			
 				
 					jQuery("#sparkline-runner-".concat(i)).sparkline([
@@ -344,6 +346,7 @@ jQuery(document).ready(function(){
 				//Immediately hide the button and show the splits table for the first runner
 				jQuery('#view-splits-button-runner-0').css('display','none');
 				jQuery('#splits-table-runner-0').css('display','block');				
+				*/
 			}
 			
 			
