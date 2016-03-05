@@ -258,27 +258,29 @@ set max width so the advert doesn't go wide*/
 .sidebar .advert-small {
 max-width: 205px;
 }
-    
-.sidebar .advert-small {
-margin-left: 28px;
-margin-bottom: 10px;
-}
+ 
 
 @media only screen and (min-width: 1024px)  {
-.sidebar .advert-newsletter-sidebar {
-margin-left: 28px;
-}
+    .sidebar .advert-newsletter-sidebar {
+    margin-left: 28px;
+    }
+
+    .sidebar .advert-small {
+    margin-left: 28px;
+    margin-bottom: 10px;
+    }
 }
 
 /*When sidebar wraps below content, */
 /*eeduce left margin of sidebar product advert and newsletter advert to left align with left edge of other content*/
 @media only screen and (max-width: 1023px) {
-.sidebar .advert-small {
-margin-left: -10px;
-}
-.sidebar .advert-newsletter-sidebar {
-margin-left: -10px;
-}   
+    .sidebar .advert-small {
+    margin-left: -10px;
+    margin-bottom: 10px;
+    }
+    .sidebar .advert-newsletter-sidebar {
+    margin-left: -10px;
+    }   
 }
 
 /*To make responsive design easier, see https://css-tricks.com/box-sizing/*/
