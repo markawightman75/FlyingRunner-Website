@@ -1,0 +1,217 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "WP Original Media Path"
+msgstr ""
+
+#. Short description.
+msgid "Displays the fields to change the url and file upload"
+msgstr ""
+
+#. Found in description header.
+msgid "[i18n]"
+msgstr ""
+
+#. Found in description list item.
+msgid "German by <a href=\"http://www.feuerwehrmuseum-sh.de\" rel=\"nofollow\">Dr. Hajo Brandenburg - Feuerwehrmuseum</a>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"Wordpress has changed the media page, removing the two fields to define the location and the sub-field of media.\n"
+"There exists a constant wp-config.php, but it does not include sub-domains.\n"
+"Once activated, the plugin will add two values ​​in the database, you modify later.\n"
+"The plugin is not retroactive for images already uploaded"
+msgstr ""
+
+#. Found in description paragraph.
+msgid ""
+"<strong>Thank you to try to find the solution by yourself or on the forum.</strong>\n"
+"<strong>The author of the plug-in is no after-sales service.</strong>\n"
+"<strong>Most of the issues have already been addressed.</strong>"
+msgstr ""
+
+#. Found in description paragraph.
+msgid "<em>end of support 2015-12-28</em>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Go to the option page of the plugin to complete the configuration"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Modify the desired values ​​'Store uploaded files in this folder' and 'full web address for the'."
+msgstr ""
+
+#. Found in installation list item.
+msgid "That's it!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Check Wordpress 4.4"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update readme"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New File POT"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Github link"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Settings API"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "uninstall.php file"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "recode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "German Translation by <a href=\"http://www.feuerwehrmuseum-sh.de\" rel=\"nofollow\">Dr. Hajo Brandenburg - Feuerwehrmuseum</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Correct classname responsive"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Check compatibility WordPress 4.0"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update assets Repository"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update and clean files PO &amp; MO"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Page options"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Possibility to disable the plug-in settings without deleting"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Established translations"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update Installation and FAQ"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug link setting"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "uninstalling the plugin with the deactivation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Update FAQ"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "FAQ"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Auto fill fields"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Contributors list"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Text fields"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Launch Plugin"
+msgstr ""
+
+#. Found in faq header.
+msgid "How to set my plugin?"
+msgstr ""
+
+#. Found in faq header.
+msgid "The plugin does it work with a real CDN?"
+msgstr ""
+
+#. Found in faq header.
+msgid "I just set the plug-in, but the images are not displayed"
+msgstr ""
+
+#. Found in faq header.
+msgid "My site is broken"
+msgstr ""
+
+#. Found in faq header.
+msgid "I want to make suggestions"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Check that the path is correct specify"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Check that the file was created on the server with the chmod 777 or 755"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Visit this page : https://wordpress.org/support/topic/images-not-getting-uploaded-to-subdomain-or-anywhere"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Do not panic!"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Refer to the help for configuring media fields."
+msgstr ""
+
+#. Found in faq list item.
+msgid "You can always follow the uninstallation procedure if you want to reverse"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"The first is your file uploads without the domain.\n"
+"For example, if your upload folder is at the root of the site and it is called 'my-images' the first field must be filled 'my-images'"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"The second field is the full URL to the file uploads.\n"
+"In the previous example, the field looks like this: 'http://www.siteweb.com/my-images'"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"Unfortunately not. Because WordPress is able to handle the file uploads directly.\n"
+"This plug-in is only used to mount a mirror subdomains on Wordpress installation or change the location of file uploads"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid ""
+"We're glad you want to help us improve the WP Original Media Path!\n"
+"To help us, go directly into the form of http://wordpress.org/support/plugin/wp-original-media-path plugin and mail us your suggestions."
+msgstr ""
