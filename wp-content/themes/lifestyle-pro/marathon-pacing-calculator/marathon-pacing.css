@@ -55,6 +55,66 @@ font-size: 14px;
 margin-bottom: 3px;
 }
 
+@media (max-width: 375px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -134px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 274px;
+    padding-left: 10px;
+    }    
+}
+
+@media (min-width: 376px) and (max-width: 767px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -44px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 184px;
+    padding-left: 10px;
+    }    
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -24px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 164px;
+    padding-left: 10px;
+    }        
+}
+@media (min-width: 1024px) and (max-width: 1139px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -44px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 178px;
+    padding-left: 10px;
+    }    
+}
+/*@media (min-width: 1139px) {*/
+/*
+@media (min-width: 1139px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -44px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 178px;
+    padding-left: 10px;
+    }    
+}
+*/
+@media (min-width: 1140px) {
+    #chart-group-prediction-accuracy {
+    margin-top: -16px;
+    }
+    #chart-group-prediction-accuracy-text {
+    padding-top: 156px;
+    padding-left: 10px;
+    }
+}
+
+
 /******* For exploratory group pacing charts page */
 /*.ct-bar {
 stroke-width: 18px;
@@ -89,91 +149,238 @@ color: #666;
 font-family: "jaf-bernina-sans",sans-serif;
 }
 
-.runner-selection-help {width: 45%;}
-.runner-selection-inputs {width: 55%;}
+@media (max-width: 375px) {
+    .runner-selection-label { width: 100%;} /*% of runner-selection-inputs*/
+    .runner-selection-input { width: 100%;}
 
-.runner-selection-label { width: 25%;} /*% of runner-selection-inputs*/
-div.find-runners-button {margin-left: 25%;} /*Offset the button div so it is in the second column under the inputs*/
-.runner-selection-input { width: 75%;}
+    #runner-selection {
+    margin-bottom: 24px;
+    background-color: cornsilk;
+    }
 
-#runner-selection {
-margin-bottom: 24px;
-/*border: 2px solid cornsilk;*/
-background-color: cornsilk;
-}
 
-.runner-selection-help {
-/*border-right: 1px solid #ccc;*/
-}
-.runner-selection-help-header {
-font-size: 17px;
-font-weight: 700;
-color: #444;
-margin-bottom: 4px;
-}
-.runner-selection-help-text {
-color: #333;
-}
+    .runner-selection-help-header {
+    font-size: 17px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 4px;
+    }
+    .runner-selection-help-text {
+    color: #333;
+    }
 
-.runner-selection-inputs {
-background-color: cornsilk;
-margin-top: 1em;
-margin-bottom: 2em;
-border-radius: 8px;
-/*padding: 5px 22px 4px 0px;*/
-}
+    .runner-selection-inputs {
+    background-color: cornsilk;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    /*padding: 5px 22px 4px 0px;*/
+    }
 
-.runner-selection-help,
-.runner-selection-label,
-.runner-selection-input select {
-font-size: 14px;
-border-color: #ccc;
-}
+    .runner-selection-help,
+    .runner-selection-label,
+    .runner-selection-input select {
+    font-size: 14px;
+    border-color: #ccc;
+    }
 
-.runner-selection-label {
-margin-top: 6px;
-color: #333;
-clear: left; /*Pocketgrid: Force label block onto new row*/
-}
+    .runner-selection-label {    
+    color: #333;
+    clear: left; /*Pocketgrid: Force label block onto new row*/
+    }
 
-.runner-selection-input select {
-padding: 4px;
-margin-left: -6px;
-}
-.runner-selection-input select#finish-time-to {
-margin-left: 0px;
-}
-
-.runner-selection-input select#age-category,
-.runner-selection-input select#gender,
-.runner-selection-input select#prediction-accuracy,
-.runner-selection-input select#previous-marathons {
-width: 260px;
-}
-
-.runner-selection-input select#finish-time-from,
-.runner-selection-input select#finish-time-to {
-width: 118px;
-}
-
-#label-finish-time {
-margin-top: 28px; /*Force top label down to level of first line of help text*/
-}
-.runner-selection-input select#finish-time-from,
-.runner-selection-input select#finish-time-to {
-margin-top: 22px; /*Force top input down to level of first line of help text*/
-}
+    .runner-selection-input select {
+    padding: 4px;
+    margin-left: -6px;
+    }
+    .runner-selection-input select#finish-time-to {
+    margin-left: 0px;
 /*
-.exploremarathonpacingscontentarea .time-input {
-box-shadow: none;
-background-color: #fff;
-color: #333;
+    margin-left: -5px;
+    margin-top: 5px;
+*/
+    }
+
+    .runner-selection-input select#age-category,
+    .runner-selection-input select#gender,
+    .runner-selection-input select#prediction-accuracy,
+    .runner-selection-input select#previous-marathons {
+    width: 260px;
+    }
+
+    div.block.runner-selection-label {
+    padding-bottom: 2px; /*Override default padding on block*/
+    padding-left: 5px;
+    }
+    div.block.runner-selection-input {
+    padding-top: 0px; /*Override default padding on block*/
+    }
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    width: 118px;
+    }
+
+    #label-finish-time {
+    /*margin-top: 28px;*/ /*Force top label down to level of first line of help text*/
+    }
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    /*margin-top: 22px;*/ /*Force top input down to level of first line of help text*/
+    }
+    
 }
 
-.exploremarathonpacingscontentarea .input-empty {
-background-color: #C2E6E1;    
+@media (min-width: 376px) and (max-width: 1139px) {
+    .runner-selection-help {width: 50%;}
+    .runner-selection-inputs {width: 50%;}
+
+    .runner-selection-label { width: 100%;} /*% of runner-selection-inputs*/
+    .runner-selection-input { width: 100%;}
+
+    #runner-selection {
+    margin-bottom: 24px;
+    background-color: cornsilk;
+    }
+
+
+    .runner-selection-help-header {
+    font-size: 17px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 4px;
+    }
+    .runner-selection-help-text {
+    color: #333;
+    }
+
+    .runner-selection-inputs {
+    background-color: cornsilk;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    /*padding: 5px 22px 4px 0px;*/
+    }
+
+    .runner-selection-help,
+    .runner-selection-label,
+    .runner-selection-input select {
+    font-size: 14px;
+    border-color: #ccc;
+    }
+
+    .runner-selection-label {    
+    color: #333;
+    clear: left; /*Pocketgrid: Force label block onto new row*/
+    }
+
+    .runner-selection-input select {
+    padding: 4px;
+    margin-left: -6px;
+    }
+    .runner-selection-input select#finish-time-to {
+    margin-left: 0px;
+    }
+
+    .runner-selection-input select#age-category,
+    .runner-selection-input select#gender,
+    .runner-selection-input select#prediction-accuracy,
+    .runner-selection-input select#previous-marathons {
+    width: 260px;
+    }
+
+    div.block.runner-selection-label {
+    padding-bottom: 2px; /*Override default padding on block*/
+    padding-left: 5px;
+    }
+    div.block.runner-selection-input {
+    padding-top: 0px; /*Override default padding on block*/
+    }
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    width: 118px;
+    }
+
+    #label-finish-time {
+    /*margin-top: 28px;*/ /*Force top label down to level of first line of help text*/
+    }
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    /*margin-top: 22px;*/ /*Force top input down to level of first line of help text*/
+    }
 }
-*/
+@media (min-width: 1140px) {
+    .runner-selection-help {width: 45%;}
+    .runner-selection-inputs {width: 55%;}
+
+    .runner-selection-label { width: 25%;} /*% of runner-selection-inputs*/
+    div.find-runners-button {margin-left: 25%;} /*Offset the button div so it is in the second column under the inputs*/
+    .runner-selection-input { width: 75%;}
+
+    #runner-selection {
+    margin-bottom: 24px;
+    background-color: cornsilk;
+    }
+
+
+    .runner-selection-help-header {
+    font-size: 17px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 4px;
+    }
+    .runner-selection-help-text {
+    color: #333;
+    }
+
+    .runner-selection-inputs {
+    background-color: cornsilk;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border-radius: 8px;
+    /*padding: 5px 22px 4px 0px;*/
+    }
+
+    .runner-selection-help,
+    .runner-selection-label,
+    .runner-selection-input select {
+    font-size: 14px;
+    border-color: #ccc;
+    }
+
+    .runner-selection-label {
+    margin-top: 6px;
+    color: #333;
+    clear: left; /*Pocketgrid: Force label block onto new row*/
+    }
+
+    .runner-selection-input select {
+    padding: 4px;
+    margin-left: -6px;
+    }
+    .runner-selection-input select#finish-time-to {
+    margin-left: 0px;
+    }
+
+    .runner-selection-input select#age-category,
+    .runner-selection-input select#gender,
+    .runner-selection-input select#prediction-accuracy,
+    .runner-selection-input select#previous-marathons {
+    width: 260px;
+    }
+
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    width: 118px;
+    }
+
+    #label-finish-time {
+    margin-top: 28px; /*Force top label down to level of first line of help text*/
+    }
+    .runner-selection-input select#finish-time-from,
+    .runner-selection-input select#finish-time-to {
+    margin-top: 22px; /*Force top input down to level of first line of help text*/
+    }
+}
 
 
 
