@@ -221,7 +221,7 @@ class Explore_Marathon_Pacings_Widget extends WP_Widget {
 		<div class="block-group group-charts hidden">
                 <div id="" class="block group-chart-left" style="background: white;">
                     <div id="chart-group-prediction-accuracy" class="ct-chart ct-perfect-fourth">
-                        <div id="chart-group-prediction-accuracy-text" style="padding-top: 140px; padding-left: 10px;">
+                        <div id="chart-group-prediction-accuracy-text">
                             <p id="chart-group-prediction-accuracy-text-title">Prediction accuracy of these runners</p>
                             <p id="prediction-accuracy-text-excellent">[NUMBER-EXCELLENT] were extremely accurate (2min @ 3 hour pace)</p>
                             <p id="prediction-accuracy-text-good">[NUMBER-GOOD] were very accurate</p>
