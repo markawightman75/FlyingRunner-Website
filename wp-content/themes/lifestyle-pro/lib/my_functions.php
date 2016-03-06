@@ -8,6 +8,7 @@ add_filter('widget_text', 'do_shortcode');
 */
 
 include_once( CHILD_DIR . '/lib/facebook.php' );
+include_once( CHILD_DIR . '/lib/woocommerce.php' );
 
 //* Include our widgets
 include_once( CHILD_DIR . '/lib/widgets/headline-large-widget.php' );
@@ -371,8 +372,6 @@ function custom_add_entryclasses_attr( $attributes ) {
  
 }
 
-add_theme_support( 'genesis-connect-woocommerce' );
-
 //* Add support for 3-column footer widgets. Styled to full-width in style.css with .footer-widgets-4 class
 add_theme_support( 'genesis-footer-widgets', 4 );
 
@@ -435,106 +434,6 @@ function disable_emojicons_tinymce( $plugins ) {
   }
 }
 
-
-//*************************************************
-/**
- * Optimize WooCommerce Scripts
- * Remove WooCommerce Generator tag, styles, and scripts from non WooCommerce pages.
- * MAW Added 18/1/2015
- * See: https://wordimpress.com/how-to-load-woocommerce-scripts-and-styles-only-in-shop/
- */
-
-add_action( 'wp_enqueue_scripts', 'child_manage_woocommerce_styles', 99 );
-
-function child_manage_woocommerce_styles() {
-	//remove generator meta tag
-	remove_action( 'wp_head', array( $GLOBALS['woocommerce'], 'generator' ) );
-
-	//first check that woo exists to prevent fatal errors
-	if ( function_exists( 'is_woocommerce' ) ) {
-		//dequeue scripts and styles
-		if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
-			wp_dequeue_style( 'woocommerce_frontend_styles' );
-			wp_dequeue_style( 'woocommerce_fancybox_styles' );
-			wp_dequeue_style( 'woocommerce_chosen_styles' );
-			wp_dequeue_style( 'woocommerce_prettyPhoto_css' );
-			wp_dequeue_style( 'woocommerce' );
-			wp_dequeue_style( 'woocommerce-layout' );
-			wp_dequeue_style( 'woocommerce-smallscreen' );
-			wp_dequeue_style( 'woocommerce-general' );
-			wp_dequeue_style( 'pac-styles' );
-			wp_dequeue_style( 'pac-layout-styles' );
-			wp_dequeue_script( 'wc_price_slider' );
-			wp_dequeue_script( 'wc-single-product' );
-			wp_dequeue_script( 'wc-add-to-cart' );
-			wp_dequeue_script( 'wc-cart-fragments' );
-			wp_dequeue_script( 'wc-checkout' );
-			wp_dequeue_script( 'wc-add-to-cart-variation' );
-			wp_dequeue_script( 'wc-single-product' );
-			wp_dequeue_script( 'wc-cart' );
-			wp_dequeue_script( 'wc-chosen' );
-			wp_dequeue_script( 'woocommerce' );
-			wp_dequeue_script( 'prettyPhoto' );
-			wp_dequeue_script( 'prettyPhoto-init' );
-			wp_dequeue_script( 'jquery-blockui' );
-			wp_dequeue_script( 'jquery-placeholder' );
-			wp_dequeue_script( 'fancybox' );
-			wp_dequeue_script( 'jqueryui' );
-		}
-		else
-		{
-			//This is our custom WC overrides css
-			wp_enqueue_style( 'fr-woocommerce-overrides-stylesheet', CHILD_URL . '/woocommerce-overrides.css', false, filemtime( get_stylesheet_directory() . '/woocommerce-overrides.css' ) );
-		}
-	}
-
-}
-
-//*************************************************
-
-//* Override the message displayed when you add a product to the cart, to use "Basket" not "Cart"
-add_filter( 'wc_add_to_cart_message', 'custom_add_to_cart_message' ,10,2);
-function custom_add_to_cart_message($message, $product_id) {
-	 
-     if ( is_array( $product_id ) ) {
-          $titles = array();
-  
-          foreach ( $product_id as $id ) {
-              $titles[] = get_the_title( $id );
-          }
- 
-          $added_text = sprintf( __( 'Added %s to your basket.', 'woocommerce' ), wc_format_list_of_items( $titles ) );
-  
-      } else {
-          $added_text = sprintf( __( '&quot;%s&quot; was successfully added to your basket.', 'woocommerce' ), get_the_title( $product_id ) );
-      }
- 
-      // Output success messages
-      if ( get_option( 'woocommerce_cart_redirect_after_add' ) == 'yes' ) :
-  
-          $return_to  = apply_filters( 'woocommerce_continue_shopping_redirect', wp_get_referer() ? wp_get_referer() : home_url() );
-  
-          $message    = sprintf('<a href="%s" class="button wc-forward">%s</a> %s', $return_to, __( 'Continue Shopping', 'woocommerce' ), $added_text );
-  
-      else :
-  
-          $message    = sprintf('<a href="%s" class="button wc-forward">%s</a> %s', get_permalink( wc_get_page_id( 'cart' ) ), __( 'View Cart', 'woocommerce' ), $added_text );
-  
-      endif;
-  
-	return $message; 
-
-  }
-
-// Change number or products per row to 3
-add_filter('loop_shop_columns', 'loop_columns');
-if (!function_exists('loop_columns')) {
-	function loop_columns() {
-		return 3; // 3 products per row
-	}
-}
-
-
 //* Remove the site title
 remove_action( 'genesis_site_title', 'genesis_seo_site_title' );
 
@@ -546,18 +445,6 @@ add_filter( 'genesis_pre_load_favicon', 'sp_favicon_filter' );
 function sp_favicon_filter( $favicon_url ) {
 	return 'http://www.flyingrunner.co.uk/favicon.ico';}
 
-add_action( 'woocommerce_before_cart_table', 'woo_add_continue_shopping_button_to_cart' );
-
-function woo_add_continue_shopping_button_to_cart() {
-
-$shop_page_url = get_permalink( woocommerce_get_page_id( 'shop' ) );
-
-echo '<div class="woocommerce-message">';
-
-echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping ?</a> Need some more products?';
-
-echo '</div>';
-}
 
 /**Remove post meta info (Filed under: [category]   Tagged with: [tags]) from end of post **/
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
@@ -579,9 +466,6 @@ add_action( 'wp_head', 'wc_add_IE_10_meta_tag' , 2 );
 function wc_add_IE_10_meta_tag() {
   echo '<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" >' . "\n";
 }
-
-// Display 24 products per page. 
-add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 24;' ), 20 );
 
 add_action( 'genesis_before_content_sidebar_wrap', 'add_top_banner' );
 //add_action( 'genesis_before_footer', 'add_bottom_banner' );
@@ -618,38 +502,4 @@ function add_bottom_banner() {
 		echo "<div class=\"banner-bottom\">Can we help you? Just drop us an email at contact@flyingrunner.co.uk</div>";
 	}
 }
-
-add_image_size( 'cart_item_image_size',200, 200, true );
-add_filter( 'woocommerce_cart_item_thumbnail', 'cart_item_thumbnail', 10, 3 );
-function cart_item_thumbnail( $thumb, $cart_item, $cart_item_key ) { 
- // create the product object 
- $product = get_product( $cart_item['product_id'] );
- return $product->get_image( 'cart_item_image_size' ); 
-} 
  
-/**
- * Hide shipping rates when free shipping is available
- *
- * @param array $rates Array of rates found for the package
- * @param array $package The package array/object being shipped
- * @return array of modified rates
- */
-//add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
-function hide_shipping_when_free_is_available( $rates, $package ) {
- 	
- 	// Only modify rates if free_shipping is present
-  	if ( isset( $rates['free_shipping'] ) ) {
-  	
-  		// To unset a single rate/method, do the following. This example unsets flat_rate shipping
-  		unset( $rates['flat_rate'] );
-  		
-  		// To unset all methods except for free_shipping, do the following
-  		$free_shipping          = $rates['free_shipping'];
-  		$rates                  = array();
-  		$rates['free_shipping'] = $free_shipping;
-	}
-	
-	return $rates;
-}
-
-
