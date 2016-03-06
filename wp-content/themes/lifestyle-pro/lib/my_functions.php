@@ -319,60 +319,6 @@ function add_features_and_news_page_content() {
 	
 }
 
-// Filter function that is a modified version of the default in markup.php
-// This function adds the classes to an entry (post) 
-// The modified part adds column classes on pages that aren't single pages or posts (e.g. home page)
-// This function is set as the filter in sub-featured-posts widget.
-//remove_filter( 'genesis_attr_entry', 'genesis_attributes_entry' );
-//add_filter( 'genesis_attr_entry', 'custom_add_entryclasses_attr' );
-
-function custom_add_entryclasses_attr( $attributes ) {
- 
-	global $post;
-	global $current_post;
-	$attributes['class']     = join( ' ', get_post_class() );
-	$attributes['itemscope'] = 'itemscope';
-	$attributes['itemtype']  = 'http://schema.org/CreativeWork';
-
-	//* Blog posts microdata
-	if ( 'post' === $post->post_type ) {
-
-		$attributes['itemtype']  = 'http://schema.org/BlogPosting';
-
-		//* If main query,
-		if ( is_main_query() )
-			$attributes['itemprop']  = 'blogPost';
-
-	}
-	//return $attributes;
-	if( is_singular() )
-	{
-		// This is a single post or page. We don't want to add column classes to this, so leave here.
-		return $attributes;
-	}
- 
-	//echo $attributes['class'];
-	 if ( has_category ('main-feature', $post) || has_category ('main-news', $post) )
-	 {
-		 //This is a main feature post. We don't want to add column classes to this, so leave here.
-		 return $attributes;
-	 }
-    
-	
-	 global $wp_query;
-	
-	 // add extra 'one-third' column CSS class
-	 $attributes['class'] .= ' one-third';
-	 
-	 // If this is the 1st, 4th etc. post in the loop then add the 'first' column CSS class
-	 if( 0 == $wp_query->current_post || 0 == $wp_query->current_post % 3 )
-		$attributes['class'] .= ' first';
-
-	 // return the attributes
-	 return $attributes;
- 
-}
-
 //* Add support for 3-column footer widgets. Styled to full-width in style.css with .footer-widgets-4 class
 add_theme_support( 'genesis-footer-widgets', 4 );
 
