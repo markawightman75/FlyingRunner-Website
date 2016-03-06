@@ -92,7 +92,8 @@ function disable_emojicons_tinymce( $plugins ) {
 
 // Display a custom favicon
 function sp_favicon_filter( $favicon_url ) {
-	return 'http://www.flyingrunner.co.uk/favicon.ico';
+	//return 'http://www.flyingrunner.co.uk/favicon.ico';
+    return CHILD_URL . '/images/favicons/favicon.ico';
 }
 
 // Remove Post Info, Post Meta from Archive Pages
