@@ -1,6 +1,6 @@
 <?php
 
-add_action( 'genesis_after_entry_content', 'add__calculator_javascript' );
+add_action( 'genesis_after_entry_content', 'add_calculator_javascript' );
 add_action( 'wp_enqueue_scripts', 'add_calculator_css' );
 
 function add_calculator_javascript() {	
