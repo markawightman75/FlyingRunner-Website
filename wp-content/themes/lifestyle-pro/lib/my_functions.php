@@ -390,15 +390,6 @@ function custom_load_custom_style_sheet() {
 	}	
 }
 
-/** Use copies of the Magic Action Box css files that are in our theme
-    folder instead of the ones added by default which are in the plugin folder
-    and therefore not under version control
-*/
-//wp_dequeue_style( 'mab-user-style-1-css' );
-//wp_dequeue_style( 'mab-actionbox-style-709-css' );
-//wp_enqueue_style( 'mab-user-style-1', CHILD_URL . '/magic-action-box/style-1.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/style-1.css' )) ;
-//wp_enqueue_style( 'mab-actionbox-style-709', CHILD_URL . '/magic-action-box/actionbox-709.css', false, filemtime(get_stylesheet_directory() . '/magic-action-box/actionbox-709.css' )) ;
-
 /** Dequeue style.css and enqueue it again with version number (for cache busting) */
 /** For details of more reliable htaccess-based cache busting see https://wordimpress.com/wordpress-css-and-js-cache-busting/ */
 wp_dequeue_style( 'lifestyle-pro-theme-css' );
@@ -419,30 +410,6 @@ add_filter( 'wpcf7_load_css', '__return_false' );
  if ( ! (is_admin() or is_user_logged_in() or in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) )) {
 wp_deregister_style('open-sans');
 } 
-//Monarch and Bloom both pull in open-sans. No point in duplicating, so remove the bloom one
-//Doesn't work...
-//wp_dequeue_style( 'et_bloom-open-sans-css' );
-//wp_deregister_style('et_bloom-open-sans-css');
-
-
-
-//* Marathon time predictor tool
-//* TODO: Only load these on the time predictor page
- // embed the javascript file that makes the AJAX request
- //my-ajax-request
-//THIS JQUERY LINE CAUSES THE WOOCOMMERCE ADD NEW ORDER SCREEN TO BREAK (CAN'T EDIT ORDER DETAILS) - NEEDS FIXING
-//CHECK FIREBUG CONSOLE FOR "UNCAUGHT ERROR" - THAT'S WHAT I'M GETTING WITH THIS ENABLED
- //DEBUG wp_enqueue_script( 'jquery-1.11.3.min', CHILD_URL . '/marathon-time-predictor/jquery-1.11.3.min.js', array( 'jquery' ) );
-//wp_enqueue_script( 'time-predictor-global', CHILD_URL . '/marathon-time-predictor/global.js', array( 'jquery' ) );
-	
-	
-
-
-//* Load the fonts we need
-//*add_action( 'wp_enqueue_scripts', 'lifestyle_google_fonts' );
-//*function lifestyle_google_fonts() {
-//*	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Droid+Sans:400,700|Roboto+Slab:400,300,700|Roboto:400', array(), CHILD_THEME_VERSION );
-//*}
 
 //* Disable the emojicons that were added in WP4.2 and create an unnecessary mess in the HTML
 //* See http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2 
@@ -592,19 +559,8 @@ echo ' <a href="'.$shop_page_url.'" class="button">Continue Shopping ?</a> Need 
 echo '</div>';
 }
 
-/** Customize the post header function by wptron */
-/**add_filter('genesis_post_info', 'wpt_info_filter');**/
-
 /**Remove post meta info (Filed under: [category]   Tagged with: [tags]) from end of post **/
 remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
-
-function wpt_info_filter($post_info) {
-if (!is_page()) {
-$post_info = 'Written by [post_author_posts_link] [post_edit]';
-}
-return $post_info;
-}
-
 
 // Remove Post Info, Post Meta from Archive Pages
 function themeprefix_remove_post_meta() {
@@ -613,7 +569,6 @@ function themeprefix_remove_post_meta() {
 		remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
 		}
 }
-/**add_action ( 'genesis_entry_header', 'themeprefix_remove_post_meta' );**/
 
 /** genesis_before_content_sidebar_wrap is immediately after main menu */
 //add_action( 'genesis_before_content_sidebar_wrap', 'custom_welcome_text' );
