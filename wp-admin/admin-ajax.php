@@ -77,6 +77,8 @@ add_action( 'wp_ajax_nopriv_heartbeat', 'wp_ajax_nopriv_heartbeat', 1 );
 
 // Load Pacing Calculator ajax handler 
 require_once( dirname( dirname( __FILE__ ) ) . '/wp-content/themes/lifestyle-pro/marathon-pacing-calculator/calculator-ajax.php' );
+// Load Personalised Print Details ajax handler 
+require_once( dirname( dirname( __FILE__ ) ) . '/wp-content/themes/lifestyle-pro/personalised-print-details/personalised-print-details-ajax.php' );
 
 if ( is_user_logged_in() ) {
 	/**

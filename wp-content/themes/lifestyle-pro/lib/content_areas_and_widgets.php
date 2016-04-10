@@ -8,9 +8,9 @@ include_once( CHILD_DIR . '/lib/widgets/section-title-widget.php' );
 include_once( CHILD_DIR . '/marathon-pacing-calculator/explore-marathon-pacings-widget.php' );
 include_once( CHILD_DIR . '/marathon-pacing-calculator/explore-marathon-groups-widget.php' );
 include_once( CHILD_DIR . '/marathon-pacing-calculator/marathon-pacing-calculator-widget.php' );
+include_once( CHILD_DIR . '/lib/widgets/confirm-personalised-print-details-widget.php' );
 
 add_action( 'widgets_init', 'register_custom_widgets' );
-
 
 // Create the custom areas (sidebars) that widgets can go in
 genesis_register_sidebar( array(
@@ -42,6 +42,11 @@ genesis_register_sidebar( array(
 	'id'		=> 'exploremarathongroupscontentarea',
 	'name'		=> __( 'Flying Runner Explore Marathon Groups Content Area', 'Flying Runner' ),
 	'description'	=> __( 'This is the widget area for the explore marathon groups tool.', 'Flying Runner' ),
+) );
+genesis_register_sidebar( array(
+	'id'		=> 'personalisedprintdetailscontentarea',
+	'name'		=> __( 'Flying Runner Personalised Print Details Content Area', 'Flying Runner' ),
+	'description'	=> __( 'This is the widget area for the personalised print details form.', 'Flying Runner' ),
 ) );
 
 
@@ -98,8 +103,15 @@ function add_features_and_news_page_content() {
 		genesis_widget_area ('runningandtrainingpagecontentarea', array(
 			'before' => '<div class="runningandtrainingpagecontentarea"><div class="wrap">',
 			'after' => '</div></div>',
-		) );
-		
+		) );		
+	}
+    
+	if ($this_page_title == "Confirm Personalised Art Print Details")
+	{
+		genesis_widget_area ('personalisedprintdetailscontentarea', array(
+			'before' => '<div class="personalisedprintdetailscontentarea"><div class="wrap">',
+			'after' => '</div></div>',
+		) );		
 	}
 	
 	if ($this_page_title == "All Posts")
@@ -186,6 +198,7 @@ function register_custom_widgets() {
   register_widget( 'Explore_Marathon_Pacings_Widget' );
   register_widget( 'Explore_Marathon_Groups_Widget' );
   register_widget( 'Marathon_Pacing_Calculator_Widget' );
+  register_widget( 'Confirm_Personalised_Art_Print_Details_Widget' );
 }
 
 ?>

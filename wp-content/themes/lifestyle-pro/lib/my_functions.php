@@ -6,6 +6,7 @@ include_once( CHILD_DIR . '/lib/banners.php' );
 include_once( CHILD_DIR . '/lib/content_areas_and_widgets.php' );
 include_once( CHILD_DIR . '/lib/pacing_calculator.php' );
 include_once( CHILD_DIR . '/lib/explore_research_data.php' );
+include_once( CHILD_DIR . '/lib/personalised_print_details.php' );
 
 // Display a custom favicon
 add_filter( 'genesis_pre_load_favicon', 'sp_favicon_filter' );

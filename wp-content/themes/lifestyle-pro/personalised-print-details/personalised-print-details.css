@@ -1,0 +1,163 @@
+.entry-header {
+    display: none;
+}
+
+.personalisedprintdetailscontentarea p,
+.personalisedprintdetailscontentarea label,
+.personalisedprintdetailscontentarea input {
+font-family: "jaf-bernina-sans",sans-serif;
+}
+
+.personalisedprintdetailscontentarea p, 
+.personalisedprintdetailscontentarea label {
+font-size: 1em;
+}
+
+.personalisedprintdetailscontentarea p {
+margin-bottom: 1em;
+}
+
+.personalisedprintdetailscontentarea label {
+display: block;
+color: #333;
+}
+
+.personalisedprintdetailscontentarea #findOrderError p,
+.personalisedprintdetailscontentarea #printDetailsError p,
+.personalisedprintdetailscontentarea #confirmDetailsError p
+{
+color: red;
+}
+    
+.personalisedprintdetailscontentarea #findOrderButton,
+.personalisedprintdetailscontentarea #submitDetailsButton,
+.personalisedprintdetailscontentarea #yourDetailsNextButton,
+.personalisedprintdetailscontentarea #yourDetailsBackButton,
+.personalisedprintdetailscontentarea #printDetailsNextButton,
+.personalisedprintdetailscontentarea #printDetailsBackButton,
+.personalisedprintdetailscontentarea #confirmDetailsBackButton,
+.personalisedprintdetailscontentarea #submitDetailsButton
+{
+background-color: #a46497;
+color: #fff;
+font-size: 100%;
+/*margin-left: 0.5em;*/
+margin-top: 0.5em;
+line-height: 1;
+cursor: pointer;
+position: relative;
+text-decoration: none;
+overflow: visible;
+padding: 0.618em 1em;
+font-weight: 700;
+border-radius: 3px;
+left: auto;
+border: 0px none;
+white-space: nowrap;
+/*display: inline-block;*/
+background-image: none;
+box-shadow: none;
+text-shadow: none;
+}
+
+.personalisedprintdetailscontentarea #findOrderButton:hover,
+.personalisedprintdetailscontentarea #submitDetailsButton:hover,
+.personalisedprintdetailscontentarea #yourDetailsNextButton:hover,
+.personalisedprintdetailscontentarea #yourDetailsBackButton:hover,
+.personalisedprintdetailscontentarea #printDetailsNextButton:hover,
+.personalisedprintdetailscontentarea #printDetailsBackButton:hover
+.personalisedprintdetailscontentarea #confirmDetailsBackButton:hover,
+.personalisedprintdetailscontentarea #submitDetailsButton:hover,
+.personalisedprintdetailscontentarea #findOrderButton:focus,
+.personalisedprintdetailscontentarea #submitDetailsButton:focus,
+.personalisedprintdetailscontentarea #yourDetailsNextButton:focus,
+.personalisedprintdetailscontentarea #yourDetailsBackButton:focus,
+.personalisedprintdetailscontentarea #printDetailsNextButton:focus,
+.personalisedprintdetailscontentarea #printDetailsBackButton:focus,
+.personalisedprintdetailscontentarea #confirmDetailsBackButton:focus,
+.personalisedprintdetailscontentarea #submitDetailsButton:focus
+
+{
+background-color: #935386;
+color: #fff;
+}
+
+.personalisedprintdetailscontentarea  input {
+/*margin-left: 0.5em; */
+padding: 4px;
+height: 2.5em;
+border-color: #999;
+}
+
+#findOrder,
+#yourDetails,
+#printDetails,
+#confirmDetails,
+#orderSubmitted {
+background: #f5f5f5;
+padding: 0.75em;
+margin-bottom: 1em;
+}
+
+#contact {
+background-color: rgba(179, 224, 218, 0.4);
+padding: 0.5em;
+}
+
+#contact p {
+font-size: 0.9em;
+margin-bottom: 0.25em;
+}
+
+.personalisedprintdetailscontentarea  h3 {
+margin-top: 0px;
+margin-bottom: 0.25em;
+padding-left: 0px;
+}
+
+#yourDetails p,
+#confirmDetails p,
+#findOrderError p,
+#orderSubmitted p {
+margin-bottom: 0px;
+}
+
+#findOrderPostcode {
+width: 16em;
+}
+
+.personalisedprintdetailscontentarea a {
+color: #006B5C;
+font-weight: 600;
+}
+
+#messageLine1,
+#messageLine2,
+#messageLine3,
+#messageLine4,
+#messageLine5,
+#messageLine6
+{
+max-width: 50em;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+html[xmlns].clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
